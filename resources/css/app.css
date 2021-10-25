@@ -122,26 +122,17 @@ body{
 .bi-geo-alt:hover{
     color: #979797;
 }
-.bi-person:hover{
-    color: #979797;
-}
-.text-color-item-hearer{
-    color: #aaaaaa;
-}
 .pointer{
     cursor: pointer;
 }
-.group-item-location-hearer:hover *{
-    color: #959595;
-}
-.group-item-location-hearer:hover{
-    background-color: #e7f3ff;
-}
 .group-item-location-hearer span{
     bottom: 5px;
+    right: 5px;
 }
 .group-item-location-hearer{
     bottom: 2px;
+    color: #ffffff!important;
+    background-color: #ff6b6b;
 }
 .input-search-product{
     width: 200px;
@@ -159,6 +150,7 @@ body{
 }
 .group-menu{
     min-height: 300px;
+    z-index: 12;
     max-height: 300px;
     border-radius: 5px;
     box-shadow: 1px 1px 10px rgba(101, 101, 101, 0.2);
@@ -321,4 +313,41 @@ body{
 
 .color-b:hover {
     color: #000000!important;
+}
+.box-image-banner{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.bg-del{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.carousel-item img{
+    border-radius:0.3rem;
+}
+@media all and (max-width: 768px) {
+    .box-image-banner{
+        height: 300px!important;
+    }
+}
+.item-menu-top{
+    transition: 0.2s;
+    overflow: hidden;
+}
+.item-menu-top:after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transition: 0.1s!important;
+    width: 100%;
+    height: 1px;
+    background-color: #ffb0b0;
+}
+.item-menu-top:hover:after{
+    content: '';
+    height: 4px;
+    background-color: #ff6c6c;
 }

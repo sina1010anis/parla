@@ -8,9 +8,8 @@
     <link rel="shortcut icon" href="{{url('image/design/parla.png')}}">
 </head>
 <body>
-<div id="app" class="container-fluid box-am">
-    <header-vue></header-vue>
-    <nav-bar :menus="{{$menus}}" :sub_menus="{{$sub_menus}}"></nav-bar>
+<div id="app" class="container-fluid box-am overflow-hidden">
+    @yield('index')
 </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

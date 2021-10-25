@@ -6,9 +6,9 @@
             </a>
 
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 font-Y">
-                <li><a href="#" class="nav-link px-2 link-secondary f-13 text-opacity-50 text-secondary">صفحه اصلی</a></li>
-                <li><a href="#" class="nav-link px-2 link-dark f-13 text-opacity-50 text-secondary">درباره ما</a></li>
-                <li><a href="#" class="nav-link px-2 link-dark f-13 text-opacity-50 text-secondary">تماس با ما</a></li>
+                <li><a href="#" class="nav-link px-2 link-secondary f-13 text-opacity-50 position-relative  item-menu-top me-2">صفحه اصلی</a></li>
+                <li><a href="#" class="nav-link px-2 link-dark f-13 text-opacity-50 position-relative  item-menu-top me-2">درباره ما</a></li>
+                <li><a href="#" class="nav-link px-2 link-dark f-13 text-opacity-50 position-relative  item-menu-top me-2">تماس با ما</a></li>
             </ul>
 
             <div class="col-md-3 text-end me-md-3 font-Y position-relative">

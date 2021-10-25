@@ -1,5 +1,5 @@
 <template>
-    <div class="row nav-item-index-page">
+    <div class="row nav-item-index-page rounded-3">
         <div class="col-md-4 bg-white order-1 order-sm-1 order-md-0 d-none d-md-block">
             <i class="bi bi-cart g-3 position-relative ps-3 pe-2 text-color-item-hearer pointer"></i>
             <!--            Location-->
@@ -15,7 +15,7 @@
         </div>
         <!--        Lap top-->
         <ul class="col-md-8 nav justify-content-end p-1 navbar-light bg-white order-0 order-sm-0 order-md-1 d-none d-md-flex">
-            <li v-for="menu in menus" class="nav-item d-inline item-menu-header pointer" @click="show_menu(menu.id , menu.image)">
+            <li v-for="menu in menus" class="nav-item d-inline item-menu-header pointer me-3" @click="show_menu(menu.id , menu.image)">
                 <a class="nav-link text-secondary active font-Y f-13" aria-current="page">{{ menu.name }}</a>
             </li>
         </ul>

@@ -7,6 +7,7 @@ use App\Http\Controllers\Index\IndexController;
 
 Route::prefix('/')->group(function (){
     Route::get('', [IndexController::class , 'index'])->name('index');
+    Route::post('/search/menu/header', [IndexController::class , 'searchHeaderMenu']);
 });
 
 Auth::routes();

@@ -1,0 +1,324 @@
+.box-am{
+    max-width: 1374px!important;
+}
+@font-face {
+    font-family: IRANS;
+    src: url("./font/IRANYekanBlack.ttf");
+}
+
+@font-face {
+    font-family: IRANY;
+    src: url("./font/IRANSansWeb.ttf");
+}
+body{
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+}
+.btn-ye{
+    color: white;
+    background-color: #f2c510;
+}
+.btn-outline-ye{
+    border-color: #f2c510;
+}
+.btn-ye:hover{
+    color: white;
+    background-color: #f2c510;
+}
+.btn-outline-ye:hover{
+    color: white;
+    background-color:#f2c510 ;
+}
+.fc-ye{
+    color: #f2c510!important;
+}
+.font-S{
+    font-family: IRANS;
+}
+.font-Y{
+    font-family: IRANY;
+}
+.f-9 {
+    font-size: 9px;
+}
+
+.f-10 {
+    font-size: 10px;
+}
+
+.f-11 {
+    font-size: 11px;
+}
+
+.f-12 {
+    font-size: 12px;
+}
+
+.f-13 {
+    font-size: 13px;
+}
+
+.f-14 {
+    font-size: 14px;
+}
+
+.f-15 {
+    font-size: 15px;
+}
+
+.f-16 {
+    font-size: 16px;
+}
+
+.f-17 {
+    font-size: 17px;
+}
+
+.f-18 {
+    font-size: 18px;
+}
+
+.f-19 {
+    font-size: 19px;
+}
+
+.f-20 {
+    font-size: 20px;
+}
+
+.f-21 {
+    font-size: 21px;
+}
+
+.f-22 {
+    font-size: 22px;
+}
+.input-search-index-page{
+    position: relative;
+    top: 9px;
+}
+.menu-item{
+    width: 100%;
+    height: 100px;
+    background-color: red;
+    position: relative;
+    right: 0;
+}
+.nav-item-index-page{
+    box-shadow: 1px 11px 13px -1px rgba(232, 232, 232, 0.5);
+}
+.bi-cart{
+    font-size: 21px;
+    cursor: pointer;
+    border-right: 1px solid #efefef;
+}
+.bi-cart:hover{
+    color: #979797;
+}
+.bi-geo-alt , .bi-person , .bi-arrow-bar-down{
+    font-size: 21px;
+}
+.bi-geo-alt:hover{
+    color: #979797;
+}
+.bi-person:hover{
+    color: #979797;
+}
+.text-color-item-hearer{
+    color: #aaaaaa;
+}
+.pointer{
+    cursor: pointer;
+}
+.group-item-location-hearer:hover *{
+    color: #959595;
+}
+.group-item-location-hearer:hover{
+    background-color: #e7f3ff;
+}
+.group-item-location-hearer span{
+    bottom: 5px;
+}
+.group-item-location-hearer{
+    bottom: 2px;
+}
+.input-search-product{
+    width: 200px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+    padding: 10px 31px 10px 10px;
+}
+.label-input-search-product{
+    right: 10px;
+    top: 10px;
+    z-index: 10;
+    color: #dbdbdb;
+}
+.group-menu{
+    min-height: 300px;
+    max-height: 300px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 10px rgba(101, 101, 101, 0.2);
+    background-color: #ffffff;
+}
+.image-to-menu{
+    max-width: 100%;
+    min-height: 200px;
+    max-height: 200px;
+}
+.obj-center{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+::-webkit-scrollbar{
+    width: 7px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #dbdbdb;
+    border-radius: 100px;
+}
+.group-ul-menu{
+    max-height: 300px;
+    overflow-y: scroll;
+}
+.group-ul-menu-mobile{
+    display: none;
+}
+.menu-header{
+    display: none;
+}
+.item-menu-header{
+    position: relative;
+}
+.item-menu-header:before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 0;
+    transition: 0.5s;
+    background-color: #f5f5f5;
+    top: 0;
+    opacity: 0;
+    border-radius: 5px;
+    right: 0;
+}
+.item-menu-header:hover:before{
+    content: '';
+    opacity:100% ;
+    height: 3px;
+}
+.item-menu-header:hover{
+    z-index: 11;
+    color: #4b4b4b!important;
+}
+.menu-sub-for-mobile{
+    display: none;
+}
+.icon-cls-menu-header{
+    position: absolute;
+    top: 0;
+    font-size: 20px;
+    left: 10px;
+    transition: 0.2s;
+    float: left;
+    padding: 0!important;
+    width: 19px!important;
+    cursor: pointer;
+}
+.icon-cls-menu-header:hover{
+    transform: rotate(180deg);
+    color: red;
+}
+.group-menu{
+    position: absolute!important;
+}
+.color-b-100 {
+    color: #fcfcfc;
+}
+
+.color-b-200 {
+    color: #f5f5f5;
+}
+
+.color-b-300 {
+    color: #e5e5e5;
+}
+
+.color-b-400 {
+    color: #c8c8c8;
+}
+
+.color-b-500 {
+    color: #b1b1b1;
+}
+
+.color-b-600 {
+    color: #919191;
+}
+
+.color-b-700 {
+    color: #727272;
+}
+
+.color-b-800 {
+    color: #565656;
+}
+
+.color-b-800 {
+    color: #353535;
+}
+
+.color-b-900 {
+    color: #1c1c1c;
+}
+
+.color-b:hover {
+    color: #000000!important;
+}
+.color-b-100:hover {
+    color: #fcfcfc!important;
+}
+
+.color-b-200:hover {
+    color: #f5f5f5!important;
+}
+
+.color-b-300:hover {
+    color: #e5e5e5!important;
+}
+
+.color-b-400:hover {
+    color: #c8c8c8!important;
+}
+
+.color-b-500 {
+    color: #b1b1b1;
+}
+
+.color-b-600:hover {
+    color: #919191!important;
+}
+
+.color-b-700:hover {
+    color: #727272!important;
+}
+
+.color-b-800:hover {
+    color: #565656!important;
+}
+
+.color-b-800:hover {
+    color: #353535!important;
+}
+
+.color-b-900:hover {
+    color: #1c1c1c!important;
+}
+
+.color-b:hover {
+    color: #000000!important;
+}

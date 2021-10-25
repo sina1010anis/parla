@@ -24,6 +24,7 @@
     },
     "dependencies": {
         "bootstrap-icons": "^1.6.1",
+        "bootstrap-rtl": "^3.3.4",
         "vue": "^3.2.20"
     }
 }

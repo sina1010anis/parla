@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class slider_menu extends Model
 {
     use HasFactory;
-
+    protected $guarded = [];
     public function menu(){
         return $this->belongsTo(menu::class , 'menu_id' , 'id');
     }

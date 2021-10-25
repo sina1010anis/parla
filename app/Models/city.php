@@ -10,7 +10,7 @@ class city extends Model
     use HasFactory;
 
     public $timestamps = false;
-
+    protected $guarded = [];
     public function address(){
         return $this->hasMany(address::class , 'city_id' , 'id');
     }

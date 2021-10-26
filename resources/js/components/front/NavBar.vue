@@ -54,15 +54,15 @@
     </div>
     <!--    Menu-->
     <div class="row menu-header">
-        <div class="col-8 offset-4 group-menu mt-2 p-2 overflow-hidden">
+        <div class="col-12 group-menu mt-2 p-2 overflow-hidden">
             <div class="row position-relative">
                 <i class="d-inline bi bi-x icon-cls-menu-header" @click="cls_menu"></i>
-                <div class="col-8 d-inline">
+                <div class="col-6 d-inline">
                     <div class="h-100 obj-center">
                         <img class="image-to-menu" :src="'image/menu/'+src_image_menu" alt="name image">
                     </div>
                 </div>
-                <div class="col-4 group-ul-menu">
+                <div class="col-6 group-ul-menu">
                     <ul class=" list-group list-group-flush text-end">
                         <li v-for="sub_menu in data_sub_menu" class="list-group-item list-group-item-action pointer" @mouseover="hove_item_menu(sub_menu.image)">
                             <a href="#" style="text-decoration: none" class="text-secondary text-opacity-25 font-Y f-13" >{{sub_menu.name}}</a>

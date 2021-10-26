@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Parla</title>
     <link rel="shortcut icon" href="{{url('image/design/parla.png')}}">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 </head>
 <body>
 <div id="app" class="container-fluid box-am overflow-hidden">

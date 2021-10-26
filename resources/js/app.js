@@ -6,6 +6,10 @@ import HeaderVue from "./components/front/HeaderVue";
 import NavBar from "./components/front/NavBar";
 import SlideIndex from "./components/front/SlideIndex";
 import ItemVue from "./components/front/ItemVue";
+import BannerCenter from "./components/front/BannerCenter";
+import BestBuy from "./components/front/BestBuy";
+import BannerEnd from "./components/front/BannerEnd";
+import FooterVue from "./components/front/FooterVue";
 import { createApp } from 'vue'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import '../css/app.css'
@@ -15,10 +19,7 @@ const app = createApp({
         test: 'test'
     }),
     components: {
-        HeaderVue,
-        NavBar,
-        SlideIndex,
-        ItemVue,
+        HeaderVue,NavBar, SlideIndex,ItemVue, BannerCenter,BestBuy,BannerEnd,FooterVue,
     }
 })
 

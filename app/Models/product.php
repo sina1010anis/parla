@@ -18,4 +18,10 @@ class product extends Model
     public function image_product(){
         return $this->hasMany(image_product::class , 'product_id' , 'id');
     }
+    public function size(){
+        return $this->hasMany(size_product::class , 'product_id' , 'id');
+    }
+    public function color(){
+        return $this->hasMany(color_product::class , 'product_id' , 'id');
+    }
 }

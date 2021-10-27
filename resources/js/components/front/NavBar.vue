@@ -72,6 +72,49 @@
             </div>
         </div>
     </div>
+    <div class="col-4 bg-white position-absolute overflow-hidden left-0 rounded-3 shadow d-none d-md-block" style="height: 300px;z-index: 15">
+        <div class="p-2 w-100 position-absolute top-0 overflow-scroll" style="height: 250px;">
+            <div class="w-100 my-2 p-2 shadow-sm rounded-3 d-flex justify-content-between align-items-center item-card-view" style="height: 100px">
+                <img src="image/product/product_6.jpg" alt="" class="h-100">
+                <span class="font-Y color-b-700 f-11">قیمت تک : 25000</span>
+                <span class="font-Y color-b-700 f-11">تعداد : 5</span>
+                <span class="font-Y color-b-700 f-11">نام : متن تستی</span>
+                <span class="font-Y f-11 pointer" style="color: red"><i class="bi bi-trash"></i></span>
+            </div>
+            <div class="w-100 my-2 p-2 shadow-sm rounded-3 d-flex justify-content-between align-items-center item-card-view" style="height: 100px">
+                <img src="image/product/product_6.jpg" alt="" class="h-100">
+                <span class="font-Y color-b-700 f-11">قیمت تک : 25000</span>
+                <span class="font-Y color-b-700 f-11">تعداد : 5</span>
+                <span class="font-Y color-b-700 f-11">نام : متن تستی</span>
+                <span class="font-Y f-11 pointer" style="color: red"><i class="bi bi-trash"></i></span>
+            </div>
+            <div class="w-100 my-2 p-2 shadow-sm rounded-3 d-flex justify-content-between align-items-center item-card-view" style="height: 100px">
+                <img src="image/product/product_6.jpg" alt="" class="h-100">
+                <span class="font-Y color-b-700 f-11">قیمت تک : 25000</span>
+                <span class="font-Y color-b-700 f-11">تعداد : 5</span>
+                <span class="font-Y color-b-700 f-11">نام : متن تستی</span>
+                <span class="font-Y f-11 pointer" style="color: red"><i class="bi bi-trash"></i></span>
+            </div>
+            <div class="w-100 my-2 p-2 shadow-sm rounded-3 d-flex justify-content-between align-items-center item-card-view" style="height: 100px">
+                <img src="image/product/product_6.jpg" alt="" class="h-100">
+                <span class="font-Y color-b-700 f-11">قیمت تک : 25000</span>
+                <span class="font-Y color-b-700 f-11">تعداد : 5</span>
+                <span class="font-Y color-b-700 f-11">نام : متن تستی</span>
+                <span class="font-Y f-11 pointer" style="color: red"><i class="bi bi-trash"></i></span>
+            </div>
+            <div class="w-100 my-2 p-2 shadow-sm rounded-3 d-flex justify-content-between align-items-center item-card-view" style="height: 100px">
+                <img src="image/product/product_6.jpg" alt="" class="h-100">
+                <span class="font-Y color-b-700 f-11">قیمت تک : 25000</span>
+                <span class="font-Y color-b-700 f-11">تعداد : 5</span>
+                <span class="font-Y color-b-700 f-11">نام : متن تستی</span>
+                <span class="font-Y f-11 pointer" style="color: red"><i class="bi bi-trash"></i></span>
+            </div>
+        </div>
+        <div class="p-2 w-100 position-absolute bottom-0 d-flex justify-content-between align-items-center" style="background-color:#f5f5f5 ">
+            <button type="submit" class="group-item-location-hearer font-Y f-12 border-0 rounded-3 py-2 px-5">پرداخت</button>
+            <span class="font-Y color-b-500 f-15">2520000</span>
+        </div>
+    </div>
 </template>
 
 <script>

@@ -461,3 +461,6 @@ transition: 0.5s;
     background-color: #ff5454;
     border-color: #ff5454;
 }
+.item-card-view{
+    background-color: #fafafa;
+}

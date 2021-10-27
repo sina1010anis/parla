@@ -5,7 +5,7 @@
                 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div v-for="(slid , index) in sliders" key="index" :class="(index == 0) ? 'active carousel-item overflow-hidden' :'carousel-item overflow-hidden'">
-                            <img :src="'/image/slider/'+slid.src" class="d-block w-100  image-slider" :alt="slid.name" :title="slid.name">
+                            <img :src="'/image/slider/'+slid.src" class="d-block w-100  image-slider" :alt="slid.name" :title="slid.name" loading="lazy">
                             <div class="carousel-caption d-none d-md-block">
                                 <a :href="slid.href" class="btn btn-secondary font-Y f-12" dir="rtl">توضیحات ...</a>
                             </div>

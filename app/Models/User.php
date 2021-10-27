@@ -16,6 +16,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'mobile',
     ];
 
     protected $hidden = [
@@ -26,7 +27,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
+    protected $attributes = [
+        'address_id' => 0,
+        'status' => 1,
+    ];
     public function comment(){
         return $this->hasMany(comment::class , 'user_id' , 'id');
     }

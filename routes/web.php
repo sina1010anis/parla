@@ -8,6 +8,9 @@ use App\Http\Controllers\Index\IndexController;
 Route::prefix('/')->group(function (){
     Route::get('', [IndexController::class , 'index'])->name('index');
     Route::post('/search/menu/header', [IndexController::class , 'searchHeaderMenu']);
+    Route::get('/logout', function (){
+        auth()->logout();
+    });
 });
 
 Auth::routes();

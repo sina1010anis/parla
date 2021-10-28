@@ -24,4 +24,7 @@ class product extends Model
     public function color(){
         return $this->hasMany(color_product::class , 'product_id' , 'id');
     }
+    public function getRouteKeyName(){
+        return 'slug';
+    }
 }

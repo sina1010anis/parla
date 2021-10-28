@@ -1,7 +1,7 @@
 <template>
     <div class="row nav-item-index-page rounded-3">
         <div class="col-md-4 bg-white order-1 order-sm-1 order-md-0 d-none d-md-block">
-            <i class="bi bi-cart g-3 position-relative ps-3 pe-2 text-color-item-hearer pointer"></i>
+            <i class="bi bi-cart g-3 position-relative ps-3 pe-2 text-color-item-hearer pointer" ></i>
             <!--            Location-->
             <!--            <div class="d-inline pointer group-item-location-hearer p-1 ms-2 rounded-3 position-relative">-->
             <!--                <i class="bi bi-geo-alt g-3 position-relative ps-2 pe-2 text-color-item-hearer"></i>-->
@@ -59,7 +59,7 @@
                 <i class="d-inline bi bi-x icon-cls-menu-header" @click="cls_menu"></i>
                 <div class="col-6 d-inline">
                     <div class="h-100 obj-center">
-                        <img class="image-to-menu" :src="'image/menu/'+src_image_menu" alt="name image">
+                        <img class="image-to-menu" :src="'/image/menu/'+src_image_menu" alt="name image">
                     </div>
                 </div>
                 <div class="col-6 group-ul-menu">
@@ -72,38 +72,38 @@
             </div>
         </div>
     </div>
-    <div class="col-4 bg-white position-absolute overflow-hidden left-0 rounded-3 shadow d-none d-md-block" style="height: 300px;z-index: 15">
+    <div class="col-4 bg-white position-absolute overflow-hidden left-0 rounded-3 shadow box-item-card" style="height: 300px;z-index: 15">
         <div class="p-2 w-100 position-absolute top-0 overflow-scroll" style="height: 250px;">
             <div class="w-100 my-2 p-2 shadow-sm rounded-3 d-flex justify-content-between align-items-center item-card-view" style="height: 100px">
-                <img src="image/product/product_6.jpg" alt="" class="h-100">
+                <img src="/image/product/product_6.jpg" alt="" class="h-100">
                 <span class="font-Y color-b-700 f-11">قیمت تک : 25000</span>
                 <span class="font-Y color-b-700 f-11">تعداد : 5</span>
                 <span class="font-Y color-b-700 f-11">نام : متن تستی</span>
                 <span class="font-Y f-11 pointer" style="color: red"><i class="bi bi-trash"></i></span>
             </div>
             <div class="w-100 my-2 p-2 shadow-sm rounded-3 d-flex justify-content-between align-items-center item-card-view" style="height: 100px">
-                <img src="image/product/product_6.jpg" alt="" class="h-100">
+                <img src="/image/product/product_6.jpg" alt="" class="h-100">
                 <span class="font-Y color-b-700 f-11">قیمت تک : 25000</span>
                 <span class="font-Y color-b-700 f-11">تعداد : 5</span>
                 <span class="font-Y color-b-700 f-11">نام : متن تستی</span>
                 <span class="font-Y f-11 pointer" style="color: red"><i class="bi bi-trash"></i></span>
             </div>
             <div class="w-100 my-2 p-2 shadow-sm rounded-3 d-flex justify-content-between align-items-center item-card-view" style="height: 100px">
-                <img src="image/product/product_6.jpg" alt="" class="h-100">
+                <img src="/image/product/product_6.jpg" alt="" class="h-100">
                 <span class="font-Y color-b-700 f-11">قیمت تک : 25000</span>
                 <span class="font-Y color-b-700 f-11">تعداد : 5</span>
                 <span class="font-Y color-b-700 f-11">نام : متن تستی</span>
                 <span class="font-Y f-11 pointer" style="color: red"><i class="bi bi-trash"></i></span>
             </div>
             <div class="w-100 my-2 p-2 shadow-sm rounded-3 d-flex justify-content-between align-items-center item-card-view" style="height: 100px">
-                <img src="image/product/product_6.jpg" alt="" class="h-100">
+                <img src="/image/product/product_6.jpg" alt="" class="h-100">
                 <span class="font-Y color-b-700 f-11">قیمت تک : 25000</span>
                 <span class="font-Y color-b-700 f-11">تعداد : 5</span>
                 <span class="font-Y color-b-700 f-11">نام : متن تستی</span>
                 <span class="font-Y f-11 pointer" style="color: red"><i class="bi bi-trash"></i></span>
             </div>
             <div class="w-100 my-2 p-2 shadow-sm rounded-3 d-flex justify-content-between align-items-center item-card-view" style="height: 100px">
-                <img src="image/product/product_6.jpg" alt="" class="h-100">
+                <img src="/image/product/product_6.jpg" alt="" class="h-100">
                 <span class="font-Y color-b-700 f-11">قیمت تک : 25000</span>
                 <span class="font-Y color-b-700 f-11">تعداد : 5</span>
                 <span class="font-Y color-b-700 f-11">نام : متن تستی</span>
@@ -160,6 +160,18 @@ export default {
         sub_menus: {
             type: Object
         }
+    },
+    mounted() {
+        $('.bi-cart').hover(()=>{
+            $('.box-item-card').stop().slideDown('fast')
+        },()=>{
+            $('.box-item-card').stop().slideUp('slow')
+        })
+        $('.box-item-card').hover(()=>{
+            $('.box-item-card').stop().slideDown('fast')
+        },()=>{
+            $('.box-item-card').stop().slideUp('slow')
+        })
     }
 }
 </script>

@@ -10,6 +10,7 @@ import BannerCenter from "./components/front/BannerCenter";
 import BestBuy from "./components/front/BestBuy";
 import BannerEnd from "./components/front/BannerEnd";
 import FooterVue from "./components/front/FooterVue";
+import View from "./components/product/View";
 import { createApp } from 'vue'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import '../css/app.css'
@@ -19,7 +20,7 @@ const app = createApp({
         test: 'test'
     }),
     components: {
-        HeaderVue,NavBar, SlideIndex,ItemVue, BannerCenter,BestBuy,BannerEnd,FooterVue,
+        HeaderVue,NavBar, SlideIndex,ItemVue, BannerCenter,BestBuy,BannerEnd,FooterVue,'view-product':View
     }
 })
 

@@ -7,8 +7,8 @@
             </div>
     </footer>
     <div class="row d-flex justify-content-center bg-white p-3">
-        <img src="image/logo/e_logo.png" class="mx-2" style="width: 120px;" alt="">
-        <img src="image/logo/z_logo.png" class="mx-2" style="width: 120px;" alt="">
+        <img src="/image/logo/e_logo.png" class="mx-2" style="width: 120px;" alt="">
+        <img src="/image/logo/z_logo.png" class="mx-2" style="width: 120px;" alt="">
     </div>
     <div class="row py-4 border-top text-center bg-white">
         <div class="col-12">

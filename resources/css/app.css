@@ -10,6 +10,9 @@
     font-family: IRANY;
     src: url("./font/IRANSansWeb.ttf");
 }
+*{
+    font-family: IRANY;
+}
 body{
     background-color: #f6f6f6;
     margin: 0;
@@ -394,7 +397,7 @@ transition: 0.5s;
     width: 100%;
 }
 .s-5{
-    transform: scale(0.9);
+    transform: scale(0.95);
 }
 .group-product{
     overflow-y: scroll;
@@ -463,4 +466,71 @@ transition: 0.5s;
 }
 .item-card-view{
     background-color: #fafafa;
+}
+.box-item-card{
+    display: none;
+}
+.box-image-a{
+    min-width: 100%;
+    max-width: 100%;
+}
+.item-image{
+    width: 90px!important;
+    height: 90px!important;
+}
+.item-image:hover{
+    box-shadow: 1px 1px 10px rgba(49, 49, 49, 0.3);
+}
+.box-image-a img{
+    max-height: 400px!important;
+}
+.box-property{
+    max-height: 270px;
+    box-sizing: border-box!important;
+}
+.box-property{
+    height: 110px;
+    overflow-y: scroll;
+}
+.box-property-end{
+    height: 300px!important;
+    list-style: none!important;
+    overflow-y: scroll;
+}
+.box-property-end li{
+    list-style: none!important;
+}
+.box-property li{
+    list-style: none;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: 0.2s;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.box-property li:hover{
+    box-shadow: 1px 1px 5px rgba(0,0,0,.5);
+}
+.btn-send-card{
+    position: relative;
+    top: 2px;
+}
+.bg-gh{
+    background-color: #fdf3d2;
+}
+
+.border-gh{
+    border:1px solid #fdf3d2;
+}
+.bg-se{
+    background-color: #f8f8f8;
+}
+.bg-se-light{
+    background-color: #fbfbfb;
+}
+.box-size-to{
+    box-sizing: border-box;
 }

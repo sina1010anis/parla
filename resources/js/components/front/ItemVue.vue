@@ -7,7 +7,7 @@
                     <p class="font-Y color-b-700 f-11 pe-2 p-md-1" align="right" dir="rtl">{{item.text}}</p>
                 </div>
                 <div class="col-4 p-1 obj-center  ">
-                    <img :src="'image/item/'+item.icon" class="image-item-index-page" :alt="item.title" :title="item.title">
+                    <img :src="'/image/item/'+item.icon" class="image-item-index-page" :alt="item.title" :title="item.title">
                 </div>
             </div>
         </div>

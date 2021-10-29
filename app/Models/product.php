@@ -24,6 +24,12 @@ class product extends Model
     public function color(){
         return $this->hasMany(color_product::class , 'product_id' , 'id');
     }
+    public function sub_menu(){
+        return $this->belongsTo(sub_menu::class , 'menu_id' ,'id');
+    }
+    public function comments(){
+        return $this->hasMany(comment::class , 'product_id' , 'id');
+    }
     public function getRouteKeyName(){
         return 'slug';
     }

@@ -169,6 +169,12 @@ body{
     justify-content:center;
     align-items: center;
 }
+.abstract-center{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+}
 ::-webkit-scrollbar{
     width: 7px;
     height: 7px;
@@ -559,4 +565,38 @@ transition: 0.5s;
     color: #ffffff;
     font-size: 30px;
     cursor: pointer;
+}
+.blur{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 25;
+    display: none;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(10px);
+}
+.group-form-new-comment{
+    max-width: 100%;
+    width: 500px;
+    padding: 30px;
+    display: none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,.5);
+    z-index: 30;
+    background-color: #ffffff;
+}
+.line{
+    width: 100%;
+    margin: 15px 0;
+    height: 1px;
+    background-color: #e7e7e7;
+}
+.icon-cls-new-comment{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #ff3434;
 }

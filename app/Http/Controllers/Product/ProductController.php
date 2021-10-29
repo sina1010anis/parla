@@ -9,6 +9,6 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     public function show(product $slug){
-        return view('front.product.index');
+        return view('front.product.index')->with('data' , $slug);
     }
 }

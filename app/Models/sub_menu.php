@@ -14,4 +14,7 @@ class sub_menu extends Model
     public function menu(){
         return $this->belongsTo(menu::class , 'menu_id' , 'id');
     }
+    public function products(){
+        return $this->hasMany(product::class , 'menu_id' , 'id');
+    }
 }

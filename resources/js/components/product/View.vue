@@ -3,47 +3,29 @@
         <div class="col-12 col-md-7 bg-white p-2">
             <div class=" box-image-a obj-center">
                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img loading="lazy" src="/image/product/product_1.jpg" class="w-100 d-block w-100"
-                                 alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img loading="lazy" src="/image/product/product_2.jpg" class="w-100 d-block w-100"
-                                 alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img loading="lazy" src="/image/product/product_3.jpg" class="w-100 d-block w-100"
-                                 alt="...">
+                    <div>
+                        <div class="carousel-item active obj-center">
+                            <img loading="lazy" :src="(image_src_index_page == '') ?'/image/product/'+data.image : image_src_index_page" class="d-block" style="max-width: 100%" :alt="data.name">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row box-image-all d-flex flex-nowrap overflow-scroll bg-white">
-                <div @click="show_image_big('/image/product/product_3.jpg')" class="item-image m-3 overflow-hidden p-0">
-                    <img class="pointer w-100 h-100" src="/image/product/product_3.jpg" alt="test">
+                <div v-for="img in image" :key="img.id" @click="show_image_big('/image/product/'+img.src)" class="item-image m-3 overflow-hidden p-0">
+                    <img class="pointer w-100 h-100" :src="'/image/product/'+img.src" :alt="img.name" :title="img.name">
                 </div>
             </div>
         </div>
         <div class="col-12 col-md-5 rounded-3 p-4 bg-white">
             <figure class="text-end">
-                <blockquote class="blockquote">
-                    <h5 class="color-b-900" dir="rtl" align="right">نام محصول</h5></blockquote>
-                <figcaption class="blockquote-footer">
-                    منو مورد نظر
-                </figcaption>
+                <slot name="title_view"/>
             </figure>
             <div class="col-12 h-100 ">
-                <p dir="rtl" align="right" class="f-14" style="color: #ff5454">قیمت: <b
-                    class="f-20 color-b-900">45000</b></p>
+                <slot name="price_product" />
                 <div class="row">
                     <div class="col-6">
-                        <label for="select_size" dir="rtl" class="text-right color-b-500 f-12 my-2 float-end">انتخاب
-                            سایز
-                            :</label>
-                        <select class="form-select  mb-3" id="select_size" aria-label=".form-select-lg example">
-                            <option selected>Open this select menu</option>
-                        </select>
+                        <label for="select_size" dir="rtl" class="text-right color-b-500 f-12 my-2 float-end">انتخاب سایز :</label>
+                        <slot name="size_all" />
                     </div>
                     <div class="col-6">
                         <div class="d-grid gap-2">
@@ -55,10 +37,7 @@
                     <p class="color-b-700 bg-gh f-14 p-2 mb-0" dir="rtl" align="right">انتخاب رنگ :</p>
                     <div class="border-gh w-100 rounded-3 box-property overflow-scroll mt-0">
                         <ul class="text-center">
-                            <li title="test" class="obj-center text-center p-2 color-b-600 m-2 d-inline-block"
-                                style="background-image: url('/image/color/wood.jpg')"><span
-                                class="f-11 color-b-100 float-start">مدل یک</span>
-                            </li>
+                            <slot name="color_product" />
                         </ul>
                     </div>
                     <div class="col-12 my-4">
@@ -77,10 +56,7 @@
                             </div>
                         </div>
                     </div>
-                    <p dir="rtl" align="center" class="f-12 my-0 py-0" style="color: #ff5454"><i class="bi bi-truck"
-                                                                                                 style="font-size: 1.5rem"></i>
-                        زمان تحویل: در صورت موجود نبودن محصول در انبار شرکت تولیدی parla، زمان تحویل 10 روز کاری به
-                        ترابری می‌باشد</p>
+                    <p dir="rtl" align="center" class="f-12 my-0 py-0" style="color: #ff5454"><i class="bi bi-truck" style="font-size: 1.5rem"></i> {{data.tips}}</p>
                 </div>
             </div>
         </div>
@@ -92,13 +68,7 @@
                     <p class="color-b-700 bg-gh f-14 p-2 mb-0" dir="rtl" align="right"> توضیحات تکمیلی :</p>
                     <div class=" w-100 rounded-3 overflow-scroll mt-0 color-b-600 f-13 line-h-30 text-end p-2"
                          dir="rtl">
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم استلورم ایپسوم متن ساختگی با
-                        تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و
-                        مجله در ستون و سطرآنچنان که لازم استلورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
-                        با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
-                        استلورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است
+                        <slot name="dec_all" />
                     </div>
                 </div>
             </div>
@@ -111,75 +81,24 @@
                     <p class="color-b-700 bg-gh f-14 p-2 mb-0" dir="rtl" align="right"> ویژگی ها :</p>
                     <div class="border-gh w-100 rounded-3 box-property-end overflow-scroll mt-0">
                         <ul class="text-center">
-                            <li class="color-b-800 f-14 py-3" dir="rtl"> پایه ها : فلزی</li>
+                            <slot name="view_property" />
                         </ul>
                     </div>
                 </div>
                 <div class="col-12 col-md-8">
                     <p class="color-b-700 bg-gh f-14 p-2 mb-0" dir="rtl" align="right"> توضیحات کلی :</p>
                     <div class=" w-100 rounded-3 box-property-end overflow-scroll mt-0 color-b-600 f-13 line-h-30 text-end p-2" dir="rtl">
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                        {{data.description}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="row p-2 mt-2 p-2 mt-0 ">
-        <div class="col-12 p-4 bg-white">
+        <div class="col-12 p-4 ">
             <div class="col-12">
                 <p class="color-b-700 bg-gh f-14 p-2 mb-0" dir="rtl" align="right"> نظرات :</p>
-                <div class=" w-100 bg-se-light shadow-sm rounded-3 mt-3 overflow-scroll mt-0 color-b-600 f-13 line-h-30 text-end p-2" dir="rtl">
-                    <div class="col-12 p-2">
-                        <span><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class=" bi bi-person-circle" viewBox="0 0 16 16"><path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path><path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path></svg><span class="position-relative name-user-comment">نام کاربر مورد نظر</span></span><span class="float-start">ساعت انتشار</span>
-                    </div>
-                    <div class="col-12 box-size-to px-3">
-                        <div class="row">
-                            <div class="col-12 col-md-8 box-size-to p-3">
-                                <h5 class="color-b-700">موضوع این کامت</h5>
-                                <p>
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                    گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم استلورم
-
-                                </p>
-                            </div>
-                            <div class="col-12 col-md-4 box-size-to p-3">
-                                <div class="row mt-2">
-                                    <div class="col-3">طراحی</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">امکانات</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">ارزش </div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">کیفیت</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+                <slot name="comment_product"/>
             </div>
         </div>
     </div>
@@ -187,23 +106,47 @@
         <i class="d-inline bi bi-x icon-cls-view-image" @click="cls_view_image_big"></i>
         <div class="view-img" :style="'background-image: url('+src_image_big+')'"></div>
     </div>
+    <div class="group-form-new-comment abstract-center">
+        <i @click="cls_new_comment_page" class="d-inline bi bi-x icon-cls-new-comment"></i>
+        <h5 class="text-center color-b-700">کامنت جدید</h5>
+        <div class="line"></div>
+        <slot name="form_comment"/>
+    </div>
 </template>
 
 <script>
+import FormComment from './FormComment'
 export default {
     name: "View",
     data:()=>({
        src_image_big:null,
+        image_src_index_page:'',
     }),
+    props:{
+        data:{
+            type:Object,
+            required:true,
+        },
+        image:{
+            type:Object,
+            required:true,
+        }
+    },
     methods:{
         show_image_big(src){
-            this.src_image_big = src;
-            $('.view-image-big').fadeIn()
+            this.image_src_index_page = src;
 
         },
         cls_view_image_big(){
             $('.view-image-big').fadeOut()
+        },
+        cls_new_comment_page(){
+            $('.blur').fadeOut()
+            $('.group-form-new-comment').fadeOut()
         }
+    },
+    components:{
+        FormComment
     }
 }
 </script>

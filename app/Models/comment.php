@@ -15,4 +15,7 @@ class comment extends Model
     public function reply_commet(){
         return $this->hasMany(reply_comment::class , 'comment_id' , 'id');
     }
+    public function product(){
+        return $this->belongsTo(product::class , 'product_id' , 'id');
+    }
 }

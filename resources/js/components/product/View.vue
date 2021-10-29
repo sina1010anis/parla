@@ -20,37 +20,8 @@
                 </div>
             </div>
             <div class="row box-image-all d-flex flex-nowrap overflow-scroll bg-white">
-                <div class="item-image bg-light m-3 overflow-hidden p-0">
-                    <img loading="lazy" width="100%" height="100%" class="pointer" src="/image/product/product_3.jpg"
-                         alt="">
-                </div>
-                <div class="item-image bg-light m-3 overflow-hidden rounded-3 p-0">
-                    <img loading="lazy" width="100%" height="100%" class="pointer" src="/image/product/product_3.jpg"
-                         alt="">
-                </div>
-                <div class="item-image bg-light m-3 overflow-hidden rounded-3 p-0">
-                    <img loading="lazy" width="100%" height="100%" class="pointer" src="/image/product/product_4.jpg"
-                         alt="">
-                </div>
-                <div class="item-image bg-light m-3 overflow-hidden rounded-3 p-0">
-                    <img loading="lazy" width="100%" height="100%" class="pointer" src="/image/product/product_5.jpg"
-                         alt="">
-                </div>
-                <div class="item-image bg-light m-3 overflow-hidden rounded-3 p-0">
-                    <img loading="lazy" width="100%" height="100%" class="pointer" src="/image/product/product_6.jpg"
-                         alt="">
-                </div>
-                <div class="item-image bg-light m-3 overflow-hidden rounded-3 p-0">
-                    <img loading="lazy" width="100%" height="100%" class="pointer" src="/image/product/product_7.jpg"
-                         alt="">
-                </div>
-                <div class="item-image bg-light m-3 overflow-hidden rounded-3 p-0">
-                    <img loading="lazy" width="100%" height="100%" class="pointer" src="/image/product/product_5.jpg"
-                         alt="">
-                </div>
-                <div class="item-image bg-light m-3 overflow-hidden rounded-3 p-0">
-                    <img loading="lazy" width="100%" height="100%" class="pointer" src="/image/product/product_6.jpg"
-                         alt="">
+                <div @click="show_image_big('/image/product/product_3.jpg')" class="item-image m-3 overflow-hidden p-0">
+                    <img class="pointer w-100 h-100" src="/image/product/product_3.jpg" alt="test">
                 </div>
             </div>
         </div>
@@ -86,55 +57,8 @@
                         <ul class="text-center">
                             <li title="test" class="obj-center text-center p-2 color-b-600 m-2 d-inline-block"
                                 style="background-image: url('/image/color/wood.jpg')"><span
-                                class="f-11 color-b-100 float-start">مدل یک</span></li>
-                            <li title="test" class="obj-center text-center p-2 color-b-600 m-2 d-inline-block"
-                                style="background-image: url('/image/color/wood.jpg')"><span
-                                class="f-11 color-b-100 float-start">مدل یک</span></li>
-                            <li title="test" class="obj-center text-center p-2 color-b-600 m-2 d-inline-block"
-                                style="background-image: url('/image/color/wood.jpg')"><span
-                                class="f-11 color-b-100 float-start">مدل یک</span></li>
-                            <li title="test" class="obj-center text-center p-2 color-b-600 m-2 d-inline-block"
-                                style="background-image: url('/image/color/wood.jpg')"><span
-                                class="f-11 color-b-100 float-start">مدل یک</span></li>
-                            <li title="test" class="obj-center text-center p-2 color-b-600 m-2 d-inline-block"
-                                style="background-image: url('/image/color/wood.jpg')"><span
-                                class="f-11 color-b-100 float-start">مدل یک</span></li>
-                            <li title="test" class="obj-center text-center p-2 color-b-600 m-2 d-inline-block"
-                                style="background-image: url('/image/color/wood.jpg')"><span
-                                class="f-11 color-b-100 float-start">مدل یک</span></li>
-                            <li title="test" class="obj-center text-center p-2 color-b-600 m-2 d-inline-block"
-                                style="background-image: url('/image/color/wood.jpg')"><span
-                                class="f-11 color-b-100 float-start">مدل یک</span></li>
-                            <li title="test" class="obj-center text-center p-2 color-b-600 m-2 d-inline-block"
-                                style="background-image: url('/image/color/wood.jpg')"><span
-                                class="f-11 color-b-100 float-start">مدل یک</span></li>
-                            <li title="test" class="obj-center text-center p-2 color-b-600 m-2 d-inline-block"
-                                style="background-image: url('/image/color/wood.jpg')"><span
-                                class="f-11 color-b-100 float-start">مدل یک</span></li>
-                            <li title="test" class="obj-center text-center p-2 color-b-600 m-2 d-inline-block"
-                                style="background-image: url('/image/color/wood.jpg')"><span
-                                class="f-11 color-b-100 float-start">مدل یک</span></li>
-                            <li title="test" class="obj-center text-center p-2 color-b-600 m-2 d-inline-block"
-                                style="background-image: url('/image/color/wood.jpg')"><span
-                                class="f-11 color-b-100 float-start">مدل یک</span></li>
-                            <li title="test" class="obj-center text-center p-2 color-b-600 m-2 d-inline-block"
-                                style="background-image: url('/image/color/wood.jpg')"><span
-                                class="f-11 color-b-100 float-start">مدل یک</span></li>
-                            <li title="test" class="obj-center text-center p-2 color-b-600 m-2 d-inline-block"
-                                style="background-image: url('/image/color/wood.jpg')"><span
-                                class="f-11 color-b-100 float-start">مدل یک</span></li>
-                            <li title="test" class="obj-center text-center p-2 color-b-600 m-2 d-inline-block"
-                                style="background-image: url('/image/color/wood.jpg')"><span
-                                class="f-11 color-b-100 float-start">مدل یک</span></li>
-                            <li title="test" class="obj-center text-center p-2 color-b-600 m-2 d-inline-block"
-                                style="background-image: url('/image/color/wood.jpg')"><span
-                                class="f-11 color-b-100 float-start">مدل یک</span></li>
-                            <li title="test" class="obj-center text-center p-2 color-b-600 m-2 d-inline-block"
-                                style="background-image: url('/image/color/wood.jpg')"><span
-                                class="f-11 color-b-100 float-start">مدل یک</span></li>
-                            <li title="test" class="text-center p-2 color-b-600 m-2 d-inline-block"
-                                style="background-image: url('/image/color/wood.jpg')"><span
-                                class="f-11 color-b-100 float-start">مدل یک</span></li>
+                                class="f-11 color-b-100 float-start">مدل یک</span>
+                            </li>
                         </ul>
                     </div>
                     <div class="col-12 my-4">
@@ -188,40 +112,13 @@
                     <div class="border-gh w-100 rounded-3 box-property-end overflow-scroll mt-0">
                         <ul class="text-center">
                             <li class="color-b-800 f-14 py-3" dir="rtl"> پایه ها : فلزی</li>
-                            <li class="color-b-800 f-14 py-3" dir="rtl"> پایه ها : فلزی</li>
-                            <li class="color-b-800 f-14 py-3" dir="rtl"> پایه ها : فلزی</li>
-                            <li class="color-b-800 f-14 py-3" dir="rtl"> پایه ها : فلزی</li>
-                            <li class="color-b-800 f-14 py-3" dir="rtl"> پایه ها : فلزی</li>
-                            <li class="color-b-800 f-14 py-3" dir="rtl"> پایه ها : فلزی</li>
-                            <li class="color-b-800 f-14 py-3" dir="rtl"> پایه ها : فلزی</li>
-                            <li class="color-b-800 f-14 py-3" dir="rtl"> پایه ها : فلزی</li>
-                            <li class="color-b-800 f-14 py-3" dir="rtl"> پایه ها : فلزی</li>
-                            <li class="color-b-800 f-14 py-3" dir="rtl"> پایه ها : فلزی</li>
-                            <li class="color-b-800 f-14 py-3" dir="rtl"> پایه ها : فلزی</li>
-                            <li class="color-b-800 f-14 py-3" dir="rtl"> پایه ها : فلزی</li>
-                            <li class="color-b-800 f-14 py-3" dir="rtl"> پایه ها : فلزی</li>
-                            <li class="color-b-800 f-14 py-3" dir="rtl"> پایه ها : فلزی</li>
-                            <li class="color-b-800 f-14 py-3" dir="rtl"> پایه ها : فلزی</li>
-                            <li class="color-b-800 f-14 py-3" dir="rtl"> پایه ها : فلزی</li>
-                            <li class="color-b-800 f-14 py-3" dir="rtl"> پایه ها : فلزی</li>
-                            <li class="color-b-800 f-14 py-3" dir="rtl"> پایه ها : فلزی</li>
-                            <li class="color-b-800 f-14 py-3" dir="rtl"> پایه ها : فلزی</li>
-                            <li class="color-b-800 f-14 py-3" dir="rtl"> پایه ها : فلزی</li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-12 col-md-8">
                     <p class="color-b-700 bg-gh f-14 p-2 mb-0" dir="rtl" align="right"> توضیحات کلی :</p>
-                    <div
-                        class=" w-100 rounded-3 box-property-end overflow-scroll mt-0 color-b-600 f-13 line-h-30 text-end p-2"
-                        dir="rtl">
+                    <div class=" w-100 rounded-3 box-property-end overflow-scroll mt-0 color-b-600 f-13 line-h-30 text-end p-2" dir="rtl">
                         لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم استلورم ایپسوم متن ساختگی با
-                        تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و
-                        مجله در ستون و سطرآنچنان که لازم استلورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
-                        با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
-                        استلورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است
                     </div>
                 </div>
             </div>
@@ -231,434 +128,9 @@
         <div class="col-12 p-4 bg-white">
             <div class="col-12">
                 <p class="color-b-700 bg-gh f-14 p-2 mb-0" dir="rtl" align="right"> نظرات :</p>
-                <div class=" w-100 border-bottom rounded-3 mt-3 overflow-scroll mt-0 color-b-600 f-13 line-h-30 text-end p-2" dir="rtl">
-                    <div class="col-12 bg-se p-2 d-flex justify-content-between">
-                        <span>نام کاربر</span>
-                        <span>ساعت انتشار</span>
-                    </div>
-                    <div class="col-12 box-size-to px-3">
-                        <div class="row">
-                            <div class="col-12 col-md-8 box-size-to p-3">
-                                <h5 class="color-b-700">موضوع این کامت</h5>
-                                <p>
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                    گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم استلورم
-
-                                </p>
-                            </div>
-                            <div class="col-12 col-md-4 box-size-to p-3">
-                                <div class="row mt-2">
-                                    <div class="col-3">طراحی</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">امکانات</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">ارزش </div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">کیفیت</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class=" w-100 border-bottom rounded-3 mt-3 overflow-scroll mt-0 color-b-600 f-13 line-h-30 text-end p-2" dir="rtl">
-                    <div class="col-12 bg-se p-2 d-flex justify-content-between">
-                        <span>نام کاربر</span>
-                        <span>ساعت انتشار</span>
-                    </div>
-                    <div class="col-12 box-size-to px-3">
-                        <div class="row">
-                            <div class="col-12 col-md-8 box-size-to p-3">
-                                <h5 class="color-b-700">موضوع این کامت</h5>
-                                <p>
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                    گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم استلورم
-
-                                </p>
-                            </div>
-                            <div class="col-12 col-md-4 box-size-to p-3">
-                                <div class="row mt-2">
-                                    <div class="col-3">طراحی</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">امکانات</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">ارزش </div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">کیفیت</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class=" w-100 border-bottom rounded-3 mt-3 overflow-scroll mt-0 color-b-600 f-13 line-h-30 text-end p-2" dir="rtl">
-                    <div class="col-12 bg-se p-2 d-flex justify-content-between">
-                        <span>نام کاربر</span>
-                        <span>ساعت انتشار</span>
-                    </div>
-                    <div class="col-12 box-size-to px-3">
-                        <div class="row">
-                            <div class="col-12 col-md-8 box-size-to p-3">
-                                <h5 class="color-b-700">موضوع این کامت</h5>
-                                <p>
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                    گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم استلورم
-
-                                </p>
-                            </div>
-                            <div class="col-12 col-md-4 box-size-to p-3">
-                                <div class="row mt-2">
-                                    <div class="col-3">طراحی</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">امکانات</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">ارزش </div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">کیفیت</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class=" w-100 border-bottom rounded-3 mt-3 overflow-scroll mt-0 color-b-600 f-13 line-h-30 text-end p-2" dir="rtl">
-                    <div class="col-12 bg-se p-2 d-flex justify-content-between">
-                        <span>نام کاربر</span>
-                        <span>ساعت انتشار</span>
-                    </div>
-                    <div class="col-12 box-size-to px-3">
-                        <div class="row">
-                            <div class="col-12 col-md-8 box-size-to p-3">
-                                <h5 class="color-b-700">موضوع این کامت</h5>
-                                <p>
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                    گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم استلورم
-
-                                </p>
-                            </div>
-                            <div class="col-12 col-md-4 box-size-to p-3">
-                                <div class="row mt-2">
-                                    <div class="col-3">طراحی</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">امکانات</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">ارزش </div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">کیفیت</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class=" w-100 border-bottom rounded-3 mt-3 overflow-scroll mt-0 color-b-600 f-13 line-h-30 text-end p-2" dir="rtl">
-                    <div class="col-12 bg-se p-2 d-flex justify-content-between">
-                        <span>نام کاربر</span>
-                        <span>ساعت انتشار</span>
-                    </div>
-                    <div class="col-12 box-size-to px-3">
-                        <div class="row">
-                            <div class="col-12 col-md-8 box-size-to p-3">
-                                <h5 class="color-b-700">موضوع این کامت</h5>
-                                <p>
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                    گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم استلورم
-
-                                </p>
-                            </div>
-                            <div class="col-12 col-md-4 box-size-to p-3">
-                                <div class="row mt-2">
-                                    <div class="col-3">طراحی</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">امکانات</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">ارزش </div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">کیفیت</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class=" w-100 border-bottom rounded-3 mt-3 overflow-scroll mt-0 color-b-600 f-13 line-h-30 text-end p-2" dir="rtl">
-                    <div class="col-12 bg-se p-2 d-flex justify-content-between">
-                        <span>نام کاربر</span>
-                        <span>ساعت انتشار</span>
-                    </div>
-                    <div class="col-12 box-size-to px-3">
-                        <div class="row">
-                            <div class="col-12 col-md-8 box-size-to p-3">
-                                <h5 class="color-b-700">موضوع این کامت</h5>
-                                <p>
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                    گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم استلورم
-
-                                </p>
-                            </div>
-                            <div class="col-12 col-md-4 box-size-to p-3">
-                                <div class="row mt-2">
-                                    <div class="col-3">طراحی</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">امکانات</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">ارزش </div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">کیفیت</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class=" w-100 border-bottom rounded-3 mt-3 overflow-scroll mt-0 color-b-600 f-13 line-h-30 text-end p-2" dir="rtl">
-                    <div class="col-12 bg-se p-2 d-flex justify-content-between">
-                        <span>نام کاربر</span>
-                        <span>ساعت انتشار</span>
-                    </div>
-                    <div class="col-12 box-size-to px-3">
-                        <div class="row">
-                            <div class="col-12 col-md-8 box-size-to p-3">
-                                <h5 class="color-b-700">موضوع این کامت</h5>
-                                <p>
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                    گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم استلورم
-
-                                </p>
-                            </div>
-                            <div class="col-12 col-md-4 box-size-to p-3">
-                                <div class="row mt-2">
-                                    <div class="col-3">طراحی</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">امکانات</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">ارزش </div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">کیفیت</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class=" w-100 border-bottom rounded-3 mt-3 overflow-scroll mt-0 color-b-600 f-13 line-h-30 text-end p-2" dir="rtl">
-                    <div class="col-12 bg-se p-2 d-flex justify-content-between">
-                        <span>نام کاربر</span>
-                        <span>ساعت انتشار</span>
-                    </div>
-                    <div class="col-12 box-size-to px-3">
-                        <div class="row">
-                            <div class="col-12 col-md-8 box-size-to p-3">
-                                <h5 class="color-b-700">موضوع این کامت</h5>
-                                <p>
-                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                    گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم استلورم
-
-                                </p>
-                            </div>
-                            <div class="col-12 col-md-4 box-size-to p-3">
-                                <div class="row mt-2">
-                                    <div class="col-3">طراحی</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">امکانات</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">ارزش </div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">کیفیت</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class=" w-100 border-bottom rounded-3 mt-3 overflow-scroll mt-0 color-b-600 f-13 line-h-30 text-end p-2" dir="rtl">
-                    <div class="col-12 bg-se p-2 d-flex justify-content-between">
-                        <span>نام کاربر</span>
-                        <span>ساعت انتشار</span>
+                <div class=" w-100 bg-se-light shadow-sm rounded-3 mt-3 overflow-scroll mt-0 color-b-600 f-13 line-h-30 text-end p-2" dir="rtl">
+                    <div class="col-12 p-2">
+                        <span><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class=" bi bi-person-circle" viewBox="0 0 16 16"><path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path><path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path></svg><span class="position-relative name-user-comment">نام کاربر مورد نظر</span></span><span class="float-start">ساعت انتشار</span>
                     </div>
                     <div class="col-12 box-size-to px-3">
                         <div class="row">
@@ -711,11 +183,28 @@
             </div>
         </div>
     </div>
+    <div class="view-image-big">
+        <i class="d-inline bi bi-x icon-cls-view-image" @click="cls_view_image_big"></i>
+        <div class="view-img" :style="'background-image: url('+src_image_big+')'"></div>
+    </div>
 </template>
 
 <script>
 export default {
-    name: "View"
+    name: "View",
+    data:()=>({
+       src_image_big:null,
+    }),
+    methods:{
+        show_image_big(src){
+            this.src_image_big = src;
+            $('.view-image-big').fadeIn()
+
+        },
+        cls_view_image_big(){
+            $('.view-image-big').fadeOut()
+        }
+    }
 }
 </script>
 

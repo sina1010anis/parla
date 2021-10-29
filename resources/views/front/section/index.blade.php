@@ -2,36 +2,42 @@
 
 @section('index')
     <header-vue></header-vue>
-    <nav-bar
-        :menus="{{$menus}}"
-        :sub_menus="{{$sub_menus}}">
-    </nav-bar>
-    <slide-index
-        :sliders="{{$sliders}}"
-        :banner="{{$banner_top}}">
-    </slide-index>
 
-    <banner-center
-        :banners="{{$banner_center}}">
-    </banner-center>
-    <best-buy
-        :products="{{$products->orderBy('price' , 'ASC')->get()}}"
-        title="ارزانترین ها">
-    </best-buy>
-    <banner-end
-        :banner="{{$banner_end}}">
-    </banner-end>
-    <best-buy
-        :products="{{$products->orderBy('price' , 'ASC')->get()}}"
-        title="ارزانترین ها">
-    </best-buy>
-    <best-buy
-        :products="{{$products->orderBy('price' , 'ASC')->get()}}"
-        title="ارزانترین ها">
-    </best-buy>
-    <item-vue
-        :items="{{$items}}">
-    </item-vue>
+    <nav-bar :menus="{{$menus}}" :sub_menus="{{$sub_menus}}">
+        <template #menu_mobile>
+            <ul class="menu-for-mobile col-md-8 nav justify-content-end p-1 navbar-light bg-white order-0 order-sm-0 order-md-1 d-flex flex-column text-center">
+                @foreach($menus as $menu)
+                    <li class="nav-item dropdown pointer">
+                        <a @click="show_menu_mobile('menu_'+'{{$menu->id}}')" class="font-Y color-b-700 f-12 nav-link dropdown-toggle">
+                            {{$menu->name}}
+                        </a>
+                        <ul class="menu_{{$menu->id}} menu-sub-for-mobile menu-for-mobile col-md-8 p-1 bg-white order-0 order-sm-0 order-md-1 text-center" id="menu_1 menu_bar_mobile">
+                            @foreach($menu->sub_menu as $sub_menu)
+                                <li style="list-style: none" class="p-2 f-11">
+                                    <a class="color-b-500 font-Y" style="text-decoration: none" href="">{{$sub_menu->name}}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </li>
+                @endforeach
+            </ul>
+        </template>
+    </nav-bar>
+
+    <slide-index :sliders="{{$sliders}}" :banner="{{$banner_top}}"></slide-index>
+
+    <banner-center :banners="{{$banner_center}}"></banner-center>
+
+    <best-buy :products="{{$products->orderBy('price' , 'ASC')->get()}}" title="ارزانترین ها"></best-buy>
+
+    <banner-end :banner="{{$banner_end}}"></banner-end>
+
+    <best-buy :products="{{$products->orderBy('price' , 'ASC')->get()}}" title="ارزانترین ها"></best-buy>
+
+    <best-buy :products="{{$products->orderBy('price' , 'ASC')->get()}}" title="ارزانترین ها"></best-buy>
+
+    <item-vue :items="{{$items}}"></item-vue>
+
     <footer-vue :link="{{$link_footer}}">
         <template #footer>
             @foreach($title_footers as $title)

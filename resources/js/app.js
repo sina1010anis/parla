@@ -21,6 +21,12 @@ const app = createApp({
     }),
     components: {
         HeaderVue,NavBar, SlideIndex,ItemVue, BannerCenter,BestBuy,BannerEnd,FooterVue,'view-product':View
+    },
+    methods:{
+        show_menu_mobile(name) {
+            $('.menu-sub-for-mobile').stop().slideUp()
+            $('.' + name).stop().slideToggle()
+        },
     }
 })
 

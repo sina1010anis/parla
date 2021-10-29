@@ -36,20 +36,7 @@
             </div>
         </div>
         <div class="col-12 group-ul-menu-mobile bg-white">
-            <ul class="menu-for-mobile col-md-8 nav justify-content-end p-1 navbar-light bg-white order-0 order-sm-0 order-md-1 d-flex flex-column text-center">
-                <li v-for="menu in menus" class="nav-item dropdown pointer">
-                    <a @click="show_menu_mobile('menu_'+menu.id)" class="font-Y color-b-700 f-12 nav-link dropdown-toggle">
-                        {{menu.name}}
-                    </a>
-                    <ul :class="'menu_'+menu.id+' menu-sub-for-mobile menu-for-mobile col-md-8 p-1 bg-white order-0 order-sm-0 order-md-1 text-center'"
-                        id="menu_1 menu_bar_mobile"
-                        v-for="sub_menu in sub_menus" :key="sub_menu.id">
-                        <li v-if="menu.id == sub_menu.menu_id" style="list-style: none" class="p-2 f-11">
-                            <a class="color-b-500 font-Y" style="text-decoration: none" href="">{{sub_menu.name}}</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+            <slot name="menu_mobile"/>
         </div>
     </div>
     <!--    Menu-->
@@ -72,6 +59,7 @@
             </div>
         </div>
     </div>
+<!--    Card -->
     <div class="col-4 bg-white position-absolute overflow-hidden left-0 rounded-3 shadow box-item-card" style="height: 300px;z-index: 15">
         <div class="p-2 w-100 position-absolute top-0 overflow-scroll" style="height: 250px;">
             <div class="w-100 my-2 p-2 shadow-sm rounded-3 d-flex justify-content-between align-items-center item-card-view" style="height: 100px">
@@ -137,7 +125,7 @@ export default {
             })
         },
         show_menu_mobile(name) {
-            $('.menu-sub-for-mobile').stop().slideUp()
+            $('.menu-sub-for-mobile').stop().slideToggle()
             $('.' + name).stop().slideToggle()
         },
         test(){

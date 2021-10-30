@@ -30,8 +30,7 @@
                     <div class="col-6">
                         <div class="d-grid gap-2">
                             <br>
-                            <button class="btn btn btn-red font-Y f-14 float-end btn-send-card" type="button">خرید
-                            </button>
+                            <slot name="btn_send_card" />
                         </div>
                     </div>
                     <p class="color-b-700 bg-gh f-14 p-2 mb-0" dir="rtl" align="right">انتخاب رنگ :</p>
@@ -45,13 +44,14 @@
                             <div class="col-6 p-2">
                                 <div class="bg-gh p-2 text-center rounded-3">
                                     <p class="f-13 color-b-700">رنگ انتخاب شده</p>
-                                    <p class="f-13 color-b-500 mb-0">-----</p>
+
+                                    <slot name="view_color_select"/>
                                 </div>
                             </div>
                             <div class="col-6 p-2">
                                 <div class="bg-gh p-2 text-center rounded-3">
                                     <p class="f-13 color-b-700">سایز انتخاب شده</p>
-                                    <p class="f-13 color-b-500 mb-0">-----</p>
+                                    <slot name="view_size_select"/>
                                 </div>
                             </div>
                         </div>
@@ -74,21 +74,25 @@
             </div>
         </div>
     </div>
-    <div class="row p-2 mt-2 p-2 mt-2 ">
+    <div class="row p-2 ">
         <div class="col-12 p-4 ">
-            <div class="row bg-white p-3 rounded-3 shadow">
+            <div class="row p-3 rounded-3">
                 <div class="col-12 col-md-4">
-                    <p class="color-b-700 bg-gh f-14 p-2 mb-0" dir="rtl" align="right"> ویژگی ها :</p>
-                    <div class="border-gh w-100 rounded-3 box-property-end overflow-scroll mt-0">
-                        <ul class="text-center">
-                            <slot name="view_property" />
-                        </ul>
+                    <div class="bg-white">
+                        <p class="color-b-700 bg-gh f-14 p-2 mb-0" dir="rtl" align="right"> ویژگی ها :</p>
+                        <div class="border-gh w-100 rounded-3 box-property-end overflow-scroll mt-0">
+                            <ul class="text-center">
+                                <slot name="view_property" />
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-8">
-                    <p class="color-b-700 bg-gh f-14 p-2 mb-0" dir="rtl" align="right"> توضیحات کلی :</p>
-                    <div class=" w-100 rounded-3 box-property-end overflow-scroll mt-0 color-b-600 f-13 line-h-30 text-end p-2" dir="rtl">
-                        {{data.description}}
+                    <div class="bg-white">
+                        <p class="color-b-700 bg-gh f-14 p-2 mb-0" dir="rtl" align="right"> توضیحات کلی :</p>
+                        <div class=" w-100 rounded-3 box-property-end overflow-scroll mt-0 color-b-600 f-13 line-h-30 text-end p-2" dir="rtl">
+                            {{data.description}}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -112,6 +116,9 @@
         <div class="line"></div>
         <slot name="form_comment"/>
     </div>
+    <span class="view_discount rounded-circle obj-center shadow" v-if="data.discount > 0">
+        {{data.discount}}%
+    </span>
 </template>
 
 <script>
@@ -143,7 +150,7 @@ export default {
         cls_new_comment_page(){
             $('.blur').fadeOut()
             $('.group-form-new-comment').fadeOut()
-        }
+        },
     },
     components:{
         FormComment

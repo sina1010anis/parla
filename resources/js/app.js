@@ -2,6 +2,7 @@ require('./bootstrap');
 import $ from 'jquery'
 import '../css/boot/boot.sass'
 import 'bootstrap/dist/js/bootstrap'
+import axios from "axios";
 import HeaderVue from "./components/front/HeaderVue";
 import NavBar from "./components/front/NavBar";
 import SlideIndex from "./components/front/SlideIndex";
@@ -20,7 +21,18 @@ import '../css/app.css'
 
 const app = createApp({
     data: () => ({
-        test: 'test'
+        test: 'test',
+        id_size_product:null,
+        data_size:null,
+        status_card:{
+            'step_1':0,
+            'step_2':0,
+        },
+        color:{
+            'id':null,
+            'name':null
+        },
+        price_dic:null
     }),
     components: {
         HeaderVue,NavBar, SlideIndex,ItemVue, BannerCenter,BestBuy,BannerEnd,FooterVue,'view-product':View,BlurVue,FormComment,RelatedProduct,
@@ -30,6 +42,30 @@ const app = createApp({
             $('.menu-sub-for-mobile').stop().slideUp()
             $('.' + name).stop().slideToggle()
         },
+        select_size(){
+            axios.post('/product/send/size' , {id:this.id_size_product}).then((res)=>{
+                if (res.data.status == 'off'){
+                    this.data_size = res.data.data
+                    this.status_card.step_1 = 1;
+                }if(res.data.status == 'on') {
+                    this.price_dic = res.data.price
+                    this.data_size = res.data.data
+                    this.status_card.step_1 = 1;
+                }
+            })
+        },
+        set_color(id , name){
+            this.status_card.step_2 = 1;
+            this.color.id = id;
+            this.color.name = name;
+        },
+        testTH(){
+            alert('ok')
+        },
+    },
+    mounted() {
+        setTimeout(()=>{$('.view-err').fadeOut()} , 10000)
+
     }
 })
 

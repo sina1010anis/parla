@@ -41,4 +41,7 @@ class LoginController extends Controller
     {
         return 'mobile';
     }
+    public function showLoginForm(){
+        return view('user.form.login');
+    }
 }

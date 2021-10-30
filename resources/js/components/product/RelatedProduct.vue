@@ -2,7 +2,7 @@
     <div class="row mt-4 mb-0 p-4 d-flex justify-content-evenly">
         <div class="col-6 col-md-2 bg-gh rounded-pill shadow text-center p-2 font-Y f-14">{{title}}</div>
     </div>
-    <div class="row mt-0  mb-4  group-item-card-product shadow">
+    <div class="row mt-0  mb-4  group-item-card-product">
         <div class="col-12">
             <div class="row d-flex flex-nowrap overflow-scroll">
                 <span v-for="product in products" class="card m-4 position-relative" style="width: 18rem;">

@@ -15,6 +15,7 @@ Route::prefix('/')->group(function (){
 });
 Route::prefix('/product')->as('product')->group(function (){
     Route::get('/{slug}', [ProductController::class , 'show'])->name('.show');
+    Route::post('/send/size', [ProductController::class , 'sendSize'])->name('.send.size');
 });
 Auth::routes();
 

@@ -51,8 +51,8 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'mobile' => ['required', 'string', 'min:8'],
+            'email' => [ 'string', 'email', 'max:255', 'unique:users'],
+            'mobile' => ['required', 'string', 'min:8' , 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -71,5 +71,9 @@ class RegisterController extends Controller
             'mobile' => $data['mobile'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+    public function showRegistrationForm()
+    {
+        return view('user.form.register');
     }
 }

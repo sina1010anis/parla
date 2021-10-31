@@ -24,13 +24,91 @@
                 @endforeach
             </ul>
         </template>
+        <template #item_panel_and_location>
+            @if(auth()->check())
+                <a style="text-decoration: none!important;"
+                   class="d-inline pointer group-item-location-hearer p-1 ms-2 rounded-3 position-relative">
+                    <i class="bi bi-geo-alt g-3 position-relative ps-2 pe-2 text-color-item-hearer"
+                       style="top: 3px"></i>
+                    <span
+                        class="font-Y f-10 text-color-item-hearer position-relative">برای ثبت ادرس لطفا وارد شوید</span>
+                </a>
+            @else
+                <a v-else style="text-decoration: none!important;" href="/login"
+                   class="d-inline pointer group-item-location-hearer p-1 ms-2 rounded-3 position-relative">
+                    <i class="bi bi bi-person g-3 position-relative ps-2 pe-2 text-color-item-hearer"
+                       style="top: 3px"></i>
+                    <span id="test" class="font-Y f-10 text-color-item-hearer position-relative">ورود / عضویت</span>
+                </a>
+            @endif
+        </template>
+        <template #item_panel_and_location_mobile>
+            @if(auth()->check())
+                <a style="text-decoration: none!important;"
+                   class="d-inline pointer group-item-location-hearer p-1 ms-2 rounded-3 position-relative">
+                    <i class="bi bi-geo-alt g-3 position-relative ps-2 pe-2 text-color-item-hearer"
+                       style="top: 3px"></i>
+                    <span
+                        class="font-Y f-10 text-color-item-hearer position-relative">برای ثبت ادرس لطفا وارد پنل شوید</span>
+                </a>
+            @else
+                <a style="text-decoration: none!important;" href="/login"
+                   class="d-inline pointer group-item-location-hearer p-1 ms-2 rounded-3 position-relative">
+                    <i class="bi bi bi-person g-3 position-relative ps-2 pe-2 text-color-item-hearer"></i>
+                    <span class="font-Y f-10 text-color-item-hearer position-relative">ورود / عضویت</span>
+                </a>
+            @endif
+        </template>
+        <template #view_card>
+            @if(auth()->check())
+                <div class="col-4 bg-white position-absolute overflow-hidden left-0 rounded-3 shadow box-item-card"
+                     style="height: 300px;z-index: 15">
+                    <div class="p-2 w-100 position-absolute top-0 overflow-scroll" style="height: 250px;">
+                        <div
+                            class="w-100 my-2 p-2 shadow-sm rounded-3 d-flex justify-content-between align-items-center item-card-view"
+                            style="height: 100px">
+                            <img src="/image/product/product_6.jpg" alt="" class="h-100">
+                            <span class="font-Y color-b-700 f-11">قیمت تک : 25000</span>
+                            <span class="font-Y color-b-700 f-11">تعداد : 5</span>
+                            <span class="font-Y color-b-700 f-11">نام : متن تستی</span>
+                            <span class="font-Y f-11 pointer" style="color: red"><i class="bi bi-trash"></i></span>
+                        </div>
+                    </div>
+                    <div class="p-2 w-100 position-absolute bottom-0 d-flex justify-content-between align-items-center"
+                         style="background-color:#f5f5f5 ">
+                        <button type="submit"
+                                class="group-item-location-hearer font-Y f-12 border-0 rounded-3 py-2 px-5">
+                            پرداخت
+                        </button>
+                        <span class="font-Y color-b-500 f-15">2520000</span>
+                    </div>
+                </div>
+            @endif
+        </template>
     </nav-bar>
     {{--    Prosuct View--}}
+    @include('errors.formAuth')
     <view-product :data="{{$data}}" :image="{{$data->image_product}}">
         <template #option_user>
-            <button @click="show_form_comment()" type="button" class="btn py-2 shadow px-4"><i
-                    class="bi bi-chat-left-dots f-18 text-white"></i></button>
-            <button type="button" class="btn py-2 shadow px-4"><i class="bi bi-star f-18 text-white"></i></button>
+            @auth()
+                <button @click="show_form_comment()" type="button" class="btn py-2 shadow px-4"><i class="bi bi-chat-left-dots f-18 text-white"></i></button>
+                @if($save_product->where('product_id', $data->id)->where('user_id' , auth()->user()->id)->count() == 0)
+                    <button @click="save_product({{$data->id , auth()->user()->id}})" type="button" class="btn py-2 shadow px-4 icon-save"><i class="bi bi-star f-18 text-white"></i></button>
+                @else
+                    <button @click="save_product({{$data->id , auth()->user()->id}})" type="button" class="btn py-2 shadow px-4 icon-save"><i class="bi bi-star-fill f-18 text-white"></i></button>
+                @endif
+{{--            @foreach($save_product as $save)--}}
+{{--                    @if($save->product_id == $data->id)--}}
+{{--                        @if($save->user_id == auth()->user()->id )--}}
+{{--                            <button @click="delete_product({{$data->id , auth()->user()->id}})" type="button" class="btn py-2 shadow px-4"><i class="bi bi-star-fill f-18 text-white"></i></button>--}}
+{{--                        @endif--}}
+{{--                    @else--}}
+{{--                        @if($save->user_id == auth()->user()->id )--}}
+{{--                            <button @click="save_product({{$data->id , auth()->user()->id}})" type="button" class="btn py-2 shadow px-4 icon-save"><i class="bi bi-star f-18 text-white"></i></button>--}}
+{{--                        @endif--}}
+{{--                    @endif--}}
+{{--                @endforeach--}}
+            @endauth
         </template>
         <template #view_color_select>
             <p class="f-13 color-b-500 mb-0">@{{ (color.name != null) ?color.name : '------' }}</p>
@@ -44,80 +122,83 @@
         </template>
         <template #comment_product>
             @foreach($data->comments as $comment)
-                <div
-                    class=" w-100 bg-white shadow-sm rounded-3 mt-3 overflow-scroll mt-0 color-b-600 f-13 line-h-30 text-end p-2"
-                    dir="rtl">
-                    <div class="col-12 p-2">
+                @if($comment->status == 1)
+                    <div
+                        class=" w-100 bg-white shadow-sm rounded-3 mt-3 overflow-scroll mt-0 color-b-600 f-13 line-h-30 text-end p-2"
+                        dir="rtl">
+                        <div class="col-12 p-2">
                         <span><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
                                    class=" bi bi-person-circle" viewBox="0 0 16 16"><path
                                     d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path><path fill-rule="evenodd"
                                                                                         d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path></svg><span
                                 class="position-relative name-user-comment">{{$comment->user->name}}</span></span><span
-                            class="float-start f-10 color-b-400">{{jdate($comment->created_at)->format('%B %d، %Y')}}</span>
-                    </div>
-                    <div class="col-12 box-size-to px-3">
-                        <div class="row">
-                            <div class="col-12 col-md-8 box-size-to p-3">
-                                <h5 class="color-b-700">{{$comment->title}}</h5>
-                                <p>
-                                    {{$comment->text}}
-                                </p>
-                            </div>
-                            <div class="col-12 col-md-4 box-size-to p-3">
-                                <div class="row mt-2">
-                                    <div class="col-3">طراحی</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark  f-9" role="progressbar"
-                                                 style="width: {{$comment->designing}}%" aria-valuenow="25"
-                                                 aria-valuemin="0" aria-valuemax="100">{{$comment->designing}}%
+                                class="float-start f-10 color-b-400">{{jdate($comment->created_at)->format('%B %d، %Y')}}</span>
+                        </div>
+                        <div class="col-12 box-size-to px-3">
+                            <div class="row">
+                                <div class="col-12 col-md-8 box-size-to p-3">
+                                    <h5 class="color-b-700">{{$comment->title}}</h5>
+                                    <p>
+                                        {{$comment->text}}
+                                    </p>
+                                </div>
+                                <div class="col-12 col-md-4 box-size-to p-3">
+                                    <div class="row mt-2">
+                                        <div class="col-3">طراحی</div>
+                                        <div class="col-9 ">
+                                            <div class="progress position-relative" style="top: 8px">
+                                                <div class="progress-bar bg-gh text-dark  f-9" role="progressbar"
+                                                     style="width: {{$comment->designing}}%" aria-valuenow="25"
+                                                     aria-valuemin="0" aria-valuemax="100">{{$comment->designing}}%
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">امکانات</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark f-9" role="progressbar"
-                                                 style="width: {{$comment->possibilities}}%" aria-valuenow="25"
-                                                 aria-valuemin="0" aria-valuemax="100">{{$comment->possibilities}}%
+                                    <div class="row mt-2">
+                                        <div class="col-3">امکانات</div>
+                                        <div class="col-9 ">
+                                            <div class="progress position-relative" style="top: 8px">
+                                                <div class="progress-bar bg-gh text-dark f-9" role="progressbar"
+                                                     style="width: {{$comment->possibilities}}%" aria-valuenow="25"
+                                                     aria-valuemin="0" aria-valuemax="100">{{$comment->possibilities}}%
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">ارزش</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark f-9" role="progressbar"
-                                                 style="width: {{$comment->value}}%" aria-valuenow="25"
-                                                 aria-valuemin="0" aria-valuemax="100">{{$comment->value}}%
+                                    <div class="row mt-2">
+                                        <div class="col-3">ارزش</div>
+                                        <div class="col-9 ">
+                                            <div class="progress position-relative" style="top: 8px">
+                                                <div class="progress-bar bg-gh text-dark f-9" role="progressbar"
+                                                     style="width: {{$comment->value}}%" aria-valuenow="25"
+                                                     aria-valuemin="0" aria-valuemax="100">{{$comment->value}}%
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <div class="col-3">کیفیت</div>
-                                    <div class="col-9 ">
-                                        <div class="progress position-relative" style="top: 8px">
-                                            <div class="progress-bar bg-gh text-dark f-9" role="progressbar"
-                                                 style="width: {{$comment->quality}}%" aria-valuenow="25"
-                                                 aria-valuemin="0" aria-valuemax="100">{{$comment->quality}}%
+                                    <div class="row mt-2">
+                                        <div class="col-3">کیفیت</div>
+                                        <div class="col-9 ">
+                                            <div class="progress position-relative" style="top: 8px">
+                                                <div class="progress-bar bg-gh text-dark f-9" role="progressbar"
+                                                     style="width: {{$comment->quality}}%" aria-valuenow="25"
+                                                     aria-valuemin="0" aria-valuemax="100">{{$comment->quality}}%
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @if($comment->src_image_user)
+                            <div class="col-12 p-3 obj-center">
+                                <img src="/image/comment/{{$comment->src_image_user}}"
+                                     style="max-width: 100%;width: 200px"
+                                     alt="">
+                            </div>
+                        @endif
                     </div>
-                    @if($comment->src_image_user)
-                        <div class="col-12 p-3 obj-center">
-                            <img src="/image/product/{{$comment->src_image_user}}" style="max-width: 100%;width: 200px"
-                                 alt="">
-                        </div>
-                    @endif
-                </div>
+                @endif
             @endforeach
         </template>
         <template #view_property>
@@ -169,70 +250,89 @@
                 <i @click="cls_new_comment_page" class="d-inline bi bi-x icon-cls-new-comment"></i>
                 <h5 class="text-center color-b-700">کامنت جدید</h5>
                 <div class="line"></div>
-                <form action="">
+                <form action="{{route('product.new.comment' , ['idProduct' => $data->id])}}" method="post"
+                      enctype="multipart/form-data">
                     @csrf
+                    <div class="form-floating my-2">
+                        <input name="title" dir="rtl"
+                               class="form-control form-control color-b-600 f-12 form-login  form-login @error('title') is-invalid @enderror"
+                               {{old('title')}} align="right" placeholder="موضوع کامنت "
+                               id="floatingTextarea"/>
+                        <label class="color-b-500 d-block text-end f-12   " dir="rtl" for="floatingTextarea">موضوع
+                            پیام</label>
+                    </div>
                     <div class="form-floating">
-                        <textarea dir="rtl" class="form-control" align="right" placeholder="متن کامنت"
-                                  id="floatingTextarea"></textarea>
-                        <label class="color-b-500 text-end" dir="rtl" for="floatingTextarea">متن پیام</label>
+                        <textarea name="text" dir="rtl"
+                                  class="form-control form-control color-b-600 f-12 form-login form-login @error('text') is-invalid @enderror" align="right"
+                                  placeholder="متن کامنت"
+                                  id="floatingTextarea">{{old('text')}}</textarea>
+                        <label class="color-b-500 d-block text-end f-12  " dir="rtl" for="floatingTextarea">متن
+                            پیام</label>
                     </div>
                     <div class="row my-3">
                         <div class="col-6">
                             <div class="form-floating">
-                                <select class="form-select f-12 text-center" id="floatingSelectGrid"
+                                <select name="designing" class="form-select f-12 form-login text-center"
+                                        id="floatingSelectGrid"
                                         aria-label="Floating label select example">
-                                    <option>خیلی بد</option>
-                                    <option value="1">بد</option>
-                                    <option value="2">خوب</option>
-                                    <option value="3">خیلی خوب</option>
-                                    <option value="3">عالی</option>
+                                    <option value="0">خیلی بد</option>
+                                    <option value="25">بد</option>
+                                    <option value="50">خوب</option>
+                                    <option value="75">خیلی خوب</option>
+                                    <option value="100">عالی</option>
                                 </select>
                                 <label for="floatingSelectGrid" class="f-12">طراحی </label>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-floating">
-                                <select class="form-select f-12 text-center" id="floatingSelectGrid"
+                                <select name="possibilities" class="form-select form-login f-12 text-center"
+                                        id="floatingSelectGrid"
                                         aria-label="Floating label select example">
-                                    <option>خیلی کم</option>
-                                    <option value="1">کم</option>
-                                    <option value="2">خوب</option>
-                                    <option value="3">خیلی خوب</option>
-                                    <option value="3">عالی</option>
+                                    <option value="0">خیلی کم</option>
+                                    <option value="25">کم</option>
+                                    <option value="50">خوب</option>
+                                    <option value="75">خیلی خوب</option>
+                                    <option value="100">عالی</option>
                                 </select>
                                 <label for="floatingSelectGrid" class="f-12">امکانات</label>
                             </div>
                         </div>
                         <div class="col-6 my-2">
                             <div class="form-floating">
-                                <select class="form-select f-12 text-center" id="floatingSelectGrid"
+                                <select name="value" class="form-select f-12 form-login text-center"
+                                        id="floatingSelectGrid"
                                         aria-label="Floating label select example">
-                                    <option>خیلی کم</option>
-                                    <option value="1">کم</option>
-                                    <option value="2">خوب</option>
-                                    <option value="3">خیلی خوب</option>
-                                    <option value="3">عالی</option>
+                                    <option value="0">خیلی کم</option>
+                                    <option value="25">کم</option>
+                                    <option value="50">خوب</option>
+                                    <option value="75">خیلی خوب</option>
+                                    <option value="100">عالی</option>
                                 </select>
                                 <label for="floatingSelectGrid" class="f-12">ارزش خرید</label>
                             </div>
                         </div>
                         <div class="col-6 my-2">
                             <div class="form-floating">
-                                <select class="form-select form-select-sm f-12 text-center" id="floatingSelectGrid"
+                                <select name="quality" class="form-select form-select-sm form-login f-12 text-center"
+                                        id="floatingSelectGrid"
                                         aria-label="Floating label select example">
-                                    <option>خیلی کم</option>
-                                    <option value="1">کم</option>
-                                    <option value="2">خوب</option>
-                                    <option value="3">خیلی خوب</option>
-                                    <option value="3">عالی</option>
+                                    <option value="0">خیلی کم</option>
+                                    <option value="25">کم</option>
+                                    <option value="50">خوب</option>
+                                    <option value="75">خیلی خوب</option>
+                                    <option value="100">عالی</option>
                                 </select>
                                 <label for="floatingSelectGrid" class="f-12">کیفیت</label>
                             </div>
                         </div>
                         <div class="my-3">
-                            <label for="formFile" class="form-label color-b-500 f-11" dir="rtl">اگر محصول را خریداری
+                            <label for="formFile" class="form-label color-b-500 f-11 d-block text-end" dir="rtl">اگر
+                                محصول را خریداری
                                 کرده اید لطفا عکس محصول را هم اپلود کنید .</label>
-                            <input class="form-control form-control-sm" type="file" id="formFile">
+                            <input name="image"
+                                   class="form-control form-control-sm  form-login @error('image') is-invalid @enderror"
+                                   type="file" id="formFile">
                         </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-red my-3 f-13 py-2 w-100">ارسال نظر جهت برسی</button>

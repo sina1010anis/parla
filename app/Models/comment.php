@@ -18,4 +18,5 @@ class comment extends Model
     public function product(){
         return $this->belongsTo(product::class , 'product_id' , 'id');
     }
+    protected $attributes = ['status' => 0];
 }

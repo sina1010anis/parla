@@ -649,3 +649,16 @@ transition: 0.5s;
     z-index: 12;
     right: 20px;
 }
+.msg-sm{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 30;
+    transform: translate(-50% , -50%);
+    background-color: #505050;
+    color: #ffffff;
+    display: none;
+}
+.dis-b{
+    display: block;
+}

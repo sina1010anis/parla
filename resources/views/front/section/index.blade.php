@@ -87,7 +87,7 @@
             @endif
         </template>
     </nav-bar>
-
+    @include('errors.formAuth')
     <slide-index :sliders="{{$sliders}}" :banner="{{$banner_top}}"></slide-index>
 
     <banner-center :banners="{{$banner_center}}"></banner-center>

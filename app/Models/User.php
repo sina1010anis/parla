@@ -38,5 +38,7 @@ class User extends Authenticatable
     public function card(){
         return $this->hasMany(card::class , 'user_id' , 'id');
     }
-
+    public function save_product(){
+        return $this->hasMany(save_product::class , 'user_id' , 'id');
+    }
 }

@@ -30,6 +30,9 @@ class product extends Model
     public function comments(){
         return $this->hasMany(comment::class , 'product_id' , 'id');
     }
+    public function save_product(){
+        return $this->hasMany(save_product::class , 'product_id' , 'id');
+    }
     public function getRouteKeyName(){
         return 'slug';
     }

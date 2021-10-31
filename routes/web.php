@@ -16,6 +16,9 @@ Route::prefix('/')->group(function (){
 Route::prefix('/product')->as('product')->group(function (){
     Route::get('/{slug}', [ProductController::class , 'show'])->name('.show');
     Route::post('/send/size', [ProductController::class , 'sendSize'])->name('.send.size');
+    Route::post('/comment/{idProduct}', [ProductController::class , 'newComment'])->name('.new.comment');
+    Route::post('/save', [ProductController::class , 'saveProduct'])->name('.save.product');
+    Route::post('/save/delete', [ProductController::class , 'saveDeleteProduct'])->name('.save.delete.product');
 });
 Auth::routes();
 

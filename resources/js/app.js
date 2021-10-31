@@ -70,6 +70,32 @@ const app = createApp({
             $('.blur').fadeOut()
             $('.group-form-new-comment').fadeOut()
         },
+        save_product(idProduct , idUser){
+            axios.post('/product/save' , {product:idProduct , user:idUser}).then((res)=>{
+                if (res.data == 'create') {
+                    $('.icon-save').html('<i class="bi bi-star-fill f-18 text-white"></i>')
+                    $('.msg-sm').html('محصول به پنل اضافه شد').fadeIn()
+                    setTimeout(() => {
+                        $('.msg-sm').html(res.data).fadeOut()
+                    }, 3000)
+                }if(res.data == 'delete'){
+                    $('.icon-save').html('<i class="bi bi-star f-18 text-white"></i>')
+                    $('.msg-sm').html('محصول از پنل حذف شد').fadeIn()
+                    setTimeout(() => {
+                        $('.msg-sm').html(res.data).fadeOut()
+                    }, 3000)
+                }
+            })
+        },
+        delete_product(idProduct , idUser){
+            axios.post('/product/save/delete' , {product:idProduct , user:idUser}).then((res)=>{
+                $('.icon-save').html('<i class="bi bi-star f-18 text-white"></i>')
+                $('.msg-sm').html(res.data).fadeIn()
+                setTimeout(()=>{
+                    $('.msg-sm').html(res.data).fadeOut()
+                } , 3000)
+            })
+        }
     },
     mounted() {
         setTimeout(()=>{$('.view-err').fadeOut()} , 10000)

@@ -20,12 +20,12 @@
                 @csrf
                 <div class="mb-3">
                     <label for="input_mobile" class="form-label d-block text-end f-11 color-b-500">شماره موبایل</label>
-                    <input name="mobile" type="text" class="form-login f-14 color-b-600" dir="rtl" align="right"
+                    <input name="mobile" type="text" class="form-control form-login @error('mobile') is-invalid @enderror" value="{{old('mobile')}}" dir="rtl" align="right"
                            id="input_mobile" placeholder="شماره موبایل...">
                 </div>
                 <div class="mb-3">
                     <label for="input_password" class="form-label d-block text-end f-11 color-b-500">رمز عبور</label>
-                    <input name="password" type="password" class="form-login color-b-600 f-14" dir="rtl" align="right"
+                    <input name="password" type="password" class="form-control form-login color-b-600 f-14 @error('password') is-invalid @enderror" dir="rtl" align="right"
                            id="input_password" placeholder="پسورد...">
                 </div>
                 <br>

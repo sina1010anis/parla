@@ -3,15 +3,7 @@
         <div class="col-md-4 bg-white order-1 order-sm-1 order-md-0 d-none d-md-block">
             <i class="bi bi-cart g-3 position-relative ps-3 pe-2 text-color-item-hearer pointer" ></i>
             <!--            Location-->
-            <!--            <div class="d-inline pointer group-item-location-hearer p-1 ms-2 rounded-3 position-relative">-->
-            <!--                <i class="bi bi-geo-alt g-3 position-relative ps-2 pe-2 text-color-item-hearer"></i>-->
-            <!--                <span class="font-Y f-10 text-color-item-hearer position-relative">برای ثبت ادرس لطفا وارد شوید</span>-->
-            <!--            </div>-->
-            <a style="text-decoration: none!important;" href="/login"
-               class="d-inline pointer group-item-location-hearer p-1 ms-2 rounded-3 position-relative">
-                <i class="bi bi bi-person g-3 position-relative ps-2 pe-2 text-color-item-hearer"></i>
-                <span id="test" class="font-Y f-10 text-color-item-hearer position-relative">ورود / عضویت</span>
-            </a>
+            <slot name="item_panel_and_location" />
         </div>
         <!--        Lap top-->
         <ul class="col-md-8 nav justify-content-end p-1 navbar-light bg-white order-0 order-sm-0 order-md-1 d-none d-md-flex">
@@ -23,11 +15,7 @@
         <div class="col-12 d-md-none bg-white p-2">
             <div class="row">
                 <div class="d-flex d-flex justify-content-between">
-                    <a style="text-decoration: none!important;" href="/login"
-                       class="d-inline pointer group-item-location-hearer p-1 ms-2 rounded-3 position-relative">
-                        <i class="bi bi bi-person g-3 position-relative ps-2 pe-2 text-color-item-hearer"></i>
-                        <span class="font-Y f-10 text-color-item-hearer position-relative">ورود / عضویت</span>
-                    </a>
+                    <slot name="item_panel_and_location_mobile"/>
                     <a @click="view_menu"
                        class="d-inline pointer group-item-location-hearer p-1 ms-2 rounded-3 position-relative">
                         <i class="bi bi-arrow-bar-down g-3 position-relative ps-2 pe-2 text-color-item-hearer"></i>
@@ -60,49 +48,7 @@
         </div>
     </div>
 <!--    Card -->
-    <div class="col-4 bg-white position-absolute overflow-hidden left-0 rounded-3 shadow box-item-card" style="height: 300px;z-index: 15">
-        <div class="p-2 w-100 position-absolute top-0 overflow-scroll" style="height: 250px;">
-            <div class="w-100 my-2 p-2 shadow-sm rounded-3 d-flex justify-content-between align-items-center item-card-view" style="height: 100px">
-                <img src="/image/product/product_6.jpg" alt="" class="h-100">
-                <span class="font-Y color-b-700 f-11">قیمت تک : 25000</span>
-                <span class="font-Y color-b-700 f-11">تعداد : 5</span>
-                <span class="font-Y color-b-700 f-11">نام : متن تستی</span>
-                <span class="font-Y f-11 pointer" style="color: red"><i class="bi bi-trash"></i></span>
-            </div>
-            <div class="w-100 my-2 p-2 shadow-sm rounded-3 d-flex justify-content-between align-items-center item-card-view" style="height: 100px">
-                <img src="/image/product/product_6.jpg" alt="" class="h-100">
-                <span class="font-Y color-b-700 f-11">قیمت تک : 25000</span>
-                <span class="font-Y color-b-700 f-11">تعداد : 5</span>
-                <span class="font-Y color-b-700 f-11">نام : متن تستی</span>
-                <span class="font-Y f-11 pointer" style="color: red"><i class="bi bi-trash"></i></span>
-            </div>
-            <div class="w-100 my-2 p-2 shadow-sm rounded-3 d-flex justify-content-between align-items-center item-card-view" style="height: 100px">
-                <img src="/image/product/product_6.jpg" alt="" class="h-100">
-                <span class="font-Y color-b-700 f-11">قیمت تک : 25000</span>
-                <span class="font-Y color-b-700 f-11">تعداد : 5</span>
-                <span class="font-Y color-b-700 f-11">نام : متن تستی</span>
-                <span class="font-Y f-11 pointer" style="color: red"><i class="bi bi-trash"></i></span>
-            </div>
-            <div class="w-100 my-2 p-2 shadow-sm rounded-3 d-flex justify-content-between align-items-center item-card-view" style="height: 100px">
-                <img src="/image/product/product_6.jpg" alt="" class="h-100">
-                <span class="font-Y color-b-700 f-11">قیمت تک : 25000</span>
-                <span class="font-Y color-b-700 f-11">تعداد : 5</span>
-                <span class="font-Y color-b-700 f-11">نام : متن تستی</span>
-                <span class="font-Y f-11 pointer" style="color: red"><i class="bi bi-trash"></i></span>
-            </div>
-            <div class="w-100 my-2 p-2 shadow-sm rounded-3 d-flex justify-content-between align-items-center item-card-view" style="height: 100px">
-                <img src="/image/product/product_6.jpg" alt="" class="h-100">
-                <span class="font-Y color-b-700 f-11">قیمت تک : 25000</span>
-                <span class="font-Y color-b-700 f-11">تعداد : 5</span>
-                <span class="font-Y color-b-700 f-11">نام : متن تستی</span>
-                <span class="font-Y f-11 pointer" style="color: red"><i class="bi bi-trash"></i></span>
-            </div>
-        </div>
-        <div class="p-2 w-100 position-absolute bottom-0 d-flex justify-content-between align-items-center" style="background-color:#f5f5f5 ">
-            <button type="submit" class="group-item-location-hearer font-Y f-12 border-0 rounded-3 py-2 px-5">پرداخت</button>
-            <span class="font-Y color-b-500 f-15">2520000</span>
-        </div>
-    </div>
+        <slot name="view_card"/>
 </template>
 
 <script>
@@ -147,7 +93,7 @@ export default {
         },
         sub_menus: {
             type: Object
-        }
+        },
     },
     mounted() {
         $('.bi-cart').hover(()=>{

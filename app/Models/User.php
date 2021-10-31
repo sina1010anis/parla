@@ -30,6 +30,7 @@ class User extends Authenticatable
     protected $attributes = [
         'address_id' => 0,
         'status' => 1,
+        'email' => null,
     ];
     public function comment(){
         return $this->hasMany(comment::class , 'user_id' , 'id');

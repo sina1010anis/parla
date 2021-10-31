@@ -129,11 +129,10 @@ body{
     cursor: pointer;
 }
 .group-item-location-hearer span{
-    bottom: 5px;
+    bottom: 2px;
     right: 5px;
 }
 .group-item-location-hearer{
-    bottom: 2px;
     color: #ffffff!important;
     background-color: #ff6b6b;
 }
@@ -526,7 +525,9 @@ transition: 0.5s;
 .bg-gh{
     background-color: #fdf3d2;
 }
-
+.bg-gh-dark{
+    background-color: #ff5454;
+}
 .border-gh{
     border:1px solid #fdf3d2;
 }
@@ -622,12 +623,8 @@ transition: 0.5s;
     }
 }
 .form-login{
-    width: 100%;
-    padding: 8px;
-    outline: none;
+    background-color: #f8f8f8!important;
     border: none;
-    border-radius: 5px;
-    background-color: #f8f8f8;
 }
 .or-text{
     top: -25px;
@@ -640,4 +637,15 @@ transition: 0.5s;
     color:#ffffff;
     max-width: 100%;
     background-color: rgba(255, 107, 107, 0.5);
+}
+*:focus{
+    box-shadow: unset!important;
+}
+.is-invalid{
+    border: 1px solid #dc3545;
+}
+.option-user-view-product{
+    bottom: 37px;
+    z-index: 12;
+    right: 20px;
 }

@@ -1,5 +1,4 @@
 require('./bootstrap');
-import $ from 'jquery'
 import '../css/boot/boot.sass'
 import 'bootstrap/dist/js/bootstrap'
 import axios from "axios";
@@ -18,6 +17,7 @@ import RelatedProduct from "./components/product/RelatedProduct";
 import { createApp } from 'vue'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import '../css/app.css'
+import $ from 'jquery'
 
 const app = createApp({
     data: () => ({
@@ -38,6 +38,10 @@ const app = createApp({
         HeaderVue,NavBar, SlideIndex,ItemVue, BannerCenter,BestBuy,BannerEnd,FooterVue,'view-product':View,BlurVue,FormComment,RelatedProduct,
     },
     methods:{
+        show_form_comment(){
+          $('.group-form-new-comment').fadeToggle()
+          $('.blur').fadeToggle()
+        },
         show_menu_mobile(name) {
             $('.menu-sub-for-mobile').stop().slideUp()
             $('.' + name).stop().slideToggle()
@@ -62,10 +66,13 @@ const app = createApp({
         testTH(){
             alert('ok')
         },
+        cls_new_comment_page() {
+            $('.blur').fadeOut()
+            $('.group-form-new-comment').fadeOut()
+        },
     },
     mounted() {
         setTimeout(()=>{$('.view-err').fadeOut()} , 10000)
-
     }
 })
 

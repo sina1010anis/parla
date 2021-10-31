@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -43,5 +44,23 @@ class LoginController extends Controller
     }
     public function showLoginForm(){
         return view('user.form.login');
+    }
+
+    public function validateLogin(Request $request)
+    {
+        $request->validate([
+            $this->username() => 'required|min:10|max:12',
+            'password' => 'required|string',
+        ],$this->message());
+    }
+    public function message(){
+        return [
+            'mobile.required' => 'وارد کردن شماره موبایل الزامی است',
+            'mobile.int' => 'لطفا شماره موبایل مناسبی وارد کنید',
+            'mobile.min' => 'شماره موبایل کمتر از 10 عدد مجاز نیست',
+            'mobile.max' => 'شماره موبایل بیشتر از 12 عدد مجاز نیست',
+            'password.required' => 'وراد کردن رمز عبور الزامی است',
+            'password.string' => 'لطفا رمز عبور مناسبی وارد کنید',
+        ];
     }
 }

@@ -50,13 +50,31 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => [ 'string', 'email', 'max:255', 'unique:users'],
-            'mobile' => ['required', 'string', 'min:8' , 'unique:users'],
+            'name' => ['required', 'string', 'max:20'],
+            'email' => [ 'max:255', 'unique:users'],
+            'mobile' => ['required', 'min:10','max:12' , 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        ],$this->message());
     }
-
+    public function message(){
+        return [
+            'name.required' => 'وارد کردن نام الزامی می باشد',
+            'mobile.required' => 'وارد کردن شماره موبایل الزامی می باشد',
+            'password.required' => 'وارد کردن رمز عبور الزامی می باشد',
+            'name.string' => 'لطفا یک نام مناسب انتخاب کنید',
+            'name.max' => 'نام کاربری بیشتر از 20 کلمه امکان پذیر نیست',
+            'email.email' => 'فرمت ایمیل نادرست است',
+            'email.max' => 'ایمیل بیشتر از 255 کلمه امکان پذیر نیست',
+            'email.unique' => 'این ایمیل عضو است',
+            'mobile.int' => 'لطفا شماره موبایل مناسبی وارد کنید',
+            'mobile.min' => 'شماره موبایل کمتر از 10 عدد مجاز نیست',
+            'mobile.max' => 'شماره موبایل بیشتر از 12 عدد مجاز نیست',
+            'mobile.unique' => 'این شماره موبایل عضو می باشد',
+            'password.string' => 'لطفا یک پسورد مناسب انتخاب کنید',
+            'password.min' => 'رمز عبور کمتر از 8 کلمه مجاز نیست',
+            'password.confirmed' => 'رمز عبور مطابقت ندارد',
+        ];
+    }
     /**
      * Create a new user instance after a valid registration.
      *

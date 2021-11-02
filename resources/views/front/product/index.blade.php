@@ -2,90 +2,7 @@
 
 @section('index')
     <header-vue></header-vue>
-    <nav-bar :user_status="{{auth()->check()}}" :menus="{{$menus}}" :sub_menus="{{$sub_menus}}">
-        <template #menu_mobile>
-            <ul class="menu-for-mobile col-md-8 nav justify-content-end p-1 navbar-light bg-white order-0 order-sm-0 order-md-1 d-flex flex-column text-center">
-                @foreach($menus as $menu)
-                    <li class="nav-item dropdown pointer">
-                        <a @click="show_menu_mobile('menu_'+'{{$menu->id}}')"
-                           class="font-Y color-b-700 f-12 nav-link dropdown-toggle">
-                            {{$menu->name}}
-                        </a>
-                        <ul class="menu_{{$menu->id}} menu-sub-for-mobile menu-for-mobile col-md-8 p-1 bg-white order-0 order-sm-0 order-md-1 text-center"
-                            id="menu_1 menu_bar_mobile">
-                            @foreach($menu->sub_menu as $sub_menu)
-                                <li style="list-style: none" class="p-2 f-11">
-                                    <a class="color-b-500 font-Y" style="text-decoration: none"
-                                       href="">{{$sub_menu->name}}</a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </li>
-                @endforeach
-            </ul>
-        </template>
-        <template #item_panel_and_location>
-            @if(auth()->check())
-                <a style="text-decoration: none!important;"
-                   class="d-inline pointer group-item-location-hearer p-1 ms-2 rounded-3 position-relative">
-                    <i class="bi bi-geo-alt g-3 position-relative ps-2 pe-2 text-color-item-hearer"
-                       style="top: 3px"></i>
-                    <span
-                        class="font-Y f-10 text-color-item-hearer position-relative">برای ثبت ادرس لطفا وارد شوید</span>
-                </a>
-            @else
-                <a v-else style="text-decoration: none!important;" href="/login"
-                   class="d-inline pointer group-item-location-hearer p-1 ms-2 rounded-3 position-relative">
-                    <i class="bi bi bi-person g-3 position-relative ps-2 pe-2 text-color-item-hearer"
-                       style="top: 3px"></i>
-                    <span id="test" class="font-Y f-10 text-color-item-hearer position-relative">ورود / عضویت</span>
-                </a>
-            @endif
-        </template>
-        <template #item_panel_and_location_mobile>
-            @if(auth()->check())
-                <a style="text-decoration: none!important;"
-                   class="d-inline pointer group-item-location-hearer p-1 ms-2 rounded-3 position-relative">
-                    <i class="bi bi-geo-alt g-3 position-relative ps-2 pe-2 text-color-item-hearer"
-                       style="top: 3px"></i>
-                    <span
-                        class="font-Y f-10 text-color-item-hearer position-relative">برای ثبت ادرس لطفا وارد پنل شوید</span>
-                </a>
-            @else
-                <a style="text-decoration: none!important;" href="/login"
-                   class="d-inline pointer group-item-location-hearer p-1 ms-2 rounded-3 position-relative">
-                    <i class="bi bi bi-person g-3 position-relative ps-2 pe-2 text-color-item-hearer"></i>
-                    <span class="font-Y f-10 text-color-item-hearer position-relative">ورود / عضویت</span>
-                </a>
-            @endif
-        </template>
-        <template #view_card>
-            @if(auth()->check())
-                <div class="col-4 bg-white position-absolute overflow-hidden left-0 rounded-3 shadow box-item-card"
-                     style="height: 300px;z-index: 15">
-                    <div class="p-2 w-100 position-absolute top-0 overflow-scroll" style="height: 250px;">
-                        <div
-                            class="w-100 my-2 p-2 shadow-sm rounded-3 d-flex justify-content-between align-items-center item-card-view"
-                            style="height: 100px">
-                            <img src="/image/product/product_6.jpg" alt="" class="h-100">
-                            <span class="font-Y color-b-700 f-11">قیمت تک : 25000</span>
-                            <span class="font-Y color-b-700 f-11">تعداد : 5</span>
-                            <span class="font-Y color-b-700 f-11">نام : متن تستی</span>
-                            <span class="font-Y f-11 pointer" style="color: red"><i class="bi bi-trash"></i></span>
-                        </div>
-                    </div>
-                    <div class="p-2 w-100 position-absolute bottom-0 d-flex justify-content-between align-items-center"
-                         style="background-color:#f5f5f5 ">
-                        <button type="submit"
-                                class="group-item-location-hearer font-Y f-12 border-0 rounded-3 py-2 px-5">
-                            پرداخت
-                        </button>
-                        <span class="font-Y color-b-500 f-15">2520000</span>
-                    </div>
-                </div>
-            @endif
-        </template>
-    </nav-bar>
+    @include('front.include.navbar')
     {{--    Prosuct View--}}
     @include('errors.formAuth')
     <view-product :data="{{$data}}" :image="{{$data->image_product}}">
@@ -124,7 +41,7 @@
             @foreach($data->comments as $comment)
                 @if($comment->where('status',1)->count() == 0)
                     <black-page text="نظری ثبت نشده است" icon="{{url('image/icon/message.png')}}"></black-page>
-                   @break
+                    @break
                 @else
                     @if($comment->status == 1)
                         <div
@@ -138,7 +55,8 @@
                                 class="position-relative name-user-comment">{{$comment->user->name}}</span></span><span
                                     class="float-start f-10 color-b-400">{{jdate($comment->created_at)->format('%B %d، %Y')}}
                                     @auth()
-                                        <i class="bi bi-reply pointer reply-comment" @click="new_comment_reply({{$comment->id}})"></i>
+                                        <i class="bi bi-reply pointer reply-comment"
+                                           @click="new_comment_reply({{$comment->id}})"></i>
                                     @endif
                                 </span>
                             </div>
@@ -210,22 +128,26 @@
                         </div>
                         @foreach($comment->reply_commet as $reply_comment)
                             @if($reply_comment->status == 1)
-                                <div class="col-10 bg-white shadow-sm rounded-3 mt-3 overflow-scroll mt-0 color-b-600 f-13 line-h-30 text-end p-2">
+                                <div
+                                    class="col-10 bg-white shadow-sm rounded-3 mt-3 overflow-scroll mt-0 color-b-600 f-13 line-h-30 text-end p-2">
                                     <span>
-                                                                                <span class="position-relative name-user-comment">{{$reply_comment->user->name}}</span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
-                                       class=" bi bi-person-circle" viewBox="0 0 16 16"><path
-                                        d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path><path fill-rule="evenodd"
-                                                                                            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path></svg>
+                                                                                <span
+                                                                                    class="position-relative name-user-comment">{{$reply_comment->user->name}}</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                                             fill="currentColor"
+                                             class=" bi bi-person-circle" viewBox="0 0 16 16"><path
+                                                d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path><path fill-rule="evenodd"
+                                                                                                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path></svg>
                                         </span>
-                                        <span class="float-start f-10 color-b-400">{{jdate($reply_comment->created_at)->format('%B %d، %Y')}}</span>
+                                    <span
+                                        class="float-start f-10 color-b-400">{{jdate($reply_comment->created_at)->format('%B %d، %Y')}}</span>
                                     <div class="line"></div>
                                     <div class="col-12 box-size-to p-3">
                                         <p>
                                             {{$reply_comment->text}}
                                         </p>
                                     </div>
-                                    </div>
+                                </div>
                                 </div>
                             @endif
                         @endforeach
@@ -382,16 +304,21 @@
                 <h5 class="font-S color-b-700 text-center">پاسخ به کامنت</h5>
                 <div class="line"></div>
                 <div class="form-floating">
-                    <textarea v-model="text_comment" class="form-control form-login text-end h-textarea" dir="rtl" placeholder="پیام" id="floatingTextarea"></textarea>
+                    <textarea v-model="text_comment" class="form-control form-login text-end h-textarea" dir="rtl"
+                              placeholder="پیام" id="floatingTextarea"></textarea>
                     <label class="d-block text-end float-start" dir="rtl" for="floatingTextarea">پیام</label>
                 </div>
                 <button @click="new_comment" type="button" class="btn btn-lg btn-red f-13 mt-3">ارسال</button>
-                <button @click="cls_page_new_comment_reply" type="button" class="btn btn-lg btn-light f-13 ms-3 mt-3">بستن</button>
+                <button @click="cls_page_new_comment_reply" type="button" class="btn btn-lg btn-light f-13 ms-3 mt-3">
+                    بستن
+                </button>
             </div>
         </template>
     </view-product>
 
-    <related-product :products="{{$products->orderBy('id' , 'ASC')->whereMenu_id($data->menu_id)->where('id','!=',$data->id)->get()}}" title="مرتبط ها"></related-product>
+    <related-product
+        :products="{{$products->orderBy('id' , 'ASC')->whereMenu_id($data->menu_id)->where('id','!=',$data->id)->get()}}"
+        title="مرتبط ها"></related-product>
     {{--   End Prosuct View--}}
     <item-vue :items="{{$items}}"></item-vue>
     <footer-vue :link="{{$link_footer}}">

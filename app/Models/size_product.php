@@ -14,5 +14,7 @@ class size_product extends Model
     public function product(){
         return $this->belongsTo(product::class , 'product_id' , 'id');
     }
-
+    public function card(){
+        return $this->hasMany(card::class , 'product_id' , 'id');
+    }
 }

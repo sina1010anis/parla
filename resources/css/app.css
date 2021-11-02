@@ -337,11 +337,6 @@ body{
 .carousel-item img{
     border-radius:0.3rem;
 }
-@media all and (max-width: 768px) {
-    .box-image-banner{
-        height: 300px!important;
-    }
-}
 .item-menu-top{
     transition: 0.2s;
     overflow: hidden;
@@ -678,4 +673,36 @@ transition: 0.5s;
     height: 100px!important;
     min-height: 100px;
     max-height: 200px;
+}
+.box-search{
+    width: 500px;
+    max-width: 100%;
+    z-index: 30;
+    top: 57px;
+    right: 27px;
+    display: none;
+    overflow-y: scroll;
+    max-height: 300px;
+}
+.box-search div{
+    height: 70px;
+    transition: 0.2s;
+}
+.box-search div:hover{
+    background-color: #fafafa;
+}
+.box-search div a{
+    text-decoration: none!important;
+}
+.box-search div img{
+    height: 100%;
+}
+@media all and (max-width: 768px) {
+    .box-image-banner{
+        height: 300px!important;
+    }
+    .box-search{
+        top: 146px;
+        right:0;
+    }
 }

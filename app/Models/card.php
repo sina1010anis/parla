@@ -13,7 +13,7 @@ class card extends Model
         return $this->belongsTo(User::class , 'user_id' , 'id');
     }
     public function product(){
-        return $this->belongsTo(product::class , 'product_id' , 'id');
+        return $this->belongsTo(size_product::class , 'product_id' , 'id');
     }
     protected $attributes = ['status' => 0];
 

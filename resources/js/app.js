@@ -41,6 +41,16 @@ const app = createApp({
         HeaderVue,NavBar, SlideIndex,ItemVue, BannerCenter,BestBuy,BannerEnd,FooterVue,'view-product':View,BlurVue,FormComment,RelatedProduct,BlackPage,
     },
     methods:{
+        delete_product_to_card(id){
+            axios.post('/product/delete/card' , {id:id}).then((res)=>{
+                if (res.data == 'delete'){
+                    this.pm('محصول از سبد خرید حذف شد' , 3000);
+                    $('#card_user_'+id).fadeToggle()
+                }else {
+                    this.pm('مشکلی پیش امده' , 3000);
+                }
+            })
+        },
         new_comment(){
             axios.post('/product/new/comment' , {id:this.id_comment , text:this.text_comment}).then((res)=>{
                 $('.form-comment-reply').fadeToggle()

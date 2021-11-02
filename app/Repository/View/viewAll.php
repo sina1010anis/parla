@@ -2,9 +2,11 @@
 
 namespace App\Repository\View;
 
+use App\Repository\View\Data\about;
 use App\Repository\View\Data\bannerCenter;
 use App\Repository\View\Data\bannerEnd;
 use App\Repository\View\Data\bannerTop;
+use App\Repository\View\Data\card;
 use App\Repository\View\Data\comment;
 use App\Repository\View\Data\item_footer;
 use App\Repository\View\Data\itemAll;
@@ -34,5 +36,7 @@ class viewAll
         View::composer(['*'] , linkFooter::class);
         View::composer(['*'] , saveProduct::class);
         View::composer(['*'] , comment::class);
+        View::composer(['*'] , card::class);
+        View::composer(['*'] , about::class);
     }
 }

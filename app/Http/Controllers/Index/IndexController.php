@@ -20,4 +20,13 @@ class IndexController extends Controller
             return response()->json($menus);
         }
     }
+
+    public function aboutWe(){
+        return view('front.singel_page.about');
+    }
+
+    public function contact()
+    {
+        return view('front.singel_page.contact');
+    }
 }

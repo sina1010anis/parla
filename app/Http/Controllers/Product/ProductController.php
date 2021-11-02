@@ -47,8 +47,9 @@ class ProductController extends Controller
         return $saveProduct->setRequest($request)->unSave();
     }
 
-    public function saveCard(Request $request , Card $card)
-    {
-        return $card->setRequest($request)->checkCard();
+    public function searchProduct(Request $request){
+        $data = product::where('name' , 'LIKE' , '%'.$request->text.'%')->get();
+        return response()->json($data);
     }
+
 }

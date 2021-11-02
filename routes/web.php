@@ -5,6 +5,7 @@ use App\Http\Controllers\Pay\PayController;
 use App\Http\Controllers\Index\IndexController;
 use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Product\Comment\CommentController;
+use App\Http\Controllers\Product\Card\CardController;
 
 
 Route::prefix('/')->group(function (){
@@ -13,15 +14,25 @@ Route::prefix('/')->group(function (){
     Route::get('/logout', function (){
         auth()->logout();
     });
+    Route::get('/about' , [IndexController::class , 'aboutWe'])->name('.about');
 });
 Route::prefix('/product')->as('product')->group(function (){
     Route::get('/{slug}', [ProductController::class , 'show'])->name('.show');
     Route::post('/send/size', [ProductController::class , 'sendSize'])->name('.send.size');
+    Route::post('/search', [ProductController::class , 'searchProduct'])->name('.search.product');
     Route::post('/comment/{idProduct}', [CommentController::class , 'newComment'])->name('.new.comment');
-    Route::post('/save', [ProductController::class , 'saveProduct'])->name('.save.product');
-    Route::post('/save/delete', [ProductController::class , 'saveDeleteProduct'])->name('.save.delete.product');
-    Route::post('/save/card', [ProductController::class , 'saveCard'])->name('.save.card');
     Route::post('/new/comment', [CommentController::class , 'newCommentReply'])->name('.new.comment.reply');
+
+    Route::prefix('/save')->middleware('auth')->group(function (){
+        Route::post('/', [ProductController::class , 'saveProduct'])->name('.save.product');
+        Route::post('/delete', [ProductController::class , 'saveDeleteProduct'])->name('.save.delete.product');
+        Route::post('/card', [CardController::class , 'saveCard'])->name('.save.card');
+    });
+
+    Route::prefix('/delete')->middleware('auth')->group(function (){
+        Route::post('/card', [CardController::class , 'deleteCard'])->name('.delete.card');
+    });
+
 });
 Auth::routes();
 

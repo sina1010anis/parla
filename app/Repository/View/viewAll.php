@@ -5,6 +5,7 @@ namespace App\Repository\View;
 use App\Repository\View\Data\bannerCenter;
 use App\Repository\View\Data\bannerEnd;
 use App\Repository\View\Data\bannerTop;
+use App\Repository\View\Data\comment;
 use App\Repository\View\Data\item_footer;
 use App\Repository\View\Data\itemAll;
 use App\Repository\View\Data\linkFooter;
@@ -32,5 +33,6 @@ class viewAll
         View::composer(['*'] , title_footer::class);
         View::composer(['*'] , linkFooter::class);
         View::composer(['*'] , saveProduct::class);
+        View::composer(['*'] , comment::class);
     }
 }

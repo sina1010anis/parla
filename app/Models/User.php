@@ -41,4 +41,7 @@ class User extends Authenticatable
     public function save_product(){
         return $this->hasMany(save_product::class , 'user_id' , 'id');
     }
+    public function reply_comment(){
+        return $this->hasMany(reply_comment::class , 'user_id' , 'id');
+    }
 }

@@ -15,5 +15,11 @@ class card extends Model
     public function product(){
         return $this->belongsTo(product::class , 'product_id' , 'id');
     }
+    protected $attributes = ['status' => 0];
+
+    public function color()
+    {
+        return $this->belongsTo(color::class , 'color_id' , 'id');
+    }
 }
 

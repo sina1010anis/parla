@@ -650,7 +650,7 @@ transition: 0.5s;
     right: 20px;
 }
 .msg-sm{
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     z-index: 30;
@@ -661,4 +661,21 @@ transition: 0.5s;
 }
 .dis-b{
     display: block;
+}
+.reply-comment{
+    font-size: 25px;
+}
+.form-comment-reply{
+    max-width: 100%;
+    width: 500px;
+    z-index: 30;
+    top: 50%;
+    left: 50%;
+    display: none;
+    transform: translate(-50%,-50%);
+}
+.h-textarea{
+    height: 100px!important;
+    min-height: 100px;
+    max-height: 200px;
 }

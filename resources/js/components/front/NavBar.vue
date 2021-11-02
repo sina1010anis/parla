@@ -34,7 +34,7 @@
                 <i class="d-inline bi bi-x icon-cls-menu-header" @click="cls_menu"></i>
                 <div class="col-6 d-inline">
                     <div class="h-100 obj-center">
-                        <img class="image-to-menu" :src="'/image/menu/'+src_image_menu" alt="name image">
+                        <img class="image-to-menu" :src="(src_image_menu != '') ?'/image/menu/'+src_image_menu : ''" alt="name image">
                     </div>
                 </div>
                 <div class="col-6 group-ul-menu">

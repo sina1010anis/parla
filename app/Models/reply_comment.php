@@ -12,4 +12,8 @@ class reply_comment extends Model
     public function comment(){
         return $this->belongsTo(comment::class , 'comment_id' , 'id');
     }
+    public function user(){
+        return $this->belongsTo(User::class , 'user_id' , 'id');
+    }
+    protected $attributes = ['status' => 0];
 }

@@ -5,11 +5,12 @@ namespace App\Repository\Save;
 use App\Models\save_product;
 use \App\Repository\Create\SaveProduct as Save;
 use \App\Repository\Delete\SaveProduct as SaveDelete;
+use App\Repository\Tools\Message;
 use Illuminate\Http\Request;
 
 class saveProduct
 {
-    use Save , SaveDelete;
+    use Save , SaveDelete , Message;
     protected $request;
     protected $data;
     public function setRequest(Request $request)
@@ -22,10 +23,10 @@ class saveProduct
     {
         if ($this->data == 0){
             $this->create();
-            return 'create';
+            return $this->msgCreate();
         }else{
             $this->delete();
-            return 'delete';
+            return $this->msgDelete();
         }
     }
     public function unSave()

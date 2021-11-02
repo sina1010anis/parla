@@ -106,9 +106,9 @@
             </div>
         </div>
     </div>
-    <div class="row p-2 mt-2 p-2 mt-0 ">
+    <div class="row p-2 mt-2 p-2 mt-0">
         <div class="col-12 p-4 ">
-            <div class="col-12">
+            <div class="col-12 ">
                 <p class="color-b-700 bg-gh f-14 p-2 mb-0" dir="rtl" align="right"> نظرات :</p>
                 <slot name="comment_product"/>
             </div>
@@ -126,6 +126,7 @@
          aria-label="Basic example">
         <slot name="option_user"/>
     </div>
+    <slot name="form_reply_comment"/>
 </template>
 
 <script>

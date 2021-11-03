@@ -15,6 +15,7 @@ import BlurVue from "./components/product/BlurVue";
 import FormComment from "./components/product/FormComment";
 import RelatedProduct from "./components/product/RelatedProduct";
 import BlackPage from "./components/front/BlackPage";
+import MenuVue from "./components/front/MenuVue";
 import { createApp } from 'vue'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import '../css/app.css'
@@ -38,7 +39,7 @@ const app = createApp({
         text_comment:null
     }),
     components: {
-        HeaderVue,NavBar, SlideIndex,ItemVue, BannerCenter,BestBuy,BannerEnd,FooterVue,'view-product':View,BlurVue,FormComment,RelatedProduct,BlackPage,
+        HeaderVue,NavBar, SlideIndex,ItemVue, BannerCenter,BestBuy,BannerEnd,FooterVue,'view-product':View,BlurVue,FormComment,RelatedProduct,BlackPage,MenuVue,
     },
     methods:{
         delete_product_to_card(id){
@@ -136,10 +137,17 @@ const app = createApp({
             setTimeout(()=>{
                 $('.msg-sm').html(msg).fadeOut()
             } , time)
+        },
+        show_menu_item_div(id){
+            $('.ul-menu').stop().slideUp()
+            $('#ul_menu_'+id).stop().slideToggle()
         }
     },
     mounted() {
         setTimeout(()=>{$('.view-err').fadeOut()} , 10000)
+    },
+    created() {
+
     }
 })
 

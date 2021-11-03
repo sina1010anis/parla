@@ -17,4 +17,8 @@ class sub_menu extends Model
     public function products(){
         return $this->hasMany(product::class , 'menu_id' , 'id');
     }
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

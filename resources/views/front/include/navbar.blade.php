@@ -12,7 +12,7 @@
                         @foreach($menu->sub_menu as $sub_menu)
                             <li style="list-style: none" class="p-2 f-11">
                                 <a class="color-b-500 font-Y" style="text-decoration: none"
-                                   href="">{{$sub_menu->name}}</a>
+                                   href="{{route('category.show' , $sub_menu->slug)}}">{{$sub_menu->name}}</a>
                             </li>
                         @endforeach
                     </ul>

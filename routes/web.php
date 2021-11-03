@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Pay\PayController;
 use App\Http\Controllers\Index\IndexController;
 use App\Http\Controllers\Product\ProductController;
+use App\Http\Controllers\Product\Category\CategoryController;
 use App\Http\Controllers\Product\Comment\CommentController;
 use App\Http\Controllers\Product\Card\CardController;
 
@@ -11,10 +12,9 @@ use App\Http\Controllers\Product\Card\CardController;
 Route::prefix('/')->group(function (){
     Route::get('', [IndexController::class , 'index'])->name('index');
     Route::post('/search/menu/header', [IndexController::class , 'searchHeaderMenu']);
-    Route::get('/logout', function (){
-        auth()->logout();
-    });
+    Route::get('/logout', function (){auth()->logout();});
     Route::get('/about' , [IndexController::class , 'aboutWe'])->name('.about');
+    Route::get('/category/{slug}' , [CategoryController::class , 'index'])->name('category.show');
 });
 Route::prefix('/product')->as('product')->group(function (){
     Route::get('/{slug}', [ProductController::class , 'show'])->name('.show');

@@ -40,7 +40,7 @@ export default {
             type:Object
         },
         banner:{
-            type:Object
+            type:String
         }
     }
 }

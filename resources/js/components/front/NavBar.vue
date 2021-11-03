@@ -40,7 +40,7 @@
                 <div class="col-6 group-ul-menu">
                     <ul class=" list-group list-group-flush text-end">
                         <li v-for="sub_menu in data_sub_menu" class="list-group-item list-group-item-action pointer" @mouseover="hove_item_menu(sub_menu.image)">
-                            <a href="#" style="text-decoration: none" class="text-secondary text-opacity-25 font-Y f-13" >{{sub_menu.name}}</a>
+                            <a :href="'/category/'+sub_menu.slug" style="text-decoration: none" class="text-secondary text-opacity-25 font-Y f-13" >{{sub_menu.name}}</a>
                         </li>
                     </ul>
                 </div>

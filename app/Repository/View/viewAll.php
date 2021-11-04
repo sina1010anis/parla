@@ -11,7 +11,9 @@ use App\Repository\View\Data\comment;
 use App\Repository\View\Data\item_footer;
 use App\Repository\View\Data\itemAll;
 use App\Repository\View\Data\linkFooter;
+use App\Repository\View\Data\logo_footer;
 use App\Repository\View\Data\menu;
+use App\Repository\View\Data\namd;
 use App\Repository\View\Data\products;
 use App\Repository\View\Data\saveProduct;
 use App\Repository\View\Data\sliderAll;
@@ -38,5 +40,7 @@ class viewAll
         View::composer(['*'] , comment::class);
         View::composer(['*'] , card::class);
         View::composer(['*'] , about::class);
+        View::composer(['*'] , logo_footer::class);
+        View::composer(['*'] , namd::class);
     }
 }

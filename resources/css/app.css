@@ -751,3 +751,34 @@ transition: 0.5s;
 .item-menu-div-group .ul-menu{
     display: none;
 }
+.box-item-logo img{
+    max-width: 120px;
+}
+.box-item-panel-user i{
+    font-size: 18px;
+    transition: 0.2s;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #ffefcc;
+    color: #c1ab70;
+}
+.box-item-panel-user i:hover{
+    box-shadow: 1px 1px 10px rgba(92, 92, 92, 0.25);
+}
+.item-menu-panel-user:after{
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 0;
+    background-color: #c1ab70;
+    right: 0;
+    transition: 0.2s;
+    bottom: 0;
+}
+.item-menu-panel-user:hover:after{
+    content: '';
+    height: 100%;
+}
+.item-menu-panel-user:hover{
+    background-color: #fff9f2;
+}

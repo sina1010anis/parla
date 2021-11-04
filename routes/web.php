@@ -12,7 +12,6 @@ use App\Http\Controllers\Product\Card\CardController;
 Route::prefix('/')->group(function (){
     Route::get('', [IndexController::class , 'index'])->name('index');
     Route::post('/search/menu/header', [IndexController::class , 'searchHeaderMenu']);
-    Route::get('/logout', function (){auth()->logout();});
     Route::get('/about' , [IndexController::class , 'aboutWe'])->name('.about');
     Route::get('/category/{slug}' , [CategoryController::class , 'index'])->name('category.show');
 });
@@ -34,6 +33,14 @@ Route::prefix('/product')->as('product')->group(function (){
     });
 
 });
+
+Route::prefix('/user')->as('user')->middleware('auth')->group(function(){
+
+});
+Route::get('/logout', function (){
+    auth()->logout();
+    return redirect()->route('index');
+})->name('logout');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

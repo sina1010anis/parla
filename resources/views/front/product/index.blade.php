@@ -1,7 +1,7 @@
 @extends('front.index')
 
 @section('index')
-    <header-vue></header-vue>
+    @include('front.include.hedare')
     @include('front.include.navbar')
     {{--    Prosuct View--}}
     @include('errors.formAuth')

@@ -21,7 +21,7 @@
                     <div v-else class="card-body">
                         <p class="font-Y text-center color-b-900 f-14"><b>{{product.name}}</b></p>
                         <span class="offer-item font-Y f-12 text-white obj-center">{{product.discount}}%</span>
-                        <p class="font-Y text-center color-b-800"><del class="f-13 me-2 color-b-400">{{ product.price }}</del>15000</p>
+                        <p class="font-Y text-center color-b-800"><del class="f-13 me-2 color-b-400">{{ product.price }}</del>{{ product.price - (product.price * (product.discount / 100)) }}</p>
                         <div class="d-flex justify-content-between">
                             <a :href="'/product/'+product.slug" class="btn btn-ot-red font-Y f-12 float-end" dir="rtl">بیشتر...</a>
                         </div>

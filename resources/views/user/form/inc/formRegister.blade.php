@@ -10,7 +10,7 @@
                     <input name="mobile" type="number" class="form-control form-login f-14 color-b-600 @error('mobile') is-invalid @enderror" value="{{old('mobile')}}" dir="rtl" align="right" id="input_mobile" placeholder="شماره موبایل...">
                 </div>
                 <div class="mb-3 col-12 col-md-6">
-                    <label for="input_name" class="form-label d-block text-end f-11 color-b-500">نام</label>
+                    <label for="input_name" class="form-label d-block text-end f-11 color-b-500">نام نام خانوادگی</label>
                     <input name="name" type="text" class="form-control form-login f-14 color-b-600 @error('name') is-invalid @enderror" value="{{old('name')}}" dir="rtl" align="right" id="input_name" placeholder="نام...">
                 </div>
                 <div class="mb-3 col-12">

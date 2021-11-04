@@ -5,7 +5,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Parla</title>
-    <link rel="shortcut icon" href="{{url('image/design/parla.png')}}">
+    <link rel="shortcut icon" href="{{url('image/logo/'.$logo_footer->src)}}">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 </head>
 <body>

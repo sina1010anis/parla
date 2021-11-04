@@ -3,7 +3,7 @@
         <header
             class="bg-white d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3">
             <a href="/" class="ms-md-3 d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-                <img width="40" src="/image/design/parla.png" alt="">
+                <img width="40" :src="'/image/logo/'+logo.src" alt="">
             </a>
 
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 font-Y">
@@ -45,6 +45,11 @@ export default {
         text_search: '',
         filed_search: ''
     }),
+    props:{
+        logo:{
+            type:Object
+        }
+    },
     methods: {
         search_product() {
             if (this.text_search != '') {

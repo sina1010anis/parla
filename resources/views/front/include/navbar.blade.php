@@ -22,6 +22,11 @@
     </template>
     <template #item_panel_and_location>
         @if(auth()->check())
+            <a href="{{route('home')}}" style="text-decoration: none!important;"
+               class="d-inline pointer group-item-location-hearer p-1 ms-2 rounded-3 position-relative">
+                <i class="bi bi-person g-3 position-relative ps-2 pe-2 text-color-item-hearer"
+                   style="top: 3px"></i>
+            </a>
             <a style="text-decoration: none!important;"
                class="d-inline pointer group-item-location-hearer p-1 ms-2 rounded-3 position-relative">
                 <i class="bi bi-geo-alt g-3 position-relative ps-2 pe-2 text-color-item-hearer"
@@ -40,6 +45,11 @@
     </template>
     <template #item_panel_and_location_mobile>
         @if(auth()->check())
+            <a href="{{route('home')}}" style="text-decoration: none!important;"
+               class="d-inline pointer group-item-location-hearer p-1 ms-2 rounded-3 position-relative">
+                <i class="bi bi-person g-3 position-relative ps-2 pe-2 text-color-item-hearer"
+                   style="top: 3px"></i>
+            </a>
             <a style="text-decoration: none!important;"
                class="d-inline pointer group-item-location-hearer p-1 ms-2 rounded-3 position-relative">
                 <i class="bi bi-geo-alt g-3 position-relative ps-2 pe-2 text-color-item-hearer"

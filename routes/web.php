@@ -22,7 +22,7 @@ Route::prefix('/product')->as('product')->group(function (){
     Route::post('/comment/{idProduct}', [CommentController::class , 'newComment'])->name('.new.comment');
     Route::post('/new/comment', [CommentController::class , 'newCommentReply'])->name('.new.comment.reply');
 
-    Route::prefix('/save')->middleware('auth')->group(function (){
+    Route::prefix('/save')->group(function (){
         Route::post('/', [ProductController::class , 'saveProduct'])->name('.save.product');
         Route::post('/delete', [ProductController::class , 'saveDeleteProduct'])->name('.save.delete.product');
         Route::post('/card', [CardController::class , 'saveCard'])->name('.save.card');
@@ -40,7 +40,7 @@ Route::prefix('/user')->as('user')->middleware('auth')->group(function(){
 Route::get('/logout', function (){
     auth()->logout();
     return redirect()->route('index');
-})->name('logout');
+})->name('logoutT');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

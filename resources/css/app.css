@@ -782,3 +782,11 @@ transition: 0.5s;
 .item-menu-panel-user:hover{
     background-color: #fff9f2;
 }
+.model-color{
+    top: 10px;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

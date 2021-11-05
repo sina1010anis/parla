@@ -1,5 +1,5 @@
 <template>
-    <div class="row mt-5 mb-0 bg-white">
+    <div class="row mt-3 mb-0 bg-white">
         <div v-for="item in items" class="col-12 col-md-6 col-lg-3 g-2 p-2 ">
             <div class="row">
                 <div class="col-8  p-1">

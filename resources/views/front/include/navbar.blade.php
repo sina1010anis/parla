@@ -80,12 +80,13 @@
                             @endphp
                             <div
                                 id="card_user_{{$card->id}}"
-                                class="w-100 my-2 p-2 shadow-sm rounded-3 d-flex justify-content-between align-items-center item-card-view"
+                                class="w-100 my-2 p-2 position-relative shadow-sm rounded-3 d-flex justify-content-between align-items-center item-card-view"
                                 style="height: 100px">
                                 <img src="/image/product/{{$card->product->product->image}}" alt="" class="h-100">
                                 <span class="font-Y color-b-700 f-11">قیمت کل : {{$card->total_price}}</span>
                                 <span class="font-Y color-b-700 f-11">تعداد : {{$card->number}}</span>
                                 <span class="font-Y color-b-700 f-11">نام : {{$card->product->product->name}}</span>
+                                <span class="position-absolute model-color rounded-circle" style="background-image: url('/image/color/{{$card->color->code}}')"></span>
                                 <span class="font-Y f-11 pointer" style="color: red"><i
                                         @click="delete_product_to_card({{$card->id}})"
                                         class="bi bi-trash"></i></span>

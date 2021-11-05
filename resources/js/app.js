@@ -126,9 +126,10 @@ const app = createApp({
             axios.post('/product/save/card',
                 {id:this.id_size_product , color:this.color.id})
                 .then((res)=>{
-                    //return console.log(res.data);
                     if (res.data == 'ok'){
                         this.pm('محصول به سبد خرید شما اضافه شد' );
+                    }else{
+                        this.pm('لطفا وارد شوید' );
                     }
                 })
         },

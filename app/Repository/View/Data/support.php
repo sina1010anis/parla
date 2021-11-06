@@ -8,6 +8,7 @@ class support
 {
     public function compose(View $view)
     {
-        return $view->with('supports' , SupportModel::whereSender(auth()->user()->id)->get());
+        if(auth()->check())
+            return $view->with('supports' , SupportModel::whereSender(auth()->user()->id)->get());
     }
 }

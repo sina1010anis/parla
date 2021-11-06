@@ -4,3 +4,6 @@ function dic($price , $dic){
     $total_price = $price - ($price * $discount );
     return $total_price;
 }
+function j_date($date){
+    return jdate($date)->format('%B %d، %Y');
+}

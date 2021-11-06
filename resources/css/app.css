@@ -871,3 +871,6 @@ transition: 0.5s;
     border: none;
 
 }
+.icon-edit-proile:hover{
+    color: #ff3333 !important;
+}

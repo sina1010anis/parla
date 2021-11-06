@@ -15,6 +15,7 @@ use App\Repository\View\Data\logo_footer;
 use App\Repository\View\Data\menu;
 use App\Repository\View\Data\namd;
 use App\Repository\View\Data\products;
+use App\Repository\View\Data\save;
 use App\Repository\View\Data\saveProduct;
 use App\Repository\View\Data\sliderAll;
 use App\Repository\View\Data\subMenu;
@@ -44,5 +45,6 @@ class viewAll
         View::composer(['*'] , logo_footer::class);
         View::composer(['*'] , namd::class);
         View::composer(['*'] , support::class);
+        View::composer(['*'] , save::class);
     }
 }

@@ -12,14 +12,18 @@
 <div id="app" class="container-fluid box-am overflow-hidden">
     @include('front.include.hedare')
     @include('front.include.navbar')
+    @include('errors.formAuth')
     <div class="row">
         <div class="col-12 col-lg-9 my-3 order-2 order-lg-1">
-            @yield('index')
+            <div class="row ms-0 w-100 bg-white rounded-3 shadow p-2 h-100" style="min-height: 595px">
+                @yield('index')
+            </div>
         </div>
         <div class="col-12 col-lg-3  my-3 order-1 order-lg-2">
             @include('user.include.menu')
         </div>
     </div>
+    <blur-vue></blur-vue>
     @include('front.include.footer')
 </div>
 </body>

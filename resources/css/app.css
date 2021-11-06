@@ -520,6 +520,12 @@ transition: 0.5s;
 .bg-gh{
     background-color: #fdf3d2;
 }
+.bg-gh-d{
+    background-color: rgba(208, 115, 0, 0.64);
+}
+.bg-gh-d-g{
+    background-image: linear-gradient(45deg, rgba(208, 115, 0, 0.64) , rgba(236, 134, 0, 0.64));
+}
 .bg-gh-dark{
     background-color: #ff5454;
 }
@@ -674,6 +680,11 @@ transition: 0.5s;
     min-height: 100px;
     max-height: 200px;
 }
+.w-textarea{
+    width: 100%!important;
+    min-width: 100%;
+    max-width: 100%;
+}
 .box-search{
     width: 500px;
     max-width: 100%;
@@ -789,4 +800,74 @@ transition: 0.5s;
     height: 25px;
     background-size: cover;
     background-repeat: no-repeat;
+}
+.item-menu-panel-user{
+    transition: 0.5s;
+}
+.h-p-100{
+    height: 100px;
+}
+.h-p-200{
+    height: 200px;
+}
+.h-p-300{
+    height: 300px;
+}
+.h-p-400{
+    height: 400px;
+}
+.h-p-500{
+    height: 500px;
+}
+.h-p-600{
+    height: 600px;
+}
+.h-p-700{
+    height:700px;
+}
+.h-p-800{
+    height: 800px;
+}
+.h-p-595{
+    height: 595px;
+}
+.h-148{
+    height: 148px;
+}
+.pm-my div{
+    border-radius: 5px 20px 20px 5px;
+    float: right;
+    background-color: #e2ffed;
+}
+.pm-to div{
+    border-radius: 20px 5px 5px 20px;
+    float: left;
+    background-color: #f1f1f1;
+}
+.bi-plus-circle-fill{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #4f71ff;
+    font-size: 20px;
+}
+.page-new{
+    width: 500px;
+    max-width: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 27;
+    transform: translate(-50%,-50%);
+    padding: 10px;
+    display: none;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 1px 1px 10px rgba(0,0,0,.5);
+}
+.page-new textarea{
+    outline: none;
+    background-color: #f8f8f8;
+    border: none;
+
 }

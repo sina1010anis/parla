@@ -44,4 +44,7 @@ class User extends Authenticatable
     public function reply_comment(){
         return $this->hasMany(reply_comment::class , 'user_id' , 'id');
     }
+    public function supoort(){
+        return $this->hasMany(support::class , 'sender' , 'id');
+    }
 }

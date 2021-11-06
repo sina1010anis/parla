@@ -7,6 +7,8 @@ use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Product\Category\CategoryController;
 use App\Http\Controllers\Product\Comment\CommentController;
 use App\Http\Controllers\Product\Card\CardController;
+use App\Http\Controllers\User\UserController;
+use \App\Http\Controllers\User\UserNewController;
 
 
 Route::prefix('/')->group(function (){
@@ -35,7 +37,18 @@ Route::prefix('/product')->as('product')->group(function (){
 });
 
 Route::prefix('/user')->as('user')->middleware('auth')->group(function(){
-
+    Route::get('/tracking' , [UserController::class , 'tracking'])->name('.tracking');
+    Route::get('/cart' , [UserController::class , 'cart'])->name('.cart');
+    Route::get('/address' , [UserController::class , 'address'])->name('.address');
+    Route::get('/custom' , [UserController::class , 'custom'])->name('.custom');
+    Route::get('/calculator' , [UserController::class , 'calculator'])->name('.calculator');
+    Route::get('/support' , [UserController::class , 'support'])->name('.support');
+    Route::get('/profile' , [UserController::class , 'profile'])->name('.profile');
+    Route::get('/save' , [UserController::class , 'save'])->name('.save');
+    Route::get('/message' , [UserController::class , 'message'])->name('.message');
+    Route::prefix('/new')->as('.new')->group(function (){
+        Route::post('/comment/support' , [UserNewController::class , 'index'])->name('.support');
+    });
 });
 Route::get('/logout', function (){
     auth()->logout();

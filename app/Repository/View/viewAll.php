@@ -18,6 +18,7 @@ use App\Repository\View\Data\products;
 use App\Repository\View\Data\saveProduct;
 use App\Repository\View\Data\sliderAll;
 use App\Repository\View\Data\subMenu;
+use App\Repository\View\Data\support;
 use App\Repository\View\Data\title_footer;
 use Illuminate\Support\Facades\View;
 
@@ -42,5 +43,6 @@ class viewAll
         View::composer(['*'] , about::class);
         View::composer(['*'] , logo_footer::class);
         View::composer(['*'] , namd::class);
+        View::composer(['*'] , support::class);
     }
 }

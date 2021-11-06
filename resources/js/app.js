@@ -16,6 +16,7 @@ import FormComment from "./components/product/FormComment";
 import RelatedProduct from "./components/product/RelatedProduct";
 import BlackPage from "./components/front/BlackPage";
 import MenuVue from "./components/front/MenuVue";
+import CountVue from "./components/front/CountVue";
 import { createApp } from 'vue'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import '../css/app.css'
@@ -36,10 +37,11 @@ const app = createApp({
         },
         price_dic:null,
         id_comment:null,
-        text_comment:null
+        text_comment:null,
+        text_send:'متن پیام'
     }),
     components: {
-        HeaderVue,NavBar, SlideIndex,ItemVue, BannerCenter,BestBuy,BannerEnd,FooterVue,'view-product':View,BlurVue,FormComment,RelatedProduct,BlackPage,MenuVue,
+        HeaderVue,NavBar, SlideIndex,ItemVue, BannerCenter,BestBuy,BannerEnd,FooterVue,'view-product':View,BlurVue,FormComment,RelatedProduct,BlackPage,MenuVue,CountVue,
     },
     methods:{
         delete_product_to_card(id){
@@ -70,6 +72,7 @@ const app = createApp({
         },
         cls_page_new_comment_reply(){
             $('.form-comment-reply').fadeToggle()
+            $('.page-new').fadeToggle()
             $('.blur').fadeToggle()
         },
         show_form_comment(){
@@ -142,6 +145,20 @@ const app = createApp({
         show_menu_item_div(id){
             $('.ul-menu').stop().slideUp()
             $('#ul_menu_'+id).stop().slideToggle()
+        },
+        open_page(){
+            $('.blur').fadeToggle()
+            $('.page-new').fadeToggle()
+        },
+        new_comment_support(){
+            axios.post('/user/new/comment/support' , {text:this.text_send}).then((res)=>{
+                $('.blur').fadeOut()
+                $('.page-new').fadeOut()
+                this.text_send = 'متن پیام';
+                if (res.data == 'create'){
+                    this.pm('ارسال شد' , 2000);
+                }
+            })
         }
     },
     mounted() {

@@ -4,10 +4,10 @@ namespace App\Repository\Support;
 
 use App\Models\support;
 use App\Models\User;
+use App\Repository\Create\Create;
 use App\Repository\Tools\Message;
 use Illuminate\Http\Request;
-
-class NewSupport
+class NewSupport extends Create
 {
     use Message;
 
@@ -21,10 +21,7 @@ class NewSupport
 
     public function newComment()
     {
-        support::create([
-            'text' => $this->request->text,
-            'sender' => auth()->user()->id,
-        ]);
+        $this->createSupport($this->request);
         return $this->msgCreate();
     }
 

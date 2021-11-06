@@ -3,6 +3,7 @@
 namespace App\Repository\Comment;
 
 use App\Models\comment;
+use App\Repository\Create\Create;
 use App\Repository\Tools\Back;
 use App\Repository\Tools\Check;
 use Carbon\Carbon;
@@ -10,9 +11,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Repository\Create\Comment as CreateComment;
 
-class CommentProduct implements CommentProductInterface
+class CommentProduct extends Create implements CommentProductInterface
 {
-    use Check , CreateComment;
+    use Check;
 
     protected $request = null;
     protected $nameImage = null;
@@ -28,7 +29,7 @@ class CommentProduct implements CommentProductInterface
     public function sendComment()
     {
         if ($this->checkProduct($this->id)) {
-            $this->create();
+            $this->createComment();
             return redirect()->back()->with('success' , 'با تشکر از نظر شما بعد از تایید منتشر می شود');
         }else{
             return redirect()->back()->with('warning' , 'مشکلی پیش امده است');

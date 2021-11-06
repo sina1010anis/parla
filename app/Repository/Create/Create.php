@@ -2,9 +2,27 @@
 
 namespace App\Repository\Create;
 
-trait Comment
+use App\Models\support as SupportModel;
+use Illuminate\Http\Request;
+
+abstract class Create
 {
-    public function create()
+    use Card;
+    public function createSupport(Request $request)
+    {
+        SupportModel::create([
+            'text' => $this->request->text,
+            'sender' => auth()->user()->id,
+        ]);
+    }
+    public function createSaveProduct()
+    {
+        \App\Models\save_product::create([
+            'user_id' => auth()->user()->id,
+            'product_id' => $this->request->product,
+        ]);
+    }
+    public function createComment()
     {
         \App\Models\comment::create([
             'title' => $this->request->title,

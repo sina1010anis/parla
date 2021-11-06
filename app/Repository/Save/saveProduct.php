@@ -3,14 +3,14 @@
 namespace App\Repository\Save;
 
 use App\Models\save_product;
-use \App\Repository\Create\SaveProduct as Save;
+use App\Repository\Create\Create;
 use \App\Repository\Delete\SaveProduct as SaveDelete;
 use App\Repository\Tools\Message;
 use Illuminate\Http\Request;
 
-class saveProduct
+class saveProduct extends Create
 {
-    use Save , SaveDelete , Message;
+    use  SaveDelete , Message;
     protected $request;
     protected $data;
     public function setRequest(Request $request)
@@ -22,7 +22,7 @@ class saveProduct
     public function onSave()
     {
         if ($this->data == 0){
-            $this->create();
+            $this->createSaveProduct();
             return $this->msgCreate();
         }else{
             $this->delete();

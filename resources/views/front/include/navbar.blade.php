@@ -22,17 +22,27 @@
     </template>
     <template #item_panel_and_location>
         @if(auth()->check())
-            <a href="{{route('home')}}" style="text-decoration: none!important;"
-               class="d-inline pointer group-item-location-hearer p-1 ms-2 rounded-3 position-relative">
-                <i class="bi bi-person g-3 position-relative ps-2 pe-2 text-color-item-hearer"
-                   style="top: 3px"></i>
-            </a>
-            <a style="text-decoration: none!important;"
+            @if(auth()->user()->address_id == 0)
+            <a href="{{route('user.address')}}" style="text-decoration: none!important;"
                class="d-inline pointer group-item-location-hearer p-1 ms-2 rounded-3 position-relative">
                 <i class="bi bi-geo-alt g-3 position-relative ps-2 pe-2 text-color-item-hearer"
                    style="top: 3px"></i>
                 <span
                     class="font-Y f-10 text-color-item-hearer position-relative">برای ثبت ادرس لطفا وارد شوید</span>
+            </a>
+            @else
+                <a href="{{route('user.address')}}" style="text-decoration: none!important;"
+                   class="d-inline pointer group-item-location-hearer p-1 ms-2 rounded-3 position-relative">
+                    <i class="bi bi-geo-alt g-3 position-relative ps-2 pe-2 text-color-item-hearer"
+                       style="top: 3px;color: #ffffff!important;"></i>
+                    <span
+                        class="font-Y f-10 text-color-item-hearer position-relative">{{$address_select->city->name}}</span>
+                </a>
+            @endif
+            <a href="{{route('home')}}" style="text-decoration: none!important;"
+               class="d-inline pointer group-item-location-hearer p-1 ms-2 rounded-3 position-relative">
+                <i class="bi bi-person g-3 position-relative ps-2 pe-2 text-color-item-hearer"
+                   style="top: 3px"></i>
             </a>
         @else
             <a v-else style="text-decoration: none!important;" href="/login"

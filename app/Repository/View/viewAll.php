@@ -3,10 +3,13 @@
 namespace App\Repository\View;
 
 use App\Repository\View\Data\about;
+use App\Repository\View\Data\address;
+use App\Repository\View\Data\address_select;
 use App\Repository\View\Data\bannerCenter;
 use App\Repository\View\Data\bannerEnd;
 use App\Repository\View\Data\bannerTop;
 use App\Repository\View\Data\card;
+use App\Repository\View\Data\city;
 use App\Repository\View\Data\comment;
 use App\Repository\View\Data\item_footer;
 use App\Repository\View\Data\itemAll;
@@ -21,6 +24,7 @@ use App\Repository\View\Data\sliderAll;
 use App\Repository\View\Data\subMenu;
 use App\Repository\View\Data\support;
 use App\Repository\View\Data\title_footer;
+use App\Repository\View\Data\state;
 use Illuminate\Support\Facades\View;
 
 class viewAll
@@ -46,5 +50,9 @@ class viewAll
         View::composer(['*'] , namd::class);
         View::composer(['*'] , support::class);
         View::composer(['*'] , save::class);
+        View::composer(['*'] , state::class);
+        View::composer(['*'] , city::class);
+        View::composer(['*'] , address::class);
+        View::composer(['*'] , address_select::class);
     }
 }

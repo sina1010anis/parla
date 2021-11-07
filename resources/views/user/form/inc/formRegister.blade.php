@@ -25,20 +25,22 @@
                     <label for="input_password" class="form-label d-block text-end f-11 color-b-500">رمز عبور</label>
                     <input name="password" type="password" class="form-control form-login color-b-600 f-14 @error('password') is-invalid @enderror" dir="rtl" align="right" id="input_password" placeholder="پسورد...">
                 </div>
-
+                <div class="mb-3">
+                    <div class="g-recaptcha" data-sitekey="{!! env('RECAPTCHA_SITE_KEY' , '6Lf2euYbAAAAAGIymqU4o_v83Ob8X3kFuMVNtEyN') !!}"></div>
+                </div>
                 <br>
                 <div class="col-12">
                     <button class="btn bg-gh color-b-600 px-5" type="submit">ثبت نام</button>
                 </div>
             </form>
             <p class="text-end color-b-600 f-12">برای ورود به سایت <a href="{{route('login')}}">کلیک کنید</a></p>
-            <div class="line"></div>
-            <div class="color-b-700 position-relative or-text text-center">
-                <span class="bg-white  px-3 color-b-700 f-14">یا</span>
-            </div>
-            <div class="col-12 obj-center">
-                <a href="#" class="btn btn-danger" type="button">  <i class="bi bi-google"></i>  Google  </a>
-            </div>
+{{--            <div class="line"></div>--}}
+{{--            <div class="color-b-700 position-relative or-text text-center">--}}
+{{--                <span class="bg-white  px-3 color-b-700 f-14">یا</span>--}}
+{{--            </div>--}}
+{{--            <div class="col-12 obj-center">--}}
+{{--                <a href="#" class="btn btn-danger" type="button">  <i class="bi bi-google"></i>  Google  </a>--}}
+{{--            </div>--}}
         </div>
         <div class="col-12 col-lg-6 d-none d-lg-block">
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">

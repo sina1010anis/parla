@@ -9,6 +9,7 @@ use App\Http\Controllers\Product\Comment\CommentController;
 use App\Http\Controllers\Product\Card\CardController;
 use App\Http\Controllers\User\UserController;
 use \App\Http\Controllers\User\UserNewController;
+use \App\Http\Controllers\User\Auth\GoogleAuthController;
 
 
 Route::prefix('/')->group(function (){
@@ -48,12 +49,15 @@ Route::prefix('/user')->as('user')->middleware('auth')->group(function(){
     Route::get('/message' , [UserController::class , 'message'])->name('.message');
     Route::prefix('/new')->as('.new')->group(function (){
         Route::post('/comment/support' , [UserNewController::class , 'index'])->name('.support');
+        Route::post('/address' , [UserController::class , 'newAddress'])->name('.address');
+    });
+    Route::prefix('edit')->as('.edit')->group(function(){
+        Route::post('/profile' , [UserController::class , 'editProfile'])->name('.profile');
+        Route::post('/address' , [UserController::class , 'editAddress'])->name('.address');
     });
 });
-Route::get('/logout', function (){
-    auth()->logout();
-    return redirect()->route('index');
-})->name('logoutT');
+Route::get('/google-login', [GoogleAuthController::class , 'redirectToProvider'])->name('auth.google');
+Route::get('/callback', [GoogleAuthController::class , 'handleProviderCallback'])->name('auth.callback');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

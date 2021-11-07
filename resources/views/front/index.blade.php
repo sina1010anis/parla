@@ -7,6 +7,7 @@
     <title>Parla</title>
     <link rel="shortcut icon" href="{{url('image/logo/'.$logo_footer->src)}}">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
 <div id="app" class="container-fluid box-am overflow-hidden">

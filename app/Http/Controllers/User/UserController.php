@@ -3,36 +3,111 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\address;
+use App\Models\User;
+use App\Repository\Tools\Message;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    use Message;
     public function tracking()
     {
         return view('user.page.tracking');
     }
-    public function cart(){
+
+    public function cart()
+    {
         return view('user.page.cart');
     }
-    public function address(){
+
+    public function address()
+    {
         return view('user.page.address');
     }
-    public function custom(){
+
+    public function custom()
+    {
         return view('user.page.custom');
     }
-    public function calculator(){
+
+    public function calculator()
+    {
         return view('user.page.calculator');
     }
-    public function support(){
+
+    public function support()
+    {
         return view('user.page.support');
     }
-    public function profile(){
+
+    public function profile()
+    {
         return view('user.page.profile');
     }
-    public function save(){
+
+    public function save()
+    {
         return view('user.page.save');
     }
-    public function message(){
+
+    public function message()
+    {
         return view('user.page.message');
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+        return redirect()->route('index');
+    }
+
+    public function validateEditProfile(Request $request)
+    {
+        if (empty($request->text)||empty($request->name)){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    public function editProfile(Request $request)
+    {
+        if ($this->validateEditProfile($request)){
+            User::whereId(auth()->user()->id)->update([$request->name => $request->text]);
+            if ($request->name == 'password' || $request->name == 'mobile'){
+                auth()->logout();
+            }
+            return $this->msgOk();
+        }else{
+            return $this->msgNo();
+        }
+    }
+
+    public function newAddress(Request $request)
+    {
+        $data = $request->data;
+        if (!empty($data['state']) || !empty($data['city']) || !empty($data['address'])){
+             address::create([
+                'city_id' => $data['state'],
+                'state_id' => $data['city'],
+                'address' => $data['address'],
+                'user_id' => auth()->user()->id,
+            ]);
+             return $this->msgSuccess();
+        }else{
+            return $this->msgWarning();
+        }
+    }
+
+    public function editAddress(Request $request)
+    {
+        if (!empty($request->id)){
+            User::whereId(auth()->user()->id)->update(['address_id' => $request->id]);
+            return $this->msgOk();
+        }else{
+            return $this->msgNo();
+        }
+
     }
 }

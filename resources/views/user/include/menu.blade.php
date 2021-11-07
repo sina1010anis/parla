@@ -46,7 +46,12 @@
             </li>
             <li style="list-style: none" class="text-end p-3 pointer item-menu-panel-user rounded-3 position-relative">
                 <a href="{{route('logout')}}" class="w-100 h-100">
-                    <div class="d-inline-block me-3 f-13 position-relative color-b-700" style="bottom: 2px">خروج</div>
+                    <div class="d-inline-block me-3 f-13 position-relative color-b-700" style="bottom: 2px">
+                        <form action="{{route('logout')}}" method="post">
+                            @csrf
+                            <button class="unset" type="submit">خروج</button>
+                        </form>
+                    </div>
                     <div class="d-inline-block text-end f-20"><i style="color:#ff6060" class="bi bi-x-square"></i></div>
                 </a>
             </li>

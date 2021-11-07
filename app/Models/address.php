@@ -11,6 +11,8 @@ class address extends Model
 
     protected $guarded = [];
 
+    public $timestamps = false;
+
     public function city(){
         return $this->belongsTo(city::class , 'city_id' , 'id');
     }

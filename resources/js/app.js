@@ -38,12 +38,97 @@ const app = createApp({
         price_dic:null,
         id_comment:null,
         text_comment:null,
-        text_send:'متن پیام'
+        text_send:'متن پیام',
+        text_edit:'',
+        name_input:'',
+        name_page:'',
+        tipText:null,
+        address:{
+            'state':'',
+            'city':'',
+            'address':'',
+
+        }
     }),
     components: {
         HeaderVue,NavBar, SlideIndex,ItemVue, BannerCenter,BestBuy,BannerEnd,FooterVue,'view-product':View,BlurVue,FormComment,RelatedProduct,BlackPage,MenuVue,CountVue,
     },
     methods:{
+        set_address(id){
+            axios.post('/user/edit/address' , {id:id}).then(()=>{
+                this.pm('ادرس تغییر کرد  ' , 3000)
+                this.reload_time(2000)
+            }).catch(()=>{
+                this.pm('مشکلی پیش امده است ' , 3000)
+            })
+        },
+        new_address(){
+            const address = this.address;
+            if (address.state != '' || address.city != '' || address.address != ''){
+                axios.post('/user/new/address' , {data:this.address}).then((res)=>{
+                    if (res.data == 'warning'){
+                        this.pm('لطفا با دقت بیشتری فیلد ها را پر کنید ' , 3000)
+                    }if(res.data =='success') {
+                        $(".page-new").fadeToggle()
+                        $(".blur").fadeToggle()
+                        this.pm('ادرس با موفقیت اضافه شد برای تغییر ادرس روی ادرس مورد نظر کلیک کنید ' , 7000)
+                        this.reload_time(7000)
+                    }
+                }).catch(()=>{
+                    this.pm('مشکلی پیش امده است ' , 3000)
+                })
+            }else {
+                this.pm('لطفا با دقت بیشتری فیلد ها را پر کنید ' , 3000)
+            }
+        },
+        reload_time(time){
+            setTimeout(()=>{
+                location.reload(true);
+            }, time)
+        },
+        reload(){
+            location.reload(true);
+        },
+        edit_profile(){
+            axios.post('/user/edit/profile' , {name:this.name_input , text:this.text_edit}).then((res)=>{
+                if (res.data == 'ok'){
+                    this.pm('با موفقیت انجام شد',3000)
+                    $(".page-new-profile").fadeToggle()
+                    $(".blur").fadeToggle()
+                    this.name_input = ''
+                    this.text_edit = ''
+                    this.reload_time(3000)
+                }else {
+                    this.pm('مشکلی پیش امده است' , 3000)
+                    $(".page-new-profile").fadeToggle()
+                    $(".blur").fadeToggle()
+                    this.name_input = ''
+                    this.text_edit = ''
+                    this.reload_time(3000)
+                }
+            }).catch(()=>{
+                this.pm('مشکلی پیش امده است')
+            })
+        },
+        view_page_edit_profile(name){
+            if (name == 'email'){
+                this.name_page = 'ویرایش ایمیل'
+                this.name_input = 'email'
+            }if (name == 'name'){
+                this.name_page = 'ویرایش نام کاربری'
+                this.name_input = 'name'
+            }if (name == 'password'){
+                this.name_page = 'ویرایش پسورد'
+                this.name_input = 'password'
+                this.tipText = 'بعد از ویرایش این مقدار شما به صفحه ورود هدایت می شوید'
+            }if (name == 'mobile'){
+                this.name_page = 'ویرایش موبایل'
+                this.name_input = 'mobile'
+                this.tipText = 'بعد از ویرایش این مقدار شما به صفحه ورود هدایت می شوید'
+            }
+            $(".page-new-profile").fadeIn()
+            $(".blur").fadeIn()
+        },
         delete_product_to_card(id){
             axios.post('/product/delete/card' , {id:id}).then((res)=>{
                 if (res.data == 'delete'){
@@ -74,6 +159,7 @@ const app = createApp({
             $('.form-comment-reply').fadeToggle()
             $('.page-new').fadeToggle()
             $('.blur').fadeToggle()
+            this.tipText = '';
         },
         show_form_comment(){
           $('.group-form-new-comment').fadeToggle()

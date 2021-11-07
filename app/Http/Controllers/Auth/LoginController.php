@@ -49,6 +49,7 @@ class LoginController extends Controller
     public function validateLogin(Request $request)
     {
         $request->validate([
+            'g-recaptcha-response' => 'recaptcha',
             $this->username() => 'required|min:10|max:12',
             'password' => 'required|string',
         ],$this->message());

@@ -7,6 +7,8 @@ use App\Models\address;
 use App\Models\User;
 use App\Repository\Tools\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -74,7 +76,11 @@ class UserController extends Controller
     public function editProfile(Request $request)
     {
         if ($this->validateEditProfile($request)){
-            User::whereId(auth()->user()->id)->update([$request->name => $request->text]);
+            if ($request->name == 'password'){
+                User::whereId(auth()->user()->id)->update([$request->name => Hash::make($request->text)]);
+            }else{
+                User::whereId(auth()->user()->id)->update([$request->name => $request->text]);
+            }
             if ($request->name == 'password' || $request->name == 'mobile'){
                 auth()->logout();
             }

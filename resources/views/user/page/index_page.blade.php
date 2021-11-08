@@ -4,36 +4,38 @@
     <div class="col-12 col-md-3 h-p-595 d-flex flex-column">
         <div class="w-100 p-2 h-148">
             <div class="bg-gh-d-g shadow-sm rounded-3 obj-center flex-column h-100">
-                <p class="f-13 color-b-100">در حال ارسال</p>
-                <p class="f-20 color-b-100">
-                    <del>0</del>
-                </p>
-            </div>
-        </div>
-        <div class="w-100 p-2 h-148">
-            <div class="bg-gh-d-g shadow-sm rounded-3 obj-center flex-column h-100">
                 <p class="f-13 color-b-100">در حال پردازش</p>
                 <p class="f-20 color-b-100">
-                    <del>0</del>
-                </p>
-            </div>
-        </div>
-        <div class="w-100 p-2 h-148">
-            <div class="bg-gh-d-g shadow-sm rounded-3 obj-center flex-column h-100">
-                <p class="f-13 color-b-100">تحویل شده</p>
-                <p class="f-20 color-b-100">
-                    <del>0</del>
+                    <b>{{$factor_1}}</b>
                 </p>
             </div>
         </div>
         <div class="w-100 p-2 h-148">
             <div class="bg-gh-d-g shadow-sm rounded-3 obj-center flex-column h-100">
                 <p class="f-13 color-b-100">در حال اماده سازی</p>
-                <p class="f-20 color-b-100">
-                    <del>0</del>
+                <p class="f-20 color-b-100 font-Y">
+                    <b>{{$factor_2}}</b>
                 </p>
             </div>
         </div>
+        <div class="w-100 p-2 h-148">
+            <div class="bg-gh-d-g shadow-sm rounded-3 obj-center flex-column h-100">
+                <p class="f-13 color-b-100">در حال ارسال</p>
+                <p class="f-20 color-b-100">
+                    <b>{{$factor_3}}</b>
+                </p>
+            </div>
+        </div>
+
+        <div class="w-100 p-2 h-148">
+            <div class="bg-gh-d-g shadow-sm rounded-3 obj-center flex-column h-100">
+                <p class="f-13 color-b-100">تحویل شده</p>
+                <p class="f-20 color-b-100">
+                    <b>{{$factor_4}}</b>
+                </p>
+            </div>
+        </div>
+
     </div>
     <div class="col-12 col-md-9 row ms-0" style="height: 595px">
         <div class="col-12 p-2 p-md-4 h-50">
@@ -72,21 +74,13 @@
                 <p class="f-13 color-b-700 font-S text-end">فاکتورهای موفق</p>
                 <div class="line"></div>
                 <div class="box-item-panel h-75 overflow-scroll">
-                    @if($card_user->count() != 0)
-                        @foreach($card_user as $card)
+                    @if($factors->count() != 0)
+                        @foreach($factors as $factor)
                             <div
-                                id="card_user_{{$card->id}}"
-                                class="w-100 my-2 p-2 position-relative shadow-sm rounded-3 d-flex justify-content-between align-items-center item-card-view"
+                                id="card_user_{{$factor->id}}"
+                                class="w-100 my-2 p-2 position-relative rounded-3 d-flex justify-content-center align-items-center item-card-view"
                                 style="height: 100px">
-                                <img src="/image/product/{{$card->product->product->image}}" alt="" class="h-100">
-                                <span class="font-Y color-b-700 f-11">قیمت کل : {{$card->total_price}}</span>
-                                <span class="font-Y color-b-700 f-11">تعداد : {{$card->number}}</span>
-                                <span class="font-Y color-b-700 f-11">نام : {{$card->product->product->name}}</span>
-                                <span class="position-absolute model-color rounded-circle"
-                                      style="background-image: url('/image/color/{{$card->color->code}}')"></span>
-                                <span class="font-Y f-11 pointer" style="color: red"><i
-                                        @click="delete_product_to_card({{$card->id}})"
-                                        class="bi bi-trash"></i></span>
+                                <a href="{{route('user.tracking')}}" class="font-Y color-b-700 f-9 p-1 text-code-t-factor rounded-pill"> {{$factor->transaction_code}}</a>
                             </div>
                         @endforeach
                     @else

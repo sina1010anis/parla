@@ -15,4 +15,5 @@ class factor extends Model
     public function product_order(){
         return $this->hasMany(product_order::class , 'factor_id' , 'id');
     }
+    protected $attributes = ['status_buy' => 0 , 'status_order' => 0 , 'transaction_code' => 0];
 }

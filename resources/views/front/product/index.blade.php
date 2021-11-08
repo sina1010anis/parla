@@ -162,7 +162,7 @@
         </template>
         <template #color_product>
             @foreach($data->color as $color)
-                <li @click="set_color({{$color->id}} , '{{$color->color->name}}')" title="test"
+                <li @click="set_color({{$color->color->id}} , '{{$color->color->name}}')" title="test"
                     class="obj-center text-center p-2 color-b-600 m-2 d-inline-block"
                     style="background-image: url('/image/color/{{$color->color->code}}')">
                     <span class="f-11 color-b-100 float-start"> {{$color->color->name}}</span>

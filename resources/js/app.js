@@ -17,6 +17,7 @@ import RelatedProduct from "./components/product/RelatedProduct";
 import BlackPage from "./components/front/BlackPage";
 import MenuVue from "./components/front/MenuVue";
 import CountVue from "./components/front/CountVue";
+import PaymentVue from "./components/product/PaymentVue";
 import { createApp } from 'vue'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import '../css/app.css'
@@ -51,7 +52,7 @@ const app = createApp({
         }
     }),
     components: {
-        HeaderVue,NavBar, SlideIndex,ItemVue, BannerCenter,BestBuy,BannerEnd,FooterVue,'view-product':View,BlurVue,FormComment,RelatedProduct,BlackPage,MenuVue,CountVue,
+        HeaderVue,NavBar, SlideIndex,ItemVue, BannerCenter,BestBuy,BannerEnd,FooterVue,'view-product':View,BlurVue,FormComment,RelatedProduct,BlackPage,MenuVue,CountVue,PaymentVue,
     },
     methods:{
         set_address(id){
@@ -133,6 +134,7 @@ const app = createApp({
             axios.post('/product/delete/card' , {id:id}).then((res)=>{
                 if (res.data == 'delete'){
                     this.pm('محصول از سبد خرید حذف شد' , 3000);
+                    this.reload_time(3000)
                     $('#card_user_'+id).fadeToggle()
                 }else {
                     this.pm('مشکلی پیش امده' , 3000);
@@ -245,7 +247,18 @@ const app = createApp({
                     this.pm('ارسال شد' , 2000);
                 }
             })
-        }
+        },
+        new_factor(){
+            axios.post('/user/new/factor').then((res)=>{
+                if (res.data == 'ok'){
+                    this.open_page()
+                }
+            }).catch(()=>{
+                $('.blur').fadeOut()
+                $('.page-new').fadeOut()
+                this.pm('مشکلی پیش امده است' , 3000)
+            })
+        },
     },
     mounted() {
         setTimeout(()=>{$('.view-err').fadeOut()} , 10000)

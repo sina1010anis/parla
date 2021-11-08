@@ -11,6 +11,11 @@ use App\Repository\View\Data\bannerTop;
 use App\Repository\View\Data\card;
 use App\Repository\View\Data\city;
 use App\Repository\View\Data\comment;
+use App\Repository\View\Data\factor;
+use App\Repository\View\Data\factor_1;
+use App\Repository\View\Data\factor_2;
+use App\Repository\View\Data\factor_3;
+use App\Repository\View\Data\factor_4;
 use App\Repository\View\Data\item_footer;
 use App\Repository\View\Data\itemAll;
 use App\Repository\View\Data\linkFooter;
@@ -54,5 +59,10 @@ class viewAll
         View::composer(['*'] , city::class);
         View::composer(['*'] , address::class);
         View::composer(['*'] , address_select::class);
+        View::composer(['*'] , factor::class);
+        View::composer(['*'] , factor_1::class);
+        View::composer(['*'] , factor_2::class);
+        View::composer(['*'] , factor_3::class);
+        View::composer(['*'] , factor_4::class);
     }
 }

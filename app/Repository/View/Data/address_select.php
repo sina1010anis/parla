@@ -8,6 +8,7 @@ class address_select
 {
     public function compose(View $view)
     {
-        return $view->with('address_select' , addressModel::find(auth()->user()->address_id));
+        if(auth()->check())
+            return $view->with('address_select' , addressModel::find(auth()->user()->address_id));
     }
 }

@@ -229,8 +229,8 @@ return [
             'zaringateApiVerificationUrl' => 'https://ir.zarinpal.com/pg/services/WebGate/wsdl',
 
                 'mode' => 'sandbox', // can be normal, sandbox, zaringate
-                'merchantId' => 'c0856b42-65f7-48bc-81b6-00fcc2b2d944',
-                'callbackUrl' => 'http://localhost:8000/send',
+                'merchantId' => 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX',
+                'callbackUrl' => 'http://localhost:8000/user/verify/buy',
                 'description' => 'payment using zarinpal',
         ],
         'zibal' => [

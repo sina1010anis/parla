@@ -24,4 +24,9 @@ class UserNewController extends Controller
     {
         return $this->newSupport->setRequest($request)->newComment();
     }
+
+    public function test()
+    {
+        return view('user.buy.payment');
+    }
 }

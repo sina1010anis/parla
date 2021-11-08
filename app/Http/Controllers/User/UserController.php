@@ -8,11 +8,11 @@ use App\Models\User;
 use App\Repository\Tools\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
+use \App\Repository\Create\Address as AddressRepository;
 
 class UserController extends Controller
 {
-    use Message;
+    use Message , AddressRepository;
     public function tracking()
     {
         return view('user.page.tracking');
@@ -94,12 +94,7 @@ class UserController extends Controller
     {
         $data = $request->data;
         if (!empty($data['state']) || !empty($data['city']) || !empty($data['address'])){
-             address::create([
-                'city_id' => $data['state'],
-                'state_id' => $data['city'],
-                'address' => $data['address'],
-                'user_id' => auth()->user()->id,
-            ]);
+            $this->createAddress($data);
              return $this->msgSuccess();
         }else{
             return $this->msgWarning();

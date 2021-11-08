@@ -28,8 +28,7 @@ class ProductController extends Controller
                 'status' => 'off'
             ]);
         }else{
-            $dic = $product->discount / 100;
-            $price =$data->price - ($data->price *$dic );
+            $price = dic($data->price , $product->discount);
             return response()->json([
                 'data'=>$data,
                 'price' =>$price,

@@ -59,8 +59,6 @@ Route::prefix('/user')->as('user')->middleware('auth')->group(function(){
     Route::get('/send/buy' , [PayController::class , 'send'])->name('.send');
     Route::get('/verify/buy' , [PayController::class , 'verify'])->name('.verify');
 });
-Route::get('/google-login', [GoogleAuthController::class , 'redirectToProvider'])->name('auth.google');
-Route::get('/callback', [GoogleAuthController::class , 'handleProviderCallback'])->name('auth.callback');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

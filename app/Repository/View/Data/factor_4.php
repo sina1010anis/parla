@@ -9,6 +9,6 @@ class factor_4
     public function compose(View $view)
     {
         if (auth()->check())
-            return $view->with('factor_4' , \App\Models\factor::whereUser_id(auth()->user()->id)->whereStatus_buy(400)->count());
+            return $view->with('factor_4' , \App\Models\factor::whereUser_id(auth()->user()->id)->whereStatus_order(400)->count());
     }
 }

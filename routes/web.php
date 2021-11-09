@@ -58,6 +58,7 @@ Route::prefix('/user')->as('user')->middleware('auth')->group(function(){
     });
     Route::get('/send/buy' , [PayController::class , 'send'])->name('.send');
     Route::get('/verify/buy' , [PayController::class , 'verify'])->name('.verify');
+    Route::post('/view/factor' , [UserController::class , 'viewFactor'])->name('.view.factor');
 });
 Auth::routes();
 

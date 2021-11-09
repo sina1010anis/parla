@@ -9,6 +9,6 @@ class factor
     public function compose(View $view)
     {
         if (auth()->check())
-            return $view->with('factors' , factorModel::whereUser_id(auth()->user()->id)->whereStatus_buy(400)->get());
+            return $view->with('factors' , factorModel::whereUser_id(auth()->user()->id)->whereStatus_buy(200)->get());
     }
 }

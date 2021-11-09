@@ -15,4 +15,10 @@ class product_order extends Model
     public function product(){
         return $this->belongsTo(product::class , 'product_id' , 'id');
     }
+    public function color(){
+        return $this->belongsTo(color::class , 'color_id' , 'id');
+    }
+    public function size(){
+        return $this->belongsTo(size_product::class , 'size_id' , 'id');
+    }
 }

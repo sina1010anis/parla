@@ -39,7 +39,8 @@ class PayController extends Controller
             $receipt = Payment::amount($data->title_price)->transactionId($data->transaction_code)->verify();
             $code = $data->transaction_code;
             $tip = 'ok';
-            $data->update(['status_buy' => 100]);
+            $data->update(['status_buy' => 200]);
+            $data->update(['status_order' => 100]);
             card::whereUser_id(auth()->user()->id)->delete();
             return view('user.buy.payment'  , compact('product' ,'tip', 'code'))->with('status' , true);
 

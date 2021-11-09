@@ -4,6 +4,8 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\address;
+use App\Models\factor;
+use App\Models\product_order;
 use App\Models\User;
 use App\Repository\Tools\Message;
 use Illuminate\Http\Request;
@@ -109,6 +111,20 @@ class UserController extends Controller
         }else{
             return $this->msgNo();
         }
+    }
 
+    public function viewFactor(Request $request)
+    {
+        $data = factor::find($request->id);
+        $pro = [];
+        $product = product_order::whereFactor_id($data->id)->get();
+        foreach ($product as $i){
+            $pro[]='نام  :' . $i->product->name . '  - تعداد : ' . $i->number . ' - رنگ : ' . $i->color->name;
+        }
+        return response()->json([
+            'time' => j_date($data->created_at),
+            'data' => $data,
+            'product' => $pro
+        ]);
     }
 }

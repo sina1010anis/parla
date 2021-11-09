@@ -49,12 +49,27 @@ const app = createApp({
             'city':'',
             'address':'',
 
-        }
+        },
+        data_factor:'',
+        time_factor:'',
+        product_factor:null,
     }),
     components: {
         HeaderVue,NavBar, SlideIndex,ItemVue, BannerCenter,BestBuy,BannerEnd,FooterVue,'view-product':View,BlurVue,FormComment,RelatedProduct,BlackPage,MenuVue,CountVue,PaymentVue,
     },
     methods:{
+        view_factor(id){
+            axios.post('/user/view/factor' , {id:id}).then((res)=>{
+                this.data_factor = res.data.data
+                this.time_factor = res.data.time
+                this.product_factor = res.data.product
+                $(".page-new").fadeToggle()
+                $(".blur").fadeToggle()
+            }).catch(()=>{
+                this.pm('مشکلی پیش امده است' , 3000)
+            })
+
+        },
         set_address(id){
             axios.post('/user/edit/address' , {id:id}).then(()=>{
                 this.pm('ادرس تغییر کرد  ' , 3000)

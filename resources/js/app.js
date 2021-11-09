@@ -173,9 +173,9 @@ const app = createApp({
             $('.blur').fadeToggle()
         },
         cls_page_new_comment_reply(){
-            $('.form-comment-reply').fadeToggle()
-            $('.page-new').fadeToggle()
-            $('.blur').fadeToggle()
+            $('.form-comment-reply').fadeOut()
+            $('.page-new').fadeOut()
+            $('.blur').fadeOut()
             this.tipText = '';
         },
         show_form_comment(){
@@ -253,6 +253,10 @@ const app = createApp({
             $('.blur').fadeToggle()
             $('.page-new').fadeToggle()
         },
+        open_page_2(){
+            $('.blur').fadeToggle()
+            $('.page-new-2').fadeToggle()
+        },
         new_comment_support(){
             axios.post('/user/new/comment/support' , {text:this.text_send}).then((res)=>{
                 $('.blur').fadeOut()
@@ -277,6 +281,7 @@ const app = createApp({
     },
     mounted() {
         setTimeout(()=>{$('.view-err').fadeOut()} , 10000)
+        $('.page-tip').fadeIn();
     },
     created() {
 

@@ -3,14 +3,17 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CustomRequest;
 use App\Models\address;
 use App\Models\factor;
 use App\Models\product_order;
 use App\Models\User;
+use App\Repository\Custom\Custom;
 use App\Repository\Tools\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use \App\Repository\Create\Address as AddressRepository;
+use \App\Repository\Factor\Factor as FactorRepository;
 
 class UserController extends Controller
 {
@@ -113,18 +116,19 @@ class UserController extends Controller
         }
     }
 
-    public function viewFactor(Request $request)
+    public function viewFactor(Request $request ,FactorRepository $factor)
     {
-        $data = factor::find($request->id);
-        $pro = [];
-        $product = product_order::whereFactor_id($data->id)->get();
-        foreach ($product as $i){
-            $pro[]='نام  :' . $i->product->name . '  - تعداد : ' . $i->number . ' - رنگ : ' . $i->color->name;
-        }
+        $factor->setRequest($request)->findFactor();
+        $product = $factor->getProduct()->product();
         return response()->json([
-            'time' => j_date($data->created_at),
-            'data' => $data,
-            'product' => $pro
+            'time' => j_date($factor->data->created_at),
+            'data' => $factor->data,
+            'product' => $product->productFactor
         ]);
+    }
+
+    public function newCustom(CustomRequest $request , Custom $custom)
+    {
+        return $custom->setRequest($request)->uploadImage()->createCustom()->backTo('با موفقیت اپلود شد منتظر پیام پشتیبان باشد با تشکر' , route('user.custom'));
     }
 }

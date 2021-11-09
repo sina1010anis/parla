@@ -22,4 +22,4 @@
     </div>
 @endif
 
-<span class="msg-sm py-1 px-4 f-12 rounded-pill shadow"></span>
+<span class="msg-sm py-1 px-4 f-12 rounded-pill shadow" style="z-index:40"></span>

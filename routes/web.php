@@ -51,6 +51,7 @@ Route::prefix('/user')->as('user')->middleware('auth')->group(function(){
         Route::post('/comment/support' , [UserNewController::class , 'index'])->name('.support');
         Route::post('/address' , [UserController::class , 'newAddress'])->name('.address');
         Route::post('/factor' , [PayController::class , 'newFactor'])->name('.factor');
+        Route::post('/custom' , [UserController::class , 'newCustom'])->name('.custom');
     });
     Route::prefix('edit')->as('.edit')->group(function(){
         Route::post('/profile' , [UserController::class , 'editProfile'])->name('.profile');

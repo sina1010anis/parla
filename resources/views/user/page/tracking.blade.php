@@ -37,7 +37,7 @@
             <div class="line"></div>
             <div dir="rtl" align="center" class="col-12 f-13 color-b-700 my-2">
                 محصولات سفارش داده شده :
-                <div class="w-100 overflow-scroll f-12 color-b-600" style="height: 100px">
+                <div class="w-100 overflow-scroll f-12 color-b-600" style="max-height: 100px">
                     <p v-for="product in product_factor" :key="product">@{{ product }}</p>
                 </div>
             </div>

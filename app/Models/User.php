@@ -47,4 +47,8 @@ class User extends Authenticatable
     public function supoort(){
         return $this->hasMany(support::class , 'sender' , 'id');
     }
+    public function custom()
+    {
+        return $this->hasMany(custom::class , 'user_id' , 'id');
+    }
 }

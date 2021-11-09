@@ -16,6 +16,8 @@ use App\Repository\View\Data\factor_1;
 use App\Repository\View\Data\factor_2;
 use App\Repository\View\Data\factor_3;
 use App\Repository\View\Data\factor_4;
+use App\Repository\View\Data\frame;
+use App\Repository\View\Data\free_send;
 use App\Repository\View\Data\image_custom;
 use App\Repository\View\Data\item_footer;
 use App\Repository\View\Data\itemAll;
@@ -31,6 +33,7 @@ use App\Repository\View\Data\subMenu;
 use App\Repository\View\Data\support;
 use App\Repository\View\Data\title_footer;
 use App\Repository\View\Data\state;
+use App\Repository\View\Data\user;
 use Illuminate\Support\Facades\View;
 
 class viewAll
@@ -66,5 +69,8 @@ class viewAll
         View::composer(['*'] , factor_3::class);
         View::composer(['*'] , factor_4::class);
         View::composer(['*'] , image_custom::class);
+        View::composer(['*'] , frame::class);
+        View::composer(['*'] , user::class);
+        View::composer(['*'] , free_send::class);
     }
 }

@@ -9,7 +9,7 @@
         @if($factors->count() != 0)
             <ul class="m-0 p-0">
                 @foreach($factors as $factor)
-                    <li @click="view_factor('{{$factor->id}}')" class="pointer w-100 p-2 d-flex justify-content-between bg-light align-items-center"
+                    <li @click="view_factor('{{$factor->id}}')" class="pointer my-2 w-100 p-2 d-flex justify-content-between bg-light align-items-center"
                         style="list-style: none">
                         <p class="f-11 color-b-600 d-none d-md-block">
                             {{$factor->transaction_code}}</p>

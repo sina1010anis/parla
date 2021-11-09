@@ -897,3 +897,22 @@ transition: 0.5s;
     margin: 10px 10px;
     background-color: red;
 }
+.ret{
+    background-color: #f6f6f6;
+    border-radius: 5px;
+    border-left: 2px solid #ff4343;
+    border-bottom: 2px solid #ff4343;
+}
+.w-ret{
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.h-ret{
+    top: 50%;
+    left: 5%;
+    transform: translate(-50%,-50%);
+}
+.img-frame{
+    width:150px ;
+}

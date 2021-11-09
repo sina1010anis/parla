@@ -40,7 +40,7 @@
             </li>
             <li style="list-style: none" class="text-end p-3 pointer item-menu-panel-user rounded-3 position-relative">
                 <a href="{{route('user.calculator')}}" class="w-100 h-100">
-                    <div class="d-inline-block me-3 f-13 position-relative color-b-700" style="bottom: 2px">محسابه قیمت</div>
+                    <div class="d-inline-block me-3 f-13 position-relative color-b-700" style="bottom: 2px">محسابه قیمت فریم</div>
                     <div class="d-inline-block text-end f-20"><i style="color:#c1ab70" class="bi bi-calculator"></i></div>
                 </a>
             </li>

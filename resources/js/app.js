@@ -53,11 +53,23 @@ const app = createApp({
         data_factor:'',
         time_factor:'',
         product_factor:null,
+        frame:{
+            'code': null,
+            'price': null,
+        },
+        data_frame:{
+            'w':0,
+            'h':0
+        }
     }),
     components: {
         HeaderVue,NavBar, SlideIndex,ItemVue, BannerCenter,BestBuy,BannerEnd,FooterVue,'view-product':View,BlurVue,FormComment,RelatedProduct,BlackPage,MenuVue,CountVue,PaymentVue,
     },
     methods:{
+        set_data_frame(code , price){
+            this.frame.code = code
+            this.frame.price = price
+        },
         view_factor(id){
             axios.post('/user/view/factor' , {id:id}).then((res)=>{
                 this.data_factor = res.data.data

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\card;
 use App\Models\city;
 use App\Models\free_send;
+use App\Models\product;
 use App\Models\product_order;
 use App\Repository\Create\Factor;
 use Illuminate\Http\Request;
@@ -55,6 +56,10 @@ class PayController extends Controller
             $data->update(['status_buy' => 200]);
             $data->update(['status_order' => 100]);
             card::whereUser_id(auth()->user()->id)->delete();
+            // کم کرد محصول بعد از موفق بودن پرداخت
+//            foreach ($product as $item){
+//                product::whereId($item->product_id)->decrement('number' , $item->number);
+//            }
             return view('user.buy.payment'  , compact('product' ,'tip', 'code'))->with('status' , true);
         } catch (InvalidPaymentException $exception) {
             $tip = $exception->getMessage();

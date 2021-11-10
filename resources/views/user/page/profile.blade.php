@@ -37,7 +37,7 @@
         </div>
         <div class="col-md-6 h-auto">
             <label for="inputEmail4" class="form-label d-block text-end f-13 color-b-600">وضعیت ادرس</label>
-            <input value="{{(auth()->user()->address == 0) ? 'ادرس وارد نشده است' : 'ادرس وارد شده است'}}" align="right" dir="rtl" type="email" class="form-control disabled color-b-600" disabled id="inputEmail4">
+            <input value="{{(auth()->user()->address_id == 0) ? 'ادرس وارد نشده است' : 'ادرس وارد شده است'}}" align="right" dir="rtl" type="email" class="form-control disabled color-b-600" disabled id="inputEmail4">
         </div>
         <div class="col-md-6 h-auto">
             <label for="inputPassword4" class="form-label d-block text-end f-13 color-b-600">وضعیت</label>

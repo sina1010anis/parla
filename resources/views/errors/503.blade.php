@@ -1,5 +1,9 @@
-@extends('errors::minimal')
+@extends('errors.minimal')
 
-@section('title', __('Service Unavailable'))
-@section('code', '503')
-@section('message', __('Service Unavailable'))
+@section('title')
+    503 Error :(
+@endsection
+
+@section('error')
+    <error-page image="503_3.png" error="503 Update :)" text="سایت در حال بروزرسانی است لطفا صبر کنید ! "></error-page>
+@endsection

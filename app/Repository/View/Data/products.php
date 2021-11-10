@@ -9,6 +9,6 @@ class products
 {
     public function compose(View $view)
     {
-        return $view->with('products' , product::query()->where('number' , '!=' , 0));
+        return $view->with('products' , product::where('number' , '!=' , 0));
     }
 }

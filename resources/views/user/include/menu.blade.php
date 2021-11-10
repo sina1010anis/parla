@@ -5,7 +5,11 @@
         <p class="f-12 color-b-500">{{jdate(auth()->user()->created_at)->format('%B %d، %Y')}}</p>
         <br>
         <div class="d-flex justify-content-center box-item-panel-user">
-            <span  title="پشتیبانی"><a class="p-0 m-0 obj-center" href="{{route('user.support')}}"><i class="bi bi-life-preserver mx-2 px-2 py-2"></i></a></span>
+            @if(auth()->user()->status == 2)
+                <span  title="پنل مدیر"><a class="p-0 m-0 obj-center" href="{{route('admin.index')}}"><i class="bi bi-person-rolodex mx-2 px-2 py-2"></i></a></span>
+            @else
+                <span title="پشتیبانی"><a class="p-0 m-0 obj-center" href="{{route('user.support')}}"><i class="bi bi-life-preserver mx-2 px-2 py-2 @if($count_support != 0)  shadow-red @endif"></i></a></span>
+            @endif
             <span  title="پروفایل"><a class="p-0 m-0 obj-center" href="{{route('user.profile')}}"><i class="bi bi-person mx-2 px-2 py-2"></i></a></span>
             <span  title="محصولات ذخیره شده"><a class="p-0 m-0 obj-center" href="{{route('user.save')}}"><i class="bi bi-star mx-2 px-2 py-2"></i></a></span>
             <span  title="ادرس"><a class="p-0 m-0 obj-center" href="{{route('user.address')}}"><i class="bi bi-geo-alt mx-2 px-2 py-2"></i></a></span>
@@ -28,7 +32,7 @@
             </li>
             <li style="list-style: none" class="text-end p-3 pointer item-menu-panel-user rounded-3 position-relative">
                 <a href="{{route('user.cart')}}" class="w-100 h-100">
-                    <div class="d-inline-block me-3 f-13 position-relative color-b-700" style="bottom: 2px">سبد خرید</div>
+                    <div class="d-inline-block me-3 f-13 position-relative color-b-700" style="bottom: 2px">سبد خرید (خرید نهایی)</div>
                     <div class="d-inline-block text-end f-20"><i style="color:#c1ab70" class="bi bi-bag"></i></div>
                 </a>
             </li>

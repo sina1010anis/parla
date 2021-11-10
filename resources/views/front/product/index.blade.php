@@ -38,11 +38,10 @@
             <p class="f-13 color-b-500 mb-0">@{{ (data_size != null) ?data_size.name : '------' }}</p>
         </template>
         <template #comment_product>
-            @foreach($data->comments as $comment)
-                @if($comment->where('status',1)->count() == 0)
-                    <black-page text="نظری ثبت نشده است" icon="{{url('image/icon/message.png')}}"></black-page>
-                    @break
-                @else
+            @if($data->comments->where('status',1)->count() == 0)
+                <black-page text="نظری ثبت نشده است" icon="{{url('image/icon/comment_6.png')}}"></black-page>
+            @else
+                @foreach($data->comments as $comment)
                     @if($comment->status == 1)
                         <div
                             class=" w-100 bg-white shadow-sm rounded-3 mt-3 overflow-scroll mt-0 color-b-600 f-13 line-h-30 text-end p-2"
@@ -152,8 +151,9 @@
                             @endif
                         @endforeach
                     @endif
-                @endif
-            @endforeach
+                @endforeach
+            @endif
+
         </template>
         <template #view_property>
             @foreach($data->property as $property)

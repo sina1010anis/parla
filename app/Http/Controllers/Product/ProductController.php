@@ -16,6 +16,7 @@ use Illuminate\Support\Str;
 class ProductController extends Controller
 {
     public function show(product $slug){
+        product::where('id', $slug->id)->increment('view' , 1);
         return view('front.product.index')->with('data' , $slug);
     }
 

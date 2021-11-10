@@ -7,6 +7,7 @@ use App\Http\Requests\CustomRequest;
 use App\Models\address;
 use App\Models\factor;
 use App\Models\product_order;
+use App\Models\support;
 use App\Models\User;
 use App\Repository\Custom\Custom;
 use App\Repository\Tools\Message;
@@ -45,6 +46,7 @@ class UserController extends Controller
 
     public function support()
     {
+        support::whereSender(auth()->user()->id)->update(['view' => 1]);
         return view('user.page.support');
     }
 

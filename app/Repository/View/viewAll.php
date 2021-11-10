@@ -11,6 +11,7 @@ use App\Repository\View\Data\bannerTop;
 use App\Repository\View\Data\card;
 use App\Repository\View\Data\city;
 use App\Repository\View\Data\comment;
+use App\Repository\View\Data\count_support;
 use App\Repository\View\Data\factor;
 use App\Repository\View\Data\factor_1;
 use App\Repository\View\Data\factor_2;
@@ -26,6 +27,8 @@ use App\Repository\View\Data\logo_footer;
 use App\Repository\View\Data\menu;
 use App\Repository\View\Data\namd;
 use App\Repository\View\Data\products;
+use App\Repository\View\Data\products_2;
+use App\Repository\View\Data\products_3;
 use App\Repository\View\Data\save;
 use App\Repository\View\Data\saveProduct;
 use App\Repository\View\Data\sliderAll;
@@ -72,5 +75,8 @@ class viewAll
         View::composer(['*'] , frame::class);
         View::composer(['*'] , user::class);
         View::composer(['*'] , free_send::class);
+        View::composer(['*'] , count_support::class);
+        View::composer(['*'] , products_2::class);
+        View::composer(['*'] , products_3::class);
     }
 }

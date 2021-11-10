@@ -916,3 +916,37 @@ transition: 0.5s;
 .img-frame{
     width:150px ;
 }
+.shadow-red{
+    animation: 0.5s linear infinite shadow-red-an;
+}
+@keyframes shadow-red-an {
+    0%{
+        box-shadow: 1px 1px 4px rgba(255, 75, 75, 0.5);
+    }
+    25%{
+        box-shadow: 1px 1px 10px rgba(255, 75, 75, 0.5);
+    }
+    50%{
+        box-shadow: 1px 1px 15px rgba(255, 75, 75, 0.5);
+    }
+    75%{
+        box-shadow: 1px 1px 10px rgba(255, 75, 75, 0.5);
+    }
+    100%{
+        box-shadow: 1px 1px 4px rgba(255, 75, 75, 0.5);
+    }
+}
+.bax-error-page{
+    width: 90%;
+    height: 90vh;
+    background-color: #ffffff;
+    position: absolute;
+    top: 50%;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px rgba(50, 50, 50, 0.2);
+    left: 50%;
+    transform: translate(-50% , -50%);
+}
+.bax-error-page img{
+    width: 150px;
+}

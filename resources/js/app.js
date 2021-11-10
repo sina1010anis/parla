@@ -18,6 +18,7 @@ import BlackPage from "./components/front/BlackPage";
 import MenuVue from "./components/front/MenuVue";
 import CountVue from "./components/front/CountVue";
 import PaymentVue from "./components/product/PaymentVue";
+import ErrorPage from "./components/error/ErrorPage";
 import { createApp } from 'vue'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import '../css/app.css'
@@ -63,7 +64,7 @@ const app = createApp({
         }
     }),
     components: {
-        HeaderVue,NavBar, SlideIndex,ItemVue, BannerCenter,BestBuy,BannerEnd,FooterVue,'view-product':View,BlurVue,FormComment,RelatedProduct,BlackPage,MenuVue,CountVue,PaymentVue,
+        HeaderVue,NavBar, SlideIndex,ItemVue, BannerCenter,BestBuy,BannerEnd,FooterVue,'view-product':View,BlurVue,FormComment,RelatedProduct,BlackPage,MenuVue,CountVue,PaymentVue,ErrorPage,
     },
     methods:{
         set_data_frame(code , price){
@@ -246,6 +247,7 @@ const app = createApp({
                 .then((res)=>{
                     if (res.data == 'ok'){
                         this.pm('محصول به سبد خرید شما اضافه شد' );
+                        this.reload_time(2000)
                     }else{
                         this.pm('لطفا وارد شوید' );
                     }

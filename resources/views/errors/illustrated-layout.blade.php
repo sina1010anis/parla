@@ -376,7 +376,8 @@
             }
 
             .text-grey-darker {
-                color: #606f7b;
+                color: #a8a8a8;
+
             }
 
             .text-2xl {
@@ -466,13 +467,13 @@
 
                     <div class="w-16 h-1 bg-purple-light my-3 md:my-6"></div>
 
-                    <p class="text-grey-darker text-2xl md:text-3xl font-light mb-8 leading-normal">
+                    <p class="text-grey-darker text-2xl md:text-3xl font-light mb-8 leading-normal color-b-500 font-S" dir="rtl">
                         @yield('message')
                     </p>
 
                     <a href="{{ app('router')->has('home') ? route('home') : url('/') }}">
                         <button class="bg-transparent text-grey-darkest font-bold uppercase tracking-wide py-3 px-6 border-2 border-grey-light hover:border-grey rounded-lg">
-                            {{ __('Go Home') }}
+                            {{ __('رفتن به پروفایل') }}
                         </button>
                     </a>
                 </div>

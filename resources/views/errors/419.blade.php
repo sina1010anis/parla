@@ -1,5 +1,9 @@
-@extends('errors::minimal')
+@extends('errors.minimal')
 
-@section('title', __('Page Expired'))
-@section('code', '419')
-@section('message', __('Page Expired'))
+@section('title')
+    419 Error :(
+@endsection
+
+@section('error')
+    <error-page image="404.png" error="419 Error :(" text="صفحه مورد نظر یافت نشده ! "></error-page>
+@endsection

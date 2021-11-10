@@ -9,7 +9,7 @@ use App\Http\Controllers\Product\Comment\CommentController;
 use App\Http\Controllers\Product\Card\CardController;
 use App\Http\Controllers\User\UserController;
 use \App\Http\Controllers\User\UserNewController;
-use \App\Http\Controllers\User\Auth\GoogleAuthController;
+use \App\Http\Controllers\Admin\AdminController;
 
 
 Route::prefix('/')->group(function (){
@@ -61,6 +61,11 @@ Route::prefix('/user')->as('user')->middleware('auth')->group(function(){
     Route::get('/verify/buy' , [PayController::class , 'verify'])->name('.verify');
     Route::post('/view/factor' , [UserController::class , 'viewFactor'])->name('.view.factor');
 });
+
+Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(function (){
+    Route::get('/' , [AdminController::class , 'index'])->name('.index');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

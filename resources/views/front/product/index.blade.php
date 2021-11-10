@@ -320,7 +320,6 @@
         :products="{{$products->orderBy('id' , 'ASC')->whereMenu_id($data->menu_id)->where('id','!=',$data->id)->get()}}"
         title="مرتبط ها"></related-product>
     {{--   End Prosuct View--}}
-    <item-vue :items="{{$items}}"></item-vue>
     @include('front.include.footer')
     <blur-vue></blur-vue>
 @endsection

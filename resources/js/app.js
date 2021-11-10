@@ -292,10 +292,22 @@ const app = createApp({
                 this.pm('مشکلی پیش امده است' , 3000)
             })
         },
+        view_menu_admin(){
+            $('.menu-admin').addClass('w-m-x' , 'slow');
+        },
+        hide_menu_admin(){
+            $('.menu-admin').removeClass('w-m-x' , 'slow');
+        },
+        view_item_menu_admin(id){
+            $('#box-item-menu-panel-admin-'+id).stop().slideToggle()
+        }
     },
     mounted() {
         setTimeout(()=>{$('.view-err').fadeOut()} , 10000)
         $('.page-tip').fadeIn();
+
+
+
     },
     created() {
 

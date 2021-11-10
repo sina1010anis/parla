@@ -950,3 +950,44 @@ transition: 0.5s;
 .bax-error-page img{
     width: 150px;
 }
+
+
+/* admin style */
+
+.menu-admin{
+    width: 0;
+    max-width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 15!important;
+    overflow-x: hidden;
+    transition: 0.5s;
+    overflow-y: scroll;
+    background-color: #ffffff;
+}
+.icon-menu-admin{
+    top: 10px;
+    z-index: 10!important;
+    left: 10px;
+    border-radius: 10px;
+}
+
+.w-m-x{
+    width: 300px;
+    padding: 15px;
+}
+
+.title-item-menu-panel-admin{
+    transition: 0.2s;
+}
+.title-item-menu-panel-admin:hover{
+    background-color: #fafafa;
+}
+.box-item-menu-panel-admin{
+    display: none;
+    border-radius: 10px;
+    background-color: #fff9f1;
+}
+/* end admin style */

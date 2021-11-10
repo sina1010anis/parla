@@ -1,5 +1,9 @@
-@extends('errors::illustrated-layout')
+@extends('errors.minimal')
 
-@section('title', __('Server Error'))
-@section('code', '500')
-@section('message', __('Server Error'))
+@section('title')
+    500 Error :(
+@endsection
+
+@section('error')
+    <error-page image="404.png" error="500 Error :(" text="صفحه مورد نظر یافت نشده ! "></error-page>
+@endsection

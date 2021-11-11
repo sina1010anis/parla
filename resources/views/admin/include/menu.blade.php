@@ -63,6 +63,7 @@
                 <div class="text-center f-12 color-b-500 py-2 pointer">محصول اصلی</div>
                 <div class="text-center f-12 color-b-500 py-2 pointer">کلاس بندی محصولات</div>
                 <div class="text-center f-12 color-b-500 py-2 pointer">کلاس بندی رنگ</div>
+                <div class="text-center f-12 color-b-500 py-2 pointer">محصولات خاص</div>
             </div>
         </div>
         <div class="item-menu-panel-admin">
@@ -129,7 +130,7 @@
         </div>
     </div>
     <div class="line"></div>
-    <p class="text-center color-b-700 f-15 font-S">فاکتور</p>
+    <p class="text-center color-b-700 f-15 font-S">سفارشات</p>
     <div>
         <div class="item-menu-panel-admin">
             <div @click="view_item_menu_admin(11)" class="f-13 my-3 color-b-600 font-S text-end pointer title-item-menu-panel-admin rounded-3 p-2">

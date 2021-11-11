@@ -10,6 +10,10 @@
 <body>
 <div id="app">
     @include('admin.include.menu')
+    <div class="container-fluid overflow-scroll" style="height: 100vh">
+        @include('admin.include.header')
+        @yield('admin')
+    </div>
 </div>
 </body>
 <script src="{{url('js/app.js')}}"></script>

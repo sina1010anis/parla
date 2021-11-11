@@ -5,6 +5,9 @@ namespace App\Repository\View;
 use App\Repository\View\Data\about;
 use App\Repository\View\Data\address;
 use App\Repository\View\Data\address_select;
+use App\Repository\View\Data\admin\bank;
+use App\Repository\View\Data\admin\product_view_admin;
+use App\Repository\View\Data\admin\user_admin;
 use App\Repository\View\Data\bannerCenter;
 use App\Repository\View\Data\bannerEnd;
 use App\Repository\View\Data\bannerTop;
@@ -78,5 +81,11 @@ class viewAll
         View::composer(['*'] , count_support::class);
         View::composer(['*'] , products_2::class);
         View::composer(['*'] , products_3::class);
+        // Admin
+        View::composer(['*'] , \App\Repository\View\Data\admin\factor::class);
+        View::composer(['*'] , user_admin::class);
+        View::composer(['*'] , product_view_admin::class);
+        View::composer(['*'] , bank::class);
+        // End Admin
     }
 }

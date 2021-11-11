@@ -9,6 +9,6 @@ class bank
 {
     public function compose(View $view)
     {
-        return $view->with('sum_total_price' , \App\Models\factor::sum('title_price'));
+        return $view->with('sum_total_price' , \App\Models\factor::whereStatus_buy(200)->sum('title_price'));
     }
 }

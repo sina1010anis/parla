@@ -4,6 +4,6 @@
     </a>
 
     <ul class="nav nav-pills">
-        <li class="nav-item obj-center px-2 pointer"><i class="bi bi-bell f-22 color-b-500"></i></li>
+        <li class="nav-item obj-center mx-3 px-2 pointer"><span class="f-14 " style="color: red">25</span><i class="bi bi-bell f-22 color-b-500"></i></li>
     </ul>
 </header>

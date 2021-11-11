@@ -54,7 +54,7 @@
             <div class=" w-100 overflow-scroll bg-light rounded-3" style="height: 350px;">
                 @if($user_admin->count() != 0)
                     @foreach($user_admin as $user)
-                        <div class="p-2 pointer border-bottom align-items-center d-flex justify-content-between">
+                        <div @click="view_user_admin('{{$user->id}}')" class="p-2 pointer border-bottom align-items-center d-flex justify-content-between">
                             <img src="{{url('image/icon/user_admin.png')}}" style="width: 50px" alt="">
                             <span class="color-b-600 f-15 font-S">{{$user->mobile}}</span>
                         </div>
@@ -70,7 +70,7 @@
             <div class=" w-100 overflow-scroll bg-light rounded-3" style="height: 350px;">
                 @if($factor_admin->count() != 0)
                     @foreach($factor_admin as $factor)
-                        <div class="p-2 pointer border-bottom align-items-center d-flex justify-content-between">
+                        <div @click="view_factor_admin('{{$factor->id}}')" class="p-2 pointer border-bottom align-items-center d-flex justify-content-between">
                             <img src="{{url('image/icon/factor_admin.png')}}" style="width: 50px" alt="">
                             <span class="color-b-600 f-15 font-S">{{$factor->transaction_code}}</span>
                         </div>
@@ -81,4 +81,6 @@
             </div>
         </div>
     </div>
+    @include('admin.include.user.user')
+    @include('admin.include.factor.factor')
 @endsection

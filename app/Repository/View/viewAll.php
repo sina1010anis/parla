@@ -6,6 +6,7 @@ use App\Repository\View\Data\about;
 use App\Repository\View\Data\address;
 use App\Repository\View\Data\address_select;
 use App\Repository\View\Data\admin\bank;
+use App\Repository\View\Data\admin\product_order;
 use App\Repository\View\Data\admin\product_view_admin;
 use App\Repository\View\Data\admin\user_admin;
 use App\Repository\View\Data\bannerCenter;
@@ -86,6 +87,7 @@ class viewAll
         View::composer(['*'] , user_admin::class);
         View::composer(['*'] , product_view_admin::class);
         View::composer(['*'] , bank::class);
+        View::composer(['*'] , product_order::class);
         // End Admin
     }
 }

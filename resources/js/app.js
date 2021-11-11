@@ -61,7 +61,12 @@ const app = createApp({
         data_frame:{
             'w':0,
             'h':0
-        }
+        },
+        user_admin:null,
+        factor_admin:null,
+        factor_admin_time:null,
+        factor_admin_address:null,
+        factor_admin_product:null,
     }),
     components: {
         HeaderVue,NavBar, SlideIndex,ItemVue, BannerCenter,BestBuy,BannerEnd,FooterVue,'view-product':View,BlurVue,FormComment,RelatedProduct,BlackPage,MenuVue,CountVue,PaymentVue,ErrorPage,
@@ -300,14 +305,63 @@ const app = createApp({
         },
         view_item_menu_admin(id){
             $('#box-item-menu-panel-admin-'+id).stop().slideToggle()
+        },
+        view_user_admin(id){
+            axios.post('/admin/view/users' , {id:id}).then((res)=>{
+                this.user_admin = res.data
+                $(".page-new-admin").fadeIn()
+                $(".blur").fadeIn()
+            }).catch(()=>{
+                this.pm('مشکلی پیش امده' , 3000)
+            })
+        },
+        view_factor_admin(id){
+            axios.post('/admin/view/factor' , {id:id}).then((res)=>{
+                this.factor_admin_product =res.data['orders'];
+                this.factor_admin_address = res.data['address'];
+                this.factor_admin = res.data[0]
+                this.factor_admin_time = res.data['time']
+                $(".page-new-admin-factor").fadeIn()
+                $(".blur").fadeIn()
+            }).catch(()=>{
+                this.pm('مشکلی پیش امده' , 3000)
+            })
+        },
+        edit_status_send(){
+            $(".page-new-admin-factor-as").fadeIn()
+            $(".blur").fadeIn()
+        },
+        edit_status_order_factor_admin(status){
+            axios.post('/admin/edit/status/order' , {id:this.factor_admin.id , code:status}).then((res)=>{
+                if (res.data == 'ok'){
+                    this.pm('وضعیت سفارش تغییر کرد' , 3000)
+                    this.factor_admin.status_order = status;
+                    $(".page-new-admin-factor-as").fadeOut()
+                }
+            }).catch(()=>{
+                this.pm('مشکلی پیش امده' , 3000)
+            })
+        },
+        view_page_delete_user_admin(){
+            $(".page-new-admin").fadeOut()
+            $(".page-new-admin-as").fadeIn()
+        },
+        delete_user_admin(id){
+            axios.post('/admin/delete/users' , {id:id}).then((res)=>{
+                if (res.data == 'delete'){
+                    $(".page-new-admin").fadeOut()
+                    $(".blur").fadeOut()
+                    this.pm('کاربر مورد نظر حذف شد' , 3000)
+                    this.reload_time(2000)
+                }
+            }).catch(()=>{
+                this.pm('مشکلی پیش امده' , 3000)
+            })
         }
     },
     mounted() {
         setTimeout(()=>{$('.view-err').fadeOut()} , 10000)
         $('.page-tip').fadeIn();
-
-
-
     },
     created() {
 

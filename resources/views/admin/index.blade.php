@@ -12,8 +12,10 @@
     @include('admin.include.menu')
     <div class="container-fluid overflow-scroll" style="height: 100vh">
         @include('admin.include.header')
+        @include('errors.formAuth')
         @yield('admin')
     </div>
+    <blur-vue></blur-vue>
 </div>
 </body>
 <script src="{{url('js/app.js')}}"></script>

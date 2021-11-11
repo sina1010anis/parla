@@ -9,6 +9,6 @@ class user_admin
 {
     public function compose(View $view)
     {
-        return $view->with('user_admin' , User::all());
+        return $view->with('user_admin' , User::orderBy('id' , 'DESC')->get());
     }
 }

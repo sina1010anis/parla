@@ -10,7 +10,9 @@ use App\Http\Controllers\Product\Card\CardController;
 use App\Http\Controllers\User\UserController;
 use \App\Http\Controllers\User\UserNewController;
 use \App\Http\Controllers\Admin\AdminController;
-
+use \App\Http\Controllers\Admin\AdminView\AdminViewController;
+use \App\Http\Controllers\Admin\AdminView\AdminDeleteController;
+use \App\Http\Controllers\Admin\AdminView\AdminEditController;
 
 Route::prefix('/')->group(function (){
     Route::get('', [IndexController::class , 'index'])->name('index');
@@ -64,6 +66,16 @@ Route::prefix('/user')->as('user')->middleware('auth')->group(function(){
 
 Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(function (){
     Route::get('/' , [AdminController::class , 'index'])->name('.index');
+    Route::prefix('/view')->as('.view')->group(function(){
+        Route::post('/users' , [AdminViewController::class , 'viewUser'])->name('user');
+        Route::post('/factor' , [AdminViewController::class , 'factorUser'])->name('factor');
+    });
+    Route::prefix('/delete')->as('.delete')->group(function(){
+        Route::post('/users' , [AdminDeleteController::class , 'deleteUser'])->name('user');
+    });
+    Route::prefix('edit')->as('edit')->group(function (){
+        Route::post('/status/order' , [AdminEditController::class , 'editStatusOrder'])->name('.status.order');
+    });
 });
 
 Auth::routes();

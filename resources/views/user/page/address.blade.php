@@ -53,4 +53,14 @@
             بستن
         </button>
     </div>
+    <div class="page-new overflow-hidden page-tip">
+        <h6 class="text-center font-S my-2 color-b-600"> سفارش محصول</h6>
+        <div class="line"></div>
+        <p class="f-12 text-center" style="color: red">
+            اگر محصولی را سفارش داده اید و هنوز به دست شما نرسده است تا زمان تحویل گرفتن محصول ادرس را تغییر ندهید
+        </p>
+        <button @click="cls_page_new_comment_reply" type="button" class="btn btn-lg btn-light f-13 ms-3 mt-3">
+            بستن
+        </button>
+    </div>
 @endsection

@@ -992,4 +992,8 @@ transition: 0.5s;
     border-radius: 10px;
     background-color: #fff9f1;
 }
+.item-menu-panel-admin a{
+    text-decoration: none!important;
+    color: #393939!important;
+}
 /* end admin style */

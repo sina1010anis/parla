@@ -2,12 +2,12 @@
 
 namespace App\Repository\View\Data;
 
+use App\Models\about_page;
 use Illuminate\View\View;
-use \App\Models\about as aboutWe;
 class about
 {
     public function compose(View $view)
     {
-        return $view->with('about' , aboutWe::first());
+        return $view->with('about' , about_page::first());
     }
 }

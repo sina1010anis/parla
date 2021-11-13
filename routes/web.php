@@ -72,12 +72,16 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::post('/users' , [AdminViewController::class , 'viewUser'])->name('.user');
         Route::post('/factor' , [AdminViewController::class , 'factorUser'])->name('.factor');
         Route::post('/support' , [AdminViewController::class , 'viewSupport'])->name('.support');
+        Route::get('/about' , [AdminViewController::class , 'viewAbout'])->name('.about');
+        Route::get('/logo' , [AdminViewController::class , 'viewLogo'])->name('.logo');
     });
     Route::prefix('/delete')->as('.delete')->group(function(){
         Route::post('/users' , [AdminDeleteController::class , 'deleteUser'])->name('.user');
     });
-    Route::prefix('edit')->as('edit')->group(function (){
+    Route::prefix('/edit')->as('.edit')->group(function (){
         Route::post('/status/order' , [AdminEditController::class , 'editStatusOrder'])->name('.status.order');
+        Route::post('/about' , [AdminEditController::class , 'editAbout'])->name('.about');
+        Route::post('/logo' , [AdminEditController::class , 'editLogo'])->name('.logo');
     });
     Route::prefix('/new')->as('new')->group(function (){
         Route::post('/support' , [AdminNewController::class , 'newSupport'])->name('.support');

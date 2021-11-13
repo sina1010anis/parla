@@ -1,2 +1,6 @@
 email : eb09152158988@gmail.com
 password : 4..9ViVC-F6wxd5
+
+-------------------------
+اگر ارور روت داشتیم باید در فایل vendor/laravel/fer..../src/lill.../RouteFileRegister.php
+در متدد اخر باید مقدار $route رو پاس بدهیم

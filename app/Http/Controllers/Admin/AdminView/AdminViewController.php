@@ -49,4 +49,14 @@ class AdminViewController extends Controller
         }
         return response()->json($data);
     }
+
+    public function viewAbout()
+    {
+        return view('admin.page.aboutPage');
+    }
+
+    public function viewLogo()
+    {
+        return view('admin.page.logoPage');
+    }
 }

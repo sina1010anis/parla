@@ -19,8 +19,8 @@
                  مشخصات هدر   <i class="bi bi-align-top f-15"></i>
             </div>
             <div class="box-item-menu-panel-admin mt-1 p-2" id="box-item-menu-panel-admin-1">
-                <div class="text-center f-12 color-b-500 py-2 pointer">درباره شرکت</div>
-                <div class="text-center f-12 color-b-500 py-2 pointer">لوگو</div>
+                <div class="text-center f-12 color-b-500 py-2 pointer"><a href="{{route('admin.view.about')}}">درباره شرکت</a></div>
+                <div class="text-center f-12 color-b-500 py-2 pointer"><a href="{{route('admin.view.logo')}}">لوگو</a></div>
             </div>
         </div>
         <div class="item-menu-panel-admin">

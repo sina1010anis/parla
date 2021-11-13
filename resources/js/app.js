@@ -91,6 +91,10 @@ const app = createApp({
         ErrorPage,
     },
     methods: {
+        view_page_help_admin(){
+            $(".page-help-admin-tag").fadeIn()
+            $(".blur").fadeIn()
+        },
         new_support(){
             if (this.text_support != null){
                 axios.post('/admin/new/support' , {id:this.id_comment_support , text:this.text_support}).then((res) => {

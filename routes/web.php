@@ -13,6 +13,8 @@ use \App\Http\Controllers\Admin\AdminController;
 use \App\Http\Controllers\Admin\AdminView\AdminViewController;
 use \App\Http\Controllers\Admin\AdminView\AdminDeleteController;
 use \App\Http\Controllers\Admin\AdminView\AdminEditController;
+use \App\Http\Controllers\Admin\AdminNewController;
+use \App\Http\Controllers\Admin\AdminUpdateController;
 
 Route::prefix('/')->group(function (){
     Route::get('', [IndexController::class , 'index'])->name('index');
@@ -67,14 +69,21 @@ Route::prefix('/user')->as('user')->middleware('auth')->group(function(){
 Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(function (){
     Route::get('/' , [AdminController::class , 'index'])->name('.index');
     Route::prefix('/view')->as('.view')->group(function(){
-        Route::post('/users' , [AdminViewController::class , 'viewUser'])->name('user');
-        Route::post('/factor' , [AdminViewController::class , 'factorUser'])->name('factor');
+        Route::post('/users' , [AdminViewController::class , 'viewUser'])->name('.user');
+        Route::post('/factor' , [AdminViewController::class , 'factorUser'])->name('.factor');
+        Route::post('/support' , [AdminViewController::class , 'viewSupport'])->name('.support');
     });
     Route::prefix('/delete')->as('.delete')->group(function(){
-        Route::post('/users' , [AdminDeleteController::class , 'deleteUser'])->name('user');
+        Route::post('/users' , [AdminDeleteController::class , 'deleteUser'])->name('.user');
     });
     Route::prefix('edit')->as('edit')->group(function (){
         Route::post('/status/order' , [AdminEditController::class , 'editStatusOrder'])->name('.status.order');
+    });
+    Route::prefix('/new')->as('new')->group(function (){
+        Route::post('/support' , [AdminNewController::class , 'newSupport'])->name('.support');
+    });
+    Route::prefix('/update')->as('update')->group(function (){
+        Route::post('/support' , [AdminUpdateController::class , 'updateSupport'])->name('.support');
     });
 });
 

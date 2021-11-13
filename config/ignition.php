@@ -117,7 +117,7 @@ return [
     | Housekeeping Endpoint Prefix
     |--------------------------------------------------------------------------
     |
-    | Ignition registers a couple of routes when it is enabled. Below you may
+    | Ignition registers a couple of fileRoute when it is enabled. Below you may
     | specify a route prefix that will be used to host all internal links.
     |
     */

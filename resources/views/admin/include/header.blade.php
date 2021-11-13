@@ -4,6 +4,15 @@
     </a>
 
     <ul class="nav nav-pills">
-        <li class="nav-item obj-center mx-3 px-2 pointer"><span class="f-14 " style="color: red">25</span><i class="bi bi-bell f-22 color-b-500"></i></li>
+        <li>
+            <button @click="view_page_support_admin" type="button" class="btn position-relative">
+                <i class="bi bi-envelope f-18"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {{$support_admin->whereView_admin(0)->whereStatus(0)->count()}}
+            <span class="visually-hidden">unread messages</span>
+          </span>
+            </button>
+        </li>
     </ul>
 </header>
+@include('admin.include.support.support')

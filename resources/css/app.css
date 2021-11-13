@@ -970,7 +970,7 @@ transition: 0.5s;
 .icon-menu-admin{
     top: 10px;
     z-index: 10!important;
-    right: 10px;
+    left: 10px;
     border-radius: 10px;
 }
 .item-menu-panel-admin i{

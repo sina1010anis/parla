@@ -192,6 +192,7 @@ return [
     */
 
     'aliases' => [
+        'Smsirlaravel' => Ipecompany\Smsirlaravel\SmsirlaravelFacade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'ReCaptcha' => Biscolab\ReCaptcha\Facades\ReCaptcha::class,
         'Payment' => Shetabit\Payment\Facade\Payment::class,

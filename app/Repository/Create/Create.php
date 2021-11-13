@@ -12,7 +12,9 @@ abstract class Create
     {
         SupportModel::create([
             'text' => $this->request->text,
-            'sender' => auth()->user()->id,
+            'sender' =>(isset($this->request->id)) ? $this->request->id : auth()->user()->id,
+            'status' =>(isset($this->request->id)) ? 1 : 0,
+            'view_admin' =>(isset($this->request->id)) ? 1 : 0,
         ]);
     }
     public function createSaveProduct()

@@ -29,7 +29,7 @@
                 مشخصات منو   <i class="bi bi-menu-app f-15"></i>
             </div>
             <div class="box-item-menu-panel-admin mt-1 p-2" id="box-item-menu-panel-admin-2">
-                <div class="text-center f-12 color-b-500 py-2 pointer">منو اصلی</div>
+                <div class="text-center f-12 color-b-500 py-2 pointer"><a href="{{route('admin.view.menu')}}">منو اصلی</a></div>
                 <div class="text-center f-12 color-b-500 py-2 pointer">زیر منو</div>
             </div>
         </div>
@@ -152,6 +152,15 @@
             </div>
             <div class="box-item-menu-panel-admin mt-1 p-2" id="box-item-menu-panel-admin-12">
                 <div class="text-center f-12 color-b-500 py-2 pointer"><a href="#" style="text-decoration: none;" class="color-b-500">حذف محصولات از سبد</a></div>
+            </div>
+        </div>
+        <div class="item-menu-panel-admin">
+            <div @click="view_item_menu_admin(16)" class="f-13 my-3 color-b-600 font-S text-end pointer title-item-menu-panel-admin rounded-3 p-2">
+                <i class="bi bi-caret-down float-start position-relative" style="top: 4px"></i>
+                گالری   <i class="bi bi-images f-15"></i>
+            </div>
+            <div class="box-item-menu-panel-admin mt-1 p-2" id="box-item-menu-panel-admin-16">
+                <div class="text-center f-12 color-b-500 py-2 pointer"><a href="#" style="text-decoration: none;" class="color-b-500">گالری</a></div>
             </div>
         </div>
     </div>

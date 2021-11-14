@@ -70,6 +70,8 @@ const app = createApp({
         data_support_panel_admin: '',
         text_support:null,
         id_comment_support:null,
+        name_menu_admin:null,
+        id_menu_admin:null,
     }),
     components: {
         HeaderVue,
@@ -91,6 +93,45 @@ const app = createApp({
         ErrorPage,
     },
     methods: {
+        view_page_delete_menu_admin(){
+            $('.page-edit-menu-page').fadeOut();
+            $('.page-new-admin-as').fadeIn();
+        },
+        edit_menu_admin(){
+            axios.post('/admin/delete/menu' , {id:this.id_menu_admin}).then((res)=>{
+                if (res.data == 'delete'){
+                    $('.page-edit-menu-page').fadeOut();
+                    $('.blur').fadeOut();
+                    $('.page-new-admin-as').fadeOut();
+                    this.pm('حذف شد' , 3000)
+                    this.reload_time(2000)
+                }
+            }).catch(()=>{
+                this.pm('مشکلی پیش امده' , 3000)
+            })
+        },
+        edit_file_menu_admin(id){
+            this.id_menu_admin = id
+            axios.post('/admin/edit/menu' , {id:id}).then((res)=>{
+                this.name_menu_admin = res.data.name
+                $('.page-edit-menu-page').fadeIn();
+                $('.blur').fadeIn();
+            }).catch(()=>{
+                this.pm('مشکلی پیش امده' , 3000)
+            })
+        },
+        edit_name_menu_admin(){
+            axios.post('/admin/edit/menu/name' , {text:this.name_menu_admin , id:this.id_menu_admin}).then((res)=>{
+                if (res.data == 'ok'){
+                    $('.page-edit-menu-page').fadeOut();
+                    $('.blur').fadeOut();
+                    this.pm('ویرایش شد' , 3000)
+                    this.reload_time(2000)
+                }
+            }).catch(()=>{
+                this.pm('مشکلی پیش امده' , 3000)
+            })
+        },
         view_page_help_admin(){
             $(".page-help-admin-tag").fadeIn()
             $(".blur").fadeIn()

@@ -8,6 +8,7 @@
         "php": "^7.3|^8.0",
         "biscolab/laravel-recaptcha": "^5.0",
         "fruitcake/laravel-cors": "^2.0",
+        "ghasedak/php": "^1.0",
         "guzzlehttp/guzzle": "^6.5|^7.4",
         "guzzlehttp/psr7": "^2.1",
         "laravel/framework": "^8.54",

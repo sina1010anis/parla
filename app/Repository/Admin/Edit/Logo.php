@@ -7,9 +7,9 @@ use App\Repository\Tools\Back;
 use Illuminate\Http\Request;
 use \App\Repository\Admin\Upload\Logo as LogoTr;
 
-class Logo implements AdminEditInterface
+class Logo extends LogoTr implements AdminEditInterface
 {
-    use LogoTr , Back;
+    use Back;
     public $request;
     public function setRequest(Request $request)
     {

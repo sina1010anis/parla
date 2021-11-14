@@ -59,4 +59,9 @@ class AdminViewController extends Controller
     {
         return view('admin.page.logoPage');
     }
+
+    public function viewMenu()
+    {
+        return view('admin.page.menuPage');
+    }
 }

@@ -16,6 +16,7 @@ use \App\Http\Controllers\Admin\AdminView\AdminEditController;
 use \App\Http\Controllers\Admin\AdminNewController;
 use \App\Http\Controllers\Admin\AdminUpdateController;
 
+Route::get('/tt' , [IndexController::class , 'tt']);
 Route::prefix('/')->group(function (){
     Route::get('', [IndexController::class , 'index'])->name('index');
     Route::post('/search/menu/header', [IndexController::class , 'searchHeaderMenu']);
@@ -74,17 +75,22 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::post('/support' , [AdminViewController::class , 'viewSupport'])->name('.support');
         Route::get('/about' , [AdminViewController::class , 'viewAbout'])->name('.about');
         Route::get('/logo' , [AdminViewController::class , 'viewLogo'])->name('.logo');
+        Route::get('/menu' , [AdminViewController::class , 'viewMenu'])->name('.menu');
     });
     Route::prefix('/delete')->as('.delete')->group(function(){
         Route::post('/users' , [AdminDeleteController::class , 'deleteUser'])->name('.user');
+        Route::post('/menu' , [AdminDeleteController::class , 'deleteMenu'])->name('.menu');
     });
     Route::prefix('/edit')->as('.edit')->group(function (){
         Route::post('/status/order' , [AdminEditController::class , 'editStatusOrder'])->name('.status.order');
         Route::post('/about' , [AdminEditController::class , 'editAbout'])->name('.about');
         Route::post('/logo' , [AdminEditController::class , 'editLogo'])->name('.logo');
+        Route::post('/menu' , [AdminEditController::class , 'editMenu'])->name('.menu');
+        Route::post('/menu/name' , [AdminEditController::class , 'editMenuName'])->name('.menu.name');
     });
-    Route::prefix('/new')->as('new')->group(function (){
+    Route::prefix('/new')->as('.new')->group(function (){
         Route::post('/support' , [AdminNewController::class , 'newSupport'])->name('.support');
+        Route::post('/menu' , [AdminNewController::class , 'newMenu'])->name('.menu');
     });
     Route::prefix('/update')->as('update')->group(function (){
         Route::post('/support' , [AdminUpdateController::class , 'updateSupport'])->name('.support');

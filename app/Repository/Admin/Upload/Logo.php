@@ -2,29 +2,10 @@
 
 namespace App\Repository\Admin\Upload;
 
-trait Logo
+abstract class Logo extends Upload
 {
-    public $file;
-    public $name;
-
-    public function setFile()
+    public function addressFile()
     {
-        $this->file = $this->request->file('image');
-        return $this;
-    }
-    public function setName()
-    {
-        $this->name = $this->file->getClientOriginalName();
-        return $this;
-    }
-    public function moveFile()
-    {
-        $this->file->move(public_path('/image/logo/'), $this->name);
-        return $this;
-    }
-    public function move()
-    {
-        $this->setFile()->setName()->moveFile();
-        return $this;
+        return '/image/logo/';
     }
 }

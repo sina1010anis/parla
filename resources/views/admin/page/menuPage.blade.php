@@ -62,3 +62,6 @@
         </button>
     </div>
 @endsection
+@section('script')
+
+@endsection

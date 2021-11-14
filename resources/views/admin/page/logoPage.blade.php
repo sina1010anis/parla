@@ -21,3 +21,6 @@
     </div>
     @include('admin.include.about.about')
 @endsection
+@section('script')
+
+@endsection

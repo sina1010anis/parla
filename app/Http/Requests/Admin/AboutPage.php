@@ -25,7 +25,6 @@ class AboutPage extends FormRequest
     {
         return [
             'text' => 'required',
-            'title' => 'required'
         ];
     }
 
@@ -33,7 +32,6 @@ class AboutPage extends FormRequest
     {
         return [
             'text.required' => 'لطفا متن را وارد کنید ',
-            'title.required' => 'لطفا موضوع را وارد کنید '
         ];
     }
 }

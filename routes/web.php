@@ -17,6 +17,8 @@ use \App\Http\Controllers\Admin\AdminNewController;
 use \App\Http\Controllers\Admin\AdminUpdateController;
 
 Route::get('/tt' , [IndexController::class , 'tt']);
+Route::get('/verify', [ProductController::class , 'verifyMobile'])->name('verify.mobile');
+Route::post('/verify/check', [ProductController::class , 'verifyMobileCheck'])->name('verify.mobile.check');
 Route::prefix('/')->group(function (){
     Route::get('', [IndexController::class , 'index'])->name('index');
     Route::post('/search/menu/header', [IndexController::class , 'searchHeaderMenu']);
@@ -42,7 +44,7 @@ Route::prefix('/product')->as('product')->group(function (){
 
 });
 
-Route::prefix('/user')->as('user')->middleware('auth')->group(function(){
+Route::prefix('/user')->as('user')->middleware(['auth' , 'verify_mobile'])->group(function(){
     Route::get('/tracking' , [UserController::class , 'tracking'])->name('.tracking');
     Route::get('/cart' , [UserController::class , 'cart'])->name('.cart');
     Route::get('/address' , [UserController::class , 'address'])->name('.address');
@@ -91,6 +93,7 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
     Route::prefix('/new')->as('.new')->group(function (){
         Route::post('/support' , [AdminNewController::class , 'newSupport'])->name('.support');
         Route::post('/menu' , [AdminNewController::class , 'newMenu'])->name('.menu');
+        Route::post('/image/about' , [AdminNewController::class , 'newImageAbout'])->name('.image.about');
     });
     Route::prefix('/update')->as('update')->group(function (){
         Route::post('/support' , [AdminUpdateController::class , 'updateSupport'])->name('.support');
@@ -99,4 +102,4 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware(['auth' , 'verify_mobile'])->name('home');

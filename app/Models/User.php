@@ -31,6 +31,7 @@ class User extends Authenticatable
         'address_id' => 0,
         'status' => 1,
         'email' => Null,
+        'verify_mobile' => 0
     ];
     public function comment(){
         return $this->hasMany(comment::class , 'user_id' , 'id');

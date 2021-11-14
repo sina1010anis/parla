@@ -23,6 +23,8 @@
         "vue-loader": "^16.8.1"
     },
     "dependencies": {
+        "@tiptap/starter-kit": "^2.0.0-beta.140",
+        "@tiptap/vue-3": "^2.0.0-beta.80",
         "bootstrap-icons": "^1.6.1",
         "bootstrap-rtl": "^3.3.4",
         "vue": "^3.2.20"

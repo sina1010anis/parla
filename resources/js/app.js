@@ -23,9 +23,12 @@ import {createApp} from 'vue'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import '../css/app.css'
 import $ from 'jquery'
+import { Editor, EditorContent } from '@tiptap/vue-3'
+import StarterKit from '@tiptap/starter-kit'
 
 const app = createApp({
     data: () => ({
+        editor:null,
         test: 'test',
         id_size_product: null,
         data_size: null,
@@ -93,6 +96,15 @@ const app = createApp({
         ErrorPage,
     },
     methods: {
+        view_page_new_photo_in_page_about(){
+            $('.page-photos-about').fadeOut()
+            $('.page-photos-upload').fadeIn()
+            $('.blur').fadeIn()
+        },
+        view_page_upload_photo(){
+            $('.page-photos-about').fadeIn()
+            $('.blur').fadeIn()
+        },
         view_page_delete_menu_admin(){
             $('.page-edit-menu-page').fadeOut();
             $('.page-new-admin-as').fadeIn();
@@ -465,10 +477,19 @@ const app = createApp({
             $('.view-err').fadeOut()
         }, 10000)
         $('.page-tip').fadeIn();
+        this.editor = new Editor({
+            content: '<p>I’m running Tiptap with Vue.js. 🎉</p>',
+            extensions: [
+                StarterKit,
+            ],
+        })
     },
     created() {
 
-    }
+    },
+    beforeUnmount() {
+        this.editor.destroy()
+    },
 })
 
 app.mount('#app')

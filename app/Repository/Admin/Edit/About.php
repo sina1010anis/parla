@@ -19,7 +19,7 @@ class About implements AdminEditInterface
 
     public function update()
     {
-        about_page::where('id' , 1)->update(['text' => $this->request->text , 'title' => $this->request->title]);
+        about_page::where('id' , 1)->update(['text' => $this->request->text ]);
         return $this;
     }
 }

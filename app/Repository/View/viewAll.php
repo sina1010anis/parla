@@ -6,6 +6,7 @@ use App\Repository\View\Data\about;
 use App\Repository\View\Data\address;
 use App\Repository\View\Data\address_select;
 use App\Repository\View\Data\admin\bank;
+use App\Repository\View\Data\admin\image_about;
 use App\Repository\View\Data\admin\product_order;
 use App\Repository\View\Data\admin\product_view_admin;
 use App\Repository\View\Data\admin\support_admin;
@@ -90,6 +91,7 @@ class viewAll
         View::composer(['*'] , bank::class);
         View::composer(['*'] , product_order::class);
         View::composer(['*'] , support_admin::class);
+        View::composer(['*'] , image_about::class);
         // End Admin
     }
 }

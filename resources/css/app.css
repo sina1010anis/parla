@@ -939,11 +939,9 @@ transition: 0.5s;
 .bax-error-page{
     width: 90%;
     height: 90vh;
-    background-color: #ffffff;
     position: absolute;
     top: 50%;
     border-radius: 10px;
-    box-shadow: 1px 1px 10px rgba(50, 50, 50, 0.2);
     left: 50%;
     transform: translate(-50% , -50%);
 }

@@ -4,17 +4,22 @@ namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CommentRequest;
+use App\Http\Requests\VerifyMobileRequest;
 use App\Models\product;
 use App\Models\size_product;
+use App\Models\User;
 use App\Repository\Card\Card;
 use App\Repository\Comment\CommentProduct;
 use App\Repository\Save\saveProduct;
+use App\Repository\Tools\Back;
 use Carbon\Carbon;
+use Ghasedak\GhasedakApi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
+    use Back;
     public function show(product $slug){
         product::where('id', $slug->id)->increment('view' , 1);
         return view('front.product.index')->with('data' , $slug);
@@ -52,4 +57,22 @@ class ProductController extends Controller
         return response()->json($data);
     }
 
+    public function verifyMobile(GhasedakApi $ghasedakApi)
+    {
+        $number = rand(23457,99999);
+        session()->put('number' , $number);
+        $text = ' کد تایید : '.$number.' با احترام Parla ' ;
+        $ghasedakApi->SendSimple('09395231890' , $text , '10008566');
+        return view('front.section.verify_mobile');
+    }
+
+    public function verifyMobileCheck(VerifyMobileRequest $request)
+    {
+        if ($request->code == session()->get('number')){
+            User::whereId(auth()->user()->id)->update(['verify_mobile' => 1]);
+            return redirect()->route('home');
+        }else{
+            return $this->backD('کد تایید نادرست است (کد تایید مجدد ارسال شد)');
+        }
+    }
 }

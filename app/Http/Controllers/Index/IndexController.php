@@ -33,7 +33,7 @@ class IndexController extends Controller
 
     public function tt()
     {
-        $api = new GhasedakApi('c9500f25ff780726ac0f2cf09eb565ad3615f6093455b19b9e3d7e2269ff638a');
-        $api->SendSimple('09395231890' , 'سلام' , '10008566');
+//        $api = new GhasedakApi('fe16b04ac30294ed0834f232fe2691edf568e47888c3cbd85510b3c7d1180396');
+//        $api->SendSimple('09395231890' , 'پیام تستی' , '10008566');
     }
 }

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\LogoRequest;
 use App\Http\Requests\Admin\MenuRequest;
+use App\Repository\Admin\About\About;
 use App\Repository\Admin\Menu\Menu;
 use App\Repository\Create\Card;
 use App\Repository\Create\Create;
@@ -22,5 +24,10 @@ class AdminNewController extends Controller
     public function newMenu(MenuRequest $request , Menu $menu)
     {
         return $menu->setRequest($request)->move()->create()->back('با موفقیت اپلود شد');
+    }
+
+    public function newImageAbout(LogoRequest $request , About $about)
+    {
+        return $about->setRequest($request)->move()->create()->back('با موفقیت اپلود شد');
     }
 }

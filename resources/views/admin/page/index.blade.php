@@ -84,3 +84,6 @@
     @include('admin.include.user.user')
     @include('admin.include.factor.factor')
 @endsection
+@section('script')
+
+@endsection

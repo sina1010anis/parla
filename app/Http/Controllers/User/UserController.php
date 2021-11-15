@@ -87,6 +87,9 @@ class UserController extends Controller
                 User::whereId(auth()->user()->id)->update([$request->name => Hash::make($request->text)]);
             }else{
                 User::whereId(auth()->user()->id)->update([$request->name => $request->text]);
+                if ($request->name == 'mobile'){
+                    User::whereId(auth()->user()->id)->update(['verify_mobile' => 0]);
+                }
             }
             if ($request->name == 'password' || $request->name == 'mobile'){
                 auth()->logout();

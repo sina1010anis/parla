@@ -62,7 +62,7 @@ class ProductController extends Controller
         $number = rand(23457,99999);
         session()->put('number' , $number);
         $text = ' کد تایید : '.$number.' با احترام Parla ' ;
-        $ghasedakApi->SendSimple('09395231890' , $text , '10008566');
+        $ghasedakApi->SendSimple(auth()->user()->mobile , $text , env('GHASEDAKAPI_LINENUMBER', '10008566'));
         return view('front.section.verify_mobile');
     }
 

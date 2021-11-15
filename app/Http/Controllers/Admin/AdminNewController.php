@@ -12,14 +12,15 @@ use App\Repository\Create\Card;
 use App\Repository\Create\Create;
 use App\Repository\Create\Support;
 use App\Repository\Tools\Message;
+use Ghasedak\GhasedakApi;
 use Illuminate\Http\Request;
 
 class AdminNewController extends Controller
 {
     use Support,Message;
-    public function newSupport(Request $request)
+    public function newSupport(Request $request , GhasedakApi $ghasedakApi)
     {
-        return $this->createSupport($request)->msgCreate();
+        return $this->createSupport($request)->sendSMS($ghasedakApi)->msgCreate();
     }
 
     public function newMenu(MenuRequest $request , Menu $menu)

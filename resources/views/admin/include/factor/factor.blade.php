@@ -25,6 +25,12 @@
             <div dir="rtl" align="center" class="col-12 f-12 color-b-600 my-2"> <b class="color-b-800">@{{ (factor_admin_address != null) ? factor_admin_address : '' }}</b></div>
         </div>
     </div>
+    <div class="w-100">
+        <h6 class="color-b-600 font-S text-end" dir="rtl">شماره موبایل : </h6>
+        <div>
+            <div dir="rtl" align="center" class="col-12 f-12 color-b-600 my-2"> <b class="color-b-800">@{{ (factor_admin_mobile != null) ? factor_admin_mobile : '' }}</b></div>
+        </div>
+    </div>
     <div class="line"></div>
     <div class="w-100">
         <h6 class="color-b-600 font-S text-end" dir="rtl">سفارشات : </h6>

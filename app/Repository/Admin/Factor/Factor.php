@@ -14,4 +14,8 @@ class Factor
         $this->data = \App\Models\factor::find($id);
         return $this->data;
     }
+    public function findMobile()
+    {
+        return $this->data->user->mobile;
+    }
 }

@@ -76,6 +76,7 @@ const app = createApp({
         name_menu_admin:null,
         id_menu_admin:null,
         menu_sub_menu:null,
+        factor_admin_mobile:null,
     }),
     components: {
         HeaderVue,
@@ -450,6 +451,7 @@ const app = createApp({
             axios.post('/admin/view/factor', {id: id}).then((res) => {
                 this.factor_admin_product = res.data['orders'];
                 this.factor_admin_address = res.data['address'];
+                this.factor_admin_mobile = res.data['mobile'];
                 this.factor_admin = res.data[0]
                 this.factor_admin_time = res.data['time']
                 $(".page-new-admin-factor").fadeIn()

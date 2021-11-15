@@ -30,7 +30,8 @@ class AdminViewController extends Controller
             $factor,
             'time' => j_date($factor->created_at) ,
             'address' => $this->factor->build(),
-            'orders' => $this->factor->setOrder()
+            'orders' => $this->factor->setOrder(),
+            'mobile' => $this->factor->findMobile()
         ]);
     }
 

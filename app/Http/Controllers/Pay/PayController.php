@@ -9,6 +9,7 @@ use App\Models\free_send;
 use App\Models\product;
 use App\Models\product_order;
 use App\Repository\Create\Factor;
+use Ghasedak\GhasedakApi;
 use Illuminate\Http\Request;
 use Shetabit\Multipay\Exceptions\InvalidPaymentException;
 use Shetabit\Multipay\Invoice;
@@ -25,7 +26,7 @@ class PayController extends Controller
         return $this->total_price()->createFactor()->selectFactor()->createProductOrder()->msgOk();
     }
 
-    public function send(Invoice $invoice)
+    public function send(Invoice $invoice )
     {
         $data = factorModel::whereUser_id(auth()->user()->id)->first();
         $free_price = free_send::first();
@@ -39,7 +40,7 @@ class PayController extends Controller
         })->pay()->render();
     }
 
-    public function verify()
+    public function verify(GhasedakApi $ghasedakApi)
     {
         $data = factorModel::whereUser_id(auth()->user()->id)->first();
         $free_price = free_send::first();
@@ -60,6 +61,7 @@ class PayController extends Controller
 //            foreach ($product as $item){
 //                product::whereId($item->product_id)->decrement('number' , $item->number);
 //            }
+            $ghasedakApi->SendSimple(auth()->user()->mobile , 'با تشکر از خرید شما برای پیگیری محصول لطفا به پنل خود و بخش پیگیری محصولات مراجعه کنید . با احترام تیم Parla' ,env('GHASEDAKAPI_LINENUMBER', '10008566'));
             return view('user.buy.payment'  , compact('product' ,'tip', 'code'))->with('status' , true);
         } catch (InvalidPaymentException $exception) {
             $tip = $exception->getMessage();

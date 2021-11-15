@@ -4,7 +4,7 @@ namespace App\Repository\Admin\Delete;
 
 use App\Repository\Tools\Message;
 
-class Menu
+class Menu implements DeleteInterface
 {
     use Message;
     public function delete($id)

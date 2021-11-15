@@ -64,4 +64,9 @@ class AdminViewController extends Controller
     {
         return view('admin.page.menuPage');
     }
+
+    public function viewSubMenu()
+    {
+        return view('admin.page.viewSubMenu');
+    }
 }

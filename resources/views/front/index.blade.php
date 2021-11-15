@@ -11,6 +11,10 @@
 </head>
 <body>
 <div id="app" class="container-fluid box-am overflow-hidden">
+    <div class="banner-up w-100 p-2 position-absolute" style="background-color: {{$banner_up->src}};left: 0;z-index: 20">
+        <p class="text-center f-14 mb-0 color-b-100">{{$banner_up->name}}</p>
+        <button type="button" class="btn-close position-absolute f-14 color-b-100" @click="hide_banner_up" style="top: 7px" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
     @yield('index')
 </div>
 </body>

@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\LogoRequest;
 use App\Http\Requests\Admin\MenuNameRequest;
 use App\Models\factor;
 use App\Models\menu;
+use App\Models\sub_menu;
 use App\Repository\Admin\Edit\About;
 use App\Repository\Admin\Edit\Logo;
 use App\Repository\Tools\Message;
@@ -38,9 +39,23 @@ class AdminEditController extends Controller
         return response()->json($data);
     }
 
+    public function editSubMenu(Request $request)
+    {
+        $data = sub_menu::find($request->id);
+        return response()->json([
+            'data' => $data , 'menu' => $data->menu
+        ]);
+    }
+
     public function editMenuName(MenuNameRequest $request)
     {
         menu::whereId($request->id)->update(['name' => $request->text]);
+        return $this->msgOk();
+    }
+
+    public function editSubMenuName(Request $request)
+    {
+        sub_menu::whereId($request->id)->update(['name' => $request->text]);
         return $this->msgOk();
     }
 }

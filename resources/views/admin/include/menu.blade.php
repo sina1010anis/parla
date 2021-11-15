@@ -30,7 +30,7 @@
             </div>
             <div class="box-item-menu-panel-admin mt-1 p-2" id="box-item-menu-panel-admin-2">
                 <div class="text-center f-12 color-b-500 py-2 pointer"><a href="{{route('admin.view.menu')}}">منو اصلی</a></div>
-                <div class="text-center f-12 color-b-500 py-2 pointer">زیر منو</div>
+                <div class="text-center f-12 color-b-500 py-2 pointer"><a href="{{route('admin.view.subMenu')}}">زیر منو</a></div>
             </div>
         </div>
         <div class="item-menu-panel-admin">
@@ -52,6 +52,7 @@
             </div>
             <div class="box-item-menu-panel-admin mt-1 p-2" id="box-item-menu-panel-admin-4">
                 <div class="text-center f-12 color-b-500 py-2 pointer">اسلایدر اصلی</div>
+                <div class="text-center f-12 color-b-500 py-2 pointer">اسلایدر منو</div>
             </div>
         </div>
         <div class="item-menu-panel-admin">

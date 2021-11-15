@@ -949,7 +949,9 @@ transition: 0.5s;
     width: 150px;
 }
 
-
+.banner-up{
+    color: #2f82c6;
+}
 /* admin style */
 
 .menu-admin{

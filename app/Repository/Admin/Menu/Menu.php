@@ -4,18 +4,17 @@ namespace App\Repository\Admin\Menu;
 
 use App\Http\Requests\Admin\MenuRequest;
 use \App\Repository\Admin\Upload\Menu as MenuTR;
+use App\Repository\Admin\Upload\Upload;
 use App\Repository\Tools\Back;
 
-class Menu extends MenuTR
+class Menu extends Upload
 {
     use Back;
-    public $request;
-    public function setRequest(MenuRequest $request)
-    {
-        $this->request = $request;
-        return $this;
-    }
 
+    public function addressFile()
+    {
+        return '/image/menu/';
+    }
     public function create()
     {
         \App\Models\menu::create([

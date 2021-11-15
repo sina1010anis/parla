@@ -11,6 +11,7 @@ use App\Repository\View\Data\admin\product_order;
 use App\Repository\View\Data\admin\product_view_admin;
 use App\Repository\View\Data\admin\support_admin;
 use App\Repository\View\Data\admin\user_admin;
+use App\Repository\View\Data\banner_up;
 use App\Repository\View\Data\bannerCenter;
 use App\Repository\View\Data\bannerEnd;
 use App\Repository\View\Data\bannerTop;
@@ -84,6 +85,7 @@ class viewAll
         View::composer(['*'] , count_support::class);
         View::composer(['*'] , products_2::class);
         View::composer(['*'] , products_3::class);
+        View::composer(['*'] , banner_up::class);
         // Admin
         View::composer(['*'] , \App\Repository\View\Data\admin\factor::class);
         View::composer(['*'] , user_admin::class);

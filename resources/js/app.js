@@ -75,6 +75,7 @@ const app = createApp({
         id_comment_support:null,
         name_menu_admin:null,
         id_menu_admin:null,
+        menu_sub_menu:null,
     }),
     components: {
         HeaderVue,
@@ -96,6 +97,21 @@ const app = createApp({
         ErrorPage,
     },
     methods: {
+        hide_banner_up(){
+            $('.banner-up').slideUp();
+
+        },
+        edit_file_sub_menu_admin(id){
+            this.id_menu_admin = id
+            axios.post('/admin/edit/sub/menu' , {id:id}).then((res)=>{
+                this.name_menu_admin = res.data.data.name
+                this.menu_sub_menu = res.data.menu
+                $('.page-edit-menu-page').fadeIn();
+                $('.blur').fadeIn();
+            }).catch(()=>{
+                this.pm('مشکلی پیش امده' , 3000)
+            })
+        },
         view_page_new_photo_in_page_about(){
             $('.page-photos-about').fadeOut()
             $('.page-photos-upload').fadeIn()
@@ -109,8 +125,9 @@ const app = createApp({
             $('.page-edit-menu-page').fadeOut();
             $('.page-new-admin-as').fadeIn();
         },
-        edit_menu_admin(){
-            axios.post('/admin/delete/menu' , {id:this.id_menu_admin}).then((res)=>{
+        edit_menu_admin(number){
+            const url = (number == 1) ? '/admin/delete/menu' : '/admin/delete/sub/menu'
+            axios.post(url , {id:this.id_menu_admin}).then((res)=>{
                 if (res.data == 'delete'){
                     $('.page-edit-menu-page').fadeOut();
                     $('.blur').fadeOut();
@@ -132,8 +149,9 @@ const app = createApp({
                 this.pm('مشکلی پیش امده' , 3000)
             })
         },
-        edit_name_menu_admin(){
-            axios.post('/admin/edit/menu/name' , {text:this.name_menu_admin , id:this.id_menu_admin}).then((res)=>{
+        edit_name_menu_admin(number){
+            const url = (number == 1) ? '/admin/edit/menu/name' : '/admin/edit/sub/menu/name'
+            axios.post( url, {text:this.name_menu_admin , id:this.id_menu_admin}).then((res)=>{
                 if (res.data == 'ok'){
                     $('.page-edit-menu-page').fadeOut();
                     $('.blur').fadeOut();

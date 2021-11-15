@@ -6,7 +6,7 @@
             <p class="f-16 font-S color-b-700 text-end">صفحه درباره شرکت(صقحه ویرایش)</p>
             <form action="{{route('admin.edit.about')}}" method="post">
                 @csrf
-                <textarea style="height: 300px!important;" id="task-text" name="text" class="form-control form-login f-12 color-b-600"></textarea>
+                <textarea style="height: 300px!important;" id="task-text" name="text" class="form-control form-login f-12 color-b-600">{!! $about->text !!}</textarea>
                 <button type="submit" class="btn btn-lg btn-danger f-13 ms-3 mt-3">
                     ارسال
                 </button>

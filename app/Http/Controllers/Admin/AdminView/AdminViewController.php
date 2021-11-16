@@ -70,4 +70,22 @@ class AdminViewController extends Controller
     {
         return view('admin.page.viewSubMenu');
     }
+
+    public function viewBannerUp()
+    {
+        return view('admin.page.bannerUp');
+    }
+    public function viewBannerSlider()
+    {
+        return view('admin.page.bannerSlider');
+    }
+    public function viewBannerCenter()
+    {
+        return view('admin.page.bannerCenter');
+    }
+    public function viewBannerEnd()
+    {
+        return view('admin.page.bannerEnd');
+    }
 }
+

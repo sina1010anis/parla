@@ -4,7 +4,7 @@
     <div class="col-12 position-relative">
         <div><h5 class="text-end font-S my-2 color-b-600">ادرس ها</h5></div>
         <div class="line"></div>
-        <i @click="open_page" class="bi bi-plus-circle-fill pointer" title="ادرس جدید"></i>
+        <i @click="open_page_3" class="bi bi-plus-circle-fill pointer" title="ادرس جدید"></i>
     </div>
     @if($address->count() != 0)
         <div class="col-12 overflow-scroll rounded-3 position-relative bg-white" style="height: 500px">
@@ -24,8 +24,8 @@
     @else
         <count-vue image="location.png" text="ادرسی ثبت نشده است !"></count-vue>
     @endif
-    <div class="page-new">
-        <h6 class="text-center font-S my-2 color-b-600">پیام جدید</h6>
+    <div class="page-new page-new-address">
+        <h6 class="text-center font-S my-2 color-b-600">ادرس جدید</h6>
         <div class="line"></div>
         <div class="row">
             <div class="col-md-6">

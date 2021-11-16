@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\LogoRequest;
 use App\Http\Requests\Admin\MenuRequest;
 use App\Repository\Admin\About\About;
+use App\Repository\Admin\Banner\BannerCenter;
 use App\Repository\Admin\Menu\Menu;
 use App\Repository\Admin\SubMenu\SubMenu;
 use App\Repository\Create\Card;
@@ -36,5 +37,10 @@ class AdminNewController extends Controller
     public function newSubMenu(MenuRequest $request , SubMenu $subMenu)
     {
         return $subMenu->setRequest($request)->move()->create()->back('با موفقیت ساخته شد');
+    }
+
+    public function newBanner(MenuRequest $request  , BannerCenter $bannerCenter)
+    {
+        return $bannerCenter->setRequest($request)->move()->create()->back('با موفقیت ساخته شد');
     }
 }

@@ -17,14 +17,18 @@ use \App\Http\Controllers\Admin\AdminNewController;
 use \App\Http\Controllers\Admin\AdminUpdateController;
 
 Route::get('/tt' , [IndexController::class , 'tt']);
+
 Route::get('/verify', [ProductController::class , 'verifyMobile'])->name('verify.mobile');
+
 Route::post('/verify/check', [ProductController::class , 'verifyMobileCheck'])->name('verify.mobile.check');
+
 Route::prefix('/')->group(function (){
     Route::get('', [IndexController::class , 'index'])->name('index');
     Route::post('/search/menu/header', [IndexController::class , 'searchHeaderMenu']);
     Route::get('/about' , [IndexController::class , 'aboutWe'])->name('.about');
     Route::get('/category/{slug}' , [CategoryController::class , 'index'])->name('category.show');
 });
+
 Route::prefix('/product')->as('product')->group(function (){
     Route::get('/{slug}', [ProductController::class , 'show'])->name('.show');
     Route::post('/send/size', [ProductController::class , 'sendSize'])->name('.send.size');
@@ -79,11 +83,16 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::get('/logo' , [AdminViewController::class , 'viewLogo'])->name('.logo');
         Route::get('/menu' , [AdminViewController::class , 'viewMenu'])->name('.menu');
         Route::get('/sub_menu' , [AdminViewController::class , 'viewSubMenu'])->name('.subMenu');
+        Route::get('/banner/up' , [AdminViewController::class , 'viewBannerUp'])->name('.bannerUp');
+        Route::get('/banner/slider' , [AdminViewController::class , 'viewBannerSlider'])->name('.bannerSlider');
+        Route::get('/banner/center' , [AdminViewController::class , 'viewBannerCenter'])->name('.bannerCenter');
+        Route::get('/banner/end' , [AdminViewController::class , 'viewBannerEnd'])->name('.bannerEnd');
     });
     Route::prefix('/delete')->as('.delete')->group(function(){
         Route::post('/users' , [AdminDeleteController::class , 'deleteUser'])->name('.user');
         Route::post('/menu' , [AdminDeleteController::class , 'deleteMenu'])->name('.menu');
         Route::post('/sub/menu' , [AdminDeleteController::class , 'deleteSubMenu'])->name('.sub.menu');
+        Route::post('image/banner/center' , [AdminDeleteController::class , 'deleteImageBannerCenter'])->name('.image.banner.center');
     });
     Route::prefix('/edit')->as('.edit')->group(function (){
         Route::post('/status/order' , [AdminEditController::class , 'editStatusOrder'])->name('.status.order');
@@ -93,12 +102,14 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::post('/menu/name' , [AdminEditController::class , 'editMenuName'])->name('.menu.name');
         Route::post('/sub/menu' , [AdminEditController::class , 'editSubMenu'])->name('.sub.menu');
         Route::post('/sub/menu/name' , [AdminEditController::class , 'editSubMenuName'])->name('.sub.menu.name');
+        Route::post('/bannerUp/{model}/{target}' , [AdminEditController::class , 'editBannerUp'])->name('.bannerUp');
     });
     Route::prefix('/new')->as('.new')->group(function (){
         Route::post('/support' , [AdminNewController::class , 'newSupport'])->name('.support');
         Route::post('/menu' , [AdminNewController::class , 'newMenu'])->name('.menu');
         Route::post('/image/about' , [AdminNewController::class , 'newImageAbout'])->name('.image.about');
         Route::post('/sub/menu' , [AdminNewController::class , 'newSubMenu'])->name('.sub.menu');
+        Route::post('/banner' , [AdminNewController::class , 'newBanner'])->name('.banner');
     });
     Route::prefix('/update')->as('update')->group(function (){
         Route::post('/support' , [AdminUpdateController::class , 'updateSupport'])->name('.support');

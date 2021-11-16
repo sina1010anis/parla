@@ -4,11 +4,14 @@ namespace App\Http\Controllers\Admin\AdminView;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AboutPage;
+use App\Http\Requests\Admin\BannerUpRequest;
 use App\Http\Requests\Admin\LogoRequest;
 use App\Http\Requests\Admin\MenuNameRequest;
 use App\Models\factor;
 use App\Models\menu;
 use App\Models\sub_menu;
+use App\Repository\Admin\Banner\BannerUp;
+use App\Repository\Tools\Back;
 use Ghasedak\GhasedakApi;
 use App\Repository\Admin\Edit\About;
 use App\Repository\Admin\Edit\Logo;
@@ -17,7 +20,7 @@ use Illuminate\Http\Request;
 
 class AdminEditController extends Controller
 {
-    use Message;
+    use Message , Back;
     public function editStatusOrder(Request $request , GhasedakApi $ghasedakApi)
     {
         factor::whereId($request->id)->update(['status_order' => $request->code]);
@@ -60,5 +63,19 @@ class AdminEditController extends Controller
     {
         sub_menu::whereId($request->id)->update(['name' => $request->text]);
         return $this->msgOk();
+    }
+
+    public function editBannerUp(Request $request , BannerUp $bannerUp , $model , $target)
+    {
+        if ($model == 'all'){
+            if ($target == 'up'){
+                return $bannerUp->setRequest($request)->update($target)->back('با موفقیت ویرایش شد');
+            }else{
+                return $bannerUp->setRequest($request)->move()->update($target)->back('با موفقیت ویرایش شد');
+            }
+        }if ($model == 'status'){
+            $bannerUp->editStatus();
+            return $this->back('وضعیت تغییر کرد');
+        }
     }
 }

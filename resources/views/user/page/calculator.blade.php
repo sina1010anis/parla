@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="col-md-9 p-3" style="height: 500px">
-            <div><h5 class="text-end font-S my-2 color-b-800 " dir="rtl"> کد فریم : @{{ (frame.code == null) ? '-----': frame.code }}</h5></div>
+            <div><h5 class="text-end font-S my-2 color-b-800 text-end" dir="rtl"> کد فریم : @{{ (frame.code == null) ? '-----': frame.code }}</h5></div>
             <div class="line"></div>
             <div>
                 <label for="inputEmail4" class="form-label d-block w-100 text-end color-b-600 f-12" dir="rtl">طول(m)</label>
@@ -40,7 +40,7 @@
             <div class="line"></div>
             <div>
                 <span class="f-17 color-b-500">قیمت محاسبه شده :</span>
-                <b class="f-17 color-b-700">@{{ (data_frame.w * data_frame.h) * frame.price }}</b>
+                <b class="f-17 color-b-700">@{{ ((data_frame.w + data_frame.h) * 2) * frame.price }}</b>
             </div>
         </div>
     </div>

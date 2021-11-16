@@ -77,6 +77,7 @@ const app = createApp({
         id_menu_admin:null,
         menu_sub_menu:null,
         factor_admin_mobile:null,
+        id_delete:null,
     }),
     components: {
         HeaderVue,
@@ -98,6 +99,25 @@ const app = createApp({
         ErrorPage,
     },
     methods: {
+        view_page_delete_image_center(id){
+            this.id_delete = id
+          $(".page-new-delete-banner-center-as").fadeIn();
+          $(".blur").fadeIn();
+        },
+        delete_image_center(){
+            axios.post('/admin/delete/image/banner/center' , {id:this.id_delete}).then((res)=>{
+                if (res.data == 'delete'){
+                    $('.page-edit-menu-page').fadeOut();
+                    $('.blur').fadeOut();
+                    $('.page-new-admin-as').fadeOut();
+                    $(".page-new-delete-banner-center-as").fadeOut();
+                    this.pm('حذف شد' , 3000)
+                    this.reload_time(2000)
+                }
+            }).catch(()=>{
+                this.pm('مشکلی پیش امده' , 3000)
+            })
+        },
         hide_banner_up(){
             $('.banner-up').slideUp();
 
@@ -403,6 +423,10 @@ const app = createApp({
         open_page() {
             $('.blur').fadeToggle()
             $('.page-new').fadeToggle()
+        },
+        open_page_3() {
+            $('.blur').fadeToggle()
+            $('.page-new-address').fadeToggle()
         },
         open_page_2() {
             $('.blur').fadeToggle()

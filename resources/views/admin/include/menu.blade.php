@@ -39,10 +39,10 @@
                 مشخصات بنر   <i class="bi bi-image f-15"></i>
             </div>
             <div class="box-item-menu-panel-admin mt-1 p-2" id="box-item-menu-panel-admin-3">
-                <div class="text-center f-12 color-b-500 py-2 pointer">بنر بالا</div>
-                <div class="text-center f-12 color-b-500 py-2 pointer">بنر اسلایدر</div>
-                <div class="text-center f-12 color-b-500 py-2 pointer">بنر وسط</div>
-                <div class="text-center f-12 color-b-500 py-2 pointer">بنر انتها</div>
+                <div class="text-center f-12 color-b-500 py-2 pointer"><a href="{{route('admin.view.bannerUp')}}">بنر بالا</a></div>
+                <div class="text-center f-12 color-b-500 py-2 pointer"><a href="{{route('admin.view.bannerSlider')}}">بنر اسلایدر</a> </div>
+                <div class="text-center f-12 color-b-500 py-2 pointer"> <a href="{{route('admin.view.bannerCenter')}}">بنر وسط</a></div>
+                <div class="text-center f-12 color-b-500 py-2 pointer"><a href="{{route('admin.view.bannerEnd')}}">بنر انتها</a></div>
             </div>
         </div>
         <div class="item-menu-panel-admin">

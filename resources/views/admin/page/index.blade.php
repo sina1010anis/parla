@@ -30,7 +30,7 @@
                     <img src="{{url('image/icon/view.png')}}" style="width: 80px;" alt="">
                 </div>
                 <div class="col-8">
-                    <p align="right" class="f-14 font-S color-b-100">بازدیدها کل</p>
+                    <p align="right" class="f-14 font-S color-b-100">بازدیدهای کل</p>
                     <p align="right" class=" color-b-100">{{$sum_product}}</p>
                 </div>
             </div>

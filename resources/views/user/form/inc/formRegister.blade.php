@@ -6,26 +6,26 @@
             <form action="{{route('register')}}" method="post" class="row">
                 @csrf
                 <div class="mb-3 col-12 col-md-6">
-                    <label for="input_mobile" class="form-label d-block text-end f-11 color-b-500">شماره موبایل</label>
-                    <input name="mobile" type="number" class="form-control form-login f-14 color-b-600 @error('mobile') is-invalid @enderror" value="{{old('mobile')}}" dir="rtl" align="right" id="input_mobile" placeholder="شماره موبایل...">
+                    <label for="input_name" class="form-label d-block text-end f-11 color-b-500">نام نام خانوادگی</label>
+                    <input name="name" type="text" class=" form-control form-login f-14 color-b-600 @error('name') is-invalid @enderror" value="{{old('name')}}" dir="rtl" align="right" id="input_name" placeholder="نام...">
                 </div>
                 <div class="mb-3 col-12 col-md-6">
-                    <label for="input_name" class="form-label d-block text-end f-11 color-b-500">نام نام خانوادگی</label>
-                    <input name="name" type="text" class="form-control form-login f-14 color-b-600 @error('name') is-invalid @enderror" value="{{old('name')}}" dir="rtl" align="right" id="input_name" placeholder="نام...">
+                    <label for="input_mobile" class="form-label d-block text-end f-11 color-b-500">شماره موبایل</label>
+                    <input name="mobile" type="number" class=" form-control form-login f-14 color-b-600 @error('mobile') is-invalid @enderror" value="{{old('mobile')}}" dir="rtl" align="right" id="input_mobile" placeholder="شماره موبایل...">
                 </div>
                 <div class="mb-3 col-12">
                     <label for="input_email" class="form-label d-block text-end f-11 color-b-500">ایمیل ( اختیاری )</label>
-                    <input name="email" type="email" class="form-control form-login color-b-600 f-14 @error('email') is-invalid @enderror" value="{{old('email')}}" dir="rtl" align="right" id="input_email" placeholder="ایمیل...">
-                </div>
-                <div class="mb-3 col-12 col-md-6">
-                    <label for="password_confirmation" class="form-label d-block text-end f-11 color-b-500">تکرار رمز عبور</label>
-                    <input name="password_confirmation" type="password" class="form-control form-login color-b-600 f-14 @error('password_confirmation') is-invalid @enderror" dir="rtl" align="right" id="password_confirmation" placeholder="تکرار رمز عبور...">
+                    <input name="email" type="email" class=" form-control form-login color-b-600 f-14 @error('email') is-invalid @enderror" value="{{old('email')}}" dir="rtl" align="right" id="input_email" placeholder="ایمیل...">
                 </div>
                 <div class="mb-3 col-12 col-md-6">
                     <label for="input_password" class="form-label d-block text-end f-11 color-b-500">رمز عبور</label>
-                    <input name="password" type="password" class="form-control form-login color-b-600 f-14 @error('password') is-invalid @enderror" dir="rtl" align="right" id="input_password" placeholder="پسورد...">
+                    <input name="password" type="password" class=" form-control form-login color-b-600 f-14 @error('password') is-invalid @enderror" dir="rtl" align="right" id="input_password" placeholder="پسورد...">
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 col-12 col-md-6">
+                    <label for="password_confirmation" class="form-label d-block text-end f-11 color-b-500">تکرار رمز عبور</label>
+                    <input name="password_confirmation" type="password" class=" form-control form-login color-b-600 f-14 @error('password_confirmation') is-invalid @enderror" dir="rtl" align="right" id="password_confirmation" placeholder="تکرار رمز عبور...">
+                </div>
+                <div class="mb-3 col-12">
                     <div class="g-recaptcha" data-sitekey="{!! env('RECAPTCHA_SITE_KEY' , '6Lf2euYbAAAAAGIymqU4o_v83Ob8X3kFuMVNtEyN') !!}"></div>
                 </div>
                 <br>

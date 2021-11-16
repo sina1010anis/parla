@@ -3,10 +3,13 @@
 namespace App\Repository\Admin\Upload;
 
 use App\Http\Requests\Admin\LogoRequest;
+use App\Repository\Tools\Back;
+use App\Repository\Tools\Message;
 use Illuminate\Http\Request;
 
 abstract class Upload
 {
+    use Back , Message;
     public $file;
     public $name;
     public $address;

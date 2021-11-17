@@ -61,7 +61,8 @@ class PayController extends Controller
 //            foreach ($product as $item){
 //                product::whereId($item->product_id)->decrement('number' , $item->number);
 //            }
-            $ghasedakApi->SendSimple(auth()->user()->mobile , 'با تشکر از خرید شما برای پیگیری محصول لطفا به پنل خود و بخش پیگیری محصولات مراجعه کنید . با احترام تیم Parla' ,env('GHASEDAKAPI_LINENUMBER', '10008566'));
+            $text = 'با تشکر از خرید شما کد تراکنش : ' .$data->transaction_code . 'با احترام Parla';
+            $ghasedakApi->SendSimple(auth()->user()->mobile , $text ,env('GHASEDAKAPI_LINENUMBER', '30005006006771'));
             return view('user.buy.payment'  , compact('product' ,'tip', 'code'))->with('status' , true);
         } catch (InvalidPaymentException $exception) {
             $tip = $exception->getMessage();

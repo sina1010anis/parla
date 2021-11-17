@@ -87,6 +87,8 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::get('/banner/slider' , [AdminViewController::class , 'viewBannerSlider'])->name('.bannerSlider');
         Route::get('/banner/center' , [AdminViewController::class , 'viewBannerCenter'])->name('.bannerCenter');
         Route::get('/banner/end' , [AdminViewController::class , 'viewBannerEnd'])->name('.bannerEnd');
+        Route::get('/slider/end' , [AdminViewController::class , 'viewSlider'])->name('.slider');
+        Route::get('/slider/menu' , [AdminViewController::class , 'viewSliderMenu'])->name('.slider.menu');
     });
     Route::prefix('/delete')->as('.delete')->group(function(){
         Route::post('/users' , [AdminDeleteController::class , 'deleteUser'])->name('.user');

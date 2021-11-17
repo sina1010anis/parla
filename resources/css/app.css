@@ -14,7 +14,7 @@
     font-family: IRANY;
 }
 body{
-    background-color: #f6f6f6;
+    background-color: #f6f6f6!important;
     margin: 0;
     padding: 0;
 }
@@ -190,7 +190,7 @@ body{
     display: none;
 }
 .menu-header{
-    display: none;
+    display: none!important;
 }
 .item-menu-header{
     position: relative;

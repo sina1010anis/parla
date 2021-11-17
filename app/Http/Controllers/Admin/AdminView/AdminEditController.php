@@ -25,7 +25,7 @@ class AdminEditController extends Controller
     {
         factor::whereId($request->id)->update(['status_order' => $request->code]);
         $factor = factor::find($request->id);
-        $ghasedakApi->SendSimple($factor->user->mobile , 'وضعیت سفارش شما تغییر کرد برای برسی به پنل خود و پیگیری سفارشات مراجعه کنید . با احترام تیم Parla' ,env('GHASEDAKAPI_LINENUMBER', '10008566'));
+        $ghasedakApi->SendSimple($factor->user->mobile , 'وضعیت سفارش شما تغییر کرد برای برسی به پنل خود و پیگیری سفارشات مراجعه کنید . با احترام تیم Parla' ,env('GHASEDAKAPI_LINENUMBER', '30005006006771'));
         return $this->msgOk();
     }
 

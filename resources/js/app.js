@@ -1,4 +1,5 @@
 require('./bootstrap');
+import '../css/app.css'
 import '../css/boot/boot.sass'
 import 'bootstrap/dist/js/bootstrap'
 import axios from "axios";
@@ -21,7 +22,6 @@ import PaymentVue from "./components/product/PaymentVue";
 import ErrorPage from "./components/error/ErrorPage";
 import {createApp} from 'vue'
 import 'bootstrap-icons/font/bootstrap-icons.css'
-import '../css/app.css'
 import $ from 'jquery'
 import { Editor, EditorContent } from '@tiptap/vue-3'
 import StarterKit from '@tiptap/starter-kit'

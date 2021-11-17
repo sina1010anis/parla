@@ -9,6 +9,7 @@ use App\Repository\View\Data\admin\bank;
 use App\Repository\View\Data\admin\image_about;
 use App\Repository\View\Data\admin\product_order;
 use App\Repository\View\Data\admin\product_view_admin;
+use App\Repository\View\Data\admin\slider_menu;
 use App\Repository\View\Data\admin\support_admin;
 use App\Repository\View\Data\admin\user_admin;
 use App\Repository\View\Data\banner_up;
@@ -94,6 +95,7 @@ class viewAll
         View::composer(['*'] , product_order::class);
         View::composer(['*'] , support_admin::class);
         View::composer(['*'] , image_about::class);
+        View::composer(['*'] , slider_menu::class);
         // End Admin
     }
 }

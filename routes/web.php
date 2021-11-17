@@ -93,6 +93,8 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
     Route::prefix('/delete')->as('.delete')->group(function(){
         Route::post('/users' , [AdminDeleteController::class , 'deleteUser'])->name('.user');
         Route::post('/menu' , [AdminDeleteController::class , 'deleteMenu'])->name('.menu');
+        Route::post('/slider' , [AdminDeleteController::class , 'deleteSlider'])->name('.slider');
+        Route::post('/slider/menu' , [AdminDeleteController::class , 'deleteSliderMenu'])->name('.slider.menu');
         Route::post('/sub/menu' , [AdminDeleteController::class , 'deleteSubMenu'])->name('.sub.menu');
         Route::post('image/banner/center' , [AdminDeleteController::class , 'deleteImageBannerCenter'])->name('.image.banner.center');
     });
@@ -112,6 +114,8 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::post('/image/about' , [AdminNewController::class , 'newImageAbout'])->name('.image.about');
         Route::post('/sub/menu' , [AdminNewController::class , 'newSubMenu'])->name('.sub.menu');
         Route::post('/banner' , [AdminNewController::class , 'newBanner'])->name('.banner');
+        Route::post('/slider' , [AdminNewController::class , 'newSlider'])->name('.slider');
+        Route::post('/slider/menu' , [AdminNewController::class , 'newSliderMenu'])->name('.slider.menu');
     });
     Route::prefix('/update')->as('update')->group(function (){
         Route::post('/support' , [AdminUpdateController::class , 'updateSupport'])->name('.support');

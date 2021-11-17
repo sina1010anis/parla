@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Repository\Admin\Delete\BannerCenter;
 use App\Repository\Admin\Delete\Delete;
 use App\Repository\Admin\Delete\Slider;
+use App\Repository\Admin\Delete\SliderLogin;
 use App\Repository\Admin\Delete\SliderMenu;
 use App\Repository\Admin\Delete\SubMenu;
 use App\Repository\Admin\Delete\User;
@@ -50,6 +51,12 @@ class AdminDeleteController extends Controller
     public function deleteSliderMenu(Request $request)
     {
         new Delete(new SliderMenu() , $request->id);
+        return $this->msgDelete();
+    }
+
+    public function deleteSliderLogin(Request $request)
+    {
+        new Delete(new SliderLogin() , $request->id);
         return $this->msgDelete();
     }
 }

@@ -39,6 +39,7 @@ use App\Repository\View\Data\products_2;
 use App\Repository\View\Data\products_3;
 use App\Repository\View\Data\save;
 use App\Repository\View\Data\saveProduct;
+use App\Repository\View\Data\slider_login;
 use App\Repository\View\Data\sliderAll;
 use App\Repository\View\Data\subMenu;
 use App\Repository\View\Data\support;
@@ -87,6 +88,7 @@ class viewAll
         View::composer(['*'] , products_2::class);
         View::composer(['*'] , products_3::class);
         View::composer(['*'] , banner_up::class);
+        View::composer(['*'] , slider_login::class);
         // Admin
         View::composer(['*'] , \App\Repository\View\Data\admin\factor::class);
         View::composer(['*'] , user_admin::class);

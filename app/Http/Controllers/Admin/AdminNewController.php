@@ -5,12 +5,14 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\LogoRequest;
 use App\Http\Requests\Admin\MenuRequest;
+use App\Http\Requests\Admin\SliderLoginRequest;
 use App\Http\Requests\Admin\SliderMenuRequest;
 use App\Http\Requests\Admin\SliderRequest;
 use App\Repository\Admin\About\About;
 use App\Repository\Admin\Banner\BannerCenter;
 use App\Repository\Admin\Menu\Menu;
 use App\Repository\Admin\Slider\Slider;
+use App\Repository\Admin\Slider\SliderLogin;
 use App\Repository\Admin\Slider\SliderMenu;
 use App\Repository\Admin\SubMenu\SubMenu;
 use App\Repository\Create\Card;
@@ -56,5 +58,10 @@ class AdminNewController extends Controller
     public function newSliderMenu(SliderMenuRequest $request , SliderMenu $sliderMenu)
     {
         return $sliderMenu->setRequest($request)->move()->create()->back('با موفقیت ساخته شد');
+    }
+
+    public function newSliderLogin(SliderLoginRequest $request , SliderLogin $sliderLogin)
+    {
+        return $sliderLogin->setRequest($request)->move()->create()->back('با موفقیت ساخته شد');
     }
 }

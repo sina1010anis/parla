@@ -89,12 +89,14 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::get('/banner/end' , [AdminViewController::class , 'viewBannerEnd'])->name('.bannerEnd');
         Route::get('/slider/end' , [AdminViewController::class , 'viewSlider'])->name('.slider');
         Route::get('/slider/menu' , [AdminViewController::class , 'viewSliderMenu'])->name('.slider.menu');
+        Route::get('/slider/login' , [AdminViewController::class , 'viewSliderLogin'])->name('.slider.login');
     });
     Route::prefix('/delete')->as('.delete')->group(function(){
         Route::post('/users' , [AdminDeleteController::class , 'deleteUser'])->name('.user');
         Route::post('/menu' , [AdminDeleteController::class , 'deleteMenu'])->name('.menu');
         Route::post('/slider' , [AdminDeleteController::class , 'deleteSlider'])->name('.slider');
         Route::post('/slider/menu' , [AdminDeleteController::class , 'deleteSliderMenu'])->name('.slider.menu');
+        Route::post('/slider/login' , [AdminDeleteController::class , 'deleteSliderLogin'])->name('.slider.login');
         Route::post('/sub/menu' , [AdminDeleteController::class , 'deleteSubMenu'])->name('.sub.menu');
         Route::post('image/banner/center' , [AdminDeleteController::class , 'deleteImageBannerCenter'])->name('.image.banner.center');
     });
@@ -116,6 +118,7 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::post('/banner' , [AdminNewController::class , 'newBanner'])->name('.banner');
         Route::post('/slider' , [AdminNewController::class , 'newSlider'])->name('.slider');
         Route::post('/slider/menu' , [AdminNewController::class , 'newSliderMenu'])->name('.slider.menu');
+        Route::post('/slider/login' , [AdminNewController::class , 'newSliderLogin'])->name('.slider.login');
     });
     Route::prefix('/update')->as('update')->group(function (){
         Route::post('/support' , [AdminUpdateController::class , 'updateSupport'])->name('.support');

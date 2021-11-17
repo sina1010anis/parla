@@ -96,5 +96,11 @@ class AdminViewController extends Controller
     {
         return view('admin.page.sliderMenu');
     }
+
+    public function viewSliderLogin()
+    {
+        return view('admin.page.sliderLogin');
+
+    }
 }
 

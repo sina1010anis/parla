@@ -109,6 +109,20 @@ const app = createApp({
             $(".blur").fadeIn();
         },
         delete_image_center(model) {
+            if (model == 'slider_login'){
+                axios.post('/admin/delete/slider/login', {id: this.id_delete}).then((res) => {
+                    if (res.data == 'delete') {
+                        $('.page-edit-menu-page').fadeOut();
+                        $('.blur').fadeOut();
+                        $('.page-new-admin-as').fadeOut();
+                        $(".page-new-delete-banner-center-as").fadeOut();
+                        this.pm('حذف شد', 3000)
+                        this.reload_time(2000)
+                    }
+                }).catch(() => {
+                    this.pm('مشکلی پیش امده', 3000)
+                })
+            }
             if (model == 'slider_menu'){
                 axios.post('/admin/delete/slider/menu', {id: this.id_delete}).then((res) => {
                     if (res.data == 'delete') {

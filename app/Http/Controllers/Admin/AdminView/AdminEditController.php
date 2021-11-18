@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Admin\AdminView;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AboutPage;
 use App\Http\Requests\Admin\BannerUpRequest;
+use App\Http\Requests\Admin\EditProductRequest;
 use App\Http\Requests\Admin\LogoRequest;
 use App\Http\Requests\Admin\MenuNameRequest;
 use App\Models\factor;
 use App\Models\menu;
+use App\Models\product;
 use App\Models\sub_menu;
 use App\Repository\Admin\Banner\BannerUp;
 use App\Repository\Tools\Back;
@@ -73,9 +75,31 @@ class AdminEditController extends Controller
             }else{
                 return $bannerUp->setRequest($request)->move()->update($target)->back('با موفقیت ویرایش شد');
             }
-        }if ($model == 'status'){
+        }elseif ($model == 'status'){
             $bannerUp->editStatus();
             return $this->back('وضعیت تغییر کرد');
         }
+    }
+
+    public function editStatusProduct(Request $request)
+    {
+        $data = product::whereId($request->id)->first();
+        if ($data->status == 1){
+            $data->update(['status' => 0]);
+            return $this->msgOk();
+        }else{
+            $data->update(['status' => 1]);
+            return $this->msgNo();
+        }
+    }
+
+    public function editProductAll(product $id)
+    {
+        return view('admin.page.product')->with(['edit' => true , 'product' => $id]);
+    }
+
+    public function editProduct(EditProductRequest $request , \App\Repository\Admin\Edit\Product $product , $id)
+    {
+        return $product->setRequest($request)->setId($id)->update()->backTo('با موفقیت ویرایش شد' , 'admin/view/product');
     }
 }

@@ -7,6 +7,8 @@ use App\Repository\View\Data\address;
 use App\Repository\View\Data\address_select;
 use App\Repository\View\Data\admin\bank;
 use App\Repository\View\Data\admin\image_about;
+use App\Repository\View\Data\admin\product_all;
+use App\Repository\View\Data\admin\product_discount;
 use App\Repository\View\Data\admin\product_order;
 use App\Repository\View\Data\admin\product_view_admin;
 use App\Repository\View\Data\admin\slider_menu;
@@ -98,6 +100,8 @@ class viewAll
         View::composer(['*'] , support_admin::class);
         View::composer(['*'] , image_about::class);
         View::composer(['*'] , slider_menu::class);
+        View::composer(['*'] , product_all::class);
+        View::composer(['*'] , product_discount::class);
         // End Admin
     }
 }

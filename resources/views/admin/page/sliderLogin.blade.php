@@ -2,7 +2,7 @@
 
 @section('admin')
     <div class="row p-2 ">
-        <div class="col-md-6 offset-md-3 bg-white p-4 rounded-3 shadow">
+        <div class="col-md-6 bg-white p-4 rounded-3 shadow">
             <p class="f-16 font-S color-b-700 text-end">اسلایدر صفحه ثبت نام</p>
             <form action="{{route('admin.new.slider.login')}}" method="post" enctype="multipart/form-data">
                 @csrf
@@ -27,8 +27,8 @@
                 </button>
             </form>
         </div>
-        <div class="col-md-6 offset-md-3 mt-3 bg-white p-4 rounded-3 shadow text-center">
-            <div class="mb-3">
+        <div class="col-md-6 mt-3 bg-white p-4 rounded-3 shadow text-center">
+            <div class="mb-3 p-2">
                 <label for="formFile" class="form-label f-13 color-b-500 d-block text-end">منو</label>
                 <select v-model="id_menu_image" class="form-select form-select" aria-label="Default select example">
                         <option value="0">ثبت نام</option>

@@ -62,7 +62,7 @@
                 مشخصات محصولات   <i class="bi bi-diagram-2 f-15"></i>
             </div>
             <div class="box-item-menu-panel-admin mt-1 p-2" id="box-item-menu-panel-admin-5">
-                <div class="text-center f-12 color-b-500 py-2 pointer">محصول اصلی</div>
+                <div class="text-center f-12 color-b-500 py-2 pointer"><a href="{{route('admin.view.product')}}">محصول اصلی</a></div>
                 <div class="text-center f-12 color-b-500 py-2 pointer">کلاس بندی محصولات</div>
                 <div class="text-center f-12 color-b-500 py-2 pointer">کلاس بندی رنگ</div>
                 <div class="text-center f-12 color-b-500 py-2 pointer">محصولات خاص</div>

@@ -2,7 +2,7 @@
 
 @section('admin')
     <div class="row p-2 ">
-        <div class="col-md-6 offset-md-3 bg-white p-4 rounded-3 shadow">
+        <div class="col-md-6  bg-white p-4 rounded-3 shadow">
             <p class="f-16 font-S color-b-700 text-end">صفحه لوگو</p>
             <form action="{{route('admin.edit.logo')}}" method="post" enctype="multipart/form-data">
                 @csrf
@@ -15,7 +15,7 @@
                 </button>
             </form>
         </div>
-        <div class="col-md-6 offset-md-3 mt-3 bg-white p-4 rounded-3 shadow text-center">
+        <div class="col-md-6  mt-3 bg-white p-4 rounded-3 shadow text-center">
             <img style="width: 100px;" src="{{url('/image/logo/'.$logo_footer->src)}}" alt="لوگو">
         </div>
     </div>

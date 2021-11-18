@@ -2,7 +2,7 @@
 
 @section('admin')
     <div class="row p-2 ">
-        <div class="col-md-6 offset-md-3 bg-white p-4 rounded-3 shadow">
+        <div class="col-md-6 bg-white p-4 rounded-3 shadow">
             <p class="f-16 font-S color-b-700 text-end">اسلایدر اصلی</p>
             <form action="{{route('admin.new.slider')}}" method="post" enctype="multipart/form-data">
                 @csrf
@@ -25,7 +25,7 @@
                 </button>
             </form>
         </div>
-        <div class="col-md-6 offset-md-3 mt-3 bg-white p-4 rounded-3 shadow text-center">
+        <div class="col-md-6 mt-3 bg-white p-4 rounded-3 shadow text-center">
             @foreach($sliders as $slider)
                 <div class="col-12 col-md-6 s-5 d-inline-block">
                     <div class="grope-item-banner-center overflow-hidden mt-3">

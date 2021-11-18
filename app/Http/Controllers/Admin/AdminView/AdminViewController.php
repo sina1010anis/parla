@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin\AdminView;
 
 use App\Http\Controllers\Controller;
 use App\Models\factor;
+use App\Models\image_product;
+use App\Models\size_product;
 use App\Models\support;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -100,7 +102,23 @@ class AdminViewController extends Controller
     public function viewSliderLogin()
     {
         return view('admin.page.sliderLogin');
+    }
 
+    public function viewProduct()
+    {
+        return view('admin.page.product');
+    }
+
+    public function viewSizeProduct(Request $request)
+    {
+        $data = size_product::whereProduct_id($request->id)->get();
+        return response()->json($data);
+    }
+
+    public function viewProductImage(Request $request)
+    {
+        $data = image_product::where('product_id' , $request->id)->get();
+        return response()->json($data);
     }
 }
 

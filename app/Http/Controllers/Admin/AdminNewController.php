@@ -3,14 +3,20 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\ImageProductRequest;
 use App\Http\Requests\Admin\LogoRequest;
 use App\Http\Requests\Admin\MenuRequest;
+use App\Http\Requests\Admin\ProductRequest;
+use App\Http\Requests\Admin\SizeProductRequest;
 use App\Http\Requests\Admin\SliderLoginRequest;
 use App\Http\Requests\Admin\SliderMenuRequest;
 use App\Http\Requests\Admin\SliderRequest;
 use App\Repository\Admin\About\About;
 use App\Repository\Admin\Banner\BannerCenter;
 use App\Repository\Admin\Menu\Menu;
+use App\Repository\Admin\Product\ImageProduct;
+use App\Repository\Admin\Product\Product;
+use App\Repository\Admin\Product\SizeProduct;
 use App\Repository\Admin\Slider\Slider;
 use App\Repository\Admin\Slider\SliderLogin;
 use App\Repository\Admin\Slider\SliderMenu;
@@ -63,5 +69,20 @@ class AdminNewController extends Controller
     public function newSliderLogin(SliderLoginRequest $request , SliderLogin $sliderLogin)
     {
         return $sliderLogin->setRequest($request)->move()->create()->back('با موفقیت ساخته شد');
+    }
+
+    public function newProduct(ProductRequest $request , Product $product)
+    {
+        return $product->setRequest($request)->move()->create()->back('با موفقیت ساخته شد');
+    }
+
+    public function newSize(SizeProductRequest $request , SizeProduct $sizeProduct)
+    {
+        return $sizeProduct->setRequest($request)->create()->msgCreate();
+    }
+
+    public function newImage(ImageProductRequest $request , ImageProduct $imageProduct)
+    {
+        return $imageProduct->setRequest($request)->move()->create()->back('با موفقیت ساخته شد');
     }
 }

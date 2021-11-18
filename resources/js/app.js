@@ -78,7 +78,14 @@ const app = createApp({
         menu_sub_menu: null,
         factor_admin_mobile: null,
         id_delete: null,
-        id_menu_image: null,
+        id_menu_image: 0,
+        data: null,
+        data_size_admin: {
+            'name': '',
+            'price': ''
+        },
+        image_product_admin: null,
+        id:null,
     }),
     components: {
         HeaderVue,
@@ -100,6 +107,86 @@ const app = createApp({
         ErrorPage,
     },
     methods: {
+        view_size_product_admin_size(id){
+            this.id_delete = id
+            $('.page-new-delete-image').fadeIn()
+            $('.page-image-product').fadeOut()
+            $('.blur').fadeIn()
+        },
+        view_image_product(id) {
+            this.id_menu_image = id;
+            this.id = id;
+            axios.post('/admin/view/product/image', {id: this.id_menu_image}).then((res) => {
+                this.image_product_admin = res.data
+                $('.page-image-product').fadeIn()
+                $('.blur').fadeIn()
+            }).catch(() => {
+                this.pm('مشکلی پیش امده', 3000)
+            })
+        },
+        view_size_product_admin(id) {
+            this.id_delete = id;
+            $('.page-new-delete-banner-center-as').fadeIn()
+            $('.page-size-product').fadeOut()
+            $('.page-image-product').fadeOut()
+            $('.blur').fadeIn()
+        },
+        new_size_product_admin() {
+            if (this.data_size_admin.name != '' || this.data_size_admin.price != '') {
+                axios.post('/admin/new/size', {
+                    id: this.id_menu_admin,
+                    price: this.data_size_admin.price,
+                    name: this.data_size_admin.name
+                }).then((res) => {
+                    if (res.data == 'create') {
+                        this.pm('ساخته شد', 3000)
+                        this.reload_time(2000)
+                        $('.page-size-product').fadeOut();
+                        $('.page-size-new').fadeOut();
+                        $('.blur').fadeOut()
+                    }
+                }).catch(() => {
+                    this.pm('مشکلی پیش امده', 3000)
+                })
+            }
+        },
+        view_page_new_size() {
+            $('.page-size-new').fadeIn();
+            $('.blur').fadeIn()
+        },
+        view_page_new_image() {
+            $('.page-image-new').fadeIn();
+            $('.blur').fadeIn()
+        },
+        view_size_product(id) {
+            this.id_menu_admin = id;
+            axios.post('/admin/view/size/product/product', {id: this.id_menu_admin}).then((res) => {
+                this.data = res.data
+                $('.page-size-product').fadeIn();
+                $('.blur').fadeIn()
+            }).catch(() => {
+                this.pm('مشکلی پیش امده', 3000)
+            })
+        },
+        view_page_delete_product(id) {
+            this.id_delete = id;
+            $('.page-new-delete-banner-center-as').fadeIn()
+            $('.blur').fadeIn()
+        },
+        edit_status_product_admin(id) {
+            axios.post('/admin/edit/status/product/', {id: id}).then((res) => {
+                if (res.data == 'ok') {
+                    this.pm('غیر فعال شد', 3000)
+                    this.reload_time(2000)
+                }
+                if (res.data == 'no') {
+                    this.pm(' فعال شد', 3000)
+                    this.reload_time(2000)
+                }
+            }).catch(() => {
+                this.pm('مشکلی پیش امده', 3000)
+            })
+        },
         view_item_image_slider_menu(id) {
             console.log(id)
         },
@@ -109,7 +196,50 @@ const app = createApp({
             $(".blur").fadeIn();
         },
         delete_image_center(model) {
-            if (model == 'slider_login'){
+            if (model == 'image') {
+                axios.post('/admin/delete/image', {id: this.id_delete}).then((res) => {
+                    if (res.data == 'delete') {
+                        $('.page-edit-menu-page').fadeOut();
+                        $('.blur').fadeOut();
+                        $('.page-new-admin-as').fadeOut();
+                        $(".page-new-delete-banner-center-as").fadeOut();
+                        $(".page-new-delete-image").fadeOut();
+                        this.pm('حذف شد', 3000)
+                        this.reload_time(2000)
+                    }
+                }).catch(() => {
+                    this.pm('مشکلی پیش امده', 3000)
+                })
+            }
+            if (model == 'size') {
+                axios.post('/admin/delete/size', {id: this.id_delete}).then((res) => {
+                    if (res.data == 'delete') {
+                        $('.page-edit-menu-page').fadeOut();
+                        $('.blur').fadeOut();
+                        $('.page-new-admin-as').fadeOut();
+                        $(".page-new-delete-banner-center-as").fadeOut();
+                        this.pm('حذف شد', 3000)
+                        this.reload_time(2000)
+                    }
+                }).catch(() => {
+                    this.pm('مشکلی پیش امده', 3000)
+                })
+            }
+            if (model == 'product') {
+                axios.post('/admin/delete/product', {id: this.id_delete}).then((res) => {
+                    if (res.data == 'delete') {
+                        $('.page-edit-menu-page').fadeOut();
+                        $('.blur').fadeOut();
+                        $('.page-new-admin-as').fadeOut();
+                        $(".page-new-delete-banner-center-as").fadeOut();
+                        this.pm('حذف شد', 3000)
+                        this.reload_time(2000)
+                    }
+                }).catch(() => {
+                    this.pm('مشکلی پیش امده', 3000)
+                })
+            }
+            if (model == 'slider_login') {
                 axios.post('/admin/delete/slider/login', {id: this.id_delete}).then((res) => {
                     if (res.data == 'delete') {
                         $('.page-edit-menu-page').fadeOut();
@@ -123,7 +253,7 @@ const app = createApp({
                     this.pm('مشکلی پیش امده', 3000)
                 })
             }
-            if (model == 'slider_menu'){
+            if (model == 'slider_menu') {
                 axios.post('/admin/delete/slider/menu', {id: this.id_delete}).then((res) => {
                     if (res.data == 'delete') {
                         $('.page-edit-menu-page').fadeOut();

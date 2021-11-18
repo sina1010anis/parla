@@ -90,6 +90,9 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::get('/slider/end' , [AdminViewController::class , 'viewSlider'])->name('.slider');
         Route::get('/slider/menu' , [AdminViewController::class , 'viewSliderMenu'])->name('.slider.menu');
         Route::get('/slider/login' , [AdminViewController::class , 'viewSliderLogin'])->name('.slider.login');
+        Route::get('/product' , [AdminViewController::class , 'viewProduct'])->name('.product');
+        Route::post('/size/product/product' , [AdminViewController::class , 'viewSizeProduct'])->name('.product.size');
+        Route::post('/product/image' , [AdminViewController::class , 'viewProductImage'])->name('.product.image');
     });
     Route::prefix('/delete')->as('.delete')->group(function(){
         Route::post('/users' , [AdminDeleteController::class , 'deleteUser'])->name('.user');
@@ -99,9 +102,15 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::post('/slider/login' , [AdminDeleteController::class , 'deleteSliderLogin'])->name('.slider.login');
         Route::post('/sub/menu' , [AdminDeleteController::class , 'deleteSubMenu'])->name('.sub.menu');
         Route::post('image/banner/center' , [AdminDeleteController::class , 'deleteImageBannerCenter'])->name('.image.banner.center');
+        Route::post('/product' , [AdminDeleteController::class , 'deleteProduct'])->name('.product');
+        Route::post('/size' , [AdminDeleteController::class , 'deleteSize'])->name('.size');
+        Route::post('/image' , [AdminDeleteController::class , 'deleteImage'])->name('.image');
     });
     Route::prefix('/edit')->as('.edit')->group(function (){
         Route::post('/status/order' , [AdminEditController::class , 'editStatusOrder'])->name('.status.order');
+        Route::post('/product/{id}' , [AdminEditController::class , 'editProduct'])->name('.product');
+        Route::post('/status/product' , [AdminEditController::class , 'editStatusProduct'])->name('.status.product');
+        Route::get('/product/all/{id}' , [AdminEditController::class , 'editProductAll'])->name('.product.all');
         Route::post('/about' , [AdminEditController::class , 'editAbout'])->name('.about');
         Route::post('/logo' , [AdminEditController::class , 'editLogo'])->name('.logo');
         Route::post('/menu' , [AdminEditController::class , 'editMenu'])->name('.menu');
@@ -112,6 +121,7 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
     });
     Route::prefix('/new')->as('.new')->group(function (){
         Route::post('/support' , [AdminNewController::class , 'newSupport'])->name('.support');
+        Route::post('/product' , [AdminNewController::class , 'newProduct'])->name('.product');
         Route::post('/menu' , [AdminNewController::class , 'newMenu'])->name('.menu');
         Route::post('/image/about' , [AdminNewController::class , 'newImageAbout'])->name('.image.about');
         Route::post('/sub/menu' , [AdminNewController::class , 'newSubMenu'])->name('.sub.menu');
@@ -119,6 +129,8 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::post('/slider' , [AdminNewController::class , 'newSlider'])->name('.slider');
         Route::post('/slider/menu' , [AdminNewController::class , 'newSliderMenu'])->name('.slider.menu');
         Route::post('/slider/login' , [AdminNewController::class , 'newSliderLogin'])->name('.slider.login');
+        Route::post('/size' , [AdminNewController::class , 'newSize'])->name('.size');
+        Route::post('/product/image' , [AdminNewController::class , 'newImage'])->name('.image.product');
     });
     Route::prefix('/update')->as('update')->group(function (){
         Route::post('/support' , [AdminUpdateController::class , 'updateSupport'])->name('.support');

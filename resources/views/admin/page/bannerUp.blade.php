@@ -2,7 +2,7 @@
 
 @section('admin')
     <div class="row p-2 ">
-        <div class="col-md-6 offset-md-3 bg-white p-4 rounded-3 shadow">
+        <div class="col-md-6  bg-white p-4 rounded-3 shadow">
             <p class="f-16 font-S color-b-700 text-end">بنر بالا</p>
             @if($banners_up->count() == 1)
                 @foreach($banners_up as $banner_up)
@@ -28,11 +28,11 @@
             @endif
 
         </div>
-        <div class="col-md-6 offset-md-3 bg-white p-4 rounded-3 shadow my-2">
+        <div class="col-md-6  bg-white p-4 rounded-3 shadow my-2">
             <p class="f-16 font-S color-b-700 text-end">وضعیت</p>
             @if($banners_up->count() == 1)
                 @foreach($banners_up as $banner_up)
-                    <form action="{{route('admin.edit.bannerUp' , ['model' => 'all' , 'target' => 'up'])}}" method="post">
+                    <form action="{{route('admin.edit.bannerUp' , ['model' => 'status' , 'target' => 'up'])}}" method="post">
                         @csrf
                         <button type="submit" class="btn btn-lg {{($banner_up->location == 4) ? 'btn-success' : 'btn-danger'}} f-13 ms-3 mt-3">
                             {{($banner_up->location == 4) ? 'فعال' : 'غیر فعال'}}
@@ -42,7 +42,7 @@
             @endif
 
         </div>
-{{--        <div class="col-md-6 offset-md-3 mt-3 bg-white p-4 rounded-3 shadow text-center">--}}
+{{--        <div class="col-md-6  mt-3 bg-white p-4 rounded-3 shadow text-center">--}}
 {{--            @foreach($menus as $menu)--}}
 {{--                <div style="height: 80px" class="d-flex justify-content-between align-items-center bg-light my-2 px-2 rounded-3">--}}
 {{--                    <img src="{{url('/image/menu/'.$menu->image)}}" alt="{{$menu->name}}" style="height: 100%">--}}

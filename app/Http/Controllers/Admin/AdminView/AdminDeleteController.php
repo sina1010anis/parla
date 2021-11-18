@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin\AdminView;
 use App\Http\Controllers\Controller;
 use App\Repository\Admin\Delete\BannerCenter;
 use App\Repository\Admin\Delete\Delete;
+use App\Repository\Admin\Delete\ImageProduct;
+use App\Repository\Admin\Delete\Product;
+use App\Repository\Admin\Delete\SizeProduct;
 use App\Repository\Admin\Delete\Slider;
 use App\Repository\Admin\Delete\SliderLogin;
 use App\Repository\Admin\Delete\SliderMenu;
@@ -57,6 +60,24 @@ class AdminDeleteController extends Controller
     public function deleteSliderLogin(Request $request)
     {
         new Delete(new SliderLogin() , $request->id);
+        return $this->msgDelete();
+    }
+
+    public function deleteProduct(Request $request)
+    {
+        new Delete(new Product() , $request->id);
+        return $this->msgDelete();
+    }
+
+    public function deleteSize(Request $request)
+    {
+        new Delete(new SizeProduct() , $request->id);
+        return $this->msgDelete();
+    }
+
+    public function deleteImage(Request $request)
+    {
+        new Delete(new ImageProduct() , $request->id);
         return $this->msgDelete();
     }
 }

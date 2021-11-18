@@ -19,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(\Ghasedak\GhasedakApi::class , function (){
-            return new \Ghasedak\GhasedakApi('f46fa86f6f2919872569eec116ed173a1f7fbca51fefba8171ce3ccb3227f9ce');
+            return new \Ghasedak\GhasedakApi('f9f94b58ff8aac57f9302deb46856a270ca9df58c350e29318bc4b492c39d5b2');
         });
     }
 

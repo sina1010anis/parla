@@ -13,10 +13,12 @@
 <div id="app" class="container-fluid box-am overflow-hidden">
     @if($banners_up->count() == 1)
         @foreach($banners_up as $banner_up)
-            <div class="banner-up w-100 p-2 position-absolute" style="background-color: {{$banner_up->src}};left: 0;z-index: 20">
-                <p class="text-center mb-0"><a href="{{$banner_up->href}}" class="f-14  color-b-100"  style="text-decoration: none!important;">{{$banner_up->name}}</a></p>
-                <button type="button" class="btn-close position-absolute f-14 color-b-100" @click="hide_banner_up" style="top: 7px" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
+            @if($banner_up->location == 4)
+                <div class="banner-up w-100 p-2 position-absolute" style="background-color: {{$banner_up->src}};left: 0;z-index: 20">
+                    <p class="text-center mb-0"><a href="{{$banner_up->href}}" class="f-14  color-b-100"  style="text-decoration: none!important;">{{$banner_up->name}}</a></p>
+                    <button type="button" class="btn-close position-absolute f-14 color-b-100" @click="hide_banner_up" style="top: 7px" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
         @endforeach
     @endif
     @yield('index')

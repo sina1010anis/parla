@@ -2,7 +2,7 @@
 
 @section('admin')
     <div class="row p-2 ">
-        <div class="col-md-6 offset-md-3 bg-white p-4 rounded-3 shadow">
+        <div class="col-md-6  bg-white p-4 rounded-3 shadow">
             <p class="f-16 font-S color-b-700 text-end">منو اصلی</p>
             <form action="{{route('admin.new.menu')}}" method="post" enctype="multipart/form-data">
                 @csrf
@@ -19,7 +19,7 @@
                 </button>
             </form>
         </div>
-        <div class="col-md-6 offset-md-3 mt-3 bg-white p-4 rounded-3 shadow text-center">
+        <div class="col-md-6  mt-3 bg-white p-4 rounded-3 shadow text-center">
             @foreach($menus as $menu)
                 <div style="height: 80px" class="d-flex justify-content-between align-items-center bg-light my-2 px-2 rounded-3">
                     <img src="{{url('/image/menu/'.$menu->image)}}" alt="{{$menu->name}}" style="height: 100%">

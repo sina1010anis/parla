@@ -22,7 +22,7 @@ trait Support
 
     public function sendSMS(GhasedakApi $ghasedakApi)
     {
-        $ghasedakApi->SendSimple($this->data->user->mobile , 'از تیم پشتیبانی پیامی دارد . با احترام تیم Parla' ,env('GHASEDAKAPI_LINENUMBER', '30005006006771'));
+        $ghasedakApi->SendSimple($this->data->user->mobile , 'از تیم پشتیبانی پیامی دارید . با احترام تیم Parla' ,env('GHASEDAKAPI_LINENUMBER', '30005006006771'));
         return $this;
     }
 }

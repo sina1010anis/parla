@@ -11,6 +11,7 @@ use App\Models\support;
 use App\Models\User;
 use App\Repository\Custom\Custom;
 use App\Repository\Tools\Message;
+use Ghasedak\GhasedakApi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use \App\Repository\Create\Address as AddressRepository;
@@ -132,8 +133,9 @@ class UserController extends Controller
         ]);
     }
 
-    public function newCustom(CustomRequest $request , Custom $custom)
+    public function newCustom(CustomRequest $request , Custom $custom , GhasedakApi $ghasedakApi)
     {
+        $ghasedakApi->SendSimple('09152158988' , 'یک محصول خاص سفارش داده شده است' , env('GHASEDAKAPI_LINENUMBER' , '30005006006771'));
         return $custom->setRequest($request)->uploadImage()->createCustom()->backTo('با موفقیت اپلود شد منتظر پیام پشتیبان باشد با تشکر' , route('user.custom'));
     }
 }

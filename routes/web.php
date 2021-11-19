@@ -77,6 +77,7 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
     Route::get('/' , [AdminController::class , 'index'])->name('.index');
     Route::prefix('/view')->as('.view')->group(function(){
         Route::post('/users' , [AdminViewController::class , 'viewUser'])->name('.user');
+        Route::get('/color' , [AdminViewController::class , 'viewColor'])->name('.color');
         Route::post('/factor' , [AdminViewController::class , 'factorUser'])->name('.factor');
         Route::post('/support' , [AdminViewController::class , 'viewSupport'])->name('.support');
         Route::get('/about' , [AdminViewController::class , 'viewAbout'])->name('.about');
@@ -94,6 +95,7 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::post('/size/product/product' , [AdminViewController::class , 'viewSizeProduct'])->name('.product.size');
         Route::post('/product/image' , [AdminViewController::class , 'viewProductImage'])->name('.product.image');
         Route::post('/product/color' , [AdminViewController::class , 'viewProductColor'])->name('.product.color');
+        Route::get('/productT' , [AdminViewController::class , 'viewProductT'])->name('.productT');
     });
     Route::prefix('/delete')->as('.delete')->group(function(){
         Route::post('/users' , [AdminDeleteController::class , 'deleteUser'])->name('.user');
@@ -107,6 +109,7 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::post('/size' , [AdminDeleteController::class , 'deleteSize'])->name('.size');
         Route::post('/image' , [AdminDeleteController::class , 'deleteImage'])->name('.image');
         Route::post('/product/color' , [AdminDeleteController::class , 'deleteColorProduct'])->name('.color.product');
+        Route::post('/color' , [AdminDeleteController::class , 'deleteColor'])->name('.color');
     });
     Route::prefix('/edit')->as('.edit')->group(function (){
         Route::post('/status/order' , [AdminEditController::class , 'editStatusOrder'])->name('.status.order');
@@ -114,6 +117,7 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::post('/status/product' , [AdminEditController::class , 'editStatusProduct'])->name('.status.product');
         Route::get('/product/all/{id}' , [AdminEditController::class , 'editProductAll'])->name('.product.all');
         Route::post('/about' , [AdminEditController::class , 'editAbout'])->name('.about');
+        Route::post('/status/productT' , [AdminEditController::class , 'editStatusProductT'])->name('.status.productT');
         Route::post('/logo' , [AdminEditController::class , 'editLogo'])->name('.logo');
         Route::post('/menu' , [AdminEditController::class , 'editMenu'])->name('.menu');
         Route::post('/menu/name' , [AdminEditController::class , 'editMenuName'])->name('.menu.name');
@@ -134,6 +138,7 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::post('/size' , [AdminNewController::class , 'newSize'])->name('.size');
         Route::post('/product/image' , [AdminNewController::class , 'newImage'])->name('.image.product');
         Route::post('/product/color' , [AdminNewController::class , 'newProductColor'])->name('.product.color');
+        Route::post('/color' , [AdminNewController::class , 'newColor'])->name('.color');
     });
     Route::prefix('/update')->as('update')->group(function (){
         Route::post('/support' , [AdminUpdateController::class , 'updateSupport'])->name('.support');

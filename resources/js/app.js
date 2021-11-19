@@ -87,6 +87,7 @@ const app = createApp({
         image_product_admin: null,
         id:null,
         data_color:null,
+        code_status:null,
     }),
     components: {
         HeaderVue,
@@ -108,6 +109,22 @@ const app = createApp({
         ErrorPage,
     },
     methods: {
+        edit_status_productT(id){
+            this.id = id
+            axios.post('/admin/edit/status/productT', {id: this.id , code:this.code_status}).then((res) => {
+                if (res.data == 'success'){
+                    this.pm('وضعیت محصول تغییر کرد' , 3000)
+                    this.reload_time(2000)
+                }
+            }).catch(() => {
+                this.pm('مشکلی پیش امده', 3000)
+            })
+        },
+        view_page_delete(id){
+            this.id_delete = id;
+            $('.page-new-delete-banner-center-as').fadeIn()
+            $('.blur').fadeIn()
+        },
         view_page_new_color(){
             $('.page-color-new').fadeIn()
             $('.page-color-product').fadeOut()
@@ -216,6 +233,18 @@ const app = createApp({
             $(".blur").fadeIn();
         },
         delete_image_center(model) {
+            if (model == 'color_as'){
+                axios.post('/admin/delete/color', {id: this.id_delete}).then((res) => {
+                    if (res.data == 'delete') {
+                        $('.page-new-delete-banner-center-as').fadeOut();
+                        $('.blur').fadeOut();
+                        this.pm('حذف شد', 3000)
+                        this.reload_time(2000)
+                    }
+                }).catch(() => {
+                    this.pm('مشکلی پیش امده', 3000)
+                })
+            }
             if (model == 'color'){
                 axios.post('/admin/delete/product/color', {id: this.id_delete}).then((res) => {
                     if (res.data == 'delete') {
@@ -412,12 +441,16 @@ const app = createApp({
         },
         reply_support_admin(sender, id) {
             this.id_comment_support = sender
-            axios.post('/admin/update/support', {id: id}).then((res) => {
+            if (id != ''){
+                axios.post('/admin/update/support', {id: id}).then((res) => {
+                    $(".page-new-support-reply-admin").fadeToggle()
+                    $(".page-new-support-admin").fadeOut()
+                }).catch(() => {
+                    this.pm('مشکلی پیش امده', 3000)
+                })
+            }else {
                 $(".page-new-support-reply-admin").fadeToggle()
-                $(".page-new-support-admin").fadeOut()
-            }).catch(() => {
-                this.pm('مشکلی پیش امده', 3000)
-            })
+            }
         },
         view_page_support_admin() {
             axios.post('/admin/view/support').then((res) => {

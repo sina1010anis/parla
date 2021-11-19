@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\BannerUpRequest;
 use App\Http\Requests\Admin\EditProductRequest;
 use App\Http\Requests\Admin\LogoRequest;
 use App\Http\Requests\Admin\MenuNameRequest;
+use App\Models\custom;
 use App\Models\factor;
 use App\Models\menu;
 use App\Models\product;
@@ -101,5 +102,13 @@ class AdminEditController extends Controller
     public function editProduct(EditProductRequest $request , \App\Repository\Admin\Edit\Product $product , $id)
     {
         return $product->setRequest($request)->setId($id)->update()->backTo('با موفقیت ویرایش شد' , 'admin/view/product');
+    }
+
+    public function editStatusProductT(Request $request , GhasedakApi $ghasedakApi)
+    {
+        custom::whereId($request->id)->update(['status' => $request->code]);
+        $product = custom::find($request->id);
+        $ghasedakApi->SendSimple($product->user->mobile , 'وضعیت محصول خاص شما تغییر کرده است' , env('GHASEDAKAPI_LINENUMBER' , '30005006006771'));
+        return $this->msgSuccess();
     }
 }

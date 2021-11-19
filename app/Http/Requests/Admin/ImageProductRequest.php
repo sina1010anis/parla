@@ -26,8 +26,6 @@ class ImageProductRequest extends FormRequest
         return [
             'image' => 'required|mimes:png,jpg,jpeg|image',
             'name' => 'required',
-            'product_id' => 'required',
-
         ];
     }
 }

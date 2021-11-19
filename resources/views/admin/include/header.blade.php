@@ -9,8 +9,7 @@
                 <i class="bi bi-envelope f-18"></i>
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                 {{$support_admin->whereView_admin(0)->whereStatus(0)->count()}}
-            <span class="visually-hidden">unread messages</span>
-          </span>
+                <span class="visually-hidden">unread messages</span></span>
             </button>
         </li>
     </ul>

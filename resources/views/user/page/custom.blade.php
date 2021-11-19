@@ -17,8 +17,8 @@
                     <div class="card-footer">
                         <p v-if="{{$custom->status}} == 0" class="text-muted text-center text-primary f-13">درحال
                             برسی</p>
-                        <p v-if="{{$custom->status}} == 1" style="color: #00d200" class="text-muted text-center f-13">
-                            تایید شده در اویل وقت پشتیبان پیام می دهد</p>
+                        <p v-if="{{$custom->status}} == 1" style="color: #00d200" class="text-muted text-center f-11">
+                            تایید شده منتظر باشید</p>
                         <p v-if="{{$custom->status}} == 2" style="color: red" class="text-muted text-center f-13">طرح رد
                             شده است به دلیل نامفهوم بودن عکس</p>
                         <p v-if="{{$custom->status}} == 3" style="color: red" class="text-muted text-center f-13">طرح رد

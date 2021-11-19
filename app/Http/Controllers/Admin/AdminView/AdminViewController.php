@@ -136,5 +136,14 @@ class AdminViewController extends Controller
         }
         return response()->json($item);
     }
+
+    public function viewColor()
+    {
+        return view('admin.page.color');
+    }
+    public function viewProductT()
+    {
+        return view('admin.page.productT');
+    }
 }
 

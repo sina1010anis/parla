@@ -9,6 +9,6 @@ class support
     public function compose(View $view)
     {
         if(auth()->check())
-            return $view->with('supports' , SupportModel::whereSender(auth()->user()->id)->get());
+            return $view->with('supports' , SupportModel::whereSender(auth()->user()->id)->orderBy('id' , 'DESC')->get());
     }
 }

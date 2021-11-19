@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\AdminView;
 
 use App\Http\Controllers\Controller;
 use App\Repository\Admin\Delete\BannerCenter;
+use App\Repository\Admin\Delete\Color;
 use App\Repository\Admin\Delete\ColorProduct;
 use App\Repository\Admin\Delete\Delete;
 use App\Repository\Admin\Delete\ImageProduct;
@@ -85,6 +86,12 @@ class AdminDeleteController extends Controller
     public function deleteColorProduct(Request $request)
     {
         new Delete(new ColorProduct() , $request->id);
+        return $this->msgDelete();
+    }
+
+    public function deleteColor(Request $request)
+    {
+        new Delete(new Color() , $request->id);
         return $this->msgDelete();
     }
 }

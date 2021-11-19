@@ -12,6 +12,7 @@ use App\Repository\View\Data\admin\product_all;
 use App\Repository\View\Data\admin\product_discount;
 use App\Repository\View\Data\admin\product_order;
 use App\Repository\View\Data\admin\product_view_admin;
+use App\Repository\View\Data\admin\productT;
 use App\Repository\View\Data\admin\slider_menu;
 use App\Repository\View\Data\admin\support_admin;
 use App\Repository\View\Data\admin\user_admin;
@@ -104,6 +105,7 @@ class viewAll
         View::composer(['*'] , product_all::class);
         View::composer(['*'] , product_discount::class);
         View::composer(['*'] , color::class);
+        View::composer(['*'] , productT::class);
         // End Admin
     }
 }

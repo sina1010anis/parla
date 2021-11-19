@@ -63,9 +63,8 @@
             </div>
             <div class="box-item-menu-panel-admin mt-1 p-2" id="box-item-menu-panel-admin-5">
                 <div class="text-center f-12 color-b-500 py-2 pointer"><a href="{{route('admin.view.product')}}">محصول اصلی</a></div>
-                <div class="text-center f-12 color-b-500 py-2 pointer">کلاس بندی محصولات</div>
-                <div class="text-center f-12 color-b-500 py-2 pointer">کلاس بندی رنگ</div>
-                <div class="text-center f-12 color-b-500 py-2 pointer">محصولات خاص</div>
+                <div class="text-center f-12 color-b-500 py-2 pointer"><a href="{{route('admin.view.color')}}">رنگ</a></div>
+                <div class="text-center f-12 color-b-500 py-2 pointer"><a href="{{route('admin.view.productT')}}">محصولات خاص</a></div>
             </div>
         </div>
         <div class="item-menu-panel-admin">

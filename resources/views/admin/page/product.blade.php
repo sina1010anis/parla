@@ -197,6 +197,71 @@
                 </div>
             </div>
         @endif
+        @if(!isset($edit))
+            <div class="col-12 mt-3 bg-white p-4 rounded-3 shadow text-center table-view-product">
+                <h5 class="color-b-700 text-end">نمایش محصولات تخفیف دار</h5>
+                <div class="line"></div>
+                <div class="bd-example">
+                    <table class="table table-striped" dir="rtl">
+                        <thead>
+                        <tr>
+                            <th>نام</th>
+                            <th>قمیت</th>
+                            <th>تعداد</th>
+                            <th>توضیحات</th>
+                            <th>نکته</th>
+                            <th>عکس</th>
+                            <th>وضعیت</th>
+                            <th>منو</th>
+                            <th>تخفیف</th>
+                            <th>ویو</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($product_discount as $product)
+                            <tr>
+                                <td>{{$product->name}}</td>
+                                <td>{{$product->price}}</td>
+                                <td>{{$product->number}}</td>
+                                <td><a href="{{route('product.show', ['slug' => $product->slug])}}"
+                                       class="btn btn-primary btn-sm">برسی</a></td>
+                                <td dir="rtl" align="right">{{$product->tips}}</td>
+                                <td><img src="{{url('/image/product/'.$product->image)}}"
+                                         style="width: 100px!important;" alt="{{$product->name}}"></td>
+                                <td>
+                                    {!!($product->status == 1) ?
+                                    '<button class="btn btn-success btn-sm" @click="edit_status_product_admin('.$product->id.') "><i class="bi bi-play"></i></button>' :
+                                    '<button class="f-11 btn-sm btn btn-danger" @click="edit_status_product_admin('.$product->id.') "><i class="bi bi-stop"></i></button>'!!}
+                                </td>
+                                <td>{{$product->sub_menu->name}}</td>
+                                <td>{{$product->discount}}</td>
+                                <td>{{$product->view}}</td>
+                                <td>
+                                    <button @click="view_page_delete_product('{{$product->id}}')"
+                                            class="btn btn-danger btn-sm"><i class="bi bi-trash"></i>
+                                    </button>
+                                </td>
+                                <td><a href="{{route('admin.edit.product.all' , ['id' => $product->slug])}}"
+                                       class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i></a></td>
+                                <td>
+                                    <button @click="view_size_product('{{$product->id}}')" class="btn btn-info btn-sm">
+                                        <i class="bi bi-archive"></i></button>
+                                </td>
+                                <td>
+                                    <button @click="view_image_product('{{$product->id}}')"
+                                            class="btn btn-secondary btn-sm"><i class="bi bi-image"></i></button>
+                                </td>
+                                <td>
+                                    <button @click="view_color_page('{{$product->id}}')" class="btn btn-dark btn-sm"><i class="bi bi-palette"></i></button>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        @endif
     </div>
     <div class="page-new page-new-delete-banner-center-as overflow-hidden">
         <h6 class="text-center font-S my-2 color-b-600">اخطار !</h6>

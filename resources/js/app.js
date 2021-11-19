@@ -86,6 +86,7 @@ const app = createApp({
         },
         image_product_admin: null,
         id:null,
+        data_color:null,
     }),
     components: {
         HeaderVue,
@@ -107,6 +108,25 @@ const app = createApp({
         ErrorPage,
     },
     methods: {
+        view_page_new_color(){
+            $('.page-color-new').fadeIn()
+            $('.page-color-product').fadeOut()
+        },
+        delete_color_product(id){
+            this.id_delete = id
+            $('.page-new-delete-color').fadeIn();
+            $('.blur').fadeIn();
+        },
+        view_color_page(id){
+          this.id = id;
+            axios.post('/admin/view/product/color', {id: this.id}).then((res) => {
+                this.data_color = res.data
+                $('.page-color-product').fadeIn()
+                $('.blur').fadeIn()
+            }).catch(() => {
+                this.pm('مشکلی پیش امده', 3000)
+            })
+        },
         view_size_product_admin_size(id){
             this.id_delete = id
             $('.page-new-delete-image').fadeIn()
@@ -196,6 +216,19 @@ const app = createApp({
             $(".blur").fadeIn();
         },
         delete_image_center(model) {
+            if (model == 'color'){
+                axios.post('/admin/delete/product/color', {id: this.id_delete}).then((res) => {
+                    if (res.data == 'delete') {
+                        $('.page-color-product').fadeOut();
+                        $('.blur').fadeOut();
+                        $('.page-new-delete-color').fadeOut();
+                        this.pm('حذف شد', 3000)
+                        this.reload_time(2000)
+                    }
+                }).catch(() => {
+                    this.pm('مشکلی پیش امده', 3000)
+                })
+            }
             if (model == 'image') {
                 axios.post('/admin/delete/image', {id: this.id_delete}).then((res) => {
                     if (res.data == 'delete') {

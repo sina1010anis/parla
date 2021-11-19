@@ -14,6 +14,7 @@ use App\Http\Requests\Admin\SliderRequest;
 use App\Repository\Admin\About\About;
 use App\Repository\Admin\Banner\BannerCenter;
 use App\Repository\Admin\Menu\Menu;
+use App\Repository\Admin\Product\ColorProduct;
 use App\Repository\Admin\Product\ImageProduct;
 use App\Repository\Admin\Product\Product;
 use App\Repository\Admin\Product\SizeProduct;
@@ -84,5 +85,10 @@ class AdminNewController extends Controller
     public function newImage(ImageProductRequest $request , ImageProduct $imageProduct)
     {
         return $imageProduct->setRequest($request)->move()->create()->back('با موفقیت ساخته شد');
+    }
+
+    public function newProductColor(Request $request , ColorProduct $colorProduct)
+    {
+        return $colorProduct->setRequest($request)->create()->back('با موفقیت ساخته شد');
     }
 }

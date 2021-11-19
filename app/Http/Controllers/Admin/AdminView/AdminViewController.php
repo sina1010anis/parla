@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin\AdminView;
 
 use App\Http\Controllers\Controller;
+use App\Models\color;
+use App\Models\color_product;
 use App\Models\factor;
 use App\Models\image_product;
 use App\Models\size_product;
@@ -119,6 +121,20 @@ class AdminViewController extends Controller
     {
         $data = image_product::where('product_id' , $request->id)->get();
         return response()->json($data);
+    }
+
+    public function viewProductColor(Request $request)
+    {
+        $item = [];
+        $data = color_product::where('product_id' , $request->id)->get();
+        foreach ($data as $i){
+            $item[] = [
+                'id' => $i->id,
+                'name' => $i->color->name,
+                'code' => $i->color->code,
+            ];
+        }
+        return response()->json($item);
     }
 }
 

@@ -187,7 +187,7 @@
                                             class="btn btn-secondary btn-sm"><i class="bi bi-image"></i></button>
                                 </td>
                                 <td>
-                                    <button class="btn btn-dark btn-sm"><i class="bi bi-palette"></i></button>
+                                    <button @click="view_color_page('{{$product->id}}')" class="btn btn-dark btn-sm"><i class="bi bi-palette"></i></button>
                                 </td>
                             </tr>
                         @endforeach
@@ -356,7 +356,7 @@
                 @csrf
                 <input name="product_id" type="hidden" v-model="id">
                 <div class="mb-3 col-6 d-inline-block p-1">
-                    <label class="form-label f-13 color-b-500 d-block text-end">نام غکس</label>
+                    <label class="form-label f-13 color-b-500 d-block text-end">نام عکس</label>
                     <input name="name" class="form-control" type="text"
                            id="formFile">
                 </div>
@@ -364,6 +364,69 @@
                     <label class="form-label f-13 color-b-500 d-block text-end">اپلود</label>
                     <input name="image" v-model="data_size_admin.price" class="form-control" type="file"
                            id="formFile">
+                </div>
+                <button type="submit" class="btn btn-lg btn-primary f-13 ms-3 mt-3">
+                    ارسال
+                </button>
+                <button @click="cls_page_new_comment_reply" type="button" class="btn btn-lg btn-light f-13 ms-3 mt-3">
+                    بستن
+                </button>
+            </form>
+        </div>
+
+    </div>
+    <div class="page-new page-color-product overflow-hidden">
+        <h6 class="text-center font-S my-2 color-b-600">رنگ های این محصول</h6>
+        <div class="line"></div>
+        <div class="row overflow-scroll" style="max-height: 300px">
+            <ul>
+                <li style="list-style: none!important;" v-for="i in data_color" key="i.id" class="f-12 p-1 text-center color-b-700 border-bottom" dir="rtl">
+                    @{{ i.name }} : <img style="width: 50px;" :src="'/image/color/'+i.code" alt=""> <i @click="delete_color_product(i.id)" style="color: red"
+                                                      class="bi bi-trash pointer"></i>
+                </li>
+            </ul>
+        </div>
+        <button @click="view_page_new_color" type="button" class="btn btn-lg btn-primary f-13 ms-3 mt-3">
+            جدید
+        </button>
+        <button @click="cls_page_new_comment_reply" type="button" class="btn btn-lg btn-light f-13 ms-3 mt-3">
+            بستن
+        </button>
+    </div>
+    <div class="page-new page-new-delete-color overflow-hidden">
+        <h6 class="text-center font-S my-2 color-b-600">اخطار !</h6>
+        <div class="line"></div>
+        <div class="row">
+            <div dir="rtl" align="center" class="col-12 f-12 color-b-600 my-2">ایا از انجام این عمل مطمعن هستید ؟
+            </div>
+        </div>
+        <button @click="delete_image_center('color')" type="button" class="btn btn-lg btn-danger f-13 ms-3 mt-3">
+            بله
+        </button>
+        <button @click="cls_page_new_comment_reply" type="button" class="btn btn-lg btn-light f-13 ms-3 mt-3">
+            خیر
+        </button>
+    </div>
+    <div class="page-new page-color-new overflow-hidden">
+        <h6 class="text-center font-S my-2 color-b-600">رنگ جدید</h6>
+        <div class="line"></div>
+        <div class="row">
+            <form action="{{route('admin.new.product.color')}}" method="post">
+                @csrf
+                <input name="product_id" type="hidden" v-model="id">
+                <div class="col-12 overflow-scroll rounded-3 position-relative bg-white" style="max-height: 300px">
+                    <ul class="m-0 p-0">
+                        @foreach($color_all as $a)
+                            <li class="w-100 p-3 pointer border rounded-3 mt-4">
+                                <div class="form-check pointer">
+                                    <input class="form-check-input" type="radio" value="{{$a->id}}" name="color" id="flexRadioDefault{{$a->id}}">
+                                    <label dir="rtl" class="form-check-label f-14 color-b-600 pointer w-100 text-end" for="flexRadioDefault{{$a->id}}">
+                                        <img src="{{url('image/color/'.$a->code)}}" alt="{{$a->name}}" style="width: 60px"> - {{$a->name}}
+                                    </label>
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
                 </div>
                 <button type="submit" class="btn btn-lg btn-primary f-13 ms-3 mt-3">
                     ارسال

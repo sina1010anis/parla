@@ -11,7 +11,7 @@ class CategoryController extends Controller
 {
     public function index(sub_menu $slug)
     {
-        $data = product::whereMenu_id($slug->id)->paginate(20);
+        $data = product::whereMenu_id($slug->id)->where('status' , '!=' , 0)->paginate(20);
         return view('front.product.menu' , compact('data' , 'slug'));
     }
 }

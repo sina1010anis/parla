@@ -6,6 +6,7 @@ use App\Repository\View\Data\about;
 use App\Repository\View\Data\address;
 use App\Repository\View\Data\address_select;
 use App\Repository\View\Data\admin\bank;
+use App\Repository\View\Data\admin\color;
 use App\Repository\View\Data\admin\image_about;
 use App\Repository\View\Data\admin\product_all;
 use App\Repository\View\Data\admin\product_discount;
@@ -102,6 +103,7 @@ class viewAll
         View::composer(['*'] , slider_menu::class);
         View::composer(['*'] , product_all::class);
         View::composer(['*'] , product_discount::class);
+        View::composer(['*'] , color::class);
         // End Admin
     }
 }

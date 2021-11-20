@@ -145,5 +145,25 @@ class AdminViewController extends Controller
     {
         return view('admin.page.productT');
     }
+
+    public function viewItem()
+    {
+        return view('admin.page.item');
+    }
+
+    public function viewBoxFooter()
+    {
+        return view('admin.page.boxFooter');
+    }
+
+    public function viewLinkFooter()
+    {
+        return view('admin.page.link');
+    }
+
+    public function viewItemFooter()
+    {
+        return view('admin.page.itemFooter');
+    }
 }
 

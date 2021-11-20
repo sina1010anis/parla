@@ -96,6 +96,10 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::post('/product/image' , [AdminViewController::class , 'viewProductImage'])->name('.product.image');
         Route::post('/product/color' , [AdminViewController::class , 'viewProductColor'])->name('.product.color');
         Route::get('/productT' , [AdminViewController::class , 'viewProductT'])->name('.productT');
+        Route::get('/item' , [AdminViewController::class , 'viewItem'])->name('.item');
+        Route::get('/box/footer' , [AdminViewController::class , 'viewBoxFooter'])->name('.box.footer');
+        Route::get('/link/footer' , [AdminViewController::class , 'viewLinkFooter'])->name('.link.footer');
+        Route::get('/item/footer' , [AdminViewController::class , 'viewItemFooter'])->name('.item.footer');
     });
     Route::prefix('/delete')->as('.delete')->group(function(){
         Route::post('/users' , [AdminDeleteController::class , 'deleteUser'])->name('.user');
@@ -110,6 +114,10 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::post('/image' , [AdminDeleteController::class , 'deleteImage'])->name('.image');
         Route::post('/product/color' , [AdminDeleteController::class , 'deleteColorProduct'])->name('.color.product');
         Route::post('/color' , [AdminDeleteController::class , 'deleteColor'])->name('.color');
+        Route::post('/item' , [AdminDeleteController::class , 'deleteItem'])->name('.item');
+        Route::post('/box/footer' , [AdminDeleteController::class , 'deleteBoxFooter'])->name('.box.footer');
+        Route::post('/link/footer' , [AdminDeleteController::class , 'deleteLinkFooter'])->name('.link.footer');
+        Route::post('/item/footer' , [AdminDeleteController::class , 'deleteItemFooter'])->name('.item.footer');
     });
     Route::prefix('/edit')->as('.edit')->group(function (){
         Route::post('/status/order' , [AdminEditController::class , 'editStatusOrder'])->name('.status.order');
@@ -139,6 +147,10 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::post('/product/image' , [AdminNewController::class , 'newImage'])->name('.image.product');
         Route::post('/product/color' , [AdminNewController::class , 'newProductColor'])->name('.product.color');
         Route::post('/color' , [AdminNewController::class , 'newColor'])->name('.color');
+        Route::post('/item' , [AdminNewController::class , 'newItem'])->name('.item');
+        Route::post('/box/footer' , [AdminNewController::class , 'newBoxFooter'])->name('.box.footer');
+        Route::post('/link/footer' , [AdminNewController::class , 'newLinkFooter'])->name('.link.footer');
+        Route::post('/item/footer' , [AdminNewController::class , 'newItemFooter'])->name('.item.footer');
     });
     Route::prefix('/update')->as('update')->group(function (){
         Route::post('/support' , [AdminUpdateController::class , 'updateSupport'])->name('.support');

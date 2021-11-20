@@ -73,10 +73,10 @@
                 مشخصات فوتر   <i class="bi bi-align-bottom f-15"></i>
             </div>
             <div class="box-item-menu-panel-admin mt-1 p-2" id="box-item-menu-panel-admin-6">
-                <div class="text-center f-12 color-b-500 py-2 pointer">ایتم</div>
-                <div class="text-center f-12 color-b-500 py-2 pointer">بکس های فوتر</div>
-                <div class="text-center f-12 color-b-500 py-2 pointer">نماد ها</div>
-                <div class="text-center f-12 color-b-500 py-2 pointer">لینک ها</div>
+                <div class="text-center f-12 color-b-500 py-2 pointer"><a href="{{route('admin.view.item')}}">ایتم</a></div>
+                <div class="text-center f-12 color-b-500 py-2 pointer"><a href="{{route('admin.view.box.footer')}}">باکس های فوتر</a></div>
+                <div class="text-center f-12 color-b-500 py-2 pointer"><a href="{{route('admin.view.item.footer')}}">ایتم های فوتر</a></div>
+                <div class="text-center f-12 color-b-500 py-2 pointer"><a href="{{route('admin.view.link.footer')}}">لینک ها</a></div>
             </div>
         </div>
     </div>

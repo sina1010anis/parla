@@ -4,10 +4,14 @@ namespace App\Http\Controllers\Admin\AdminView;
 
 use App\Http\Controllers\Controller;
 use App\Repository\Admin\Delete\BannerCenter;
+use App\Repository\Admin\Delete\BoxFooter;
 use App\Repository\Admin\Delete\Color;
 use App\Repository\Admin\Delete\ColorProduct;
 use App\Repository\Admin\Delete\Delete;
 use App\Repository\Admin\Delete\ImageProduct;
+use App\Repository\Admin\Delete\Item;
+use App\Repository\Admin\Delete\ItemFooter;
+use App\Repository\Admin\Delete\LinkFooter;
 use App\Repository\Admin\Delete\Product;
 use App\Repository\Admin\Delete\SizeProduct;
 use App\Repository\Admin\Delete\Slider;
@@ -92,6 +96,30 @@ class AdminDeleteController extends Controller
     public function deleteColor(Request $request)
     {
         new Delete(new Color() , $request->id);
+        return $this->msgDelete();
+    }
+
+    public function deleteItem(Request $request)
+    {
+        new Delete(new Item() , $request->id);
+        return $this->msgDelete();
+    }
+
+    public function deleteBoxFooter(Request $request)
+    {
+        new Delete(new BoxFooter() , $request->id);
+        return $this->msgDelete();
+    }
+
+    public function deleteLinkFooter(Request $request)
+    {
+        new Delete(new LinkFooter() , $request->id);
+        return $this->msgDelete();
+    }
+
+    public function deleteItemFooter(Request $request)
+    {
+        new Delete(new ItemFooter() , $request->id);
         return $this->msgDelete();
     }
 }

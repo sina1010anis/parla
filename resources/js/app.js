@@ -233,6 +233,54 @@ const app = createApp({
             $(".blur").fadeIn();
         },
         delete_image_center(model) {
+            if (model == 'item_footer'){
+                axios.post('/admin/delete/item/footer', {id: this.id_delete}).then((res) => {
+                    if (res.data == 'delete') {
+                        $('.page-new-delete-banner-center-as').fadeOut();
+                        $('.blur').fadeOut();
+                        this.pm('حذف شد', 3000)
+                        this.reload_time(2000)
+                    }
+                }).catch(() => {
+                    this.pm('مشکلی پیش امده', 3000)
+                })
+            }
+            if(model == 'link_footer'){
+                axios.post('/admin/delete/link/footer', {id: this.id_delete}).then((res) => {
+                    if (res.data == 'delete') {
+                        $('.page-new-delete-banner-center-as').fadeOut();
+                        $('.blur').fadeOut();
+                        this.pm('حذف شد', 3000)
+                        this.reload_time(2000)
+                    }
+                }).catch(() => {
+                    this.pm('مشکلی پیش امده', 3000)
+                })
+            }
+            if(model == 'box_footer'){
+                axios.post('/admin/delete/box/footer', {id: this.id_delete}).then((res) => {
+                    if (res.data == 'delete') {
+                        $('.page-new-delete-banner-center-as').fadeOut();
+                        $('.blur').fadeOut();
+                        this.pm('حذف شد', 3000)
+                        this.reload_time(2000)
+                    }
+                }).catch(() => {
+                    this.pm('مشکلی پیش امده', 3000)
+                })
+            }
+            if (model == 'item'){
+                axios.post('/admin/delete/item', {id: this.id_delete}).then((res) => {
+                    if (res.data == 'delete') {
+                        $('.page-new-delete-banner-center-as').fadeOut();
+                        $('.blur').fadeOut();
+                        this.pm('حذف شد', 3000)
+                        this.reload_time(2000)
+                    }
+                }).catch(() => {
+                    this.pm('مشکلی پیش امده', 3000)
+                })
+            }
             if (model == 'color_as'){
                 axios.post('/admin/delete/color', {id: this.id_delete}).then((res) => {
                     if (res.data == 'delete') {

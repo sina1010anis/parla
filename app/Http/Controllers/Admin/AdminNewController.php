@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\BoxFooterRequset;
 use App\Http\Requests\Admin\ImageProductRequest;
+use App\Http\Requests\Admin\ItemFooterRequset;
+use App\Http\Requests\Admin\ItemRequset;
+use App\Http\Requests\Admin\LinkFooterRequset;
 use App\Http\Requests\Admin\LogoRequest;
 use App\Http\Requests\Admin\MenuRequest;
 use App\Http\Requests\Admin\ProductRequest;
@@ -14,6 +18,10 @@ use App\Http\Requests\Admin\SliderRequest;
 use App\Repository\Admin\About\About;
 use App\Repository\Admin\Banner\BannerCenter;
 use App\Repository\Admin\Color\Color;
+use App\Repository\Admin\Footer\BoxFooter;
+use App\Repository\Admin\Footer\ItemFooter;
+use App\Repository\Admin\Footer\LinkFooter;
+use App\Repository\Admin\Item\Item;
 use App\Repository\Admin\Menu\Menu;
 use App\Repository\Admin\Product\ColorProduct;
 use App\Repository\Admin\Product\ImageProduct;
@@ -96,5 +104,25 @@ class AdminNewController extends Controller
     public function newColor(ImageProductRequest $request , Color $color)
     {
         return $color->setRequest($request)->move()->create()->back('با موفقیت ساخته شد');
+    }
+
+    public function newItem(ItemRequset $requset , Item $item)
+    {
+        return $item->setRequest($requset)->move()->create()->back('با موفقیت ساخته شد');
+    }
+
+    public function newBoxFooter(BoxFooterRequset $request , BoxFooter $boxFooter)
+    {
+        return $boxFooter->setRequest($request)->create()->back('با موفقیت ساخته شد');
+    }
+
+    public function newLinkFooter(LinkFooterRequset $requset , LinkFooter $linkFooter)
+    {
+        return $linkFooter->setRequest($requset)->create()->back('با موفقیت ساخته شد');
+    }
+
+    public function newItemFooter(ItemFooterRequset $requset , ItemFooter $itemFooter)
+    {
+        return $itemFooter->setRequest($requset)->create()->back('با موفقیت ساخته شد');
     }
 }

@@ -16,6 +16,7 @@ use App\Repository\View\Data\admin\productT;
 use App\Repository\View\Data\admin\slider_menu;
 use App\Repository\View\Data\admin\support_admin;
 use App\Repository\View\Data\admin\user_admin;
+use App\Repository\View\Data\admin\users;
 use App\Repository\View\Data\banner_up;
 use App\Repository\View\Data\bannerCenter;
 use App\Repository\View\Data\bannerEnd;
@@ -106,6 +107,7 @@ class viewAll
         View::composer(['*'] , product_discount::class);
         View::composer(['*'] , color::class);
         View::composer(['*'] , productT::class);
+        View::composer(['*'] , users::class);
         // End Admin
     }
 }

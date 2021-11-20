@@ -89,7 +89,7 @@
                 کاربر   <i class="bi bi-person f-15"></i>
             </div>
             <div class="box-item-menu-panel-admin mt-1 p-2" id="box-item-menu-panel-admin-7">
-                <div class="text-center f-12 color-b-500 py-2 pointer">تمام کاربران</div>
+                <div class="text-center f-12 color-b-500 py-2 pointer"><a href="{{route('admin.view.users')}}">کاربران</a></div>
             </div>
         </div>
     </div>

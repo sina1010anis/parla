@@ -165,5 +165,10 @@ class AdminViewController extends Controller
     {
         return view('admin.page.itemFooter');
     }
+
+    public function viewUsers()
+    {
+        return view('admin.page.users');
+    }
 }
 

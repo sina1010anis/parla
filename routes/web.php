@@ -100,6 +100,7 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::get('/box/footer' , [AdminViewController::class , 'viewBoxFooter'])->name('.box.footer');
         Route::get('/link/footer' , [AdminViewController::class , 'viewLinkFooter'])->name('.link.footer');
         Route::get('/item/footer' , [AdminViewController::class , 'viewItemFooter'])->name('.item.footer');
+        Route::get('/users' , [AdminViewController::class , 'viewUsers'])->name('.users');
     });
     Route::prefix('/delete')->as('.delete')->group(function(){
         Route::post('/users' , [AdminDeleteController::class , 'deleteUser'])->name('.user');

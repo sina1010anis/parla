@@ -108,7 +108,7 @@ class AdminEditController extends Controller
     {
         custom::whereId($request->id)->update(['status' => $request->code]);
         $product = custom::find($request->id);
-        $ghasedakApi->SendSimple($product->user->mobile , 'وضعیت محصول خاص شما تغییر کرده است' , env('GHASEDAKAPI_LINENUMBER' , '30005006006771'));
+        $ghasedakApi->SendSimple($product->user->mobile , 'وضعیت محصول خاص شما تغییر کرده است با احترام تیم parla' , env('GHASEDAKAPI_LINENUMBER' , '30005006006771'));
         return $this->msgSuccess();
     }
 }

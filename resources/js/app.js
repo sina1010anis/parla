@@ -109,6 +109,19 @@ const app = createApp({
         ErrorPage,
     },
     methods: {
+        editStatusMessage(id , model){
+            axios.post('/admin/edit/status/comment', {id:id , model:model}).then((res) => {
+                if (res.data == 'ok'){
+                    this.pm('غیر فعال شد' , 3000)
+                    this.reload_time(2000)
+                }else{
+                    this.pm(' فعال شد' , 3000)
+                    this.reload_time(2000)
+                }
+            }).catch(() => {
+                this.pm('مشکلی پیش امده', 3000)
+            })
+        },
         edit_status_productT(id){
             this.id = id
             axios.post('/admin/edit/status/productT', {id: this.id , code:this.code_status}).then((res) => {
@@ -715,6 +728,11 @@ const app = createApp({
             $('.blur').fadeToggle()
             $('.page-new').fadeToggle()
         },
+        open_page_admin(id) {
+            this.id = id
+            $('.blur').fadeToggle()
+            $('.page-new-comment').fadeToggle()
+        },
         open_page_3() {
             $('.blur').fadeToggle()
             $('.page-new-address').fadeToggle()
@@ -731,6 +749,19 @@ const app = createApp({
                 if (res.data == 'create') {
                     this.pm('ارسال شد', 2000);
                 }
+            })
+        },
+        new_comment_support_admin() {
+            axios.post('/admin/new/comment/support', {text: this.text_send , sender:this.id}).then((res) => {
+                if(res.data == 'create'){
+                    $('.blur').fadeOut()
+                    $('.page-new').fadeOut()
+                    this.text_send = 'متن پیام';
+                    this.pm('ارسال شد ' , 3000)
+                    this.reload_time(2000)
+                }
+            }).catch(()=>{
+                this.pm('مشکلی پیش امده ' , 3000)
             })
         },
         new_factor() {

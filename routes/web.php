@@ -101,6 +101,8 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::get('/link/footer' , [AdminViewController::class , 'viewLinkFooter'])->name('.link.footer');
         Route::get('/item/footer' , [AdminViewController::class , 'viewItemFooter'])->name('.item.footer');
         Route::get('/users' , [AdminViewController::class , 'viewUsers'])->name('.users');
+        Route::get('/message/product' , [AdminViewController::class , 'viewMessageProduct'])->name('.message.product');
+        Route::get('/message/support' , [AdminViewController::class , 'viewMessageSupport'])->name('.message.support');
     });
     Route::prefix('/delete')->as('.delete')->group(function(){
         Route::post('/users' , [AdminDeleteController::class , 'deleteUser'])->name('.user');
@@ -130,6 +132,7 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::post('/logo' , [AdminEditController::class , 'editLogo'])->name('.logo');
         Route::post('/menu' , [AdminEditController::class , 'editMenu'])->name('.menu');
         Route::post('/menu/name' , [AdminEditController::class , 'editMenuName'])->name('.menu.name');
+        Route::post('/status/comment' , [AdminEditController::class , 'editStatusComment'])->name('.status.comment');
         Route::post('/sub/menu' , [AdminEditController::class , 'editSubMenu'])->name('.sub.menu');
         Route::post('/sub/menu/name' , [AdminEditController::class , 'editSubMenuName'])->name('.sub.menu.name');
         Route::post('/bannerUp/{model}/{target}' , [AdminEditController::class , 'editBannerUp'])->name('.bannerUp');
@@ -152,6 +155,7 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::post('/box/footer' , [AdminNewController::class , 'newBoxFooter'])->name('.box.footer');
         Route::post('/link/footer' , [AdminNewController::class , 'newLinkFooter'])->name('.link.footer');
         Route::post('/item/footer' , [AdminNewController::class , 'newItemFooter'])->name('.item.footer');
+        Route::post('/comment/support' , [AdminNewController::class , 'newCommentSupport'])->name('.comment.support');
     });
     Route::prefix('/update')->as('update')->group(function (){
         Route::post('/support' , [AdminUpdateController::class , 'updateSupport'])->name('.support');

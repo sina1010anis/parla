@@ -8,10 +8,12 @@ use App\Http\Requests\Admin\BannerUpRequest;
 use App\Http\Requests\Admin\EditProductRequest;
 use App\Http\Requests\Admin\LogoRequest;
 use App\Http\Requests\Admin\MenuNameRequest;
+use App\Models\comment;
 use App\Models\custom;
 use App\Models\factor;
 use App\Models\menu;
 use App\Models\product;
+use App\Models\reply_comment;
 use App\Models\sub_menu;
 use App\Repository\Admin\Banner\BannerUp;
 use App\Repository\Tools\Back;
@@ -110,5 +112,29 @@ class AdminEditController extends Controller
         $product = custom::find($request->id);
         $ghasedakApi->SendSimple($product->user->mobile , 'وضعیت محصول خاص شما تغییر کرده است با احترام تیم parla' , env('GHASEDAKAPI_LINENUMBER' , '30005006006771'));
         return $this->msgSuccess();
+    }
+
+    public function editStatusComment(Request $request)
+    {
+        if ($request->model == 'comment'){
+            $comment = comment::find($request->id);
+            if ($comment->status == 1){
+                comment::whereId($request->id)->update(['status' => 0]);
+                return $this->msgOk();
+            }else{
+                comment::whereId($request->id)->update(['status' => 1]);
+                return $this->msgNo();
+            }
+        }else{
+            $comment = reply_comment::find($request->id);
+            if ($comment->status == 1){
+                $comment->whereId($request->id)->update(['status' => 0]);
+                return $this->msgOk();
+            }else{
+                $comment->whereId($request->id)->update(['status' => 1]);
+                return $this->msgNo();
+            }
+        }
+
     }
 }

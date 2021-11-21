@@ -102,8 +102,8 @@
                 کاربر   <i class="bi bi-people f-15"></i>
             </div>
             <div class="box-item-menu-panel-admin mt-1 p-2" id="box-item-menu-panel-admin-8">
-                <div class="text-center f-12 color-b-500 py-2 pointer">پیام محصولات</div>
-                <div class="text-center f-12 color-b-500 py-2 pointer">پشتیبانی</div>
+                <div class="text-center f-12 color-b-500 py-2 pointer"><a href="{{route('admin.view.message.product')}}">پیام محصولات</a></div>
+                <div class="text-center f-12 color-b-500 py-2 pointer"><a href="{{route('admin.view.message.support')}}">پشتیبانی</a></div>
             </div>
         </div>
     </div>

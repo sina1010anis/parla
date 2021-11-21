@@ -125,4 +125,9 @@ class AdminNewController extends Controller
     {
         return $itemFooter->setRequest($requset)->create()->back('با موفقیت ساخته شد');
     }
+
+    public function newCommentSupport(Request $request , \App\Repository\Admin\Comment\Support $support)
+    {
+        return $support->setRequest($request)->create()->msgCreate();
+    }
 }

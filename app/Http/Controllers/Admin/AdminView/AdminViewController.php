@@ -170,5 +170,15 @@ class AdminViewController extends Controller
     {
         return view('admin.page.users');
     }
+
+    public function viewMessageProduct()
+    {
+        return view('admin.page.messageProduct');
+    }
+
+    public function viewMessageSupport()
+    {
+        return view('admin.page.messageSupport');
+    }
 }
 

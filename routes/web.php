@@ -105,6 +105,8 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::get('/message/support' , [AdminViewController::class , 'viewMessageSupport'])->name('.message.support');
         Route::get('/state' , [AdminViewController::class , 'viewState'])->name('.state');
         Route::get('/city' , [AdminViewController::class , 'viewCity'])->name('.city');
+        Route::get('/free/send' , [AdminViewController::class , 'viewFreeSend'])->name('.free.send');
+        Route::get('/factor' , [AdminViewController::class , 'viewFactor'])->name('.factor.page');
     });
     Route::prefix('/delete')->as('.delete')->group(function(){
         Route::post('/users' , [AdminDeleteController::class , 'deleteUser'])->name('.user');
@@ -125,6 +127,7 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::post('/item/footer' , [AdminDeleteController::class , 'deleteItemFooter'])->name('.item.footer');
         Route::post('/state' , [AdminDeleteController::class , 'deleteState'])->name('.state');
         Route::post('/city' , [AdminDeleteController::class , 'deleteCity'])->name('.city');
+        Route::post('/cart' , [AdminDeleteController::class , 'deleteCart'])->name('.cart');
     });
     Route::prefix('/edit')->as('.edit')->group(function (){
         Route::post('/status/order' , [AdminEditController::class , 'editStatusOrder'])->name('.status.order');
@@ -138,6 +141,7 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::post('/menu/name' , [AdminEditController::class , 'editMenuName'])->name('.menu.name');
         Route::post('/status/comment' , [AdminEditController::class , 'editStatusComment'])->name('.status.comment');
         Route::post('/sub/menu' , [AdminEditController::class , 'editSubMenu'])->name('.sub.menu');
+        Route::post('/free/send' , [AdminEditController::class , 'editFreeSend'])->name('.free.send');
         Route::post('/sub/menu/name' , [AdminEditController::class , 'editSubMenuName'])->name('.sub.menu.name');
         Route::post('/bannerUp/{model}/{target}' , [AdminEditController::class , 'editBannerUp'])->name('.bannerUp');
     });

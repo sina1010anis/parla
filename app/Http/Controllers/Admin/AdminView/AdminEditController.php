@@ -11,6 +11,7 @@ use App\Http\Requests\Admin\MenuNameRequest;
 use App\Models\comment;
 use App\Models\custom;
 use App\Models\factor;
+use App\Models\free_send;
 use App\Models\menu;
 use App\Models\product;
 use App\Models\reply_comment;
@@ -135,6 +136,11 @@ class AdminEditController extends Controller
                 return $this->msgNo();
             }
         }
+    }
 
+    public function editFreeSend(Request $request)
+    {
+        free_send::whereId(1)->update(['price' => $request->price]);
+        return $this->back('ویرایش شد');
     }
 }

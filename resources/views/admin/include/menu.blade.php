@@ -1,7 +1,7 @@
 <span @click="view_menu_admin" class="icon-menu-admin p-2 shadow pointer bg-white f-17 position-absolute">
     <i class="bi bi-list"></i>
 </span>
-<div class="menu-admin">
+<div class="menu-admin shadow">
     <div class="w-100">
         <i @click="hide_menu_admin" class=" pointer bi f-18 bi-arrow-bar-left d-block w-100 text-end"></i>
     </div>
@@ -126,7 +126,7 @@
                 هزینه رایگان   <i class="bi bi-cash f-15"></i>
             </div>
             <div class="box-item-menu-panel-admin mt-1 p-2" id="box-item-menu-panel-admin-10">
-                <div class="text-center f-12 color-b-500 py-2 pointer">حداکثر قیمت</div>
+                <div class="text-center f-12 color-b-500 py-2 pointer"><a href="{{route('admin.view.free.send')}}">حداکثر قیمت</a></div>
             </div>
         </div>
     </div>
@@ -139,7 +139,7 @@
                 فاکتور   <i class="bi bi-card-checklist f-15"></i>
             </div>
             <div class="box-item-menu-panel-admin mt-1 p-2" id="box-item-menu-panel-admin-11">
-                <div class="text-center f-12 color-b-500 py-2 pointer">نمایش فاکتور</div>
+                <div class="text-center f-12 color-b-500 py-2 pointer"><a href="{{route('admin.view.factor.page')}}">نمایش فاکتور</a></div>
             </div>
         </div>
     </div>
@@ -152,17 +152,23 @@
                 سبد خرید   <i class="bi bi-bag f-15"></i>
             </div>
             <div class="box-item-menu-panel-admin mt-1 p-2" id="box-item-menu-panel-admin-12">
-                <div class="text-center f-12 color-b-500 py-2 pointer"><a href="#" style="text-decoration: none;" class="color-b-500">حذف محصولات از سبد</a></div>
-            </div>
-        </div>
-        <div class="item-menu-panel-admin">
-            <div @click="view_item_menu_admin(16)" class="f-13 my-3 color-b-600 font-S text-end pointer title-item-menu-panel-admin rounded-3 p-2">
-                <i class="bi bi-caret-down float-start position-relative" style="top: 4px"></i>
-                گالری   <i class="bi bi-images f-15"></i>
-            </div>
-            <div class="box-item-menu-panel-admin mt-1 p-2" id="box-item-menu-panel-admin-16">
-                <div class="text-center f-12 color-b-500 py-2 pointer"><a href="#" style="text-decoration: none;" class="color-b-500">گالری</a></div>
+                <div class="text-center f-12 color-b-500 py-2 pointer"><a @click="view_page_delete_product_to_cart" style="text-decoration: none;" class="color-b-500">حذف محصولات از سبد</a></div>
             </div>
         </div>
     </div>
 </div>
+<div class="page-new page-delete-item-cart overflow-hidden">
+    <h6 class="text-center font-S my-2 color-b-600">اخطار !</h6>
+    <div class="line"></div>
+    <div class="row">
+        <div dir="rtl" align="center" class="col-12 f-12 color-b-600 my-2">ایا از انجام این عمل مطمعن هستید ؟
+        </div>
+    </div>
+    <button @click="delete_image_center('cart')" type="button" class="btn btn-lg btn-danger f-13 ms-3 mt-3">
+        بله
+    </button>
+    <button @click="cls_page_new_comment_reply" type="button" class="btn btn-lg btn-light f-13 ms-3 mt-3">
+        خیر
+    </button>
+</div>
+<div class="blur"></div>

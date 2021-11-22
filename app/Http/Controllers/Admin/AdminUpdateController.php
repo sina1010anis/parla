@@ -10,6 +10,6 @@ class AdminUpdateController extends Controller
 {
     public function updateSupport(Request $request)
     {
-        (!isset($request->id)) ? support::whereId($request->id)->update(['view_admin' => 1]) :  false;
+        (isset($request->id)) ? support::whereId($request->id)->update(['view_admin' => 1]) :  false;
     }
 }

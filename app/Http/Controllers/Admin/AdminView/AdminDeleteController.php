@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\AdminView;
 use App\Http\Controllers\Controller;
 use App\Repository\Admin\Delete\BannerCenter;
 use App\Repository\Admin\Delete\BoxFooter;
+use App\Repository\Admin\Delete\Cart;
 use App\Repository\Admin\Delete\City;
 use App\Repository\Admin\Delete\Color;
 use App\Repository\Admin\Delete\ColorProduct;
@@ -134,6 +135,12 @@ class AdminDeleteController extends Controller
     public function deleteCity(Request $request)
     {
         new Delete(new City() , $request->id);
+        return $this->msgDelete();
+    }
+
+    public function deleteCart(Request $request)
+    {
+        new Delete(new Cart() , $request->id);
         return $this->msgDelete();
     }
 }

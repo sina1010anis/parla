@@ -190,5 +190,15 @@ class AdminViewController extends Controller
     {
         return view('admin.page.city');
     }
+
+    public function viewFreeSend()
+    {
+        return view('admin.page.freeSend');
+    }
+
+    public function viewFactor()
+    {
+        return view('admin.page.factor');
+    }
 }
 

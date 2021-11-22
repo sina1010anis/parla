@@ -185,6 +185,13 @@ const app = createApp({
             $('.page-image-product').fadeOut()
             $('.blur').fadeIn()
         },
+        view_attr_product_admin(id) {
+            this.id_delete = id;
+            $('.page-new-delete-attr').fadeIn()
+            $('.page-attr-product').fadeOut()
+            $('.page-image-product').fadeOut()
+            $('.blur').fadeIn()
+        },
         new_size_product_admin() {
             if (this.data_size_admin.name != '' || this.data_size_admin.price != '') {
                 axios.post('/admin/new/size', {
@@ -204,8 +211,35 @@ const app = createApp({
                 })
             }
         },
+
+        new_attr_product_admin() {
+            if (this.data_size_admin.name != '' || this.data_size_admin.price != '') {
+                axios.post('/admin/new/attr', {
+                    id: this.id_menu_admin,
+                    name: this.data_size_admin.price,
+                    title: this.data_size_admin.name
+                }).then((res) => {
+                    if (res.data == 'create') {
+                        this.pm('ساخته شد', 3000)
+                        this.reload_time(2000)
+                        $('.page-attr-product').fadeOut();
+                        $('.page-attr-new').fadeOut();
+                        $('.blur').fadeOut()
+                        this.data_size_admin.price = ''
+                        this.data_size_admin.name = ''
+                    }
+                }).catch(() => {
+                    this.pm('مشکلی پیش امده', 3000)
+                })
+            }
+        },
+
         view_page_new_size() {
             $('.page-size-new').fadeIn();
+            $('.blur').fadeIn()
+        },
+        view_page_new_attr() {
+            $('.page-attr-new').fadeIn();
             $('.blur').fadeIn()
         },
         view_page_new_image() {
@@ -222,6 +256,17 @@ const app = createApp({
                 this.pm('مشکلی پیش امده', 3000)
             })
         },
+        view_attr_product(id) {
+            this.id_menu_admin = id;
+            axios.post('/admin/view/attr/product', {id: this.id_menu_admin}).then((res) => {
+                this.data = res.data
+                $('.page-attr-product').fadeIn();
+                $('.blur').fadeIn()
+            }).catch(() => {
+                this.pm('مشکلی پیش امده', 3000)
+            })
+        },
+
         view_page_delete_product(id) {
             this.id_delete = id;
             $('.page-new-delete-banner-center-as').fadeIn()
@@ -250,6 +295,18 @@ const app = createApp({
             $(".blur").fadeIn();
         },
         delete_image_center(model) {
+            if(model == 'attr'){
+                axios.post('/admin/delete/attr', {id: this.id_delete}).then((res) => {
+                    if (res.data == 'delete') {
+                        $('.page-new-delete-attr').fadeOut();
+                        $('.blur').fadeOut();
+                        this.pm('حذف شد', 3000)
+                        this.reload_time(2000)
+                    }
+                }).catch(() => {
+                    this.pm('مشکلی پیش امده', 3000)
+                })
+            }
             if(model == 'cart'){
                 axios.post('/admin/delete/cart', {id: this.id_delete}).then((res) => {
                     if (res.data == 'delete') {

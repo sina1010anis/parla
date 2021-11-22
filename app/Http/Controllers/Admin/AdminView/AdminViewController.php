@@ -7,6 +7,7 @@ use App\Models\color;
 use App\Models\color_product;
 use App\Models\factor;
 use App\Models\image_product;
+use App\Models\properties;
 use App\Models\size_product;
 use App\Models\support;
 use App\Models\User;
@@ -199,6 +200,12 @@ class AdminViewController extends Controller
     public function viewFactor()
     {
         return view('admin.page.factor');
+    }
+
+    public function viewAttrProduct(Request $request)
+    {
+        $data = properties::whereProduct_id($request->id)->get();
+        return response()->json($data);
     }
 }
 

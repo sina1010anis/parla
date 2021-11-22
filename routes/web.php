@@ -107,6 +107,7 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::get('/city' , [AdminViewController::class , 'viewCity'])->name('.city');
         Route::get('/free/send' , [AdminViewController::class , 'viewFreeSend'])->name('.free.send');
         Route::get('/factor' , [AdminViewController::class , 'viewFactor'])->name('.factor.page');
+        Route::post('/attr/product' , [AdminViewController::class , 'viewAttrProduct'])->name('.attr.product');
     });
     Route::prefix('/delete')->as('.delete')->group(function(){
         Route::post('/users' , [AdminDeleteController::class , 'deleteUser'])->name('.user');
@@ -128,6 +129,7 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::post('/state' , [AdminDeleteController::class , 'deleteState'])->name('.state');
         Route::post('/city' , [AdminDeleteController::class , 'deleteCity'])->name('.city');
         Route::post('/cart' , [AdminDeleteController::class , 'deleteCart'])->name('.cart');
+        Route::post('/attr' , [AdminDeleteController::class , 'deleteAttr'])->name('.attr');
     });
     Route::prefix('/edit')->as('.edit')->group(function (){
         Route::post('/status/order' , [AdminEditController::class , 'editStatusOrder'])->name('.status.order');
@@ -166,6 +168,8 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::post('/comment/support' , [AdminNewController::class , 'newCommentSupport'])->name('.comment.support');
         Route::post('/state' , [AdminNewController::class , 'newState'])->name('.state');
         Route::post('/city' , [AdminNewController::class , 'newCity'])->name('.city');
+        Route::post('/attr' , [AdminNewController::class , 'newAttr'])->name('.attr');
+        Route::post('/image/product/{id}' , [AdminNewController::class , 'newImageProduct'])->name('.image.productA');
     });
     Route::prefix('/update')->as('update')->group(function (){
         Route::post('/support' , [AdminUpdateController::class , 'updateSupport'])->name('.support');

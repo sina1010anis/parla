@@ -11,11 +11,11 @@ class ImageProduct extends \App\Repository\Admin\Upload\Upload
     {
         return 'image/product/';
     }
-    public function create(){
+    public function create($id){
         image_product::create([
             'name' => $this->request->name,
             'src' => $this->name,
-            'product_id' => $this->request->product_id,
+            'product_id' => $id,
         ]);
         return $this;
     }

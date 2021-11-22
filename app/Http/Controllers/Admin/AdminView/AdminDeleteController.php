@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\AdminView;
 
 use App\Http\Controllers\Controller;
+use App\Repository\Admin\Delete\Attr;
 use App\Repository\Admin\Delete\BannerCenter;
 use App\Repository\Admin\Delete\BoxFooter;
 use App\Repository\Admin\Delete\Cart;
@@ -141,6 +142,12 @@ class AdminDeleteController extends Controller
     public function deleteCart(Request $request)
     {
         new Delete(new Cart() , $request->id);
+        return $this->msgDelete();
+    }
+
+    public function deleteAttr(Request $request)
+    {
+        new Delete(new Attr() , $request->id);
         return $this->msgDelete();
     }
 }

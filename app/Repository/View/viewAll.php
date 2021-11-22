@@ -34,6 +34,7 @@ use App\Repository\View\Data\factor_4;
 use App\Repository\View\Data\frame;
 use App\Repository\View\Data\free_send;
 use App\Repository\View\Data\image_custom;
+use App\Repository\View\Data\image_product;
 use App\Repository\View\Data\item_footer;
 use App\Repository\View\Data\itemAll;
 use App\Repository\View\Data\linkFooter;
@@ -110,6 +111,7 @@ class viewAll
         View::composer(['*'] , productT::class);
         View::composer(['*'] , users::class);
         View::composer(['*'] , factor_all::class);
+        View::composer(['*'] , image_product::class);
         // End Admin
     }
 }

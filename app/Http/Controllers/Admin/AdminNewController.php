@@ -25,6 +25,7 @@ use App\Repository\Admin\Footer\ItemFooter;
 use App\Repository\Admin\Footer\LinkFooter;
 use App\Repository\Admin\Item\Item;
 use App\Repository\Admin\Menu\Menu;
+use App\Repository\Admin\Product\Attr;
 use App\Repository\Admin\Product\ColorProduct;
 use App\Repository\Admin\Product\ImageProduct;
 use App\Repository\Admin\Product\Product;
@@ -142,5 +143,15 @@ class AdminNewController extends Controller
     public function newCity(Request $request , City $city)
     {
         return $city->setRequest($request)->create()->back('با موفقیت اضافه شد');
+    }
+
+    public function newAttr(Request $request , Attr $attr)
+    {
+        return $attr->setRequest($request)->create()->msgCreate();
+    }
+
+    public function newImageProduct(LogoRequest $request , ImageProduct $imageProduct , $id)
+    {
+        return $imageProduct->setRequest($request)->move()->create($id)->back('با موفقیت ساخته شد');
     }
 }

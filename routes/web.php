@@ -103,6 +103,8 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::get('/users' , [AdminViewController::class , 'viewUsers'])->name('.users');
         Route::get('/message/product' , [AdminViewController::class , 'viewMessageProduct'])->name('.message.product');
         Route::get('/message/support' , [AdminViewController::class , 'viewMessageSupport'])->name('.message.support');
+        Route::get('/state' , [AdminViewController::class , 'viewState'])->name('.state');
+        Route::get('/city' , [AdminViewController::class , 'viewCity'])->name('.city');
     });
     Route::prefix('/delete')->as('.delete')->group(function(){
         Route::post('/users' , [AdminDeleteController::class , 'deleteUser'])->name('.user');
@@ -121,6 +123,8 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::post('/box/footer' , [AdminDeleteController::class , 'deleteBoxFooter'])->name('.box.footer');
         Route::post('/link/footer' , [AdminDeleteController::class , 'deleteLinkFooter'])->name('.link.footer');
         Route::post('/item/footer' , [AdminDeleteController::class , 'deleteItemFooter'])->name('.item.footer');
+        Route::post('/state' , [AdminDeleteController::class , 'deleteState'])->name('.state');
+        Route::post('/city' , [AdminDeleteController::class , 'deleteCity'])->name('.city');
     });
     Route::prefix('/edit')->as('.edit')->group(function (){
         Route::post('/status/order' , [AdminEditController::class , 'editStatusOrder'])->name('.status.order');
@@ -156,6 +160,8 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::post('/link/footer' , [AdminNewController::class , 'newLinkFooter'])->name('.link.footer');
         Route::post('/item/footer' , [AdminNewController::class , 'newItemFooter'])->name('.item.footer');
         Route::post('/comment/support' , [AdminNewController::class , 'newCommentSupport'])->name('.comment.support');
+        Route::post('/state' , [AdminNewController::class , 'newState'])->name('.state');
+        Route::post('/city' , [AdminNewController::class , 'newCity'])->name('.city');
     });
     Route::prefix('/update')->as('update')->group(function (){
         Route::post('/support' , [AdminUpdateController::class , 'updateSupport'])->name('.support');

@@ -116,8 +116,8 @@
                 ادرس   <i class="bi bi-geo-alt f-15"></i>
             </div>
             <div class="box-item-menu-panel-admin mt-1 p-2" id="box-item-menu-panel-admin-9">
-                <div class="text-center f-12 color-b-500 py-2 pointer">ثبت استان</div>
-                <div class="text-center f-12 color-b-500 py-2 pointer">ثبت شهر</div>
+                <div class="text-center f-12 color-b-500 py-2 pointer"><a href="{{route('admin.view.state')}}">ثبت استان</a></div>
+                <div class="text-center f-12 color-b-500 py-2 pointer"><a href="{{route('admin.view.city')}}">ثبت شهر</a></div>
             </div>
         </div>
         <div class="item-menu-panel-admin">

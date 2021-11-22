@@ -180,5 +180,15 @@ class AdminViewController extends Controller
     {
         return view('admin.page.messageSupport');
     }
+
+    public function viewState()
+    {
+        return view('admin.page.state');
+    }
+
+    public function viewCity()
+    {
+        return view('admin.page.city');
+    }
 }
 

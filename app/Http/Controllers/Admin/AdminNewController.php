@@ -15,8 +15,10 @@ use App\Http\Requests\Admin\SizeProductRequest;
 use App\Http\Requests\Admin\SliderLoginRequest;
 use App\Http\Requests\Admin\SliderMenuRequest;
 use App\Http\Requests\Admin\SliderRequest;
+use App\Http\Requests\Admin\StateRequest;
 use App\Repository\Admin\About\About;
 use App\Repository\Admin\Banner\BannerCenter;
+use App\Repository\Admin\City\City;
 use App\Repository\Admin\Color\Color;
 use App\Repository\Admin\Footer\BoxFooter;
 use App\Repository\Admin\Footer\ItemFooter;
@@ -30,6 +32,7 @@ use App\Repository\Admin\Product\SizeProduct;
 use App\Repository\Admin\Slider\Slider;
 use App\Repository\Admin\Slider\SliderLogin;
 use App\Repository\Admin\Slider\SliderMenu;
+use App\Repository\Admin\State\State;
 use App\Repository\Admin\SubMenu\SubMenu;
 use App\Repository\Create\Card;
 use App\Repository\Create\Create;
@@ -129,5 +132,15 @@ class AdminNewController extends Controller
     public function newCommentSupport(Request $request , \App\Repository\Admin\Comment\Support $support)
     {
         return $support->setRequest($request)->create()->msgCreate();
+    }
+
+    public function newState(StateRequest $request , State $state)
+    {
+        return $state->setRequest($request)->create()->back('با موفقیت اضافه شد');
+    }
+
+    public function newCity(Request $request , City $city)
+    {
+        return $city->setRequest($request)->create()->back('با موفقیت اضافه شد');
     }
 }

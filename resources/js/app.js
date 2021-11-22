@@ -246,6 +246,30 @@ const app = createApp({
             $(".blur").fadeIn();
         },
         delete_image_center(model) {
+            if(model == 'city'){
+                axios.post('/admin/delete/city', {id: this.id_delete}).then((res) => {
+                    if (res.data == 'delete') {
+                        $('.page-new-delete-banner-center-as').fadeOut();
+                        $('.blur').fadeOut();
+                        this.pm('حذف شد', 3000)
+                        this.reload_time(2000)
+                    }
+                }).catch(() => {
+                    this.pm('مشکلی پیش امده', 3000)
+                })
+            }
+            if(model == 'state'){
+                axios.post('/admin/delete/state', {id: this.id_delete}).then((res) => {
+                    if (res.data == 'delete') {
+                        $('.page-new-delete-banner-center-as').fadeOut();
+                        $('.blur').fadeOut();
+                        this.pm('حذف شد', 3000)
+                        this.reload_time(2000)
+                    }
+                }).catch(() => {
+                    this.pm('مشکلی پیش امده', 3000)
+                })
+            }
             if (model == 'item_footer'){
                 axios.post('/admin/delete/item/footer', {id: this.id_delete}).then((res) => {
                     if (res.data == 'delete') {

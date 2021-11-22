@@ -68,6 +68,9 @@ Route::prefix('/user')->as('user')->middleware(['auth' , 'verify_mobile'])->grou
         Route::post('/profile' , [UserController::class , 'editProfile'])->name('.profile');
         Route::post('/address' , [UserController::class , 'editAddress'])->name('.address');
     });
+    Route::prefix('delete')->as('.delete')->group(function (){
+        Route::post('/address'  , [UserController::class , 'deleteAddress'])->name('.address');
+    });
     Route::get('/send/buy' , [PayController::class , 'send'])->name('.send');
     Route::get('/verify/buy' , [PayController::class , 'verify'])->name('.verify');
     Route::post('/view/factor' , [UserController::class , 'viewFactor'])->name('.view.factor');

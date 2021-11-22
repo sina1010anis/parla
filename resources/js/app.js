@@ -109,6 +109,18 @@ const app = createApp({
         ErrorPage,
     },
     methods: {
+        view_page_as_address(id){
+            axios.post('/user/delete/address', {id:id}).then((res) => {
+                if (res.data == 'delete'){
+                    $('.page-new-admin-as').fadeOut()
+                    $('.blur').fadeOut()
+                    this.pm('ادرس حذف شد' , 3000)
+                    this.reload_time(2000)
+                }
+            }).catch(() => {
+                this.pm('مشکلی پیش امده', 3000)
+            })
+        },
         view_page_delete_product_to_cart(){
             $('.page-delete-item-cart').fadeIn()
             $('.blur').fadeIn()
@@ -647,8 +659,8 @@ const app = createApp({
                         this.pm('لطفا با دقت بیشتری فیلد ها را پر کنید ', 3000)
                     }
                     if (res.data == 'success') {
-                        $(".page-new").fadeToggle()
-                        $(".blur").fadeToggle()
+                        $(".page-new").fadeOut()
+                        $(".blur").fadeOut()
                         this.pm('ادرس با موفقیت اضافه شد برای تغییر ادرس روی ادرس مورد نظر کلیک کنید ', 7000)
                         this.reload_time(7000)
                     }

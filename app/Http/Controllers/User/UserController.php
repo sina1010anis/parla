@@ -138,4 +138,9 @@ class UserController extends Controller
         $ghasedakApi->SendSimple('09152158988' , 'یک محصول خاص سفارش داده شده است' , env('GHASEDAKAPI_LINENUMBER' , '30005006006771'));
         return $custom->setRequest($request)->uploadImage()->createCustom()->backTo('با موفقیت اپلود شد منتظر پیام پشتیبان باشد با تشکر' , route('user.custom'));
     }
+
+    public function deleteAddress(Request $request , \App\Repository\Delete\Address $address)
+    {
+        return $address->delete($request->id)->msgDelete();
+    }
 }

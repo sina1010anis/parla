@@ -6,7 +6,9 @@
         <i @click="hide_menu_admin" class=" pointer bi f-18 bi-arrow-bar-left d-block w-100 text-end"></i>
     </div>
     <div class="w-100 text-center my-2">
-        <img src="{{url('/image/icon/admin.png')}}"  alt="">
+        <a href="{{route('admin.index')}}">
+            <img src="{{url('/image/icon/admin.png')}}"  alt="">
+        </a>
         <div class="mt-3 f-14 font-S color-b-600">{{auth()->user()->name}}</div>
         <div class="f-13 mt-1 font-S color-b-500">{{auth()->user()->email}}</div>
     </div>

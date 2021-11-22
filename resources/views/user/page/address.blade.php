@@ -10,13 +10,14 @@
         <div class="col-12 overflow-scroll rounded-3 position-relative bg-white" style="height: 500px">
             <ul class="m-0 p-0">
                 @foreach($address as $a)
-                    <li class="w-100 p-3 pointer border rounded-3 mt-4">
+                    <li class="w-100 p-3 pointer border rounded-3 mt-4 position-relative">
                         <div class="form-check pointer">
                             <input @change="set_address({{$a->id}})" @if(auth()->user()->address_id == $a->id) checked @endif class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault{{$a->id}}">
                             <label dir="rtl" class="form-check-label f-14 color-b-600 pointer w-100 text-end" for="flexRadioDefault{{$a->id}}">
                                 {{$a->city->name}} : {{$a->state->name}} - {{$a->address}}
                             </label>
                         </div>
+                        <i v-if="{{auth()->user()->address_id}} != {{$a->id}}" @click="view_page_as_address('{{$a->id}}')" class="bi bi-trash position-absolute item-delete-address pb-2"></i>
                     </li>
                 @endforeach
             </ul>

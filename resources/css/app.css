@@ -952,6 +952,18 @@ transition: 0.5s;
 .banner-up{
     color: #2f82c6;
 }
+
+.item-delete-address{
+    top: 57%;
+    color: #ff9393;
+    left: 7%;
+    transition: 0.2s;
+    transform: translate(-50%,-50%);
+}
+.item-delete-address:hover{
+    color: #ff2525;
+    border-bottom: 1px solid #ff2525;
+}
 /* admin style */
 
 .menu-admin{

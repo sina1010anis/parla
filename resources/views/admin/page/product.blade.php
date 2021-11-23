@@ -93,8 +93,8 @@
                     <div class="mb-3">
                         <label class="form-label f-13 color-b-500 d-block text-end">توضیحات تکمیلی(قسمت شخصی
                             سازی)</label>
-                        <textarea name="description_all" value="{{$product->description_all}}" class="form-control"
-                                  type="text" id="formFile"></textarea>
+                        <textarea id="editor" name="description_all" class="form-control"
+                                  type="text" id="formFile">{{$product->description_all}}</textarea>
                     </div>
                     <div class="mb-3">
                         <label class="form-label f-13 color-b-500 d-block text-end">نکته (برای ارسال)</label>
@@ -278,5 +278,14 @@
     @include('admin.include.product.page')
 @endsection
 @section('script')
-
+    <link rel="stylesheet" href="{{url('css/codemirror-5.64.0/lib/codemirror.css')}}">
+    <link rel="stylesheet" href="{{url('css/codemirror-5.64.0/theme/dracula.css')}}">
+    <script src="{{url('css/codemirror-5.64.0/lib/codemirror.js')}}"></script>
+    <script src="{{url('css/codemirror-5.64.0/mode/xml/xml.js')}}"></script>
+    <script>
+        var editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
+            lineNumbers: true,
+            theme:'dracula'
+        });
+    </script>
 @endsection

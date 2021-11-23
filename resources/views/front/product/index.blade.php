@@ -289,6 +289,10 @@
                                    class="form-control form-control-sm  form-login @error('image') is-invalid @enderror"
                                    type="file" id="formFile">
                         </div>
+                        <div class="mb-3 col-12">
+                            <div class="g-recaptcha"
+                                 data-sitekey="{!! env('RECAPTCHA_SITE_KEY' , '6Lf2euYbAAAAAGIymqU4o_v83Ob8X3kFuMVNtEyN') !!}"></div>
+                        </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-red my-3 f-13 py-2 w-100">ارسال نظر جهت برسی</button>
                         </div>

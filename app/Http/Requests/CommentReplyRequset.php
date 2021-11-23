@@ -25,7 +25,7 @@ class CommentReplyRequset extends FormRequest
     {
         return [
             'id' => 'required',
-            'text' => 'required'
+            'text' => 'required',
         ];
     }
 }

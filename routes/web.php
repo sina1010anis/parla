@@ -16,7 +16,7 @@ use \App\Http\Controllers\Admin\AdminView\AdminEditController;
 use \App\Http\Controllers\Admin\AdminNewController;
 use \App\Http\Controllers\Admin\AdminUpdateController;
 
-Route::get('/tt' , [IndexController::class , 'tt']);
+Route::get('/tt' , [IndexController::class , 'test']);
 
 Route::get('/verify', [ProductController::class , 'verifyMobile'])->name('verify.mobile');
 
@@ -172,6 +172,7 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::post('/state' , [AdminNewController::class , 'newState'])->name('.state');
         Route::post('/city' , [AdminNewController::class , 'newCity'])->name('.city');
         Route::post('/attr' , [AdminNewController::class , 'newAttr'])->name('.attr');
+        Route::post('/video/about' , [AdminNewController::class , 'newVideoAbout'])->name('.video.about');
         Route::post('/image/product/{id}' , [AdminNewController::class , 'newImageProduct'])->name('.image.productA');
     });
     Route::prefix('/update')->as('update')->group(function (){

@@ -636,8 +636,9 @@ transition: 0.5s;
     border-radius: 10px;
     width: 500px;
     color:#ffffff;
+    z-index: 58;
     max-width: 100%;
-    background-color: rgba(255, 107, 107, 0.5);
+    background-color: rgb(255, 107, 107);
 }
 *:focus{
     box-shadow: unset!important;

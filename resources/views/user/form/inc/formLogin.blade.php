@@ -4,12 +4,10 @@
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     @foreach($slider_login as $slider)
-                        @if($slider->location == 1)
                             <div class="{{($loop->index == 0) ? 'active' : '' }} carousel-item" data-bs-interval="2000">
                                 <img src="/image/slider/sliderLoginRegister/{{$slider->src}}" alt="{{$slider->name}}"
                                      title="{{$slider->name}}" style="width: 400px">
                             </div>
-                        @endif
                     @endforeach
                 </div>
             </div>

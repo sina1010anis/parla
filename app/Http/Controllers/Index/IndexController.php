@@ -31,9 +31,11 @@ class IndexController extends Controller
         return view('front.singel_page.contact');
     }
 
-    public function tt()
+    public function test(GhasedakApi $api)
     {
-//        $api = new GhasedakApi('fe16b04ac30294ed0834f232fe2691edf568e47888c3cbd85510b3c7d1180396');
-//        $api->SendSimple('09395231890' , 'پیام تستی' , '10008566');
+        $api
+            ->SendSimple('09395231890' ,
+                "با تشکر از خرید شما کد تراکنش : 555555 با احترام تیم Parla" ,
+                '30005006006577');
     }
 }

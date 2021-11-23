@@ -42,7 +42,7 @@ const app = createApp({
         },
         price_dic: null,
         id_comment: null,
-        text_comment: null,
+        text_comment: '',
         text_send: 'متن پیام',
         text_edit: '',
         name_input: '',
@@ -547,8 +547,17 @@ const app = createApp({
             $('.page-photos-upload').fadeIn()
             $('.blur').fadeIn()
         },
+        view_page_new_video_in_page_about(){
+            $('.page-video-about').fadeOut()
+            $('.page-video-upload').fadeIn()
+            $('.blur').fadeIn()
+        },
         view_page_upload_photo() {
             $('.page-photos-about').fadeIn()
+            $('.blur').fadeIn()
+        },
+        view_page_upload_video() {
+            $('.page-video-about').fadeIn()
             $('.blur').fadeIn()
         },
         view_page_delete_menu_admin() {
@@ -734,15 +743,22 @@ const app = createApp({
             })
         },
         new_comment() {
-            axios.post('/product/new/comment', {id: this.id_comment, text: this.text_comment}).then((res) => {
-                $('.form-comment-reply').fadeToggle()
-                $('.blur').fadeToggle()
-                this.id_comment = ''
-                this.text_comment = ''
-                if (res.data == 'ok') {
-                    this.pm('با تشکر از نظر شما بعد از تایید منتشر میشود', 5000)
-                }
-            })
+            if(this.text_comment != ''){
+                axios.post('/product/new/comment', {id: this.id_comment, text: this.text_comment}).then((res) => {
+                    $('.form-comment-reply').fadeToggle()
+                    $('.blur').fadeToggle()
+                    this.id_comment = ''
+                    this.text_comment = ''
+                    if (res.data == 'ok') {
+                        this.pm('با تشکر از نظر شما بعد از تایید منتشر میشود', 5000)
+                    }
+                }).catch(()=>{
+                    this.pm('مشکلی پیش امده ' , 3000)
+                })
+            }else {
+                this.pm('یکی از فیلد ها خالی است' , 2000)
+            }
+
         },
         new_comment_reply(id) {
             this.id_comment = id

@@ -18,9 +18,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(\Ghasedak\GhasedakApi::class , function (){
-            return new \Ghasedak\GhasedakApi('f9f94b58ff8aac57f9302deb46856a270ca9df58c350e29318bc4b492c39d5b2');
-        });
+
     }
 
     /**
@@ -33,6 +31,8 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
         resolve(viewAll::class)->handle();
         Paginator::useBootstrap();
-
+        $this->app->bind(\Ghasedak\GhasedakApi::class , function (){
+            return new \Ghasedak\GhasedakApi('07761cd3c2c3898e2f122e1d687b2f265b04c934b39e6623e781604eebcc406a');
+        });
     }
 }

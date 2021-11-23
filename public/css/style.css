@@ -3,12 +3,12 @@
 }
 @font-face {
     font-family: IRANS;
-    src: url("fontRANYekanMedium.ttf");
+    src: url("font/fontRANYekanMedium.ttf");
 }
 
 @font-face {
     font-family: IRANY;
-    src: url("fontRANSansWeb.ttf");
+    src: url("font/fontRANSansWeb.ttf");
 }
 *{
     font-family: IRANY;

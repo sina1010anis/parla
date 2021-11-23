@@ -26,8 +26,13 @@
                 <button @click="view_page_upload_photo" type="button" class="btn btn-lg btn-info text-white f-13 ms-3 mt-3">
                     گالری
                 </button>
+                <button @click="view_page_upload_video" type="button" class="btn btn-lg btn-primary text-white f-13 ms-3 mt-3">
+                    ویدیو
+                </button>
             </form>
-            <p class="font-S f-14 text-danger">ادرس پایه عکس ( src="/image/about/نام عکس" )</p>
+            <p dir="rtl" class="font-S f-14 text-danger">ادرس پایه عکس ( /image/about/ )</p>
+            <p dir="rtl" class="font-S f-14 text-danger">ادرس پایه فیلم ( /image/about/video/ )</p>
+            <p dir="rtl" class="font-S f-14 text-danger">برای قرار دادن پوستر برای فیلم باید به جای فرمت mp4 از فرمت ogg استفاده کنید</p>
         </div>
         <div class="col-10 offset-1 mt-3 bg-white p-4 rounded-3 shadow text-center">
             {!! $about->title !!}

@@ -17,6 +17,7 @@ use App\Http\Requests\Admin\SliderMenuRequest;
 use App\Http\Requests\Admin\SliderRequest;
 use App\Http\Requests\Admin\StateRequest;
 use App\Repository\Admin\About\About;
+use App\Repository\Admin\About\VideoAbout;
 use App\Repository\Admin\Banner\BannerCenter;
 use App\Repository\Admin\City\City;
 use App\Repository\Admin\Color\Color;
@@ -153,5 +154,10 @@ class AdminNewController extends Controller
     public function newImageProduct(LogoRequest $request , ImageProduct $imageProduct , $id)
     {
         return $imageProduct->setRequest($request)->move()->create($id)->back('با موفقیت ساخته شد');
+    }
+
+    public function newVideoAbout(Request $request , VideoAbout $videoAbout)
+    {
+        return $videoAbout->setRequest($request)->move()->create()->back('اپلود شد');
     }
 }

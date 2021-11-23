@@ -30,7 +30,8 @@ class CommentRequest extends FormRequest
             'possibilities' => 'required',
             'value' => 'required',
             'quality' => 'required',
-            'image' => 'image|mimes:jpg,png,jpeg|max:2048'
+            'image' => 'image|mimes:jpg,png,jpeg|max:2048',
+            'g-recaptcha-response' => 'recaptcha'
         ];
     }
 
@@ -42,6 +43,7 @@ class CommentRequest extends FormRequest
           'image.image' => 'اپلود عکس فقط امکان پذیر است',
           'image.mimes' => 'فقط فرمت jpg , png , jpeg قابل اپلود است',
           'image.max' => 'حجم عکس بیشتر از 2 مگابایت مجاز نمی باشد',
+            'g-recaptcha-response.recaptcha' => 'لطفا تایید ربات را بزنید'
         ];
     }
 }

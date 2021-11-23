@@ -18,6 +18,7 @@ use App\Repository\View\Data\admin\slider_menu;
 use App\Repository\View\Data\admin\support_admin;
 use App\Repository\View\Data\admin\user_admin;
 use App\Repository\View\Data\admin\users;
+use App\Repository\View\Data\admin\video_about;
 use App\Repository\View\Data\banner_up;
 use App\Repository\View\Data\bannerCenter;
 use App\Repository\View\Data\bannerEnd;
@@ -47,6 +48,7 @@ use App\Repository\View\Data\products_3;
 use App\Repository\View\Data\save;
 use App\Repository\View\Data\saveProduct;
 use App\Repository\View\Data\slider_login;
+use App\Repository\View\Data\slider_register;
 use App\Repository\View\Data\sliderAll;
 use App\Repository\View\Data\subMenu;
 use App\Repository\View\Data\support;
@@ -96,6 +98,7 @@ class viewAll
         View::composer(['*'] , products_3::class);
         View::composer(['*'] , banner_up::class);
         View::composer(['*'] , slider_login::class);
+        View::composer(['*'] , slider_register::class);
         // Admin
         View::composer(['*'] , \App\Repository\View\Data\admin\factor::class);
         View::composer(['*'] , user_admin::class);
@@ -112,6 +115,7 @@ class viewAll
         View::composer(['*'] , users::class);
         View::composer(['*'] , factor_all::class);
         View::composer(['*'] , image_product::class);
+        View::composer(['*'] , video_about::class);
         // End Admin
     }
 }

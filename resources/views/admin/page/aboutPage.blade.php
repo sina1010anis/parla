@@ -16,7 +16,7 @@
             <p class="f-16 font-S color-b-700 text-end">صفحه درباره شرکت(صقحه کد)</p>
             <form action="{{route('admin.edit.about')}}" method="post">
                 @csrf
-                <textarea id="task-text" name="text" class="form-control form-login f-12 color-b-600">{{$about->text}}</textarea>
+                <textarea id="editor" name="text" >{{$about->text}}</textarea>
                 <button type="submit" class="btn btn-lg btn-danger f-13 ms-3 mt-3">
                     ارسال
                 </button>
@@ -51,5 +51,15 @@
             .catch( error => {
                 console.error( error );
             } );
+    </script>
+    <link rel="stylesheet" href="{{url('css/codemirror-5.64.0/lib/codemirror.css')}}">
+    <link rel="stylesheet" href="{{url('css/codemirror-5.64.0/theme/dracula.css')}}">
+    <script src="{{url('css/codemirror-5.64.0/lib/codemirror.js')}}"></script>
+    <script src="{{url('css/codemirror-5.64.0/mode/xml/xml.js')}}"></script>
+    <script>
+        var editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
+            lineNumbers: true,
+            theme:'dracula'
+        });
     </script>
 @endsection

@@ -28,6 +28,7 @@ import StarterKit from '@tiptap/starter-kit'
 
 const app = createApp({
     data: () => ({
+        code:'<p>test</p>',
         editor: null,
         test: 'test',
         id_size_product: null,
@@ -960,6 +961,9 @@ const app = createApp({
         }
     },
     mounted() {
+        CodeMirror.formTextArea($('#editor') , {
+            lineNumber:true
+        })
         setTimeout(() => {
             $('.view-err').fadeOut()
         }, 10000)

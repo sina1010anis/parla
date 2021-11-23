@@ -12,17 +12,21 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('front.section.index');
     }
-    public function searchHeaderMenu(Request $request){
-        if ($request->ajax()){
+
+    public function searchHeaderMenu(Request $request)
+    {
+        if ($request->ajax()) {
             $menus = sub_menu::whereMenuId($request->id)->get();
             return response()->json($menus);
         }
     }
 
-    public function aboutWe(){
+    public function aboutWe()
+    {
         return view('front.singel_page.about');
     }
 
@@ -33,9 +37,6 @@ class IndexController extends Controller
 
     public function test(GhasedakApi $api)
     {
-        $api
-            ->SendSimple('09395231890' ,
-                "با تشکر از خرید شما کد تراکنش : 555555 با احترام تیم Parla" ,
-                '30005006006577');
+
     }
 }

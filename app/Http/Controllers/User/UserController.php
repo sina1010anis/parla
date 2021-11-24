@@ -86,19 +86,52 @@ class UserController extends Controller
         if ($this->validateEditProfile($request)){
             if ($request->name == 'password'){
                 User::whereId(auth()->user()->id)->update([$request->name => Hash::make($request->text)]);
+            }elseif ($request->name == 'mobile'){
+                $countM = User::whereMobile($request->text)->count();
+                if ($countM == 0){
+                    User::whereId(auth()->user()->id)->update(['mobile' => $request->text]);
+                    User::whereId(auth()->user()->id)->update(['verify_mobile' => 0]);
+                }else{
+                    return $this->msgWarning();
+                }
+            }elseif ($request->name == 'email'){
+                $countE = User::whereEmail($request->text)->count();
+                if ($countE == 0){
+                    User::whereId(auth()->user()->id)->update([$request->name => $request->text]);
+                }else{
+                    return $this->msgWarning();
+                }
             }else{
                 User::whereId(auth()->user()->id)->update([$request->name => $request->text]);
-                if ($request->name == 'mobile'){
-                    User::whereId(auth()->user()->id)->update(['verify_mobile' => 0]);
-                }
             }
-            if ($request->name == 'password' || $request->name == 'mobile'){
-                auth()->logout();
-            }
-            return $this->msgOk();
-        }else{
-            return $this->msgNo();
         }
+        if ($request->name == 'password' || $request->name == 'mobile'){
+            auth()->logout();
+        }
+
+//        if ($this->validateEditProfile($request)){
+//            if ($request->name == 'password'){
+//                User::whereId(auth()->user()->id)->update([$request->name => Hash::make($request->text)]);
+//            }else{
+//                if ($request->name == 'mobile'){
+//                    $count = User::whereMobile($request->text)->count();
+//                    if ($count == 0){
+//                        User::whereId(auth()->user()->id)->update([$request->name => $request->text]);
+//                        User::whereId(auth()->user()->id)->update(['verify_mobile' => 0]);
+//                    }else{
+//                        return $this->msgWarning();
+//                    }
+//                }else{
+//                    User::whereId(auth()->user()->id)->update([$request->name => $request->text]);
+//                }
+//            }
+//            if ($request->name == 'password' || $request->name == 'mobile'){
+//                auth()->logout();
+//            }
+//            return $this->msgOk();
+//        }else{
+//            return $this->msgNo();
+//        }
     }
 
     public function newAddress(Request $request)
@@ -135,7 +168,7 @@ class UserController extends Controller
 
     public function newCustom(CustomRequest $request , Custom $custom , GhasedakApi $ghasedakApi)
     {
-        $ghasedakApi->SendSimple('09152158988' , 'یک محصول خاص سفارش داده شده است' , env('GHASEDAKAPI_LINENUMBER' , '30005006006771'));
+        $ghasedakApi->Verify('09152158988' , '1' , 'productVip' , '.');
         return $custom->setRequest($request)->uploadImage()->createCustom()->backTo('با موفقیت اپلود شد منتظر پیام پشتیبان باشد با تشکر' , route('user.custom'));
     }
 

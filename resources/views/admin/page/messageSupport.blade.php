@@ -10,7 +10,7 @@
                     @if($user->supoort->count() != 0)
                         <div class="col-12 my-2">
                             <div class="rounded-3 p-2 bg-light">
-                                <h5 class="color-b-600 text-end">{{$user->name}}
+                                <h5 class="color-b-600 text-end">{{$user->name}} - {{$user->mobile}}
                                     <span class="float-start"><i @click="open_page_admin('{{$user->id}}')" class="bi bi-plus-circle-dotted pointer" style="color: #00d200"></i></span>
                                 </h5>
 

@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
         resolve(viewAll::class)->handle();
         Paginator::useBootstrap();
         $this->app->bind(\Ghasedak\GhasedakApi::class , function (){
-            return new \Ghasedak\GhasedakApi('07761cd3c2c3898e2f122e1d687b2f265b04c934b39e6623e781604eebcc406a');
+            return new \Ghasedak\GhasedakApi('a3a33cec8f187a50921ca972fade553ac06814f262e9a1948abebf6986fff826');
         });
     }
 }

@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Index;
 
 use App\Http\Controllers\Controller;
-use App\Models\address;
-use App\Models\city;
-use App\Models\menu;
 use App\Models\sub_menu;
 use Ghasedak\GhasedakApi;
+use GuzzleHttp\Client;
+use http\Message\Body;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -37,6 +36,6 @@ class IndexController extends Controller
 
     public function test(GhasedakApi $api)
     {
-
+        $api->Verify('09395231890' , '1' , 'codeVerify' ,'55555');
     }
 }

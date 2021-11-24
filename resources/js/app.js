@@ -28,7 +28,7 @@ import StarterKit from '@tiptap/starter-kit'
 
 const app = createApp({
     data: () => ({
-        code:'<p>test</p>',
+        code: '<p>test</p>',
         editor: null,
         test: 'test',
         id_size_product: null,
@@ -86,9 +86,9 @@ const app = createApp({
             'price': ''
         },
         image_product_admin: null,
-        id:null,
-        data_color:null,
-        code_status:null,
+        id: null,
+        data_color: null,
+        code_status: null,
     }),
     components: {
         HeaderVue,
@@ -110,62 +110,62 @@ const app = createApp({
         ErrorPage,
     },
     methods: {
-        view_page_as_address(id){
-            axios.post('/user/delete/address', {id:id}).then((res) => {
-                if (res.data == 'delete'){
+        view_page_as_address(id) {
+            axios.post('/user/delete/address', {id: id}).then((res) => {
+                if (res.data == 'delete') {
                     $('.page-new-admin-as').fadeOut()
                     $('.blur').fadeOut()
-                    this.pm('ادرس حذف شد' , 3000)
+                    this.pm('ادرس حذف شد', 3000)
                     this.reload_time(2000)
                 }
             }).catch(() => {
                 this.pm('مشکلی پیش امده', 3000)
             })
         },
-        view_page_delete_product_to_cart(){
+        view_page_delete_product_to_cart() {
             $('.page-delete-item-cart').fadeIn()
             $('.blur').fadeIn()
         },
-        editStatusMessage(id , model){
-            axios.post('/admin/edit/status/comment', {id:id , model:model}).then((res) => {
-                if (res.data == 'ok'){
-                    this.pm('غیر فعال شد' , 3000)
+        editStatusMessage(id, model) {
+            axios.post('/admin/edit/status/comment', {id: id, model: model}).then((res) => {
+                if (res.data == 'ok') {
+                    this.pm('غیر فعال شد', 3000)
                     this.reload_time(2000)
-                }else{
-                    this.pm(' فعال شد' , 3000)
+                } else {
+                    this.pm(' فعال شد', 3000)
                     this.reload_time(2000)
                 }
             }).catch(() => {
                 this.pm('مشکلی پیش امده', 3000)
             })
         },
-        edit_status_productT(id){
+        edit_status_productT(id) {
             this.id = id
-            axios.post('/admin/edit/status/productT', {id: this.id , code:this.code_status}).then((res) => {
-                if (res.data == 'success'){
-                    this.pm('وضعیت محصول تغییر کرد' , 3000)
+            axios.post('/admin/edit/status/productT', {id: this.id, code: this.code_status}).then((res) => {
+                if (res.data == 'success') {
+                    this.pm('وضعیت محصول تغییر کرد', 3000)
                     this.reload_time(2000)
                 }
             }).catch(() => {
                 this.pm('مشکلی پیش امده', 3000)
             })
         },
-        view_page_delete(id){
+        view_page_delete(id) {
             this.id_delete = id;
             $('.page-new-delete-banner-center-as').fadeIn()
             $('.blur').fadeIn()
         },
-        view_page_new_color(){
+        view_page_new_color() {
             $('.page-color-new').fadeIn()
             $('.page-color-product').fadeOut()
         },
-        delete_color_product(id){
+        delete_color_product(id) {
             this.id_delete = id
             $('.page-new-delete-color').fadeIn();
             $('.blur').fadeIn();
         },
-        view_color_page(id){
-          this.id = id;
+        view_color_page(id) {
+            this.id = id;
             axios.post('/admin/view/product/color', {id: this.id}).then((res) => {
                 this.data_color = res.data
                 $('.page-color-product').fadeIn()
@@ -174,7 +174,7 @@ const app = createApp({
                 this.pm('مشکلی پیش امده', 3000)
             })
         },
-        view_size_product_admin_size(id){
+        view_size_product_admin_size(id) {
             this.id_delete = id
             $('.page-new-delete-image').fadeIn()
             $('.page-image-product').fadeOut()
@@ -308,7 +308,7 @@ const app = createApp({
             $(".blur").fadeIn();
         },
         delete_image_center(model) {
-            if(model == 'attr'){
+            if (model == 'attr') {
                 axios.post('/admin/delete/attr', {id: this.id_delete}).then((res) => {
                     if (res.data == 'delete') {
                         $('.page-new-delete-attr').fadeOut();
@@ -320,7 +320,7 @@ const app = createApp({
                     this.pm('مشکلی پیش امده', 3000)
                 })
             }
-            if(model == 'cart'){
+            if (model == 'cart') {
                 axios.post('/admin/delete/cart', {id: this.id_delete}).then((res) => {
                     if (res.data == 'delete') {
                         $('.page-delete-item-cart').fadeOut();
@@ -332,7 +332,7 @@ const app = createApp({
                     this.pm('مشکلی پیش امده', 3000)
                 })
             }
-            if(model == 'city'){
+            if (model == 'city') {
                 axios.post('/admin/delete/city', {id: this.id_delete}).then((res) => {
                     if (res.data == 'delete') {
                         $('.page-new-delete-banner-center-as').fadeOut();
@@ -344,7 +344,7 @@ const app = createApp({
                     this.pm('مشکلی پیش امده', 3000)
                 })
             }
-            if(model == 'state'){
+            if (model == 'state') {
                 axios.post('/admin/delete/state', {id: this.id_delete}).then((res) => {
                     if (res.data == 'delete') {
                         $('.page-new-delete-banner-center-as').fadeOut();
@@ -356,7 +356,7 @@ const app = createApp({
                     this.pm('مشکلی پیش امده', 3000)
                 })
             }
-            if (model == 'item_footer'){
+            if (model == 'item_footer') {
                 axios.post('/admin/delete/item/footer', {id: this.id_delete}).then((res) => {
                     if (res.data == 'delete') {
                         $('.page-new-delete-banner-center-as').fadeOut();
@@ -368,7 +368,7 @@ const app = createApp({
                     this.pm('مشکلی پیش امده', 3000)
                 })
             }
-            if(model == 'link_footer'){
+            if (model == 'link_footer') {
                 axios.post('/admin/delete/link/footer', {id: this.id_delete}).then((res) => {
                     if (res.data == 'delete') {
                         $('.page-new-delete-banner-center-as').fadeOut();
@@ -380,7 +380,7 @@ const app = createApp({
                     this.pm('مشکلی پیش امده', 3000)
                 })
             }
-            if(model == 'box_footer'){
+            if (model == 'box_footer') {
                 axios.post('/admin/delete/box/footer', {id: this.id_delete}).then((res) => {
                     if (res.data == 'delete') {
                         $('.page-new-delete-banner-center-as').fadeOut();
@@ -392,7 +392,7 @@ const app = createApp({
                     this.pm('مشکلی پیش امده', 3000)
                 })
             }
-            if (model == 'item'){
+            if (model == 'item') {
                 axios.post('/admin/delete/item', {id: this.id_delete}).then((res) => {
                     if (res.data == 'delete') {
                         $('.page-new-delete-banner-center-as').fadeOut();
@@ -404,7 +404,7 @@ const app = createApp({
                     this.pm('مشکلی پیش امده', 3000)
                 })
             }
-            if (model == 'color_as'){
+            if (model == 'color_as') {
                 axios.post('/admin/delete/color', {id: this.id_delete}).then((res) => {
                     if (res.data == 'delete') {
                         $('.page-new-delete-banner-center-as').fadeOut();
@@ -416,7 +416,7 @@ const app = createApp({
                     this.pm('مشکلی پیش امده', 3000)
                 })
             }
-            if (model == 'color'){
+            if (model == 'color') {
                 axios.post('/admin/delete/product/color', {id: this.id_delete}).then((res) => {
                     if (res.data == 'delete') {
                         $('.page-color-product').fadeOut();
@@ -548,7 +548,7 @@ const app = createApp({
             $('.page-photos-upload').fadeIn()
             $('.blur').fadeIn()
         },
-        view_page_new_video_in_page_about(){
+        view_page_new_video_in_page_about() {
             $('.page-video-about').fadeOut()
             $('.page-video-upload').fadeIn()
             $('.blur').fadeIn()
@@ -621,12 +621,12 @@ const app = createApp({
         },
         reply_support_admin(sender, id) {
             this.id_comment_support = sender
-                axios.post('/admin/update/support', {id: id}).then((res) => {
-                    $(".page-new-support-reply-admin").fadeToggle()
-                    $(".page-new-support-admin").fadeOut()
-                }).catch(() => {
-                    this.pm('مشکلی پیش امده', 3000)
-                })
+            axios.post('/admin/update/support', {id: id}).then((res) => {
+                $(".page-new-support-reply-admin").fadeToggle()
+                $(".page-new-support-admin").fadeOut()
+            }).catch(() => {
+                this.pm('مشکلی پیش امده', 3000)
+            })
         },
         view_page_support_admin() {
             axios.post('/admin/view/support').then((res) => {
@@ -691,20 +691,17 @@ const app = createApp({
         },
         edit_profile() {
             axios.post('/user/edit/profile', {name: this.name_input, text: this.text_edit}).then((res) => {
-                if (res.data == 'ok') {
+                if (res.data == 'warning') {
+                    this.pm('مقدار وارد شده تکراری است')
+                    this.name_input = ''
+                    this.text_edit = ''
+                }else{
                     this.pm('با موفقیت انجام شد', 3000)
                     $(".page-new-profile").fadeToggle()
                     $(".blur").fadeToggle()
                     this.name_input = ''
                     this.text_edit = ''
-                    this.reload_time(3000)
-                } else {
-                    this.pm('مشکلی پیش امده است', 3000)
-                    $(".page-new-profile").fadeToggle()
-                    $(".blur").fadeToggle()
-                    this.name_input = ''
-                    this.text_edit = ''
-                    this.reload_time(3000)
+                    this.reload_time(2000)
                 }
             }).catch(() => {
                 this.pm('مشکلی پیش امده است')
@@ -744,7 +741,7 @@ const app = createApp({
             })
         },
         new_comment() {
-            if(this.text_comment != ''){
+            if (this.text_comment != '') {
                 axios.post('/product/new/comment', {id: this.id_comment, text: this.text_comment}).then((res) => {
                     $('.form-comment-reply').fadeToggle()
                     $('.blur').fadeToggle()
@@ -753,11 +750,11 @@ const app = createApp({
                     if (res.data == 'ok') {
                         this.pm('با تشکر از نظر شما بعد از تایید منتشر میشود', 5000)
                     }
-                }).catch(()=>{
-                    this.pm('مشکلی پیش امده ' , 3000)
+                }).catch(() => {
+                    this.pm('مشکلی پیش امده ', 3000)
                 })
-            }else {
-                this.pm('یکی از فیلد ها خالی است' , 2000)
+            } else {
+                this.pm('یکی از فیلد ها خالی است', 2000)
             }
 
         },
@@ -874,16 +871,16 @@ const app = createApp({
             })
         },
         new_comment_support_admin() {
-            axios.post('/admin/new/comment/support', {text: this.text_send , sender:this.id}).then((res) => {
-                if(res.data == 'create'){
+            axios.post('/admin/new/comment/support', {text: this.text_send, sender: this.id}).then((res) => {
+                if (res.data == 'create') {
                     $('.blur').fadeOut()
                     $('.page-new').fadeOut()
                     this.text_send = 'متن پیام';
-                    this.pm('ارسال شد ' , 3000)
+                    this.pm('ارسال شد ', 3000)
                     this.reload_time(2000)
                 }
-            }).catch(()=>{
-                this.pm('مشکلی پیش امده ' , 3000)
+            }).catch(() => {
+                this.pm('مشکلی پیش امده ', 3000)
             })
         },
         new_factor() {
@@ -961,9 +958,6 @@ const app = createApp({
         }
     },
     mounted() {
-        CodeMirror.formTextArea($('#editor') , {
-            lineNumber:true
-        })
         setTimeout(() => {
             $('.view-err').fadeOut()
         }, 10000)

@@ -62,8 +62,8 @@ class PayController extends Controller
 //                product::whereId($item->product_id)->decrement('number' , $item->number);
 //            }
             $text = 'با تشکر از خرید شما کد تراکنش : ' .$data->transaction_code . 'با احترام Parla';
-            $ghasedakApi->SendSimple(auth()->user()->mobile , $text ,env('GHASEDAKAPI_LINENUMBER', '30005006006771'));
-            $ghasedakApi->SendSimple('09152158988' , 'یک سفارش جدید ثبت شده با کد تراکنش '.$data->transaction_code ,env('GHASEDAKAPI_LINENUMBER', '30005006006771'));
+            $ghasedakApi->Verify(auth()->user()->mobile , '1' , 'TEXOrder' ,$data->transaction_code);
+            $ghasedakApi->Verify('09152158988' , '1' , 'OkOrder' ,$data->transaction_code);
             return view('user.buy.payment'  , compact('product' ,'tip', 'code'))->with('status' , true);
         } catch (InvalidPaymentException $exception) {
             $tip = $exception->getMessage();

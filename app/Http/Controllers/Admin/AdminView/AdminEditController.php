@@ -31,7 +31,7 @@ class AdminEditController extends Controller
     {
         factor::whereId($request->id)->update(['status_order' => $request->code]);
         $factor = factor::find($request->id);
-        $ghasedakApi->SendSimple($factor->user->mobile , 'وضعیت سفارش شما تغییر کرد برای برسی به پنل خود و پیگیری سفارشات مراجعه کنید . با احترام تیم Parla' ,env('GHASEDAKAPI_LINENUMBER', '30005006006771'));
+        $ghasedakApi->Verify($factor->user->mobile,'1' , 'EditStatusOrder' ,'سفارش');
         return $this->msgOk();
     }
 
@@ -111,7 +111,7 @@ class AdminEditController extends Controller
     {
         custom::whereId($request->id)->update(['status' => $request->code]);
         $product = custom::find($request->id);
-        $ghasedakApi->SendSimple($product->user->mobile , 'وضعیت محصول خاص شما تغییر کرده است با احترام تیم parla' , env('GHASEDAKAPI_LINENUMBER' , '30005006006771'));
+        $ghasedakApi->Verify($product->user->mobile ,'1', 'EditOrderVip' , 'خاص');
         return $this->msgSuccess();
     }
 

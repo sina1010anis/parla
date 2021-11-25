@@ -13,5 +13,5 @@ class support extends Model
     public function user(){
         return $this->belongsTo(User::class , 'sender' , 'id');
     }
-    protected $attributes = ['view' => 0 ];
+    protected $attributes = ['view' => 0  , 'mode' => 0 , 'file' => Null];
 }

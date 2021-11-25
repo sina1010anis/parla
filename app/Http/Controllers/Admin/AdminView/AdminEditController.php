@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\AdminView;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AboutPage;
 use App\Http\Requests\Admin\BannerUpRequest;
+use App\Http\Requests\Admin\EditPasswordUserRequest;
 use App\Http\Requests\Admin\EditProductRequest;
 use App\Http\Requests\Admin\LogoRequest;
 use App\Http\Requests\Admin\MenuNameRequest;
@@ -16,6 +17,7 @@ use App\Models\menu;
 use App\Models\product;
 use App\Models\reply_comment;
 use App\Models\sub_menu;
+use App\Models\User;
 use App\Repository\Admin\Banner\BannerUp;
 use App\Repository\Tools\Back;
 use Ghasedak\GhasedakApi;
@@ -23,6 +25,8 @@ use App\Repository\Admin\Edit\About;
 use App\Repository\Admin\Edit\Logo;
 use App\Repository\Tools\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class AdminEditController extends Controller
 {
@@ -142,5 +146,16 @@ class AdminEditController extends Controller
     {
         free_send::whereId(1)->update(['price' => $request->price]);
         return $this->back('ویرایش شد');
+    }
+
+    public function editPasswordUser(EditPasswordUserRequest $request)
+    {
+        $user = User::find($request->id);
+        if ($request->text != ''){
+            $user->update(['password' => Hash::make($request->text)]);
+            return $this->msgSuccess();
+        }else{
+            return $this->msgWarning();
+        }
     }
 }

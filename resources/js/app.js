@@ -110,6 +110,26 @@ const app = createApp({
         ErrorPage,
     },
     methods: {
+        edit_password(){
+            if(this.data_support_panel_admin != ''){
+                axios.post('/admin/edit/pass/user' , {id:this.id , text:this.data_support_panel_admin}).then((res)=>{
+                    if(res.data == 'success'){
+                        this.pm('انجام شده' , 3000)
+                        $('.page-password-product').fadeOut()
+                        $('.blur').fadeOut()
+                    }if(res.data == 'warning'){
+                        this.pm('مقدار خالی وارد شده است' , 3000)
+                    }
+                }).catch(()=>{
+                    this.pm('مشکلی پیش امده' , 3000)
+                })
+            }
+        },
+        view_page_edit_password_user(id){
+            this.id = id
+            $('.page-password-product').fadeIn()
+            $('.blur').fadeIn()
+        },
         view_page_as_address(id) {
             axios.post('/user/delete/address', {id: id}).then((res) => {
                 if (res.data == 'delete') {
@@ -845,7 +865,11 @@ const app = createApp({
         },
         open_page() {
             $('.blur').fadeToggle()
-            $('.page-new').fadeToggle()
+            $('.page-new-new-support').fadeToggle()
+        },
+        open_page_upload_file(){
+            $('.page-new-new-support').fadeOut()
+            $('.page-new-new-file-support').fadeIn()
         },
         open_page_admin(id) {
             this.id = id

@@ -12,9 +12,9 @@
 
     <banner-end :banner="{{$banner_end}}"></banner-end>
 
-    <best-buy :products="{{$products_2->orderBy('id' , 'DESC')->get()}}" title="جدیدترین محصولات"></best-buy>
+    <best-buy :products="{{$products_2->take(10)->orderBy('id' , 'DESC')->get()}}" title="جدیدترین محصولات"></best-buy>
 
-    <best-buy :products="{{$products_3->orderBy('view' , 'DESC')->get()}}" title="بیشترین بازدید"></best-buy>
+    <best-buy :products="{{$products_3->take(10)->orderBy('view' , 'DESC')->get()}}" title="بیشترین بازدید"></best-buy>
 
     @include('front.include.footer')
 @endsection

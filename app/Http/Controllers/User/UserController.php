@@ -4,11 +4,13 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CustomRequest;
+use App\Http\Requests\SupportFileRequest;
 use App\Models\address;
 use App\Models\factor;
 use App\Models\product_order;
 use App\Models\support;
 use App\Models\User;
+use App\Repository\Create\SupportFile;
 use App\Repository\Custom\Custom;
 use App\Repository\Tools\Message;
 use Ghasedak\GhasedakApi;
@@ -175,5 +177,10 @@ class UserController extends Controller
     public function deleteAddress(Request $request , \App\Repository\Delete\Address $address)
     {
         return $address->delete($request->id)->msgDelete();
+    }
+
+    public function newSupportFile(SupportFileRequest $request , SupportFile $supportFile)
+    {
+        return $supportFile->setRequest($request)->move()->create()->back('ارسال شد');
     }
 }

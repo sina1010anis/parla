@@ -36,6 +36,6 @@ class IndexController extends Controller
 
     public function test(GhasedakApi $api)
     {
-        $api->Verify('09395231890' , '1' , 'codeVerify' ,'55555');
+        //$api->Verify('09395231890' , '1' , 'codeVerify' ,'55555');
     }
 }

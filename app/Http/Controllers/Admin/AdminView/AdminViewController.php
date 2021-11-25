@@ -50,6 +50,8 @@ class AdminViewController extends Controller
                 'text' =>$comment->text,
                 'data' => j_date($comment->created_at),
                 'sender' => $comment->sender,
+                'file' => $comment->mode,
+                'mobile' => $comment->user->mobile,
                 'id' => $comment->id
             ];
         }

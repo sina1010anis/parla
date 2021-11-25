@@ -63,6 +63,7 @@ Route::prefix('/user')->as('user')->middleware(['auth' , 'verify_mobile'])->grou
         Route::post('/address' , [UserController::class , 'newAddress'])->name('.address');
         Route::post('/factor' , [PayController::class , 'newFactor'])->name('.factor');
         Route::post('/custom' , [UserController::class , 'newCustom'])->name('.custom');
+        Route::post('/support/file' , [UserController::class , 'newSupportFile'])->name('.support.file');
     });
     Route::prefix('edit')->as('.edit')->group(function(){
         Route::post('/profile' , [UserController::class , 'editProfile'])->name('.profile');
@@ -148,6 +149,7 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::post('/sub/menu' , [AdminEditController::class , 'editSubMenu'])->name('.sub.menu');
         Route::post('/free/send' , [AdminEditController::class , 'editFreeSend'])->name('.free.send');
         Route::post('/sub/menu/name' , [AdminEditController::class , 'editSubMenuName'])->name('.sub.menu.name');
+        Route::post('/pass/user' , [AdminEditController::class , 'editPasswordUser'])->name('.password.user');
         Route::post('/bannerUp/{model}/{target}' , [AdminEditController::class , 'editBannerUp'])->name('.bannerUp');
     });
     Route::prefix('/new')->as('.new')->group(function (){

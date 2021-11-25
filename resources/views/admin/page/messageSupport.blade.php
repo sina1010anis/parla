@@ -86,7 +86,7 @@
         <div class="page-new page-new-new-file-support">
             <h6 class="text-center font-S my-2 color-b-600">پیام جدید</h6>
             <div class="line"></div>
-            <form action="{{route('user.new.support.file')}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('admin.new.support.file')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label for="formFileSm" class="form-label d-block text-end f-11 color-b-500">اپلود عکس</label>

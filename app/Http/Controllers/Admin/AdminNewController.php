@@ -16,11 +16,13 @@ use App\Http\Requests\Admin\SliderLoginRequest;
 use App\Http\Requests\Admin\SliderMenuRequest;
 use App\Http\Requests\Admin\SliderRequest;
 use App\Http\Requests\Admin\StateRequest;
+use App\Http\Requests\SupportFileRequest;
 use App\Repository\Admin\About\About;
 use App\Repository\Admin\About\VideoAbout;
 use App\Repository\Admin\Banner\BannerCenter;
 use App\Repository\Admin\City\City;
 use App\Repository\Admin\Color\Color;
+use App\Repository\Admin\Comment\SupportFile;
 use App\Repository\Admin\Footer\BoxFooter;
 use App\Repository\Admin\Footer\ItemFooter;
 use App\Repository\Admin\Footer\LinkFooter;
@@ -159,5 +161,10 @@ class AdminNewController extends Controller
     public function newVideoAbout(Request $request , VideoAbout $videoAbout)
     {
         return $videoAbout->setRequest($request)->move()->create()->back('اپلود شد');
+    }
+
+    public function newSupportFile(SupportFileRequest $request , SupportFile $supportFile)
+    {
+        return $supportFile->setRequest($request)->move()->create()->back('اپلود شد');
     }
 }

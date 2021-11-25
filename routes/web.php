@@ -175,6 +175,7 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::post('/city' , [AdminNewController::class , 'newCity'])->name('.city');
         Route::post('/attr' , [AdminNewController::class , 'newAttr'])->name('.attr');
         Route::post('/video/about' , [AdminNewController::class , 'newVideoAbout'])->name('.video.about');
+        Route::post('/support/file' , [AdminNewController::class , 'newSupportFile'])->name('.support.file');
         Route::post('/image/product/{id}' , [AdminNewController::class , 'newImageProduct'])->name('.image.productA');
     });
     Route::prefix('/update')->as('update')->group(function (){

@@ -110,6 +110,25 @@ const app = createApp({
         ErrorPage,
     },
     methods: {
+        edit_state_admin(){
+            if(this.data_size_admin.name != '' ||this.data_size_admin.price != ''){
+                axios.post('/admin/edit/state' , {id:this.id , price:this.data_size_admin.price , name:this.data_size_admin.name}).then((res)=>{
+                    if(res.data == 'success'){
+                        $('.page-price-edit').fadeOut()
+                        $('.blur').fadeOut()
+                        this.pm('ویرایش شد' , 3000)
+                        this.reload_time(2000)
+                    }
+                }).catch(()=>{
+                    this.pm('مشکلی پیش امده' , 3000)
+                })
+            }
+        },
+        view_page_edit(id){
+            this.id = id
+            $('.page-price-edit').fadeIn()
+            $('.blur').fadeIn()
+        },
         edit_password(){
             if(this.data_support_panel_admin != ''){
                 axios.post('/admin/edit/pass/user' , {id:this.id , text:this.data_support_panel_admin}).then((res)=>{

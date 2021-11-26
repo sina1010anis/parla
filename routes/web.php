@@ -150,6 +150,7 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::post('/free/send' , [AdminEditController::class , 'editFreeSend'])->name('.free.send');
         Route::post('/sub/menu/name' , [AdminEditController::class , 'editSubMenuName'])->name('.sub.menu.name');
         Route::post('/pass/user' , [AdminEditController::class , 'editPasswordUser'])->name('.password.user');
+        Route::post('/state' , [AdminEditController::class , 'editState'])->name('.state');
         Route::post('/bannerUp/{model}/{target}' , [AdminEditController::class , 'editBannerUp'])->name('.bannerUp');
     });
     Route::prefix('/new')->as('.new')->group(function (){

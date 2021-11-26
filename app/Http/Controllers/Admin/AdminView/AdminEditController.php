@@ -9,6 +9,8 @@ use App\Http\Requests\Admin\EditPasswordUserRequest;
 use App\Http\Requests\Admin\EditProductRequest;
 use App\Http\Requests\Admin\LogoRequest;
 use App\Http\Requests\Admin\MenuNameRequest;
+use App\Http\Requests\Admin\SizeProductRequest;
+use App\Models\city;
 use App\Models\comment;
 use App\Models\custom;
 use App\Models\factor;
@@ -16,6 +18,7 @@ use App\Models\free_send;
 use App\Models\menu;
 use App\Models\product;
 use App\Models\reply_comment;
+use App\Models\state;
 use App\Models\sub_menu;
 use App\Models\User;
 use App\Repository\Admin\Banner\BannerUp;
@@ -156,6 +159,15 @@ class AdminEditController extends Controller
             return $this->msgSuccess();
         }else{
             return $this->msgWarning();
+        }
+    }
+
+    public function editState(SizeProductRequest $request)
+    {
+        $data = city::find($request->id);
+        if ($data != ''){
+            $data->update(['name' => $request->name , 'price_post' => $request->price]);
+            return $this->msgSuccess();
         }
     }
 }

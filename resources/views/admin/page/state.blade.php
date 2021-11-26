@@ -31,6 +31,8 @@
                                         <span class="f-12 color-b-600">هزینه ارسال : {{$a->price_post}}</span>
                                     </h5>
                                 </label>
+                                <i @click="view_page_edit('{{$a->id}}')" class="bi bi-pencil text-primary"></i>
+
                             </div>
                         </li>
                     @endforeach
@@ -50,6 +52,28 @@
         </button>
         <button @click="cls_page_new_comment_reply" type="button" class="btn btn-lg btn-light f-13 ms-3 mt-3">
             خیر
+        </button>
+    </div>
+    <div class="page-new page-price-edit overflow-hidden">
+        <h6 class="text-center font-S my-2 color-b-600">ویرایش</h6>
+        <div class="line"></div>
+        <div class="row">
+            <div class="mb-3 col-6 d-inline-block p-1">
+                <label class="form-label f-13 color-b-500 d-block text-end">نام استان</label>
+                <input name="name" v-model="data_size_admin.name" class="form-control" type="text"
+                       id="formFile">
+            </div>
+            <div class="mb-3 col-6 d-inline-block p-1">
+                <label class="form-label f-13 color-b-500 d-block text-end">هزینه ارسال</label>
+                <input name="price" v-model="data_size_admin.price" class="form-control" type="number"
+                       id="formFile">
+            </div>
+        </div>
+        <button @click="edit_state_admin" type="button" class="btn btn-lg btn-primary f-13 ms-3 mt-3">
+            ارسال
+        </button>
+        <button @click="cls_page_new_comment_reply" type="button" class="btn btn-lg btn-light f-13 ms-3 mt-3">
+            بستن
         </button>
     </div>
 @endsection

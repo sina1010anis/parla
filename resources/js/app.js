@@ -347,6 +347,18 @@ const app = createApp({
             $(".blur").fadeIn();
         },
         delete_image_center(model) {
+            if(model == 'frame'){
+                axios.post('/admin/delete/frame', {id: this.id_delete}).then((res) => {
+                    if (res.data == 'delete') {
+                        $('.page-new-delete-attr').fadeOut();
+                        $('.blur').fadeOut();
+                        this.pm('حذف شد', 3000)
+                        this.reload_time(2000)
+                    }
+                }).catch(() => {
+                    this.pm('مشکلی پیش امده', 3000)
+                })
+            }
             if (model == 'attr') {
                 axios.post('/admin/delete/attr', {id: this.id_delete}).then((res) => {
                     if (res.data == 'delete') {

@@ -11,6 +11,7 @@ use App\Repository\Admin\Delete\City;
 use App\Repository\Admin\Delete\Color;
 use App\Repository\Admin\Delete\ColorProduct;
 use App\Repository\Admin\Delete\Delete;
+use App\Repository\Admin\Delete\Frame;
 use App\Repository\Admin\Delete\ImageProduct;
 use App\Repository\Admin\Delete\Item;
 use App\Repository\Admin\Delete\ItemFooter;
@@ -148,6 +149,12 @@ class AdminDeleteController extends Controller
     public function deleteAttr(Request $request)
     {
         new Delete(new Attr() , $request->id);
+        return $this->msgDelete();
+    }
+
+    public function deleteFrame(Request $request)
+    {
+        new Delete(new Frame() , $request->id);
         return $this->msgDelete();
     }
 }

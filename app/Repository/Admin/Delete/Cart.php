@@ -8,6 +8,7 @@ class Cart implements DeleteInterface
 {
     public function delete($id)
     {
-        return card::whereStatus(0)->update(['status' => 900]);
+        card::whereStatus(0)->update(['status' => 900]);
+        return card::whereStatus(900)->delete();
     }
 }

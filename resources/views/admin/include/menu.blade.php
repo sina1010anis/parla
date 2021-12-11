@@ -67,6 +67,7 @@
                 <div class="text-center f-12 color-b-500 py-2 pointer"><a href="{{route('admin.view.product')}}">محصول اصلی</a></div>
                 <div class="text-center f-12 color-b-500 py-2 pointer"><a href="{{route('admin.view.color')}}">رنگ</a></div>
                 <div class="text-center f-12 color-b-500 py-2 pointer"><a href="{{route('admin.view.productT')}}">محصولات خاص</a></div>
+                <div class="text-center f-12 color-b-500 py-2 pointer"><a href="{{route('admin.view.frame')}}">فریم ها</a></div>
             </div>
         </div>
         <div class="item-menu-panel-admin">

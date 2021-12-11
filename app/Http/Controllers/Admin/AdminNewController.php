@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\BoxFooterRequset;
+use App\Http\Requests\Admin\FrameRequest;
 use App\Http\Requests\Admin\ImageProductRequest;
 use App\Http\Requests\Admin\ItemFooterRequset;
 use App\Http\Requests\Admin\ItemRequset;
@@ -26,6 +27,7 @@ use App\Repository\Admin\Comment\SupportFile;
 use App\Repository\Admin\Footer\BoxFooter;
 use App\Repository\Admin\Footer\ItemFooter;
 use App\Repository\Admin\Footer\LinkFooter;
+use App\Repository\Admin\Frame\Frame;
 use App\Repository\Admin\Item\Item;
 use App\Repository\Admin\Menu\Menu;
 use App\Repository\Admin\Product\Attr;
@@ -166,5 +168,10 @@ class AdminNewController extends Controller
     public function newSupportFile(SupportFileRequest $request , SupportFile $supportFile)
     {
         return $supportFile->setRequest($request)->move()->create()->back('اپلود شد');
+    }
+
+    public function newFrame(FrameRequest $request , Frame $frame)
+    {
+        return $frame->setRequest($request)->move()->create()->back('اپلود شد');
     }
 }

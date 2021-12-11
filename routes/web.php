@@ -111,6 +111,7 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::get('/free/send' , [AdminViewController::class , 'viewFreeSend'])->name('.free.send');
         Route::get('/factor' , [AdminViewController::class , 'viewFactor'])->name('.factor.page');
         Route::post('/attr/product' , [AdminViewController::class , 'viewAttrProduct'])->name('.attr.product');
+        Route::get('/frame' , [AdminViewController::class , 'viewFrame'])->name('.frame');
     });
     Route::prefix('/delete')->as('.delete')->group(function(){
         Route::post('/users' , [AdminDeleteController::class , 'deleteUser'])->name('.user');
@@ -133,6 +134,7 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::post('/city' , [AdminDeleteController::class , 'deleteCity'])->name('.city');
         Route::post('/cart' , [AdminDeleteController::class , 'deleteCart'])->name('.cart');
         Route::post('/attr' , [AdminDeleteController::class , 'deleteAttr'])->name('.attr');
+        Route::post('/frame' , [AdminDeleteController::class , 'deleteFrame'])->name('.frame');
     });
     Route::prefix('/edit')->as('.edit')->group(function (){
         Route::post('/status/order' , [AdminEditController::class , 'editStatusOrder'])->name('.status.order');
@@ -174,6 +176,7 @@ Route::prefix('/admin')->middleware(['auth' , 'check'])->as('admin')->group(func
         Route::post('/state' , [AdminNewController::class , 'newState'])->name('.state');
         Route::post('/city' , [AdminNewController::class , 'newCity'])->name('.city');
         Route::post('/attr' , [AdminNewController::class , 'newAttr'])->name('.attr');
+        Route::post('/frame' , [AdminNewController::class , 'newFrame'])->name('.frame');
         Route::post('/video/about' , [AdminNewController::class , 'newVideoAbout'])->name('.video.about');
         Route::post('/support/file' , [AdminNewController::class , 'newSupportFile'])->name('.support.file');
         Route::post('/image/product/{id}' , [AdminNewController::class , 'newImageProduct'])->name('.image.productA');

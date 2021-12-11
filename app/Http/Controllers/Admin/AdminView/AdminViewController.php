@@ -209,5 +209,10 @@ class AdminViewController extends Controller
         $data = properties::whereProduct_id($request->id)->get();
         return response()->json($data);
     }
+
+    public function viewFrame()
+    {
+        return view('admin.page.frame');
+    }
 }
 

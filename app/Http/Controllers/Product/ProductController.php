@@ -20,58 +20,77 @@ use Illuminate\Support\Str;
 class ProductController extends Controller
 {
     use Back;
-    public function show(product $slug){
-        product::where('id', $slug->id)->increment('view' , 1);
-        return view('front.product.index')->with('data' , $slug);
+
+    public function show(product $slug)
+    {
+        product::where('id', $slug->id)->increment('view', 1);
+        return view('front.product.index')->with('data', $slug);
     }
 
-    public function sendSize(Request $request){
+    public function sendSize(Request $request)
+    {
         $data = size_product::find($request->id);
         $product = product::find($data->product_id);
-        if ($product->discount <= 0){
+        if ($product->discount <= 0) {
             return response()->json([
-                'data'=>$data,
+                'data' => $data,
                 'status' => 'off'
             ]);
-        }else{
-            $price = dic($data->price , $product->discount);
+        } else {
+            $price = dic($data->price, $product->discount);
             return response()->json([
-                'data'=>$data,
-                'price' =>$price,
+                'data' => $data,
+                'price' => $price,
                 'status' => 'on'
             ]);
         }
 
     }
 
-    public function saveProduct(Request $request , saveProduct $saveProduct){
+    public function saveProduct(Request $request, saveProduct $saveProduct)
+    {
         return $saveProduct->setRequest($request)->onSave();
     }
 
-    public function saveDeleteProduct(Request $request , saveProduct $saveProduct){
+    public function saveDeleteProduct(Request $request, saveProduct $saveProduct)
+    {
         return $saveProduct->setRequest($request)->unSave();
     }
 
-    public function searchProduct(Request $request){
-        $data = product::where('name' , 'LIKE' , '%'.$request->text.'%')->where('status' , '!=' , 0)->get();
+    public function searchProduct(Request $request)
+    {
+        $data = product::where('name', 'LIKE', '%' . $request->text . '%')->where('status', '!=', 0)->get();
         return response()->json($data);
     }
 
     public function verifyMobile(GhasedakApi $ghasedakApi)
     {
-        $number = rand(23457,99999);
-        session()->put('number' , $number);
-        $ghasedakApi->Verify(auth()->user()->mobile , '1' , 'codeVerify' , $number);
+        $number = rand(23457, 99999);
+        session()->put('number', $number);
+        $ghasedakApi->Verify(auth()->user()->mobile, '1', 'codeVerify', $number);
         return view('front.section.verify_mobile');
     }
 
     public function verifyMobileCheck(VerifyMobileRequest $request)
     {
-        if ($request->code == session()->get('number')){
+        if ($request->code == session()->get('number')) {
             User::whereId(auth()->user()->id)->update(['verify_mobile' => 1]);
             return redirect()->route('home');
-        }else{
+        } else {
             return $this->backD('کد تایید نادرست است (کد تایید مجدد ارسال شد)');
         }
+    }
+
+    public function allView($mode)
+    {
+        if ($mode == 'new') {
+            $data = product::where('number', '!=', '0')->orderBy('id', 'DESC')->paginate(20);
+        }
+        elseif ($mode == 'view') {
+            $data = product::where('number', '!=', '0')->orderBy('view', 'DESC')->paginate(20);
+        }else{
+            return redirect()->back();
+        }
+        return view('front.product.menu', compact('data'));
     }
 }

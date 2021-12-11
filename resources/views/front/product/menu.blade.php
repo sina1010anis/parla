@@ -7,11 +7,11 @@
 
     @include('errors.formAuth')
 
-    <h4 class="p-3 my-3 mx-5 color-b-500 text-center font-S text-menu">{{$slug->name}}</h4>
+    <h4 class="p-3 my-3 mx-5 color-b-500 text-center font-S text-menu">{{(isset($slug)) ? $slug->name : 'محصولات'}}</h4>
 
     <div class="line position-relative line-menu"></div>
 
-    <slide-index :sliders="{{$slug->menu->slider_menu}}" :banner="{{$banner_top}}"></slide-index>
+    <slide-index :sliders="{{(isset($slug)) ? $slug->menu->slider_menu : $sliders}}" :banner="{{$banner_top}}"></slide-index>
 
     <menu-vue>
         <template #view_product>

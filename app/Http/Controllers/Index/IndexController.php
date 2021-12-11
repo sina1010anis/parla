@@ -7,6 +7,7 @@ use App\Models\sub_menu;
 use Ghasedak\GhasedakApi;
 use GuzzleHttp\Client;
 use http\Message\Body;
+use Illuminate\Http\File;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -36,6 +37,8 @@ class IndexController extends Controller
 
     public function test(GhasedakApi $api)
     {
+        $address = public_path('image/banner/test.png');
+        return unlink($address);
         //$api->Verify('09395231890' , '1' , 'codeVerify' ,'55555');
     }
 }

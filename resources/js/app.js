@@ -929,7 +929,8 @@ const app = createApp({
         new_factor() {
             axios.post('/user/new/factor').then((res) => {
                 if (res.data == 'ok') {
-                    this.open_page()
+                    $('.blur').fadeIn()
+                    $('.page-new').fadeIn()
                 }
             }).catch(() => {
                 $('.blur').fadeOut()

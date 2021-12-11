@@ -27,6 +27,7 @@
                         </div>
                     </div>
                 </span>
+                <slot v-if="mode == 1" name="other_product" />
             </div>
         </div>
         <div class="col-4 d-none d-lg-block">
@@ -52,6 +53,9 @@ export default {
         },
         products:{
             type:Object
+        },
+        mode:{
+            type:Number
         }
     }
 }

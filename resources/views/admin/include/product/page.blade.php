@@ -5,7 +5,7 @@
         <div dir="rtl" align="center" class="col-12 f-12 color-b-600 my-2">ایا از انجام این عمل مطمعن هستید ؟
         </div>
     </div>
-    <button @click="delete_image_center('size')" type="button" class="btn btn-lg btn-danger f-13 ms-3 mt-3">
+    <button  @click="delete_image_center('product')" type="button" class="btn btn-lg btn-danger f-13 ms-3 mt-3">
         بله
     </button>
     <button @click="cls_page_new_comment_reply" type="button" class="btn btn-lg btn-light f-13 ms-3 mt-3">

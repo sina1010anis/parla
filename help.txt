@@ -11,3 +11,9 @@ Database
 name : parladec_parla
 user : parladec_parla
 pass : ^r.@ax4c#CXf
+
+---------------------------
+Nmad
+
+user : enamad
+pass : 1qaz!QAZ

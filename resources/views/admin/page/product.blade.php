@@ -167,9 +167,15 @@
                                 <td><img src="{{url('/image/product/'.$product->image)}}"
                                          style="width: 100px!important;" alt="{{$product->name}}"></td>
                                 <td>
-                                    {!!($product->status == 1) ?
-                                    '<button class="btn btn-success btn-sm" @click="edit_status_product_admin('.$product->id.') "><i class="bi bi-play"></i></button>' :
-                                    '<button class="f-11 btn-sm btn btn-danger" @click="edit_status_product_admin('.$product->id.') "><i class="bi bi-stop"></i></button>'!!}
+                                    @if($product->status == 1)
+                                        <button class="btn btn-success btn-sm" @click="edit_status_product_admin('{{$product->id}}') "><i class="bi bi-play"></i></button>
+                                    @else
+                                        <button class="f-11 btn-sm btn btn-danger" @click="edit_status_product_admin('{{$product->id}}') "><i class="bi bi-stop"></i></button>
+                                    @endif
+{{--                                    --}}
+{{--                                    {!!($product->status == 1) ?--}}
+{{--                                    '<button class="btn btn-success btn-sm" @click="edit_status_product_admin('.$product->id.') "><i class="bi bi-play"></i></button>' :--}}
+{{--                                    '<button class="f-11 btn-sm btn btn-danger" @click="edit_status_product_admin('.$product->id.') "><i class="bi bi-stop"></i></button>'!!}--}}
                                 </td>
                                 <td>{{$product->sub_menu->name}}</td>
                                 <td>{{$product->discount}}</td>
